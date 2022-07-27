@@ -23,59 +23,61 @@
     </div>
 
     <div class="addTaskBg">
-        <div class="addTask">
-            <div>
-                <h3>Title</h3>
-                <input placeholder="add Title">
-            </div>
-
-            <div>
-                <h3>Due Date</h3>
-                <div class="calenderfield">
-                    <input placeholder="add Due Date">
-                    <img class="calenderImg" src="./img/icons8-calendar-150.png">
-                </div>
-            </div>
-
-            <div>
-                <h3>Category</h3>
-                <select>
-                    <option value="marketing">Marketing</option>
-                    <option value="sale">Sale</option>
-                    <option value="it">IT</option>
-                </select>
-            </div>
-
-            <div>
-                <h3>Urgency</h3>
-                <select>
-                    <option value="high">Low</option>
-                    <option value="high">Medium</option>
-                    <option value="medium">High</option>
-                    <option value="low">At Best Yesterday</option>
-                </select>
-            </div>
-
-            <div>
-                <h3>Description</h3>
-                <textarea></textarea>
-            </div>
-
-            <div>
-                <h3>Assigned to</h3>
-
-                <div class="assigneToAccount"> 
-                    <img class="userImg" src="./img/user-guest.ico">
-                    <img src="./img/icon plus.png">
+        <form onsubmit="addTask()">
+            <div id="addNewTask" class="addTask">
+                <div>
+                    <h3>Title</h3>
+                    <input required placeholder="add Title" id="title">
                 </div>
 
-                <div class="addTaskButtonLine"> 
-                    <button class="cancelTaskButton">Cancel</button>
-                    <button class="createTaskButton">create task</button>
+                <div>
+                    <h3>Due Date</h3>
+                    <div class="calenderfield">
+                        <input required placeholder="add Due Date" id="date">
+                        <img class="calenderImg" src="./img/icons8-calendar-150.png">
+                    </div>
                 </div>
 
+                <div>
+                    <h3>Category</h3>
+                    <select required id="category" placeholder="Category">
+                        <option value="marketing">Marketing</option>
+                        <option value="sale">Sale</option>
+                        <option value="it">IT</option>
+                    </select>
+                </div>
+
+                <div>
+                    <h3>Urgency</h3>
+                    <select required id="urgency">
+                        <option value="high">Low</option>
+                        <option value="high">Medium</option>
+                        <option value="medium">High</option>
+                        <option value="low">At Best Yesterday</option>
+                    </select>
+                </div>
+
+                <div>
+                    <h3>Description</h3>
+                    <textarea required id="description"></textarea>
+                </div>
+
+                <div>
+                    <h3>Assigned to</h3>
+
+                    <div class="assigneToAccount">
+                        <img class="userImg" src="./img/user-guest.ico" id="assign-img">
+                        <img src="./img/icon plus.png">
+                    </div>
+
+                    <div class="addTaskButtonLine">
+                        <button class="cancelTaskButton">Cancel</button>
+                        <button class="createTaskButton">create task</button>
+                    </div>
+
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <div w3-include-html="footer.html"></div>
