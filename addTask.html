@@ -39,11 +39,11 @@
 
             <div>
                 <h3>Category</h3>
-                <div>
+                <select>
                     <option value="marketing">Marketing</option>
                     <option value="sale">Sale</option>
                     <option value="it">IT</option>
-                </div>
+                </select>
             </div>
 
             <div>
@@ -53,7 +53,7 @@
                     <option value="high">Medium</option>
                     <option value="medium">High</option>
                     <option value="low">At Best Yesterday</option>
-                  </select>
+                </select>
             </div>
 
             <div>
@@ -63,8 +63,17 @@
 
             <div>
                 <h3>Assigned to</h3>
-                <img src="./img/user-guest.ico">
-                <img src="./img/icon plus.png">
+
+                <div class="assigneToAccount"> 
+                    <img class="userImg" src="./img/user-guest.ico">
+                    <img src="./img/icon plus.png">
+                </div>
+
+                <div class="addTaskButtonLine"> 
+                    <button class="cancelTaskButton">Cancel</button>
+                    <button class="createTaskButton">create task</button>
+                </div>
+
             </div>
         </div>
     </div>

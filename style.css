@@ -15,6 +15,12 @@ a {
     text-decoration: none;
 }
 
+button{
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+}
+
 /* -----------------------------------header---------------------------------------------------- */
 
 .header {
@@ -116,7 +122,7 @@ a {
     position: relative;
     left: 150px;
     top: 36px;
-    height: 76vh;
+    height: 72vh;
     width: calc(100% - 170px);
     border-radius: 15px;
 }
@@ -124,6 +130,7 @@ a {
 .addTask{
     display: flex;
     flex-wrap: wrap;
+    height: 85%;
 }
 
 .addTask h3{
@@ -170,17 +177,57 @@ a {
     cursor: pointer;
 }
 
+.addTask select{
+    outline: none;
+    border: 1px solid lightgray;
+    width: 82%;
+    height: 45px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .addTask textarea{
     outline: none;
     resize: none;
     border: 1px solid lightgray;
     border-radius: 5px;
     width: 80%;
-    height: 200%;
-    padding: 5px;
+    height: 50%;
+    padding: 10px 5px;
 }
 
+.assigneToAccount{
+    display: flex;
+    align-items: center;
+    margin: unset !important;
+}
 
+.assigneToAccount img{
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    margin-top: 24px;
+}
+
+.userImg{
+    border: 1px solid white;
+    border-radius: 100%;
+    padding: 3px;
+    background-color: #203192;
+    width: 50px !important;
+    height: 50px !important;
+    box-sizing: border-box;
+    margin-right: 8px;
+}
+
+.addTask button{
+    text-transform: uppercase;
+}
+
+.addTaskButtonLine{
+    display: flex;
+    width: auto !important;
+}
 
 /* -----------------------------------Board---------------------------------------------------- */
 .boardHeadline {
