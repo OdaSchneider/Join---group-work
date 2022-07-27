@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Join</title>
+    <link rel="icon" type="image/x-icon" href="./img/logo.png">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='fonts.css'>
+    <script src='script.js'></script>
+    <script src='mini_backend.js'></script>
+
+
+    <style>
+        .imprintBg {
+            margin-left: 20%;
+            margin-top: 5%;
+            word-wrap: break-word;
+        }
+
+        .imprintBg div{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 24px;
+        }
+
+        .imprintBg p{
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .imprintBg img{
+            margin-right: 12px;
+        }
+
+        .imprintBg a{
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            color: black;
+        }
+        
+        .imprintBg a:hover{
+            color: rgb(94, 0, 216);
+        }
+    </style>
+</head>
+
+
+<body onload="init()">
+    <div w3-include-html="header.html"></div>
+
+    <div class="imprintBg">
+        <h1>Impressum Join GmbH</h1>
+        <div>
+            <p>Join GmbH</p>
+            <span>Backplaumenallee 19</span>
+            <span>1234 Eckstein</span>
+            <span>Deutschland</span>
+        </div>
+
+        <div>
+            <p>Kontakt</p>
+            <a href="tel:+8002255883"><img src="./img/phone.ico">+8002255883</a>
+            <a href="mailto:join@info.com"><img src="./img/mail.ico">join@info.com</a>
+            <a href="index.html"><img src="./img/internet.ico">www.join.de</a>
+        </div>
+
+        <div>
+            <p>Vertretungsberechtigte Geschäftsführer</p>
+            <span>Fabian Flegler</span>
+            <span>Marcel Berlin</span>
+            <span>Oda Schneider</span>
+        </div>
+
+        <div>
+            <p>Registernummer</p>
+            <span>HRB 9999</span>
+        </div>
+
+        <div>
+            <p>Registergericht</p>
+            <span>Ag Eckstein</span>
+        </div>
+
+        <div>
+            <p>Umsatzsteueridentifikationsnummer gemäß §27a Umsatzsteuergesetz</p>
+            <span>DE 97795523148</span>
+        </div>
+    </div>
+
+    <div w3-include-html="footer.html"></div>
+</body>
+
+</html>
