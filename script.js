@@ -1,7 +1,10 @@
+let allTasks = [];
 
-async function init(){
+
+async function init() {
     await includeHTML();
     setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
+    loadLocalStorage();
 }
 
 
@@ -17,4 +20,39 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
+}
+
+
+function addTask() {
+    let title = document.getElementById('title').value;
+    let date = document.getElementById('date').value;
+    let category = document.getElementById('category').value;
+    let urgency = document.getElementById('urgency').value;
+    let description = document.getElementById('description').value;
+    taskArray(title, date, category, urgency, description);    
+}
+
+
+function taskArray(title, date, category, urgency, description) {
+    let task = {
+        'title': title,
+        'createdAt': date,
+        'category': category,
+        'urgency': urgency,
+        'description': description
+    };
+    safeLocalStorage(task);
+}
+
+
+function safeLocalStorage(task) {
+    allTasks.push(task);
+    let allTasksAsString = JSON.stringify(allTasks);
+    localStorage.setItem('allTasks', allTasksAsString);
+}
+
+
+function loadLocalStorage() {
+    let allTasksAsString = localStorage.getItem('allTasks');
+    allTasks = JSON.parse(allTasksAsString);
 }

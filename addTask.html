@@ -23,23 +23,23 @@
     </div>
 
     <div class="addTaskBg">
-        <div class="addTask">
+        <div id="addNewTask" class="addTask">
             <div>
                 <h3>Title</h3>
-                <input placeholder="add Title">
+                <input placeholder="add Title" id="title">
             </div>
 
             <div>
                 <h3>Due Date</h3>
                 <div class="calenderfield">
-                    <input placeholder="add Due Date">
+                    <input placeholder="add Due Date" id="date">
                     <img class="calenderImg" src="./img/icons8-calendar-150.png">
                 </div>
             </div>
 
             <div>
                 <h3>Category</h3>
-                <select>
+                <select id="category" placeholder="Category">
                     <option value="marketing">Marketing</option>
                     <option value="sale">Sale</option>
                     <option value="it">IT</option>
@@ -48,7 +48,7 @@
 
             <div>
                 <h3>Urgency</h3>
-                <select>
+                <select id="urgency">
                     <option value="high">Low</option>
                     <option value="high">Medium</option>
                     <option value="medium">High</option>
@@ -58,20 +58,20 @@
 
             <div>
                 <h3>Description</h3>
-                <textarea></textarea>
+                <textarea id="description"></textarea>
             </div>
 
             <div>
                 <h3>Assigned to</h3>
 
-                <div class="assigneToAccount"> 
+                <div class="assigneToAccount">
                     <img class="userImg" src="./img/user-guest.ico">
                     <img src="./img/icon plus.png">
                 </div>
 
-                <div class="addTaskButtonLine"> 
+                <div class="addTaskButtonLine">
                     <button class="cancelTaskButton">Cancel</button>
-                    <button class="createTaskButton">create task</button>
+                    <button class="createTaskButton" onclick="addTask()">create task</button>
                 </div>
 
             </div>

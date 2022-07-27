@@ -15,7 +15,7 @@ a {
     text-decoration: none;
 }
 
-button{
+button {
     background-color: unset;
     border: unset;
     cursor: pointer;
@@ -117,7 +117,7 @@ button{
 
 /* -----------------------------------Add Task---------------------------------------------------- */
 
-.addTaskBg{
+.addTaskBg {
     background-color: #F4F2FB;
     position: relative;
     left: 150px;
@@ -127,18 +127,18 @@ button{
     border-radius: 15px;
 }
 
-.addTask{
+.addTask {
     display: flex;
     flex-wrap: wrap;
     height: 85%;
 }
 
-.addTask h3{
+.addTask h3 {
     text-transform: uppercase;
     color: #203192;
 }
 
-.addTask input{
+.addTask input {
     outline: none;
     border: 1px solid lightgray;
     border-radius: 5px;
@@ -147,25 +147,25 @@ button{
     padding: 5px;
 }
 
-.addTask div{
+.addTask div {
     width: calc(50% - 64px);
     margin: 32px;
 }
 
-.calenderfield{
+.calenderfield {
     margin: unset !important;
     display: flex;
     align-items: center;
     width: auto !important;
 }
 
-.calenderfield input{
+.calenderfield input {
     width: calc(80% - 50px);
     border-bottom-right-radius: unset;
     border-top-right-radius: unset;
 }
 
-.calenderfield Img{
+.calenderfield Img {
     width: 32px;
     height: 32px;
     background-color: white;
@@ -177,7 +177,7 @@ button{
     cursor: pointer;
 }
 
-.addTask select{
+.addTask select {
     outline: none;
     border: 1px solid lightgray;
     width: 82%;
@@ -186,7 +186,7 @@ button{
     border-radius: 5px;
 }
 
-.addTask textarea{
+.addTask textarea {
     outline: none;
     resize: none;
     border: 1px solid lightgray;
@@ -196,20 +196,20 @@ button{
     padding: 10px 5px;
 }
 
-.assigneToAccount{
+.assigneToAccount {
     display: flex;
     align-items: center;
     margin: unset !important;
 }
 
-.assigneToAccount img{
+.assigneToAccount img {
     cursor: pointer;
     width: 32px;
     height: 32px;
     margin-top: 24px;
 }
 
-.userImg{
+.userImg {
     border: 1px solid white;
     border-radius: 100%;
     padding: 3px;
@@ -220,13 +220,38 @@ button{
     margin-right: 8px;
 }
 
-.addTask button{
+.addTask button {
     text-transform: uppercase;
 }
 
-.addTaskButtonLine{
+.addTaskButtonLine {
     display: flex;
+    justify-content: space-evenly;
     width: auto !important;
+}
+
+.cancelTaskButton {
+    color: #203192;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.createTaskButton {
+    width: 150px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #203192;
+    color: white;
+    padding: 16px;
+    border-radius: 12px;
+    transition: all 125ms ease-in-out;
+}
+
+.createTaskButton:hover {
+    background-color: #2e46cf;
+    transition: all 125ms ease-in-out;
 }
 
 /* -----------------------------------Board---------------------------------------------------- */
@@ -251,6 +276,47 @@ button{
     margin: 10px;
     border-radius: 8px;
 }
+
+
+/* -----------------------------------backlog---------------------------------------------------*/
+
+.backlog-bg {
+    color: #203192;
+    font-weight: bold;
+    position: relative;
+    margin-left: 150px;
+    top: 36px;
+    height: 72vh;
+    width: calc(100% - 170px);
+
+}
+
+.backlog-headlines {
+    display: flex;
+
+}
+
+.backlog-assign {
+    width: 600px
+}
+
+.backlog-category {
+    width: 200px;
+
+}
+
+.backlog-details {
+    width: 600px;
+    text-align: right;
+
+}
+
+
+
+
+
+
+
 
 
 /* -----------------------------------footer---------------------------------------------------- */
