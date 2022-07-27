@@ -109,28 +109,84 @@ a {
     color: #203192;
 }
 
-<<<<<<< HEAD
 /* -----------------------------------Add Task---------------------------------------------------- */
 
 .addTaskBg{
     background-color: #F4F2FB;
     position: relative;
     left: 150px;
-    top: 40px;
-    height: 70vh;
+    top: 36px;
+    height: 76vh;
     width: calc(100% - 170px);
     border-radius: 15px;
 }
 
+.addTask{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.addTask h3{
+    text-transform: uppercase;
+    color: #203192;
+}
+
+.addTask input{
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    height: 45px;
+    width: 80%;
+    padding: 5px;
+}
+
+.addTask div{
+    width: calc(50% - 64px);
+    margin: 32px;
+}
+
+.calenderfield{
+    margin: unset !important;
+    display: flex;
+    align-items: center;
+    width: auto !important;
+}
+
+.calenderfield input{
+    width: calc(80% - 50px);
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+}
+
+.calenderfield Img{
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    padding: 11.5px;
+    border: 1px solid lightgray;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: unset;
+    cursor: pointer;
+}
+
+.addTask textarea{
+    outline: none;
+    resize: none;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 80%;
+    height: 200%;
+    padding: 5px;
+}
 
 
-=======
+
+/* -----------------------------------Board---------------------------------------------------- */
 .boardHeadline {
     font-size: 20px;
     font-weight: 600;
 }
-
-/* -----------------------------------Board---------------------------------------------------- */
 
 .boardDiv {
     background-color: lightgray;
@@ -150,7 +206,6 @@ a {
 }
 
 
->>>>>>> 3382d35897434538ace260c22c33323deeb1e778
 /* -----------------------------------footer---------------------------------------------------- */
 
 .footer {

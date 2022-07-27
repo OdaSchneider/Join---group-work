@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -16,22 +17,59 @@
 <body onload="init()">
     <div w3-include-html="header.html"></div>
 
-        <div class="headline">
-            <h1>Add Task</h1>
-            <span>Learning Management System Project</span>
-        </div>
+    <div class="headline">
+        <h1>Add Task</h1>
+        <span>Learning Management System Project</span>
+    </div>
 
-        <div class="addTaskBg">
+    <div class="addTaskBg">
+        <div class="addTask">
             <div>
-                <div><h2>Title</h2><input placeholder="add Title"></div>
-                <div><h2>Due Date</h2><input placeholder="add Due Date"><img src="./img/icons8-calendar-150.png"></div>
-                <div><h2>Category</h2></div>
-                <div><h2>Urgency</h2></div>
-                <div><h2>Description</h2><textarea></div>
-                <div><h2>Assigned to</h2><img src="./img/user-guest.ico"><img src="./img/icon plus.png"> </div>
+                <h3>Title</h3>
+                <input placeholder="add Title">
+            </div>
+
+            <div>
+                <h3>Due Date</h3>
+                <div class="calenderfield">
+                    <input placeholder="add Due Date">
+                    <img class="calenderImg" src="./img/icons8-calendar-150.png">
+                </div>
+            </div>
+
+            <div>
+                <h3>Category</h3>
+                <div>
+                    <option value="marketing">Marketing</option>
+                    <option value="sale">Sale</option>
+                    <option value="it">IT</option>
+                </div>
+            </div>
+
+            <div>
+                <h3>Urgency</h3>
+                <select>
+                    <option value="high">Low</option>
+                    <option value="high">Medium</option>
+                    <option value="medium">High</option>
+                    <option value="low">At Best Yesterday</option>
+                  </select>
+            </div>
+
+            <div>
+                <h3>Description</h3>
+                <textarea></textarea>
+            </div>
+
+            <div>
+                <h3>Assigned to</h3>
+                <img src="./img/user-guest.ico">
+                <img src="./img/icon plus.png">
             </div>
         </div>
+    </div>
 
     <div w3-include-html="footer.html"></div>
 </body>
+
 </html>
