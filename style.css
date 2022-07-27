@@ -93,6 +93,22 @@ a{
     margin-left: 130px;
 }
 
+/* -----------------------------------Page Headline---------------------------------------------------- */
+
+.headline{
+    margin-top: 2%;
+    margin-left: 150px;
+}
+
+.headline h1{
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.headline span{
+    color: #203192;
+}
+
 /* -----------------------------------footer---------------------------------------------------- */
 
 .footer{
