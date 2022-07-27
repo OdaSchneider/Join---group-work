@@ -58,6 +58,7 @@ a{
 
 .navbar a:hover{
     color: white;
+    transition: all 225ms ease-in-out;
 }
 
 .headerTop img{
@@ -119,6 +120,7 @@ a{
 .footer a:hover{
     color: white;
     border-bottom: 1px solid white;
+    transition: all 225ms ease-in-out;
 }
 
 .footer span{
@@ -132,4 +134,5 @@ a{
 
 .footer span a:hover{
     color: #D8D8D8;
+    transition: all 225ms ease-in-out;
 }
