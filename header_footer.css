@@ -1,0 +1,121 @@
+/* -----------------------------------header---------------------------------------------------- */
+
+.header {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 0;
+    width: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #203192;
+}
+
+.headerTop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.navbar div {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 38px;
+    cursor: pointer;
+}
+
+.navbar div:active {
+    border-left: 4px solid white;
+}
+
+.navbar a {
+    color: #D8D8D8;
+    text-align: left;
+}
+
+.navbar a:hover {
+    color: white;
+    transition: all 225ms ease-in-out;
+}
+
+.headerTop img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.headerBottom img {
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 100px;
+    padding: 3px;
+    margin: 25px 62px;
+}
+
+.headerBottom {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -----------------------------------footer---------------------------------------------------- */
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    left: 130px;
+    right: 5px;
+    background-color: rgb(57, 57, 57);
+    color: #D8D8D8;
+    padding: 16px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer a {
+    color: #D8D8D8;
+    cursor: pointer;
+}
+
+.footer div {
+    margin-bottom: 8px;
+}
+
+.footer div a {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.footer a:hover {
+    color: white;
+    border-bottom: 1px solid white;
+    transition: all 225ms ease-in-out;
+}
+
+.footer span {
+    color: #a7a7a7;
+    font-size: 14px;
+}
+
+.footer span a {
+    color: #a7a7a7;
+}
+
+.footer span a:hover {
+    color: #D8D8D8;
+    transition: all 225ms ease-in-out;
+}
