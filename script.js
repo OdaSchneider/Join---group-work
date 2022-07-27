@@ -29,7 +29,9 @@ function addTask() {
     let category = document.getElementById('category').value;
     let urgency = document.getElementById('urgency').value;
     let description = document.getElementById('description').value;
-    taskArray(title, date, category, urgency, description);    
+    taskArray(title, date, category, urgency, description);
+    addToBacklog(category, description);
+
 }
 
 
@@ -44,6 +46,23 @@ function taskArray(title, date, category, urgency, description) {
     safeLocalStorage(task);
 }
 
+// Funktioniert noch nicht #################################################
+
+function addToBacklog(category, description) {
+    let history = document.getElementById('backlog-container');
+    for (let i = 0; i < allTasks.length; i++) {
+        category = allTasks[i]['category'][i];
+        description = allTasks[i]['description'];
+        history.innerHTML += /*html*/ `
+        <div class="backlog-container">
+            <div>${category}</div>
+            <div>${description}</div>  
+        </div>            
+        `;
+    }
+}
+
+// ##########################################################################
 
 function safeLocalStorage(task) {
     allTasks.push(task);
@@ -56,3 +75,5 @@ function loadLocalStorage() {
     let allTasksAsString = localStorage.getItem('allTasks');
     allTasks = JSON.parse(allTasksAsString);
 }
+
+

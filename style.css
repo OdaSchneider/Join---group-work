@@ -311,6 +311,14 @@ button {
 
 }
 
+.backlog-container {
+    width: 100%;
+    background-color: #F4F2FB;
+    height: 100px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
 
 
 
