@@ -109,6 +109,18 @@ a{
     color: #203192;
 }
 
+/* -----------------------------------Board---------------------------------------------------- */
+
+.boardDiv {
+    background-color: lightgray;
+    height: 80vh;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+
 /* -----------------------------------footer---------------------------------------------------- */
 
 .footer{
