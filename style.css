@@ -50,9 +50,8 @@ button {
 
 .addTaskBg {
     background-color: #F4F2FB;
-    position: relative;
-    left: 150px;
-    top: 36px;
+    margin-left: 150px;
+    margin-top: 36px;
     height: 65vh;
     width: calc(100% - 170px);
     border-radius: 15px;

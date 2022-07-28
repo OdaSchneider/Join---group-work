@@ -5,6 +5,7 @@ async function init() {
     await includeHTML();
     setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
     loadLocalStorage();
+    renderToBacklog();
 }
 
 
@@ -30,8 +31,6 @@ function addTask() {
     let urgency = document.getElementById('urgency').value;
     let description = document.getElementById('description').value;
     taskArray(title, date, category, urgency, description);
-    addToBacklog(category, description);
-
 }
 
 
@@ -43,16 +42,19 @@ function taskArray(title, date, category, urgency, description) {
         'urgency': urgency,
         'description': description
     };
-    safeLocalStorage(task);
+
+    allTasks.push(task);
+    safeLocalStorage();
+    renderToBacklog();
 }
 
-// Funktioniert noch nicht #################################################
 
-function addToBacklog(category, description) {
+function renderToBacklog() {
     let history = document.getElementById('backlog-container');
     for (let i = 0; i < allTasks.length; i++) {
-        category = allTasks[i]['category'][i];
+        category = allTasks[i]['category'];
         description = allTasks[i]['description'];
+
         history.innerHTML += /*html*/ `
         <div class="backlog-container">
             <div>${category}</div>
@@ -62,10 +64,8 @@ function addToBacklog(category, description) {
     }
 }
 
-// ##########################################################################
 
-function safeLocalStorage(task) {
-    allTasks.push(task);
+function safeLocalStorage() {
     let allTasksAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTasksAsString);
 }
@@ -77,3 +77,28 @@ function loadLocalStorage() {
 }
 
 
+// ################################ - Board - ##########################################
+
+function renderBoard() {
+
+    let toDo = document.getElementById('toDo');
+    toDo.innerHTML = '';
+
+    for (let i = 0; i < allTodos.length; i++) {
+        const todo = allTodos[i];
+
+        toDo.innerHTML = /*html*/ `
+        <div class="boardBlocks">
+            <div class="titleAndDescription">
+                <h3 title="Titel">test</h3>
+                <span title="Beschreibung">tdwaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaest</span>
+            </div>
+            <div class="datenArrangement">
+                <span title="Erstellungs Datum">01.12.2001</span>
+                <span title="Kategorie">Developer</span>
+                <img title="Profielbild"src="img/user-guest.ico">
+            </div>
+        </div>
+        `;
+    }
+}
