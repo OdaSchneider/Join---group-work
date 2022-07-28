@@ -276,8 +276,7 @@ button {
 
 .titleAndDescription span {
     margin-top: 5px;
-    max-width: 200px;
-    height: auto;
+    word-wrap: break-word;
 }
 
 /* -----------------------------------backlog---------------------------------------------------*/
