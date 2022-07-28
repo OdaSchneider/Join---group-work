@@ -1,4 +1,13 @@
 let allTasks = [];
+let allTodos = [
+    {
+        "titel": "Test",
+        "category":"Developer",
+        "description":"Test Text",
+        "date":"01.12.2001",
+        "user":"img/user-guest.ico"
+    }
+];
 
 
 async function init() {
@@ -76,4 +85,30 @@ function loadLocalStorage() {
     allTasks = JSON.parse(allTasksAsString);
 }
 
+
+// ################################ - Board - ##########################################
+
+function renderBoard() {
+
+    let toDo = document.getElementById('toDo');
+    toDo.innerHTML = '';
+
+    for (let i = 0; i < allTodos.length; i++) {
+        const todo = allTodos[i];
+
+        toDo.innerHTML = /*html*/ `
+        <div class="boardBlocks">
+            <div class="titleAndDescription">
+                <h3 title="Titel">test</h3>
+                <span title="Beschreibung">tdwaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaest</span>
+            </div>
+            <div class="datenArrangement">
+                <span title="Erstellungs Datum">01.12.2001</span>
+                <span title="Kategorie">Developer</span>
+                <img title="Profielbild"src="img/user-guest.ico">
+            </div>
+        </div>
+        `;
+    }
+}
 
