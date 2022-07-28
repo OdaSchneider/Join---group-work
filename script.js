@@ -4,8 +4,12 @@ let allTasks = [];
 async function init() {
     await includeHTML();
     setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
+}
+
+async function initBacklog() {
+    await init();
     loadLocalStorage();
-    renderToBacklog();
+    renderBacklog();
 }
 
 
@@ -30,6 +34,7 @@ function addTask() {
     let category = document.getElementById('category').value;
     let urgency = document.getElementById('urgency').value;
     let description = document.getElementById('description').value;
+
     taskArray(title, date, category, urgency, description);
 }
 
@@ -45,12 +50,13 @@ function taskArray(title, date, category, urgency, description) {
 
     allTasks.push(task);
     safeLocalStorage();
-    renderToBacklog();
+    renderBacklog();
 }
 
 
-function renderToBacklog() {
+function renderBacklog() {
     let history = document.getElementById('backlog-container');
+
     for (let i = 0; i < allTasks.length; i++) {
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
@@ -79,36 +85,36 @@ function loadLocalStorage() {
 
 // ################################ - Board - ##########################################
 
-function renderBoard() {
+// function renderBoard() {
 
-    let toDo = document.getElementById('toDo');
-    toDo.innerHTML = '';
+//     let toDo = document.getElementById('toDo');
+//     toDo.innerHTML = '';
 
-    for (let i = 0; i < allTodos.length; i++) {
-        const todo = allTodos[i];
+//     for (let i = 0; i < allTodos.length; i++) {
+//         const todo = allTodos[i];
 
-        toDo.innerHTML = /*html*/ `
-        <div class="boardBlocks">
-            <div class="titleAndDescription">
-                <h3 title="Titel">test</h3>
-                <span title="Beschreibung">tdwaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaest</span>
-            </div>
-            <div class="datenArrangement">
-                <span title="Erstellungs Datum">01.12.2001</span>
-                <span title="Kategorie">Developer</span>
-                <img title="Profielbild"src="img/user-guest.ico">
-            </div>
-        </div>
-        `;
-    }
-}
+//         toDo.innerHTML = /*html*/ `
+//         <div class="boardBlocks">
+//             <div class="titleAndDescription">
+//                 <h3 title="Titel">test</h3>
+//                 <span title="Beschreibung">tdwaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaest</span>
+//             </div>
+//             <div class="datenArrangement">
+//                 <span title="Erstellungs Datum">01.12.2001</span>
+//                 <span title="Kategorie">Developer</span>
+//                 <img title="Profielbild"src="img/user-guest.ico">
+//             </div>
+//         </div>
+//         `;
+//     }
+// }
 
-function renderBoard(task) {
+// function renderBoard(todo) {
 
-    let task = document.getElementById('toDo');
-    task.innerHTML = '';
-    for (let i = 0; i < allTasks.length; i++) {
-        const todo = allTasks[i];
-        task.innerHTML = renderBoarders();
-    }
-}
+//     let todo = document.getElementById('toDo');
+//     todo.innerHTML = '';
+//     for (let i = 0; i < allTasks.length; i++) {
+//         const element = allTasks[i];
+//         todo.innerHTML = renderBoarders();
+//     }
+// }
