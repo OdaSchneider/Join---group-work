@@ -102,3 +102,13 @@ function renderBoard() {
         `;
     }
 }
+
+function renderBoard(task) {
+
+    let task = document.getElementById('toDo');
+    task.innerHTML = '';
+    for (let i = 0; i < allTasks.length; i++) {
+        const todo = allTasks[i];
+        task.innerHTML = renderBoarders();
+    }
+}

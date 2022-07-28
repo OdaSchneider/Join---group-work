@@ -13,43 +13,32 @@
     <script src='mini_backend.js'></script>
 </head>
 
-<body onload="init()">
+<body onload="init(); renderBoard()">
 
     <div w3-include-html="header.html"></div>
 
-    <div class="boardArrangement">
-
-        <div class="barStyle">
+    
+    <div class=" boardArrangement">
+        <div class="barStyle marginLeftBar">
             <span class="boardHeadline">TO DO</span>
-            <div class="boardDiv" id=""></div>
+            <div class="boardDiv" id="toDo"></div>
         </div>
 
         <div class="barStyle">
             <span class="boardHeadline">IN PROGRESS</span>
-            <div class="boardDiv" id=""></div>
+            <div class="boardDiv" id="inProgress"></div>
         </div>
 
         <div class="barStyle">
             <span class="boardHeadline">TESTING</span>
-            <div class="boardDiv" id=""></div>
+            <div class="boardDiv" id="testing"></div>
         </div>
 
         <div class="barStyle">
             <span class="boardHeadline">DONE</span>
-            <div class="boardDiv" id=""></div>
+            <div class="boardDiv" id="done"></div>
         </div>
     </div>
-
-
-    <div class="card text-center">
-        <div class="card-header">
-          TO DO
-        </div>
-        <div class="card-body">
-          
-        </div>
-      </div>
-
 
 
     <div w3-include-html="footer.html"></div>
