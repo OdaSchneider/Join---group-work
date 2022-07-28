@@ -4,11 +4,11 @@ let allTasks = [];
 async function init() {
     await includeHTML();
     setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
+    loadLocalStorage();
 }
 
 async function initBacklog() {
     await init();
-    loadLocalStorage();
     renderBacklog();
 }
 
