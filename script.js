@@ -42,10 +42,11 @@ function addTask() {
 function taskArray(title, date, category, urgency, description) {
     let task = {
         'title': title,
-        'createdAt': date,
+        'dueDate': date,
         'category': category,
         'urgency': urgency,
-        'description': description
+        'description': description,
+        'createdAt': new Date().getTime()
     };
 
     allTasks.push(task);

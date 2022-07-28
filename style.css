@@ -97,7 +97,12 @@ button {
     border-top-right-radius: unset;
 }
 
-.calenderfield Img{
+input[type="date" i] {
+    color: #575757;
+    cursor: pointer;
+}
+
+.calenderfield Img {
     width: 24px;
     height: 24px;
     background-color: white;
@@ -165,12 +170,12 @@ button {
     margin-left: 30% !important;
 }
 
-.cancelTaskButton{
+.cancelTaskButton {
     color: #203192;
     margin-right: 16px;
 }
 
-.createTaskButton{
+.createTaskButton {
     background-color: #203192;
     color: white;
     border-radius: 10px;
