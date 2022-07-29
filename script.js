@@ -29,9 +29,8 @@ async function initBacklog() {
 }
 
 async function initBoard() {
-    await includeHTML();
+    await init();
     renderBoard();
-    loadLocalStorageBoard();
 }
 
 
@@ -53,12 +52,18 @@ async function includeHTML() {
 function safeLocalStorage() {
     let allTasksAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTasksAsString);
+
+    let allToDosAsString = JSON.stringify(allToDos);
+    localStorage.setItem('allToDos', allToDosAsString);
 }
 
 
 function loadLocalStorage() {
     let allTasksAsString = localStorage.getItem('allTasks');
     allTasks = JSON.parse(allTasksAsString);
+
+    let allToDosAsString = localStorage.getItem('allToDos');
+    allToDos = JSON.parse(allToDosAsString);
 }
 
 function safeLocalStorageBoard() {
@@ -123,7 +128,6 @@ function assignTask(task){
         allToDos.push(task);
     }
     safeLocalStorage();
-    safeLocalStorageBoard();
     assignment = '';
 }
 
