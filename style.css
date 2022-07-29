@@ -54,6 +54,8 @@ button {
     color: #203192;
 }
 
+
+
 /* -----------------------------------Add Task---------------------------------------------------- */
 
 .addTaskBg {
@@ -223,7 +225,7 @@ label{
 }
 
 .boardDiv {
-    background-color: lightgray;
+    background-color: #F4F2FB;
     height: 80vh;
     width: 300px;
     border-radius: 8px;

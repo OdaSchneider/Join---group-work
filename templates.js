@@ -13,3 +13,19 @@ function renderBoarders(i) {
         </div>
         `;
 }
+
+
+function backlogContainer(userimage, username, category, description) {
+    return /*html*/ `
+    <div class="backlog-container">
+        <div class="backlog-user">
+            <div>${userimage}</div>
+            <div><span>${username}</span></div>
+        </div>
+        <div class="backlog-cat-description">
+            <div>${category}</div>
+            <div>${description}</div> 
+        </div> 
+    </div>            
+    `;
+}
