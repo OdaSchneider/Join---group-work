@@ -1,4 +1,4 @@
-function renderBoarders(i) {
+function renderBoarders() {
     return /*html*/ `
         <div class="boardBlocks">
             <div class="titleAndDescription">
