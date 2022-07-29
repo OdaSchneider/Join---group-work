@@ -66,17 +66,6 @@ function loadLocalStorage() {
     allToDos = JSON.parse(allToDosAsString);
 }
 
-function safeLocalStorageBoard() {
-    let allToDosAsString = JSON.stringify(allToDos);
-    localStorage.setItem('allToDos', allToDosAsString);
-}
-
-
-function loadLocalStorageBoard() {
-    let allToDosAsString = localStorage.getItem('allToDos');
-    allToDos = JSON.parse(allToDosAsString);
-}
-
 
 // ---------------------------Add Task---------------------------------------------------------
 
@@ -134,6 +123,17 @@ function assignTask(task){
 
 function cancelTask(){
     document.getElementById('addNewTask').reset();
+}
+
+
+function showUser(){
+    let profil = document. getElementById('user');
+    profil.innerHTML = '';
+
+    for (let i = 0; i < user.length; i++) {
+        let userImg = user[i]['userImg'];
+        profil.innerHTML += `<img src=${userImg}>`;
+    }
 }
 
 

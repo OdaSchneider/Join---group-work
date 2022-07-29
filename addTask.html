@@ -10,6 +10,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='fonts.css'>
     <script src='script.js'></script>
+    <script src='user.js'></script>
     <script src='mini_backend.js'></script>
 </head>
 
@@ -35,14 +36,18 @@
                     <h3>Description</h3>
                     <textarea required id="description"></textarea>
                 </div>
+
                 <div class="container">
                     <h3>Assigned to</h3>
-
-                    <div class="assigneToAccount">
-                        <img onclick="selectUser()" src="./img/icon plus.png">
+                    <div class="assigneToAccount" id="assigneAccount">
+                        <img onclick="showUser()" src="./img/icon plus.png">
                     </div>
                 </div>
+
+                <div class="user" id="user">
+                </div>
             </div>
+
 
             <div class="columnRight">
                 <div class="container">
