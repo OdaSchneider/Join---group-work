@@ -1,9 +1,17 @@
 let allTasks = [];
 let allToDos = [{
-    "title":"Test",
-    "description":"hallo ich versuche was",
-    "date":"12.12.2012",
-    "category":"Developer"
+    "title": "Test",
+    "description": "hallo ich versuche was",
+    "date": "12.12.2012",
+    "category": "Developer",
+    "boarderCategory": "toDo"
+},
+{
+    "title": "Test",
+    "description": "hallo ich versuche was",
+    "date": "12.12.2012",
+    "category": "Developer",
+    "boarderCategory": "inProgress"
 }];
 
 let assignment = '';
@@ -143,16 +151,74 @@ function renderBacklog() {
 
 // ---------------------------Bord--------------------------------------------------------
 
+/* - TODOS - 
+- renderBoarder optimieren/ Fehler beheben.
+- Drad and Drop hinzufügen
+- boarderCategory hinzufügen ( toDo - inProgress - testing - done)
+*/
 
 function renderBoard() {
 
     let allToDo = document.getElementById('toDo');
     allToDo.innerHTML = '';
     for (let i = 0; i < allToDos.length; i++) {
-        const allToDo = allToDos[i];
-        allToDo.innerHTML = renderBoarders();
+        allToDo.innerHTML += renderBoarders(i);
     }
 }
+
+
+// function updateBoarder() {
+
+//     filterTodos(toDo);
+//     filterInProgress(inProgress);
+//     filterTesting(testing);
+//     filterDone(done);
+// }
+
+// function filterTodos(toDo) {
+//     let toDo = allToDos.filter(t => t['boarderCategory'] == 'todo');
+
+//     document.getElementById('toDo').innerHTML = '';
+
+//     for (let i = 0; i < toDo.length; i++) {
+//         const element1 = toDo[i];
+//         document.getElementById('toDo').innerHTML += renderBoarders(element1); 
+//     }
+// }
+
+// function filterInProgress(inProgress) {
+//     let inProgress = allToDos.filter(t => t['boarderCategory'] == 'inProgress');
+
+//     document.getElementById('inProgress').innerHTML = '';
+
+//     for (let i = 0; i < inProgress.length; i++) {
+//         const element2 = inProgress[i];
+//         document.getElementById('toDo').innerHTML += renderBoarders(element2); 
+//     }
+// }
+
+// function filterTesting(testing) {
+//     let testing = allToDos.filter(t => t['boarderCategory'] == 'testing');
+
+//     document.getElementById('testing').innerHTML = '';
+
+//     for (let i = 0; i < testing.length; i++) {
+//         const element3 = testing[i];
+//         document.getElementById('toDo').innerHTML += renderBoarders(element3); 
+//     }
+// }
+
+// function filterDone(done) {
+//     let done = allToDos.filter(t => t['boarderCategory'] == 'done');
+
+//     document.getElementById('done').innerHTML = '';
+
+//     for (let i = 0; i < done.length; i++) {
+//         const element4 = done[i];
+//         document.getElementById('toDo').innerHTML += renderBoarders(element4); 
+//     }
+// }
+
 
 
 function safeLocalStorageBoard() {
