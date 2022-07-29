@@ -15,7 +15,12 @@ let allToDos = [{
 }];
 
 let assignment = '';
+<<<<<<< HEAD
 let assignedUser = [];
+=======
+let assignedUser = '';
+let currentDraggedElement;
+>>>>>>> 4ce8e5abaa21c04c83566bfee0e0df6e3707cf3c
 
 
 async function init() {
@@ -72,14 +77,14 @@ function loadLocalStorage() {
 
 // ---------------------------Add Task---------------------------------------------------------
 
-function sendToBacklog(){
+function sendToBacklog() {
     document.getElementById('sendBacklog').style.backgroundColor = "#2e46cf";
     document.getElementById('sendBoard').style.backgroundColor = "white";
     assignment = document.getElementById('sendBacklog').value;
 }
 
 
-function sendToBoard(){
+function sendToBoard() {
     document.getElementById('sendBoard').style.backgroundColor = "#2e46cf";
     document.getElementById('sendBacklog').style.backgroundColor = "white";
     assignment = document.getElementById('sendBoard').value;
@@ -113,11 +118,11 @@ function taskArray(title, date, category, urgency, description) {
 }
 
 
-function assignTask(task){
-    if(assignment == 'backlog'){
+function assignTask(task) {
+    if (assignment == 'backlog') {
         allTasks.push(task);
     }
-    if(assignment == 'board'){
+    if (assignment == 'board') {
         allToDos.push(task);
     }else{
         allTasks.push(task);
@@ -128,13 +133,13 @@ function assignTask(task){
 }
 
 
-function cancelTask(){
+function cancelTask() {
     document.getElementById('addNewTask').reset();
 }
 
 
-function showUser(){
-    let profil = document. getElementById('user');
+function showUser() {
+    let profil = document.getElementById('user');
     profil.innerHTML = '';
 
     for (let i = 0; i < user.length; i++) {
@@ -144,7 +149,7 @@ function showUser(){
 }
 
 
-function selectUser(i){
+function selectUser(i) {
     assignedUser = user[i];
 
     let assignedToCotainer = document.getElementById('assignedAccount');
@@ -152,7 +157,7 @@ function selectUser(i){
 }
 
 
-function removeUser(){
+function removeUser() {
     document.getElementById('assignedAccount').innerHTML = '';
     assignedUser = '';
 }
@@ -165,15 +170,12 @@ function renderBacklog() {
     let history = document.getElementById('backlog-container');
 
     for (let i = 0; i < allTasks.length; i++) {
+        let username = user[i]['name'];
+        let userimage = user[i]['userImg'];
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
 
-        history.innerHTML += /*html*/ `
-        <div class="backlog-container">
-            <div>${category}</div>
-            <div>${description}</div>  
-        </div>            
-        `;
+        history.innerHTML += backlogContainer(userimage, username, category, description);
     }
 }
 
@@ -214,7 +216,7 @@ function renderBoard() {
 
 //     for (let i = 0; i < toDo.length; i++) {
 //         const element1 = toDo[i];
-//         document.getElementById('toDo').innerHTML += renderBoarders(element1); 
+//         document.getElementById('toDo').innerHTML += renderBoarders(element1);
 //     }
 // }
 
@@ -225,7 +227,7 @@ function renderBoard() {
 
 //     for (let i = 0; i < inProgress.length; i++) {
 //         const element2 = inProgress[i];
-//         document.getElementById('toDo').innerHTML += renderBoarders(element2); 
+//         document.getElementById('toDo').innerHTML += renderBoarders(element2);
 //     }
 // }
 
@@ -236,7 +238,7 @@ function renderBoard() {
 
 //     for (let i = 0; i < testing.length; i++) {
 //         const element3 = testing[i];
-//         document.getElementById('toDo').innerHTML += renderBoarders(element3); 
+//         document.getElementById('toDo').innerHTML += renderBoarders(element3);
 //     }
 // }
 
@@ -247,7 +249,7 @@ function renderBoard() {
 
 //     for (let i = 0; i < done.length; i++) {
 //         const element4 = done[i];
-//         document.getElementById('toDo').innerHTML += renderBoarders(element4); 
+//         document.getElementById('toDo').innerHTML += renderBoarders(element4);
 //     }
 // }
 
