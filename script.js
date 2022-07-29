@@ -40,6 +40,21 @@ async function includeHTML() {
 }
 
 
+function safeLocalStorage() {
+    let allTasksAsString = JSON.stringify(allTasks);
+    localStorage.setItem('allTasks', allTasksAsString);
+}
+
+
+function loadLocalStorage() {
+    let allTasksAsString = localStorage.getItem('allTasks');
+    allTasks = JSON.parse(allTasksAsString);
+}
+
+
+// ---------------------------Add Task---------------------------------------------------------
+
+
 function addTask() {
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
@@ -64,8 +79,18 @@ function taskArray(title, date, category, urgency, description) {
     allTasks.push(task);
     allToDos.push(task);
     safeLocalStorage();
-    renderBacklog();
 }
+
+function cancelTask(){
+    document.getElementById('addNewTask').reset();
+}
+
+function selectUser(){
+    
+}
+
+
+// ---------------------------Backlog---------------------------------------------------------
 
 
 function renderBacklog() {
@@ -85,19 +110,10 @@ function renderBacklog() {
 }
 
 
-function safeLocalStorage() {
-    let allTasksAsString = JSON.stringify(allTasks);
-    localStorage.setItem('allTasks', allTasksAsString);
-}
 
 
-function loadLocalStorage() {
-    let allTasksAsString = localStorage.getItem('allTasks');
-    allTasks = JSON.parse(allTasksAsString);
-}
 
-
-// ################################ - Board - ##########################################
+// ---------------------------Bord--------------------------------------------------------
 
 
 function renderBoard() {
