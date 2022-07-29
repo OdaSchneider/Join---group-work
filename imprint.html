@@ -22,12 +22,16 @@
         .imprintBg div{
             display: flex;
             flex-direction: column;
-            margin-bottom: 24px;
+            margin-bottom: 8px;
         }
 
         .imprintBg p{
             margin-bottom: 8px;
             font-weight: bold;
+        }
+
+        .imprintBg span{
+            display: flex;
         }
 
         .imprintBg img{
@@ -38,7 +42,9 @@
             display: flex;
             align-items: center;
             margin-bottom: 8px;
-            color: black;
+            margin-left: 5px;
+            margin-right: 5px;
+            color: rgb(99, 99, 99);
         }
         
         .imprintBg a:hover{
@@ -50,7 +56,7 @@
 
 
 <body onload="init()">
-    <div w3-include-html="header.html"></div>
+    <div w3-include-html="navbar.html"></div>
 
     <div class="imprintBg">
         <h1>Imprint Join Ldt.</h1>
@@ -89,9 +95,12 @@
             <p>Sales tax identification number according to §27a sales tax law</p>
             <span>DE 97795523148</span>
         </div>
+        <br>
+        <br>
+        <span>Logos come from <a href="https://icons8.com"> https://icons8.com </a>among others</span>
     </div>
 
-    <div w3-include-html="footer.html"></div>
+
 </body>
 
 </html>

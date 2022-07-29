@@ -26,7 +26,7 @@
 .navbar div {
     margin-top: 15px;
     margin-bottom: 15px;
-    padding-left: 38px;
+    padding-left: 24px;
     cursor: pointer;
 }
 
@@ -67,55 +67,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-/* -----------------------------------footer---------------------------------------------------- */
-
-.footer {
-    position: absolute;
-    bottom: 20px;
-    left: 130px;
-    right: 5px;
-    background-color: rgb(57, 57, 57);
-    color: #D8D8D8;
-    padding: 16px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer a {
-    color: #D8D8D8;
-    cursor: pointer;
-}
-
-.footer div {
-    margin-bottom: 8px;
-}
-
-.footer div a {
-    margin-left: 8px;
-    margin-right: 8px;
-}
-
-.footer a:hover {
-    color: white;
-    border-bottom: 1px solid white;
-    transition: all 225ms ease-in-out;
-}
-
-.footer span {
-    color: #a7a7a7;
-    font-size: 14px;
-}
-
-.footer span a {
-    color: #a7a7a7;
-}
-
-.footer span a:hover {
-    color: #D8D8D8;
-    transition: all 225ms ease-in-out;
 }
