@@ -84,33 +84,8 @@ button {
     margin: 4px 32px;
 }
 
-.calenderfield {
-    margin: unset !important;
-    display: flex;
-    align-items: center;
-    width: auto !important;
-}
-
-.calenderfield input {
-    width: calc(80% - 50px);
-    border-bottom-right-radius: unset;
-    border-top-right-radius: unset;
-}
-
 input[type="date" i] {
     color: #575757;
-    cursor: pointer;
-}
-
-.calenderfield Img {
-    width: 24px;
-    height: 24px;
-    background-color: white;
-    padding: 9px;
-    border: 1px solid lightgray;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    border-left: unset;
     cursor: pointer;
 }
 
