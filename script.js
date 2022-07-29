@@ -4,6 +4,12 @@ let allToDos = [{
     "description":"hallo ich versuche was",
     "date":"12.12.2012",
     "category":"Developer"
+},
+{
+    "title":"Test",
+    "description":"hallo ich versuche was",
+    "date":"12.12.2012",
+    "category":"Developer"
 }];
 
 
@@ -79,6 +85,7 @@ function taskArray(title, date, category, urgency, description) {
     allTasks.push(task);
     allToDos.push(task);
     safeLocalStorage();
+    safeLocalStorageBoard();
 }
 
 function cancelTask(){
@@ -121,8 +128,7 @@ function renderBoard() {
     let allToDo = document.getElementById('toDo');
     allToDo.innerHTML = '';
     for (let i = 0; i < allToDos.length; i++) {
-        const allToDo = allToDos[i];
-        allToDo.innerHTML = renderBoarders();
+        allToDo.innerHTML += renderBoarders(i);
     }
 }
 
