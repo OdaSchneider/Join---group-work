@@ -6,6 +6,8 @@ let allToDos = [{
     "category":"Developer"
 }];
 
+let assignment = '';
+
 
 async function init() {
     await includeHTML();
@@ -54,6 +56,19 @@ function loadLocalStorage() {
 
 // ---------------------------Add Task---------------------------------------------------------
 
+function sendToBacklog(){
+    document.getElementById('sendBacklog').style.backgroundColor = "#2e46cf";
+    document.getElementById('sendBoard').style.backgroundColor = "white";
+    assignment = document.getElementById('sendBacklog').value;
+}
+
+
+function sendToBoard(){
+    document.getElementById('sendBoard').style.backgroundColor = "#2e46cf";
+    document.getElementById('sendBacklog').style.backgroundColor = "white";
+    assignment = document.getElementById('sendBoard').value;
+}
+
 
 function addTask() {
     let title = document.getElementById('title').value;
@@ -73,20 +88,33 @@ function taskArray(title, date, category, urgency, description) {
         'category': category,
         'urgency': urgency,
         'description': description,
-        'createdAt': new Date().getTime()
+        'createdAt': new Date().getTime(),
+        'assignment': assignment
     };
 
-    allTasks.push(task);
-    allToDos.push(task);
-    safeLocalStorage();
+    assignTask(task)
 }
+
 
 function cancelTask(){
     document.getElementById('addNewTask').reset();
 }
 
+
+function assignTask(task){
+    if(assignment == 'backlog'){
+        allTasks.push(task);
+    }
+    if(assignment == 'board'){
+        allToDos.push(task);
+    }
+    safeLocalStorage();
+    assignment = '';
+}
+
+
 function selectUser(){
-    
+
 }
 
 

@@ -25,17 +25,17 @@
     <div class="addTaskBg">
         <form onsubmit="addTask()" id="addNewTask" class="addTask">
 
-            <div class="column">
-                <div>
+            <div class="columnLeft">
+                <div class="container">
                     <h3>Title</h3>
                     <input required placeholder="add Title" id="title">
                 </div>
 
-                <div>
+                <div class="container">
                     <h3>Description</h3>
                     <textarea required id="description"></textarea>
                 </div>
-                <div>
+                <div class="container">
                     <h3>Assigned to</h3>
 
                     <div class="assigneToAccount">
@@ -44,13 +44,13 @@
                 </div>
             </div>
 
-            <div class="column">
-                <div>
+            <div class="columnRight">
+                <div class="container">
                     <h3>Due Date</h3>
                     <input type="date" required id="date">
                 </div>
 
-                <div>
+                <div class="container">
                     <h3>Category</h3>
                     <select required id="category" placeholder="Category">
                         <option value="marketing">Marketing</option>
@@ -59,7 +59,7 @@
                     </select>
                 </div>
 
-                <div>
+                <div class="container">
                     <h3>Urgency</h3>
                     <select required id="urgency">
                         <option value="high">Low</option>
@@ -68,8 +68,17 @@
                         <option value="low">At Best Yesterday</option>
                     </select>
                 </div>
+                <div class="container">
+                    <h3>Send to</h3>
+                    <div class="sendTo" id="sendTo">
+                        <button type="button" onclick="sendToBacklog()" class="sendToButton" id="sendBacklog" value="backlog"></button>
+                        <label for="backlog">Backlog</label>
+                        <button type="button" onclick="sendToBoard()"  class="sendToButton" id="sendBoard" value="board"></button>
+                        <label for="board">Board</label>
+                    </div>
+                </div>
                 <div class="addTaskButtonLine">
-                    <button onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
+                    <button type="reset" onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
                     <button type="submit" value="submit" class="createTaskButton">create task</button>
                 </div>
             </div>
