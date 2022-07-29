@@ -15,8 +15,7 @@ let allToDos = [{
 }];
 
 let assignment = '';
-
-let assignedUser = '';
+let assignedUser = [];
 
 
 async function init() {
@@ -57,6 +56,8 @@ function safeLocalStorage() {
 
     let allToDosAsString = JSON.stringify(allToDos);
     localStorage.setItem('allToDos', allToDosAsString);
+
+    loadLocalStorage();
 }
 
 
@@ -105,6 +106,7 @@ function taskArray(title, date, category, urgency, description) {
         'description': description,
         'createdAt': new Date().getTime(),
         'assignment': assignment,
+        'assignedUser' : assignedUser
     };
 
     assignTask(task)
@@ -116,6 +118,9 @@ function assignTask(task){
         allTasks.push(task);
     }
     if(assignment == 'board'){
+        allToDos.push(task);
+    }else{
+        allTasks.push(task);
         allToDos.push(task);
     }
     safeLocalStorage();
