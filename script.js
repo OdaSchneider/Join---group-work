@@ -61,6 +61,17 @@ function loadLocalStorage() {
     allTasks = JSON.parse(allTasksAsString);
 }
 
+function safeLocalStorageBoard() {
+    let allToDosAsString = JSON.stringify(allToDos);
+    localStorage.setItem('allToDos', allToDosAsString);
+}
+
+
+function loadLocalStorageBoard() {
+    let allToDosAsString = localStorage.getItem('allToDos');
+    allToDos = JSON.parse(allToDosAsString);
+}
+
 
 // ---------------------------Add Task---------------------------------------------------------
 
@@ -104,11 +115,6 @@ function taskArray(title, date, category, urgency, description) {
 }
 
 
-function cancelTask(){
-    document.getElementById('addNewTask').reset();
-}
-
-
 function assignTask(task){
     if(assignment == 'backlog'){
         allTasks.push(task);
@@ -117,7 +123,13 @@ function assignTask(task){
         allToDos.push(task);
     }
     safeLocalStorage();
+    safeLocalStorageBoard();
     assignment = '';
+}
+
+
+function cancelTask(){
+    document.getElementById('addNewTask').reset();
 }
 
 
@@ -221,13 +233,3 @@ function renderBoard() {
 
 
 
-function safeLocalStorageBoard() {
-    let allToDosAsString = JSON.stringify(allToDos);
-    localStorage.setItem('allToDos', allToDosAsString);
-}
-
-
-function loadLocalStorageBoard() {
-    let allToDosAsString = localStorage.getItem('allToDos');
-    allToDos = JSON.parse(allToDosAsString);
-}
