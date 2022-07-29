@@ -1,4 +1,10 @@
 let allTasks = [];
+let allToDos = [{
+    "title":"Test",
+    "description":"hallo ich versuche was",
+    "date":"12.12.2012",
+    "category":"Developer"
+}];
 
 
 async function init() {
@@ -10,6 +16,12 @@ async function init() {
 async function initBacklog() {
     await init();
     renderBacklog();
+}
+
+async function initBoard() {
+    await includeHTML();
+    renderBoard();
+    loadLocalStorageBoard();
 }
 
 
@@ -50,6 +62,7 @@ function taskArray(title, date, category, urgency, description) {
     };
 
     allTasks.push(task);
+    allToDos.push(task);
     safeLocalStorage();
     renderBacklog();
 }
@@ -86,36 +99,25 @@ function loadLocalStorage() {
 
 // ################################ - Board - ##########################################
 
-// function renderBoard() {
 
-//     let toDo = document.getElementById('toDo');
-//     toDo.innerHTML = '';
+function renderBoard() {
 
-//     for (let i = 0; i < allTodos.length; i++) {
-//         const todo = allTodos[i];
+    let allToDo = document.getElementById('toDo');
+    allToDo.innerHTML = '';
+    for (let i = 0; i < allToDos.length; i++) {
+        const allToDo = allToDos[i];
+        allToDo.innerHTML = renderBoarders();
+    }
+}
 
-//         toDo.innerHTML = /*html*/ `
-//         <div class="boardBlocks">
-//             <div class="titleAndDescription">
-//                 <h3 title="Titel">test</h3>
-//                 <span title="Beschreibung">tdwaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaest</span>
-//             </div>
-//             <div class="datenArrangement">
-//                 <span title="Erstellungs Datum">01.12.2001</span>
-//                 <span title="Kategorie">Developer</span>
-//                 <img title="Profielbild"src="img/user-guest.ico">
-//             </div>
-//         </div>
-//         `;
-//     }
-// }
 
-// function renderBoard(todo) {
+function safeLocalStorageBoard() {
+    let allToDosAsString = JSON.stringify(allToDos);
+    localStorage.setItem('allToDos', allToDosAsString);
+}
 
-//     let todo = document.getElementById('toDo');
-//     todo.innerHTML = '';
-//     for (let i = 0; i < allTasks.length; i++) {
-//         const element = allTasks[i];
-//         todo.innerHTML = renderBoarders();
-//     }
-// }
+
+function loadLocalStorageBoard() {
+    let allToDosAsString = localStorage.getItem('allToDos');
+    allToDos = JSON.parse(allToDosAsString);
+}
