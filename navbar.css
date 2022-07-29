@@ -28,9 +28,11 @@
     margin-bottom: 15px;
     padding-left: 24px;
     cursor: pointer;
+    transition: all 100ms ease-in-out;
 }
 
-.navbar div:active {
+.navbar div:hover {
+    transition: all 100ms ease-in-out;
     border-left: 4px solid white;
 }
 
