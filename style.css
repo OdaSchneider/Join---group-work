@@ -23,6 +23,14 @@ button {
     font-family: 'PT Sans', sans-serif;
 }
 
+.disable{
+    pointer-events: none;
+}
+
+.d-none{
+    display: none;
+}
+
 /* -----------------------------------startpage---------------------------------------------------- */
 
 .startpage {

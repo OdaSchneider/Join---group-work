@@ -16,6 +16,8 @@ let allToDos = [{
 
 let assignment = '';
 
+let assignedUser = '';
+
 
 async function init() {
     await includeHTML();
@@ -102,7 +104,7 @@ function taskArray(title, date, category, urgency, description) {
         'urgency': urgency,
         'description': description,
         'createdAt': new Date().getTime(),
-        'assignment': assignment
+        'assignment': assignment,
     };
 
     assignTask(task)
@@ -132,13 +134,22 @@ function showUser(){
 
     for (let i = 0; i < user.length; i++) {
         let userImg = user[i]['userImg'];
-        profil.innerHTML += `<img src=${userImg}>`;
+        profil.innerHTML += `<img id="disable${i}" onclick="selectUser(${i})" src=${userImg}>`;
     }
 }
 
 
-function selectUser(){
+function selectUser(i){
+    assignedUser = user[i];
 
+    let assignedToCotainer = document.getElementById('assignedAccount');
+    assignedToCotainer.innerHTML = `<img id="assigned" onclick="removeUser()" src=${assignedUser['userImg']}>`;
+}
+
+
+function removeUser(){
+    document.getElementById('assignedAccount').innerHTML = '';
+    assignedUser = '';
 }
 
 
