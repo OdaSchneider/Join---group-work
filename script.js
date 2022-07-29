@@ -111,16 +111,16 @@ function taskArray(title, date, category, urgency, description) {
 }
 
 
-// function assignTask(task) {
-//     if (assignment == 'backlog') {
-//         allTasks.push(task);
-//     }
-//     if (assignment == 'board') {
-//         allToDos.push(task);
-//     }
-//     safeLocalStorage();
-//     assignment = '';
-// }
+function assignTask(task) {
+    if (assignment == 'backlog') {
+        allTasks.push(task);
+    }
+    if (assignment == 'board') {
+        allToDos.push(task);
+    }
+    safeLocalStorage();
+    assignment = '';
+}
 
 
 function cancelTask() {
