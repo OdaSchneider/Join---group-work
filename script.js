@@ -205,33 +205,6 @@ function renderBoardersInit() {
 }
 
 
-function startDragging(id) {
-    currentDraggedElement = id;
-}
-
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-
-function highlight(id) {
-    document.getElementById(id).classList.add('dragAreaHighlight');
-}
-
-
-function removeHighlight() {
-    document.getElementById(id).classList.remove('dragAreaHighlight');
-
-}
-
-
-function moveTo(status) {
-    tasks.find(task => task.id == currentDraggedElement).status = status;
-    renderBoardersInit();
-}
-
-
 function renderToDo() {
     let td = document.getElementById('toDo');
 
@@ -282,4 +255,31 @@ function renderDone() {
             document.getElementById(`done${done.id}`).innerHTML += renderBoardersDone(done);
         })
     })
+}
+
+
+function startDragging(id) {
+    currentDraggedElement = id;
+}
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+
+function highlight(id) {
+    document.getElementById(id).classList.add('dragAreaHighlight');
+}
+
+
+function removeHighlight() {
+    document.getElementById(id).classList.remove('dragAreaHighlight');
+
+}
+
+
+function moveTo(status) {
+    tasks.find(task => task.id == currentDraggedElement).status = status;
+    renderBoardersInit();
 }
