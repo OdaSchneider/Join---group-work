@@ -1,4 +1,5 @@
 let allTasks = [];
+let currentDraggedElement;
 let allToDos = [{
     "title": "Test",
     "description": "hallo ich versuche was",
@@ -15,12 +16,7 @@ let allToDos = [{
 }];
 
 let assignment = '';
-<<<<<<< HEAD
 let assignedUser = [];
-=======
-let assignedUser = '';
-let currentDraggedElement;
->>>>>>> 4ce8e5abaa21c04c83566bfee0e0df6e3707cf3c
 
 
 async function init() {
@@ -111,7 +107,7 @@ function taskArray(title, date, category, urgency, description) {
         'description': description,
         'createdAt': new Date().getTime(),
         'assignment': assignment,
-        'assignedUser' : assignedUser
+        'assignedUser': assignedUser
     };
 
     assignTask(task)
@@ -124,7 +120,7 @@ function assignTask(task) {
     }
     if (assignment == 'board') {
         allToDos.push(task);
-    }else{
+    } else {
         allTasks.push(task);
         allToDos.push(task);
     }
@@ -186,9 +182,8 @@ function renderBacklog() {
 // ---------------------------Bord--------------------------------------------------------
 
 /* - TODOS - 
-- renderBoarder optimieren/ Fehler beheben.
-- Drad and Drop hinzufügen
-- boarderCategory hinzufügen ( toDo - inProgress - testing - done)
+- renderBoarder optimieren / Fehler beheben.
+- Drag and Drop hinzufügen
 */
 
 function renderBoard() {
@@ -196,62 +191,95 @@ function renderBoard() {
     let allToDo = document.getElementById('toDo');
     allToDo.innerHTML = '';
     for (let i = 0; i < allToDos.length; i++) {
-        allToDo.innerHTML += renderBoarders(i);
+        allToDo.innerHTML += renderBoardersInit();
     }
 }
 
 
-// function updateBoarder() {
-
-//     filterTodos(toDo);
-//     filterInProgress(inProgress);
-//     filterTesting(testing);
-//     filterDone(done);
-// }
-
-// function filterTodos(toDo) {
-//     let toDo = allToDos.filter(t => t['boarderCategory'] == 'todo');
-
-//     document.getElementById('toDo').innerHTML = '';
-
-//     for (let i = 0; i < toDo.length; i++) {
-//         const element1 = toDo[i];
-//         document.getElementById('toDo').innerHTML += renderBoarders(element1);
-//     }
-// }
-
-// function filterInProgress(inProgress) {
-//     let inProgress = allToDos.filter(t => t['boarderCategory'] == 'inProgress');
-
-//     document.getElementById('inProgress').innerHTML = '';
-
-//     for (let i = 0; i < inProgress.length; i++) {
-//         const element2 = inProgress[i];
-//         document.getElementById('toDo').innerHTML += renderBoarders(element2);
-//     }
-// }
-
-// function filterTesting(testing) {
-//     let testing = allToDos.filter(t => t['boarderCategory'] == 'testing');
-
-//     document.getElementById('testing').innerHTML = '';
-
-//     for (let i = 0; i < testing.length; i++) {
-//         const element3 = testing[i];
-//         document.getElementById('toDo').innerHTML += renderBoarders(element3);
-//     }
-// }
-
-// function filterDone(done) {
-//     let done = allToDos.filter(t => t['boarderCategory'] == 'done');
-
-//     document.getElementById('done').innerHTML = '';
-
-//     for (let i = 0; i < done.length; i++) {
-//         const element4 = done[i];
-//         document.getElementById('toDo').innerHTML += renderBoarders(element4);
-//     }
-// }
+function renderBoardersInit() {
+    renderToDo();
+    renderInProgress();
+    renderTesting();
+    renderDone();
+    allToDos.sort((a, b) => (a.id > b.id ? 1 : -1));
+}
 
 
+function startDragging(id) {
+    currentDraggedElement = id;
+}
 
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+
+function highlight(id) {
+    document.getElementById(id).classList.add('dragAreaHighlight');
+}
+
+
+function removeHighlight() {
+    document.getElementById(id).classList.remove('dragAreaHighlight');
+
+}
+
+
+function moveTo(status) {
+    tasks.find(task => task.id == currentDraggedElement).status = status;
+    renderBoardersInit();
+}
+
+
+function renderToDo() {
+    let td = document.getElementById('toDo');
+
+    td.innerHTML = ``;
+    allToDos.filter(task => task.status == "toDo").forEach(toDos => {
+        td.innerHTML += renderToDoHTML(toDos);
+        let id = toDos.id;
+        toDos.user.forEach(e => {
+            document.getElementById(`toDo${id}`).innerHTML += renderBoardersToDos(toDos);
+        })
+    })
+}
+
+
+function renderInProgress() {
+    let ip = document.getElementById('inProgress');
+
+    ip.innerHTML = ``;
+    allToDos.filter(task => task.status == "inProgress").forEach(inProgress => {
+        ip.innerHTML += renderInProgressHTML(inProgress);
+        inProgress.user.forEach(e => {
+            document.getElementById(`inProgress${inProgress.id}`).innerHTML += renderBoardersInProgress(inProgress);
+        })
+    })
+}
+
+
+function renderTesting() {
+    let t = document.getElementById('testing');
+
+    t.innerHTML = ``;
+    allToDos.filter(task => task.status == "testing").forEach(testing => {
+        t.innerHTML += renderTestingHTML(testing);
+        testing.user.forEach(e => {
+            document.getElementById(`testing${testing.id}`).innerHTML += renderBoardersTesting(testing);
+        })
+    })
+}
+
+
+function renderDone() {
+    let d = document.getElementById('done');
+
+    d.innerHTML = ``;
+    allToDos.filter(task => task.status == "done").forEach(done => {
+        d.innerHTML += renderDoneHTML(done);
+        done.user.forEach(e => {
+            document.getElementById(`done${done.id}`).innerHTML += renderBoardersDone(done);
+        })
+    })
+}
