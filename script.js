@@ -64,10 +64,12 @@ function safeLocalStorage() {
 
 function loadLocalStorage() {
     let allTasksAsString = localStorage.getItem('allTasks');
-    allTasks = JSON.parse(allTasksAsString);
-
     let allToDosAsString = localStorage.getItem('allToDos');
-    allToDos = JSON.parse(allToDosAsString);
+    
+    if (allTasksAsString && allToDosAsString) {
+        allTasks = JSON.parse(allTasksAsString);
+        allToDos = JSON.parse(allToDosAsString);
+    }
 }
 
 

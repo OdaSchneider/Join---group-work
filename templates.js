@@ -1,6 +1,6 @@
 function renderBoardersToDos(toDos) {
     return /*html*/ `
-        <div draggable="true" ondragstart="startDragging(${toDos["id"]})" class="boardBlocks">
+        <div draggable="true" ondragstart="startDragging(${toDos['id']})" class="boardBlocks">
             <div class="titleAndDescription">
                 <h3 title="Titel">${toDos[i]['title']}</h3>
                 <span title="Beschreibung">${toDos[i]['description']}</span>
@@ -16,7 +16,7 @@ function renderBoardersToDos(toDos) {
 
 function renderBoardersInProgress(inProgress) {
     return /*html*/ `
-        <div draggable="true" ondragstart="startDragging(${inProgress["id"]})" class="boardBlocks">
+        <div draggable="true" ondragstart="startDragging(${inProgress['id']})" class="boardBlocks">
             <div class="titleAndDescription">
                 <h3 title="Titel">${inProgress[i]['title']}</h3>
                 <span title="Beschreibung">${inProgress[i]['description']}</span>
@@ -32,7 +32,7 @@ function renderBoardersInProgress(inProgress) {
 
 function renderBoardersTesting(testing) {
     return /*html*/ `
-        <div draggable="true" ondragstart="startDragging(${testing["id"]})" class="boardBlocks">
+        <div draggable="true" ondragstart="startDragging(${testing['id']})" class="boardBlocks">
             <div class="titleAndDescription">
                 <h3 title="Titel">${testing[i]['title']}</h3>
                 <span title="Beschreibung">${testing[i]['description']}</span>
@@ -48,7 +48,7 @@ function renderBoardersTesting(testing) {
 
 function renderBoardersDone(done) {
     return /*html*/ `
-        <div draggable="true" ondragstart="startDragging(${done["id"]})" class="boardBlocks">
+        <div draggable="true" ondragstart="startDragging(${done['id']})" class="boardBlocks">
             <div class="titleAndDescription">
                 <h3 title="Titel">${done[i]['title']}</h3>
                 <span title="Beschreibung">${done[i]['description']}</span>
