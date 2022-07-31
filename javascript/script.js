@@ -57,8 +57,6 @@ function safeLocalStorage() {
 
     let allToDosAsString = JSON.stringify(allToDos);
     localStorage.setItem('allToDos', allToDosAsString);
-
-    loadLocalStorage();
 }
 
 
@@ -123,9 +121,6 @@ function assignTask(task) {
     }
     if (assignment == 'board') {
         allToDos.push(task);
-    } else {
-        allTasks.push(task);
-        allToDos.push(task);
     }
     safeLocalStorage();
     assignment = '';
@@ -169,8 +164,8 @@ function renderBacklog() {
     let history = document.getElementById('backlog-container');
 
     for (let i = 0; i < allTasks.length; i++) {
-        let username = user[i]['name'];
-        let userimage = user[i]['userImg'];
+        let username = allTasks[i]['assignedUser']['name'];
+        let userimage = allTasks[i]['assignedUser']['userImg'];
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
 
