@@ -1,41 +1,25 @@
 let allTasks = [];
-let allToDos = [{
-    "title": "Test",
-    "description": "hallo ich versuche was",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "boarderCategory": "toDo"
-},
-{
-    "title": "Test",
-    "description": "hallo ich versuche was",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "boarderCategory": "inProgress"
-}];
+let allToDos = [];
 
 let assignment = '';
-<<<<<<< HEAD
 let assignedUser = [];
-=======
-let assignedUser = '';
 let currentDraggedElement;
->>>>>>> 4ce8e5abaa21c04c83566bfee0e0df6e3707cf3c
 
 
 async function init() {
     await includeHTML();
     setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
-    loadLocalStorage();
 }
 
 async function initBacklog() {
     await init();
+    loadLocalStorage();
     renderBacklog();
 }
 
 async function initBoard() {
     await init();
+    loadLocalStorage();
     renderBoard();
 }
 
@@ -111,7 +95,7 @@ function taskArray(title, date, category, urgency, description) {
         'description': description,
         'createdAt': new Date().getTime(),
         'assignment': assignment,
-        'assignedUser' : assignedUser
+        'assignedUser': assignedUser
     };
 
     assignTask(task)
@@ -119,13 +103,10 @@ function taskArray(title, date, category, urgency, description) {
 
 
 function assignTask(task) {
-    if (assignment == 'backlog') {
+    if (assignment = 'backlog') {
         allTasks.push(task);
     }
-    if (assignment == 'board') {
-        allToDos.push(task);
-    }else{
-        allTasks.push(task);
+    if (assignment = 'board') {
         allToDos.push(task);
     }
     safeLocalStorage();
