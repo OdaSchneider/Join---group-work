@@ -225,7 +225,7 @@ label{
 }
 
 .boardDiv {
-    background-color: #F4F2FB;
+    background-color: rgb(230, 230, 230);
     height: 80vh;
     width: 300px;
     border-radius: 8px;
@@ -284,7 +284,7 @@ label{
     border-radius: 8px;
     width: 200px;
     max-width: 199px;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(222, 222, 222);
 }
 
 .titleAndDescription h3 {
@@ -295,6 +295,11 @@ label{
     margin-top: 5px;
     word-wrap: break-word;
 }
+
+.dragAreaHighlight {
+    background-color: rgb(200, 200, 200);
+}
+
 
 /* -----------------------------------backlog---------------------------------------------------*/
 

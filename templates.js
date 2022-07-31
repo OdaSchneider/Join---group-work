@@ -1,18 +1,69 @@
-function renderBoarders(i) {
+function renderBoardersToDos(toDos) {
     return /*html*/ `
-        <div class="boardBlocks">
+        <div draggable="true" ondragstart="startDragging(${toDos['id']})" class="boardBlocks">
             <div class="titleAndDescription">
-                <h3 title="Titel">${allToDos[i]['title']}</h3>
-                <span title="Beschreibung">${allToDos[i]['description']}</span>
+                <h3 title="Titel">${toDos[i]['title']}</h3>
+                <span title="Beschreibung">${toDos[i]['description']}</span>
             </div>
             <div class="datenArrangement">
-                <span title="Erstellungs Datum">${allToDos[i]['date']}</span>
-                <span title="Kategorie">${allToDos[i]['category']}</span>
+                <span title="Erstellungs Datum">${toDos[i]['date']}</span>
+                <span title="Kategorie">${toDos[i]['category']}</span>
                 <img title="Profielbild"src="img/user-guest.ico">
             </div>
         </div>
         `;
 }
+
+function renderBoardersInProgress(inProgress) {
+    return /*html*/ `
+        <div draggable="true" ondragstart="startDragging(${inProgress['id']})" class="boardBlocks">
+            <div class="titleAndDescription">
+                <h3 title="Titel">${inProgress[i]['title']}</h3>
+                <span title="Beschreibung">${inProgress[i]['description']}</span>
+            </div>
+            <div class="datenArrangement">
+                <span title="Erstellungs Datum">${inProgress[i]['date']}</span>
+                <span title="Kategorie">${inProgress[i]['category']}</span>
+                <img title="Profielbild"src="img/user-guest.ico">
+            </div>
+        </div>
+        `;
+}
+
+function renderBoardersTesting(testing) {
+    return /*html*/ `
+        <div draggable="true" ondragstart="startDragging(${testing['id']})" class="boardBlocks">
+            <div class="titleAndDescription">
+                <h3 title="Titel">${testing[i]['title']}</h3>
+                <span title="Beschreibung">${testing[i]['description']}</span>
+            </div>
+            <div class="datenArrangement">
+                <span title="Erstellungs Datum">${testing[i]['date']}</span>
+                <span title="Kategorie">${testing[i]['category']}</span>
+                <img title="Profielbild"src="img/user-guest.ico">
+            </div>
+        </div>
+        `;
+}
+
+function renderBoardersDone(done) {
+    return /*html*/ `
+        <div draggable="true" ondragstart="startDragging(${done['id']})" class="boardBlocks">
+            <div class="titleAndDescription">
+                <h3 title="Titel">${done[i]['title']}</h3>
+                <span title="Beschreibung">${done[i]['description']}</span>
+            </div>
+            <div class="datenArrangement">
+                <span title="Erstellungs Datum">${done[i]['date']}</span>
+                <span title="Kategorie">${done[i]['category']}</span>
+                <img title="Profielbild"src="img/user-guest.ico">
+            </div>
+        </div>
+        `;
+}
+
+
+// #####################################################################################################################################################################################
 
 
 function backlogContainer(userimage, username, category, description) {
