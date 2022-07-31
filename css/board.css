@@ -1,0 +1,99 @@
+/* -----------------------------------Board---------------------------------------------------- */
+
+.tasks {
+    width: 90%;
+    border-radius: 5px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: 100;
+    background-color: beige;
+    padding: 6px;
+    position: relative;
+}
+
+.tasks:hover {
+    cursor: pointer;
+}
+
+.boardHeadline {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.boardDiv {
+    background-color: rgb(230, 230, 230);
+    height: 80vh;
+    width: 300px;
+    border-radius: 8px;
+}
+
+.boardArrangement {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.barStyle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.marginLeftBar {
+    margin-left: 50px;
+}
+
+.boardBlocks {
+    border: 2px solid black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.datenArrangement {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.datenArrangement img {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+}
+
+.datenArrangement span {
+    margin: 5px;
+    font-weight: 600;
+}
+
+.titleAndDescription {
+    margin-left: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 8px;
+    width: 200px;
+    max-width: 199px;
+    background-color: rgb(222, 222, 222);
+}
+
+.titleAndDescription h3 {
+    margin: 0;
+}
+
+.titleAndDescription span {
+    margin-top: 5px;
+    word-wrap: break-word;
+}
+
+.dragAreaHighlight {
+    background-color: rgb(200, 200, 200);
+}
