@@ -18,11 +18,11 @@ let allToDos = [{
 let assignment = '';
 let assignedUser = [];
 
+loadLocalStorage();
 
 async function init() {
     await includeHTML();
     setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
-    loadLocalStorage();
 }
 
 async function initBacklog() {
@@ -65,7 +65,7 @@ function safeLocalStorage() {
 function loadLocalStorage() {
     let allTasksAsString = localStorage.getItem('allTasks');
     let allToDosAsString = localStorage.getItem('allToDos');
-    
+
     if (allTasksAsString && allToDosAsString) {
         allTasks = JSON.parse(allTasksAsString);
         allToDos = JSON.parse(allToDosAsString);
@@ -185,7 +185,7 @@ function renderBacklog() {
 
 /* - TODOS - 
 - renderBoarder optimieren / Fehler beheben.
-- Drag and Drop hinzufügen
+- Drag and Drop muss noch getestet werden.
 */
 
 function renderBoard() {
@@ -203,7 +203,7 @@ function renderBoardersInit() {
     renderInProgress();
     renderTesting();
     renderDone();
-    allToDos.sort((a, b) => (a.id > b.id ? 1 : -1));
+    // allToDos.sort((a, b) => (a.id > b.id ? 1 : -1));
 }
 
 
