@@ -19,7 +19,7 @@ function generateTasksHTML(element, i, type) {
         <div class="tasks ${element['urgency']}" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['UnixStamp']})" id="taskOnBoard${i}${type}">
             <span class="dateOnTask">Due Date: ${element['date']}</span>
             <span class="titleTask">${element['title']}</span>
-            <div class="currentemployee" id="currentemployee${i}${type}"></div> 
+            <div id="currentemployee${i}${type}"></div> 
         </div>    
     `;
 }
