@@ -153,7 +153,7 @@ function removeUser() {
 // ---------------------------Backlog---------------------------------------------------------
 
 
-function renderBacklog() {
+function renderBacklog(id) {
     let history = document.getElementById('backlog-container');
 
     for (let i = 0; i < allTasks.length; i++) {
@@ -162,17 +162,20 @@ function renderBacklog() {
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
 
-        history.innerHTML += backlogContainer(userimage, username, category, description);
-    }
-   
+        history.innerHTML += backlogContainer(id, userimage, username, category, description);
+    }   
 }
 
+/**
+ * sendToBoard funktion einbinden - Splice & Push ?!
+ */
 
-
-
-
-
-
+function sendToBoard() {
+    for (let i = 0; i < allTasks.length; i++) {
+                
+    }
+        
+}    
 
 // ---------------------------Bord--------------------------------------------------------
 

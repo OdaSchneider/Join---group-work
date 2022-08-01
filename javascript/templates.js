@@ -28,13 +28,13 @@ function generateTasksHTML(element, i, type) {
 // #####################################################################################################################################################################################
 
 
-function backlogContainer(userimage, username, category, description) {
+function backlogContainer(id, userimage, username, category, description) {
     return /*html*/ `
-    <div class="backlog-container">
+    <div id="backlog-task${id}" class="backlog-container">
         <div class="backlog-main">
             <div class="backlog-user">
                 <img src="${userimage}">
-                <div><span>${username}</span></div>
+                <div class="username"><span>${username}</span></div>
             </div>
             <div class="backlog-cat">
                 <div>${category}</div>

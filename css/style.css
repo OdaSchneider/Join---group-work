@@ -282,6 +282,10 @@ label{
     width: 230px;
 }
 
+.username {
+    padding-left: 3%;
+}
+
 .backlog-user img {
     width: 50px;
     height: auto;
