@@ -278,7 +278,14 @@ label{
 .backlog-user {
     display: flex;
     justify-content: space-between;
-    width: 350px;
+    align-items: center;
+    width: 230px;
+}
+
+.backlog-user img {
+    width: 50px;
+    height: auto;
+    padding-left: 10px;
 }
 
 .backlog-cat {
@@ -286,14 +293,15 @@ label{
     justify-content: center;
     align-items: center;
     width: 150px;
-    margin-left: 200px;
+    margin-left: 300px;
 }
 
 .backlog-description {
     display: flex;
     justify-content: end;
     width: 690px;
-    margin-left: 50px;
+    margin-left: 30px;
+    padding-right: 1%;
 }
 
 .backlog-send-to {
