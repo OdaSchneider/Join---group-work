@@ -235,8 +235,15 @@ label{
 
 }
 
+.backlog-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .backlog-headlines {
     display: flex;
+    width: 90%;
 
 }
 
@@ -255,12 +262,63 @@ label{
 
 }
 
-.backlog-container {
-    width: 100%;
+.backlog-main {
+    width: 90%;
     background-color: #F4F2FB;
     height: 100px;
     border-radius: 10px;
     margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.backlog-user {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+
+.backlog-cat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    margin-left: 200px;
+}
+
+.backlog-description {
+    display: flex;
+    justify-content: end;
+    width: 690px;
+    margin-left: 50px;
+}
+
+.backlog-send-to {
+    margin-top: 15px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-send-to-board {
+    width: 110px;
+    margin-left: 10%;
+    color: white;
+    background-color: #203192;
+    font-size: 14px;
+    height: 50px;
+    border-radius: 10px;
+    transition: all 100ms ease-in-out;
+}
+
+.btn-send-to-board:hover {
+    background-color: #2e46cf;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+    transition: all 100ms ease-in-out;
 }
 
 /* ----------------animation------------------- */
