@@ -1,13 +1,14 @@
 // ---------------------------Bord--------------------------------------------------------
 
-// setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
+// setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
 let currenDraggedElement;
 
 
 
 
 /* - TODOS - 
-- renderBoarder optimieren / Fehler beheben.
+- loadBoard Fehler beheben.
+- renderBoard funktioniert noch garnicht.
 - Drag and Drop muss noch getestet werden.
 */
 
@@ -36,73 +37,60 @@ function renderBoard() {
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
-    forLoop1(currentToDo);
-    forLoop2(currentInProgress);
-    forLoop3(currentTesting);
-    forLoop4(currentDone);
+    renderToDo(currentToDo);
+    renderInProgress(currentInProgress);
+    renderTesting(currentTesting);
+    renderDone(currentDone);
 }
 
 
-function forLoop1(currentToDo) {
+function renderToDo(currentToDo) {
     for (let i = 0; i < currentToDo.length; i++) {
         let element = currentToDo[i];
         type = 'toDo';
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, type);
-        let assignEmployee = element['assignEmployee'];
-        for (let j = 0; j < assignEmployee.length; j++) {
-            let employee = assignEmployee[j];
-            document.getElementById(`currentemployee${i}${'toDo'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
-        }
     }
 }
 
-function forLoop2(currentInProgress) {
+function renderInProgress(currentInProgress) {
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
         type = 'inProgress';
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, type);
-        let assignEmployee = element['assignEmployee'];
-        for (let j = 0; j < assignEmployee.length; j++) {
-            let employee = assignEmployee[j];
-            document.getElementById(`currentemployee${i}${'inProgress'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
-        }
     }
 }
 
-function forLoop3(currentTesting) {
+function renderTesting(currentTesting) {
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
         type = 'testing';
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i, type);
-        let assignEmployee = element['assignEmployee'];
-        for (let j = 0; j < assignEmployee.length; j++) {
-            let employee = assignEmployee[j];
-            document.getElementById(`currentemployee${i}${'testing'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
-        }
     }
 }
 
-function forLoop4(currentDone) {
+function renderDone(currentDone) {
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
         type = 'done';
         document.getElementById('done').innerHTML += generateTasksHTML(element, i, type);
-        let assignEmployee = element['assignEmployee'];
-        for (let j = 0; j < assignEmployee.length; j++) {
-            let employee = assignEmployee[j];
-            document.getElementById(`currentemployee${i}${'done'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
-        }
     }
 }
 
 
-function startDragging(id) {
-    currentDraggedElement = id;
-}
-
-
-function allowDrop(ev) {
-    ev.preventDefault();
+function pushToOtherBoard(i) {
+    let tasks = allToDos.find(t => t['createdAt'] == i);
+    if (tasks['allToDos'] == 'toDo') {
+        tasks['allToDos'] = 'inProgress'
+    } else {
+        if (tasks['allToDos'] == 'inProgress') {
+            tasks['allToDos'] = 'testing'
+        } else {
+            if (tasks['allToDos'] == 'testing') {
+                tasks['allToDos'] = 'done'
+            }
+        }
+    }
+    save();
 }
 
 
@@ -117,7 +105,18 @@ function removeHighlight() {
 }
 
 
-function moveTo(status) {
-    tasks.find(task => task.id == currentDraggedElement).status = status;
-    renderBoardersInit();
+function startDragging(id) {
+    currentDraggedElement = id;
+}
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+
+function moveTo(i) {
+    let task = allToDos.find(t => t.createdAt === currenDraggedElement);
+    task['id'] = i;
+    save();
 }

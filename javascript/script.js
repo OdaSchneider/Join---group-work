@@ -1,5 +1,4 @@
 let allTasks = [];
-let currentDraggedElement;
 let allToDos = [{
     "title": "Test",
     "description": "hallo ich versuche was",
@@ -29,12 +28,6 @@ async function initBacklog() {
     await init();
     renderBacklog();
 }
-
-async function initBoard() {
-    await init();
-    renderBoard();
-}
-
 
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
