@@ -31,7 +31,7 @@ button {
 }
 
 .d-none{
-    display: none;
+    display: none !important;
 }
 
 /* -----------------------------------startpage---------------------------------------------------- */
@@ -86,7 +86,7 @@ button {
     border: 1px solid lightgray;
     border-radius: 5px;
     height: 32px;
-    width: 80%;
+    width: 90%;
     padding: 5px;
     color: #575757;
 }
@@ -94,7 +94,7 @@ button {
 .columnLeft{
     width: calc(50% - 64px);
     margin: 4px 32px;
-    height: 82%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -121,7 +121,7 @@ input[type="date" i] {
 .addTask select {
     outline: none;
     border: 1px solid lightgray;
-    width: 83%;
+    width: 93%;
     height: 45px;
     padding: 5px;
     border-radius: 5px;
@@ -134,7 +134,7 @@ input[type="date" i] {
     resize: none;
     border: 1px solid lightgray;
     border-radius: 5px;
-    width: 80%;
+    width: 90%;
     height: 140px;
     padding: 10px 5px;
     color: #575757;
@@ -153,6 +153,11 @@ input[type="date" i] {
     height: 32px;
 }
 
+.user{
+    width: 80%;
+    overflow: auto;
+}
+
 .user img{
     border: 1px solid white;
     border-radius: 100%;
@@ -162,7 +167,7 @@ input[type="date" i] {
     height: 55px !important;
     box-sizing: border-box;
     margin-right: 8px;
-    margin-top: 24px;
+    margin-top: 16px;
     cursor: pointer;
     animation: scale-in 225ms ease-in-out;
     transform-origin: 0% 
@@ -221,6 +226,60 @@ label{
     transition: all 125ms ease-in-out;
 }
 
+.dialog{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialogContent{
+    width: 25%;
+    height: 30%;
+    background-color: white;
+    border: 2px solid #203192;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 32px 64px;
+}
+
+.dialogContent h3{
+    color:#203192;
+}
+
+.dialogContent img{
+    cursor: pointer;
+    margin-left: 16px;
+}
+
+.dialogContent input{
+    outline: none;
+    width: 250px;
+    padding: 8px;   
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    color: #575757; 
+}
+
+.dialogContent button{
+    background-color: #2e46cf;
+    color: white;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.dialogContent div{
+    display: flex;
+    align-items: center;
+}
 
 /* -----------------------------------backlog---------------------------------------------------*/
 

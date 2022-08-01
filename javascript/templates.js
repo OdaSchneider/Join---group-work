@@ -42,3 +42,21 @@ function backlogContainer(userimage, username, category, description) {
     </div>            
     `;
 }
+
+// #############################################################################################
+
+function createNewUser(){
+    return `
+        <h3>New User</h3>
+        <div>
+            <input id="newUserFirstName" placeholder="First Name">
+        </div>
+        <div>
+            <input id="newUserLastName"  placeholder="Last Name">
+        </div>
+        <div>
+            <button onclick="addNewUser()">Add User</button>
+            <img onclick="closeDialog()" src="./img/x-mark.ico">
+        </div>
+    `
+}

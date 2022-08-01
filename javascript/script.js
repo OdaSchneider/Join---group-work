@@ -14,19 +14,23 @@ let allToDos = [{
     "id": "inProgress"
 }];
 
-let assignment = '';
 let assignedUser = [];
 
-loadLocalStorage();
 
 async function init() {
     await includeHTML();
     setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
+    loadLocalStorage();
 }
 
 async function initBacklog() {
     await init();
     renderBacklog();
+}
+
+async function initAddTask() {
+    await init();
+    showUser();
 }
 
 async function includeHTML() {
@@ -50,35 +54,28 @@ function safeLocalStorage() {
 
     let allToDosAsString = JSON.stringify(allToDos);
     localStorage.setItem('allToDos', allToDosAsString);
+
+    let userAsString = JSON.stringify(user);
+    localStorage.setItem('user', userAsString);
+
+    loadLocalStorage();
 }
 
 
 function loadLocalStorage() {
     let allTasksAsString = localStorage.getItem('allTasks');
     let allToDosAsString = localStorage.getItem('allToDos');
+    let userAsString = localStorage.getItem('user');
 
-    if (allTasksAsString && allToDosAsString) {
+    if (allTasksAsString && allToDosAsString && userAsString) {
         allTasks = JSON.parse(allTasksAsString);
         allToDos = JSON.parse(allToDosAsString);
+        user = JSON.parse(userAsString);
     }
 }
 
 
 // ---------------------------Add Task---------------------------------------------------------
-
-function sendToBacklog() {
-    document.getElementById('sendBacklog').style.backgroundColor = "#2e46cf";
-    document.getElementById('sendBoard').style.backgroundColor = "white";
-    assignment = document.getElementById('sendBacklog').value;
-}
-
-
-function sendToBoard() {
-    document.getElementById('sendBoard').style.backgroundColor = "#2e46cf";
-    document.getElementById('sendBacklog').style.backgroundColor = "white";
-    assignment = document.getElementById('sendBoard').value;
-}
-
 
 function addTask() {
     let title = document.getElementById('title').value;
@@ -99,7 +96,6 @@ function taskArray(title, date, category, urgency, description) {
         'urgency': urgency,
         'description': description,
         'createdAt': new Date().getTime(),
-        'assignment': assignment,
         'assignedUser': assignedUser,
         'id': 'todo'
     };
@@ -109,14 +105,8 @@ function taskArray(title, date, category, urgency, description) {
 
 
 function assignTask(task) {
-    if (assignment == 'backlog') {
-        allTasks.push(task);
-    }
-    if (assignment == 'board') {
-        allToDos.push(task);
-    }
+    allTasks.push(task);
     safeLocalStorage();
-    assignment = '';
 }
 
 
@@ -131,7 +121,7 @@ function showUser() {
 
     for (let i = 0; i < user.length; i++) {
         let userImg = user[i]['userImg'];
-        profil.innerHTML += `<img id="disable${i}" onclick="selectUser(${i})" src=${userImg}>`;
+        profil.innerHTML += `<img onclick="selectUser(${i})" src=${userImg}>`;
     }
 }
 
@@ -140,14 +130,45 @@ function selectUser(i) {
     assignedUser = user[i];
 
     let assignedToCotainer = document.getElementById('assignedAccount');
-    assignedToCotainer.innerHTML = `<img id="assigned" onclick="removeUser()" src=${assignedUser['userImg']}>`;
+    assignedToCotainer.innerHTML = `<img onclick="removeUser()" src=${assignedUser['userImg']}>`;
 }
 
 
 function removeUser() {
     document.getElementById('assignedAccount').innerHTML = '';
-    assignedUser = '';
 }
+
+
+function openDialogNewUser(){
+    document.getElementById('dialog').classList.remove('d-none');
+    document.getElementById('dialogContent').innerHTML = createNewUser();
+}
+
+
+function closeDialog(){
+    document.getElementById('dialog').classList.add('d-none');
+}
+
+
+function addNewUser(){
+    let firstName = document.getElementById('newUserFirstName').value;
+    let lastName = document.getElementById('newUserLastName').value;
+    pushNewUser(firstName, lastName);
+    document.getElementById('dialog').classList.add('d-none');
+}
+
+
+function pushNewUser(firstName, lastName){
+    let newUser = {
+        'name' : `${firstName} ${lastName}`,
+        'userImg': "./img/user-guest.ico"
+    }
+
+    user.push(newUser);
+    safeLocalStorage();
+    showUser();
+}
+
 
 
 // ---------------------------Backlog---------------------------------------------------------
