@@ -28,18 +28,25 @@ function generateTasksHTML(element, i, type) {
 // #####################################################################################################################################################################################
 
 
-function backlogContainer(userimage, username, category, description) {
+function backlogContainer(id, userimage, username, category, description) {
     return /*html*/ `
-    <div class="backlog-container">
-        <div class="backlog-user">
-            <div>${userimage}</div>
-            <div><span>${username}</span></div>
-        </div>
-        <div class="backlog-cat-description">
-            <div>${category}</div>
-            <div>${description}</div> 
-        </div> 
-    </div>            
+    <div id="backlog-task${id}" class="backlog-container">
+        <div class="backlog-main">
+            <div class="backlog-user">
+                <img src="${userimage}">
+                <div class="username"><span>${username}</span></div>
+            </div>
+            <div class="backlog-cat">
+                <div>${category}</div>
+            </div>
+            <div class="backlog-description">
+                <div>${description}</div> 
+            </div> 
+        </div>          
+        <div class="backlog-send-to">
+            <button class="btn-send-to-board" onclick="sendToBoard()">send to board</button>
+        </div>  
+    </div>
     `;
 }
 
