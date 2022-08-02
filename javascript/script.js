@@ -153,18 +153,18 @@ function removeUser() {
 }
 
 
-function openDialogNewUser(){
+function openDialogNewUser() {
     document.getElementById('dialog').classList.remove('d-none');
     document.getElementById('dialogContent').innerHTML = createNewUser();
 }
 
 
-function closeDialog(){
+function closeDialog() {
     document.getElementById('dialog').classList.add('d-none');
 }
 
 
-function addNewUser(){
+function addNewUser() {
     let firstName = document.getElementById('newUserFirstName').value;
     let lastName = document.getElementById('newUserLastName').value;
     pushNewUser(firstName, lastName);
@@ -172,9 +172,9 @@ function addNewUser(){
 }
 
 
-function pushNewUser(firstName, lastName){
+function pushNewUser(firstName, lastName) {
     let newUser = {
-        'name' : `${firstName} ${lastName}`,
+        'name': `${firstName} ${lastName}`,
         'userImg': "./img/user-guest.ico"
     }
 
@@ -188,7 +188,7 @@ function pushNewUser(firstName, lastName){
 // ---------------------------Backlog---------------------------------------------------------
 
 
-function renderBacklog(id) {
+function renderBacklog() {
     let history = document.getElementById('backlog-container');
 
     for (let i = 0; i < allTasks.length; i++) {
@@ -197,22 +197,23 @@ function renderBacklog(id) {
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
 
-        history.innerHTML += backlogContainer(id, userimage, username, category, description);
-    }   
+        history.innerHTML += backlogContainer(i, userimage, username, category, description);
+    }
 }
 
 /**
  * sendToBoard funktion einbinden - Splice & Push ?!
  */
 
- function sendToBoard(i) {
+function sendToBoard(i) {
     let task = document.getElementById(`backlog-task${i}`);
+
     for (let j = 0; j < allTasks.length; j++) {
         allTasks.splice(i, 1);
         task.classList.add('d-none');
-        
-        
-    }
+        // allToDos.push(task);
+    } 
+  
     safeLocalStorage();
-   
+    renderBacklog();
 }    
