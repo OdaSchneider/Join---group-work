@@ -205,9 +205,14 @@ function renderBacklog(id) {
  * sendToBoard funktion einbinden - Splice & Push ?!
  */
 
-function sendToBoard() {
-    for (let i = 0; i < allTasks.length; i++) {
-                
-    }
+ function sendToBoard(i) {
+    let task = document.getElementById(`backlog-task${i}`);
+    for (let j = 0; j < allTasks.length; j++) {
+        allTasks.splice(i, 1);
+        task.classList.add('d-none');
         
-}
+        
+    }
+    safeLocalStorage();
+   
+}    

@@ -49,9 +49,9 @@ function generateOpenTaskHTML(task) {
 // #####################################################################################################################################################################################
 
 
-function backlogContainer(id, userimage, username, category, description) {
+function backlogContainer(i, userimage, username, category, description) {
     return /*html*/ `
-    <div id="backlog-task${id}" class="backlog-container">
+    <div id="backlog-task${i}" class="backlog-container">
         <div class="backlog-main">
             <div class="backlog-user">
                 <img src="${userimage}">
@@ -65,7 +65,7 @@ function backlogContainer(id, userimage, username, category, description) {
             </div> 
         </div>          
         <div class="backlog-send-to">
-            <button class="btn-send-to-board" onclick="sendToBoard()">send to board</button>
+            <button class="btn-send-to-board" onclick="sendToBoard(${i})">send to board</button>
         </div>  
     </div>
     `;
