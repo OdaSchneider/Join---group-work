@@ -93,7 +93,7 @@ function createNewUser(){
 function editUser(firstName, lastName, userImg, i){
 return `
     <div class="editUsers">
-        <span onclick="deleteUser(${i})">X</span>
+        <span onclick="deleteUser(${i})"><b>X</b></span>
         <img src=${userImg}>
         <p>${firstName} ${lastName}</p>
     <div>`

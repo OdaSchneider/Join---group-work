@@ -300,7 +300,6 @@ input[type="date" i] {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
     padding: 32px 64px;
     overflow: auto;
     position: relative;
@@ -308,11 +307,13 @@ input[type="date" i] {
 
 .dialogContent h3{
     color:#203192;
+    margin-bottom: 32px;
 }
 
 .closeDialogImg{
     cursor: pointer;
     margin-left: 16px;
+    margin-top: 32px;
 }
 
 .dialogContent input{
@@ -322,6 +323,7 @@ input[type="date" i] {
     border: 1px solid lightgray;
     border-radius: 5px;
     color: #575757; 
+    margin-bottom: 32px;
 }
 
 .dialogContent div{
@@ -335,6 +337,7 @@ input[type="date" i] {
     padding: 6px;
     border-radius: 5px;
     font-size: 16px;
+    margin-top: 32px;
 }
 
 /* -----------------------------------backlog---------------------------------------------------*/
