@@ -1,9 +1,10 @@
 /* -----------------------------------Board---------------------------------------------------- */
 
 .tasks {
-    width: 90%;
+    width: 92%;
     border-radius: 5px;
     margin-top: 5px;
+    margin-left: 5px;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -48,53 +49,6 @@
     margin-left: 50px;
 }
 
-.boardBlocks {
-    border: 2px solid black;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
-
-.datenArrangement {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.datenArrangement img {
-    height: 30px;
-    width: 30px;
-    margin: 5px;
-}
-
-.datenArrangement span {
-    margin: 5px;
-    font-weight: 600;
-}
-
-.titleAndDescription {
-    margin-left: 5px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    border-radius: 8px;
-    width: 200px;
-    max-width: 199px;
-    background-color: rgb(222, 222, 222);
-}
-
-.titleAndDescription h3 {
-    margin: 0;
-}
-
-.titleAndDescription span {
-    margin-top: 5px;
-    word-wrap: break-word;
-}
-
 .dragAreaHighlight {
     background-color: rgb(200, 200, 200);
 }
@@ -120,4 +74,163 @@
     height: 30px;
     border-radius: 100%;
     padding: 2px;
+}
+
+.overlayBg {
+    transition: transform 250ms ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(225, 225, 225, 0.8);
+    z-index: 998;
+    filter: opacity(100%);
+    height: 100%;
+    animation: reveal1 225ms ease-in-out;
+}
+
+.exit-openTask {
+    animation: exitUp 500ms ease-in-out;
+}
+
+.exit-ani-o-t {
+    animation: exit 400ms ease-in-out;
+}
+
+.openTask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(189, 189, 189);
+    height: fit-content;
+    padding: 8px;
+    width: 400px;
+    border-radius: 6px;
+    z-index: 999;
+    animation: reveal2 225ms ease-in-out;
+}
+
+.headerOpenTask {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.closeTask {
+    padding: 4px;
+    font-size: 12px;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+}
+
+.closeTask:hover {
+    cursor: pointer;
+}
+
+.trash {
+    padding: 2px;
+    width: 20px;
+}
+
+.header2OpenTask {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: larger;
+    margin-top: 16px;
+    margin-bottom: 4px;
+}
+
+.textOpenTask {
+    overflow-y: auto;
+}
+
+.footerTask {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.pushTo {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pushTo img {
+    margin-left: 8px;
+}
+
+
+
+
+@keyframes reveal2 {
+    0% {
+        margin-top: -200px;
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.50;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes exit {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.50;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes exitUp {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    50% {
+        opacity: 0.50;
+    }
+    75% {
+        opacity: 0.25;
+    }
+    100% {
+        margin-top: -200px;
+        opacity: 0;
+    }
 }

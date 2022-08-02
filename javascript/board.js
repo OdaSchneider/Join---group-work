@@ -16,14 +16,16 @@ let currenDraggedElement;
 
 
 async function loadBoard() {
-    await downloadFromServer();
-    allToDos = JSON.parse(backend.getItem('allToDos')) || [];
+    // await downloadFromServer();
+    // allToDos = JSON.parse(backend.getItem('allToDos')) || [];
+    loadLocalStorage();
     renderBoard();
 }
 
 
 async function save() {
-    await backend.setItem('allToDos', JSON.stringify(allToDos));
+    // await backend.setItem('allToDos', JSON.stringify(allToDos));
+    safeLocalStorage();
     loadBoard();
 }
 
@@ -49,6 +51,11 @@ function renderToDo(currentToDo) {
         let element = currentToDo[i];
         type = 'toDo';
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, type);
+        let assignedUser = element['assignedUser'];
+        for (let j = 0; j < assignedUser.length; j++) {
+            let employee = assignedUser[j];
+            document.getElementById(`currentemployee${i}${'toDo'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
+        }
     }
 }
 
@@ -57,6 +64,11 @@ function renderInProgress(currentInProgress) {
         let element = currentInProgress[i];
         type = 'inProgress';
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, type);
+        let assignedUser = element['assignedUser'];
+        for (let j = 0; j < assignedUser.length; j++) {
+            let employee = assignedUser[j];
+            document.getElementById(`currentemployee${i}${'inProgress'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
+        }
     }
 }
 
@@ -65,6 +77,11 @@ function renderTesting(currentTesting) {
         let element = currentTesting[i];
         type = 'testing';
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i, type);
+        let assignedUser = element['assignedUser'];
+        for (let j = 0; j < assignedUser.length; j++) {
+            let employee = assignedUser[j];
+            document.getElementById(`currentemployee${i}${'testing'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
+        }
     }
 }
 
@@ -73,24 +90,68 @@ function renderDone(currentDone) {
         let element = currentDone[i];
         type = 'done';
         document.getElementById('done').innerHTML += generateTasksHTML(element, i, type);
+        let assignedUser = element['assignedUser'];
+        for (let j = 0; j < assignedUser.length; j++) {
+            let employee = assignedUser[j];
+            document.getElementById(`currentemployee${i}${'done'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
+        }
     }
 }
 
 
 function pushToOtherBoard(i) {
     let tasks = allToDos.find(t => t['createdAt'] == i);
-    if (tasks['allToDos'] == 'toDo') {
-        tasks['allToDos'] = 'inProgress'
+    if (tasks['id'] == 'toDo') {
+        tasks['id'] = 'inProgress'
     } else {
-        if (tasks['allToDos'] == 'inProgress') {
-            tasks['allToDos'] = 'testing'
+        if (tasks['id'] == 'inProgress') {
+            tasks['id'] = 'testing'
         } else {
-            if (tasks['allToDos'] == 'testing') {
-                tasks['allToDos'] = 'done'
+            if (tasks['id'] == 'testing') {
+                tasks['id'] = 'done'
             }
         }
     }
     save();
+}
+
+
+function openTask(i, type) {
+    document.getElementById('overlayBg').classList.remove('d-none');
+    document.getElementById('openTask').classList.remove('d-none');
+    let tasks = allToDos.filter(t => t['id'] == type);
+    if (tasks[i]['id'] == 'toDo') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+        document.getElementById('pushTo').innerHTML = 'Push to in Progress';
+    }
+    if (tasks[i]['id'] == 'inProgress') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+        document.getElementById('pushTo').innerHTML = 'Push to Testing';
+    }
+    if (tasks[i]['id'] == 'testing') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+        document.getElementById('pushTo').innerHTML = 'Push to in Done';
+    }
+    if (tasks[i]['id'] == 'done') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+    }
+}
+
+
+function backToBoard() {
+    document.getElementById('overlayBg').classList.add('exit-ani-o-t');
+    document.getElementById('openTask1').classList.add('exit-openTask');
+    setTimeout(() => {
+        document.getElementById('overlayBg').classList.add('d-none');
+        document.getElementById('openTask1').classList.add('d-none');
+        document.getElementById('openTask').classList.add('d-none');
+
+    }, 300);
+    setTimeout(() => {
+        document.getElementById('openTask1').classList.remove('exit-openTask');
+        document.getElementById('overlayBg').classList.remove('exit-ani-o-t');
+    }, 300);
+
 }
 
 

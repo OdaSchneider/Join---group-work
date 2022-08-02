@@ -1,17 +1,31 @@
 let allTasks = [];
 let allToDos = [{
-    "title": "Test",
+    "title": "TestTodo",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
     "id": "toDo"
 },
 {
-    "title": "Test",
+    "title": "TestInProgress",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
     "id": "inProgress"
+},
+{
+    "title": "TestTesting",
+    "description": "hallo ich versuche was",
+    "date": "12.12.2012",
+    "category": "Developer",
+    "id": "testing"
+},
+{
+    "title": "TestDone",
+    "description": "hallo ich versuche was",
+    "date": "12.12.2012",
+    "category": "Developer",
+    "id": "done"
 }];
 
 let assignedUser = [];
@@ -141,20 +155,20 @@ function removeUser() {
 }
 
 
-function openDialogNewUser(){
+function openDialogNewUser() {
     document.getElementById('dialog').classList.remove('d-none');
     document.getElementById('dialogContent').innerHTML = createNewUser();
 }
 
 
-function closeDialog(){
+function closeDialog() {
     document.getElementById('dialog').classList.add('d-none');
     document.getElementById('dialogContent').innerHTML = '';
     showUser();
 }
 
 
-function addNewUser(){
+function addNewUser() {
     let firstName = document.getElementById('newUserFirstName').value;
     let lastName = document.getElementById('newUserLastName').value;
     checkForUser(firstName, lastName);
@@ -215,7 +229,7 @@ function deleteUser(i){
 // ---------------------------Backlog---------------------------------------------------------
 
 
-function renderBacklog(id) {
+function renderBacklog() {
     let history = document.getElementById('backlog-container');
 
     for (let i = 0; i < allTasks.length; i++) {
@@ -224,123 +238,23 @@ function renderBacklog(id) {
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
 
-        history.innerHTML += backlogContainer(id, userimage, username, category, description);
-    }   
+        history.innerHTML += backlogContainer(i, userimage, username, category, description);
+    }
 }
 
 /**
  * sendToBoard funktion einbinden - Splice & Push ?!
  */
 
-function sendToBoard() {
-    for (let i = 0; i < allTasks.length; i++) {
-                
-    }
-        
+function sendToBoard(i) {
+    let task = document.getElementById(`backlog-task${i}`);
+
+    for (let j = 0; j < allTasks.length; j++) {
+        allTasks.splice(i, 1);
+        task.classList.add('d-none');
+        // allToDos.push(task);
+    } 
+  
+    safeLocalStorage();
+    renderBacklog();
 }    
-
-// ---------------------------Bord--------------------------------------------------------
-
-/* - TODOS - 
-- renderBoarder optimieren / Fehler beheben.
-- Drag and Drop hinzufügen
-*/
-
-function renderBoard() {
-
-    let allToDo = document.getElementById('toDo');
-    allToDo.innerHTML = '';
-    for (let i = 0; i < allToDos.length; i++) {
-        allToDo.innerHTML += renderBoardersInit();
-    }
-    
-}
-
-
-function renderBoardersInit() {
-    renderToDo();
-    renderInProgress();
-    renderTesting();
-    renderDone();
-    allToDos.sort((a, b) => (a.id > b.id ? 1 : -1));
-}
-
-
-function renderToDo() {
-    let td = document.getElementById('toDo');
-
-    td.innerHTML = ``;
-    allToDos.filter(task => task.status == "toDo").forEach(toDos => {
-        td.innerHTML += renderToDoHTML(toDos);
-        let id = toDos.id;
-        toDos.user.forEach(e => {
-            document.getElementById(`toDo${id}`).innerHTML += renderBoardersToDos(toDos);
-        })
-    })
-}
-
-
-function renderInProgress() {
-    let ip = document.getElementById('inProgress');
-
-    ip.innerHTML = ``;
-    allToDos.filter(task => task.status == "inProgress").forEach(inProgress => {
-        ip.innerHTML += renderInProgressHTML(inProgress);
-        inProgress.user.forEach(e => {
-            document.getElementById(`inProgress${inProgress.id}`).innerHTML += renderBoardersInProgress(inProgress);
-        })
-    })
-}
-
-
-function renderTesting() {
-    let t = document.getElementById('testing');
-
-    t.innerHTML = ``;
-    allToDos.filter(task => task.status == "testing").forEach(testing => {
-        t.innerHTML += renderTestingHTML(testing);
-        testing.user.forEach(e => {
-            document.getElementById(`testing${testing.id}`).innerHTML += renderBoardersTesting(testing);
-        })
-    })
-}
-
-
-function renderDone() {
-    let d = document.getElementById('done');
-
-    d.innerHTML = ``;
-    allToDos.filter(task => task.status == "done").forEach(done => {
-        d.innerHTML += renderDoneHTML(done);
-        done.user.forEach(e => {
-            document.getElementById(`done${done.id}`).innerHTML += renderBoardersDone(done);
-        })
-    })
-}
-
-
-function startDragging(id) {
-    currentDraggedElement = id;
-}
-
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-
-function highlight(id) {
-    document.getElementById(id).classList.add('dragAreaHighlight');
-}
-
-
-function removeHighlight() {
-    document.getElementById(id).classList.remove('dragAreaHighlight');
-
-}
-
-
-function moveTo(status) {
-    tasks.find(task => task.id == currentDraggedElement).status = status;
-    renderBoardersInit();
-}

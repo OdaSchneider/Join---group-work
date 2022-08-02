@@ -1,6 +1,4 @@
 /* -----------------------------------general settings------------------------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 
 html {
     scroll-behavior: smooth;
@@ -147,6 +145,12 @@ input[type="date" i] {
     width: 80%;
 }
 
+.assigneToAccount div {
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+}
+
 .assigneToAccount img {
     cursor: pointer;
     width: 32px;
@@ -266,12 +270,14 @@ input[type="date" i] {
     color: white;
     padding: 12px;
     border-radius: 12px;
-    transition: all 125ms ease-in-out;
+    transition: all 100ms ease-in-out;
 }
 
 .createTaskButton:hover {
     background-color: #2e46cf;
-    transition: all 125ms ease-in-out;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+    transition: all 100ms ease-in-out;
 }
 
 .dialog{
