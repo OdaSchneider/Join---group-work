@@ -94,7 +94,7 @@ button {
 .columnLeft{
     width: calc(50% - 64px);
     margin: 4px 32px;
-    height: 90%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -135,7 +135,7 @@ input[type="date" i] {
     border: 1px solid lightgray;
     border-radius: 5px;
     width: 90%;
-    height: 140px;
+    height: 125px;
     padding: 10px 5px;
     color: #575757;
 }
@@ -153,9 +153,23 @@ input[type="date" i] {
     height: 32px;
 }
 
+#assignedAccount{
+    display: flex;
+    align-items: center;
+}
+
+#assignedAccount img{
+    border-radius: 100%;
+    margin-left: 8px;
+    border: 2px solid #2e46cf;
+    background-color: #2e46cf;
+}
+
 .user{
+    display: flex;
     width: 80%;
     overflow: auto;
+    height: 90px;
 }
 
 .user img{
@@ -166,23 +180,57 @@ input[type="date" i] {
     width: 55px !important;
     height: 55px !important;
     box-sizing: border-box;
-    margin-right: 8px;
-    margin-top: 16px;
     cursor: pointer;
     animation: scale-in 225ms ease-in-out;
     transform-origin: 0% 
 }
 
-.sendToButton{
-    width: 12px !important;
-    height: 12px !important;
-    border-radius: 100px !important;
-    background-color: white;
-    border: 1px solid #2e46cf;
-    padding: unset;
+.showUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
 }
 
-label{
+.showUser p{
+    margin: unset;
+    font-size: 12px;
+}
+
+.editUserButton{
+    color:#2e46cf;
+    font-size: 12px !important;
+    width: 70px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.editUsers{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.x-mark{
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.editUsers img{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    background-color: #203192;
+    margin-right: 16px;
+}
+
+.editUsers span{
+    cursor: pointer;
+    color: #203192;
     margin-right: 16px;
 }
 
@@ -238,34 +286,41 @@ label{
 }
 
 .dialogContent{
-    width: 25%;
-    height: 30%;
+    width: 30%;
+    height: 35%;
     background-color: white;
     border: 2px solid #203192;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 32px 64px;
+    overflow: auto;
+    position: relative;
 }
 
 .dialogContent h3{
     color:#203192;
 }
 
-.dialogContent img{
+.closeDialogImg{
     cursor: pointer;
     margin-left: 16px;
 }
 
 .dialogContent input{
     outline: none;
-    width: 250px;
+    width: 225px;
     padding: 8px;   
     border: 1px solid lightgray;
     border-radius: 5px;
     color: #575757; 
+}
+
+.dialogContent div{
+    display: flex;
+    align-items: center;
 }
 
 .dialogContent button{
@@ -274,11 +329,6 @@ label{
     padding: 6px;
     border-radius: 5px;
     font-size: 16px;
-}
-
-.dialogContent div{
-    display: flex;
-    align-items: center;
 }
 
 /* -----------------------------------backlog---------------------------------------------------*/

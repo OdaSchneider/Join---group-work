@@ -121,7 +121,9 @@ function showUser() {
 
     for (let i = 0; i < user.length; i++) {
         let userImg = user[i]['userImg'];
-        profil.innerHTML += `<img onclick="selectUser(${i})" src=${userImg}>`;
+        let firstName = user[i]['first name'].charAt(0).toLocaleUpperCase();
+        let lastName = user[i]['last name'].charAt(0).toLocaleUpperCase();
+        profil.innerHTML += templateShowUser(userImg, firstName, lastName ,i);
     }
 }
 
@@ -147,20 +149,41 @@ function openDialogNewUser(){
 
 function closeDialog(){
     document.getElementById('dialog').classList.add('d-none');
+    document.getElementById('dialogContent').innerHTML = '';
+    showUser();
 }
 
 
 function addNewUser(){
     let firstName = document.getElementById('newUserFirstName').value;
     let lastName = document.getElementById('newUserLastName').value;
-    pushNewUser(firstName, lastName);
+    checkForUser(firstName, lastName);
     document.getElementById('dialog').classList.add('d-none');
+}
+
+
+function checkForUser(firstName, lastName){
+    let found = false;
+    for (let i = 0; i < user.length; i++) {
+        let checkFirstName = user[i]['first name'];
+        let checkLastName = user[i]['last name'];
+        if(checkFirstName==firstName&&checkLastName==lastName){
+            found = true;
+            break;
+        }
+    }
+    if(!found){
+        pushNewUser(firstName, lastName);
+    }else{
+        alert('User already exsist')
+    }
 }
 
 
 function pushNewUser(firstName, lastName){
     let newUser = {
-        'name' : `${firstName} ${lastName}`,
+        'first name' : `${firstName}`,
+        'last name' : `${lastName}`,
         'userImg': "./img/user-guest.ico"
     }
 
@@ -170,6 +193,24 @@ function pushNewUser(firstName, lastName){
 }
 
 
+function openDialogEditUser(){
+    document.getElementById('dialog').classList.remove('d-none');
+    let editProfil = document.getElementById('dialogContent');
+    editProfil.innerHTML = `<img class="x-mark" onclick="closeDialog()" src="./img/x-mark.ico"></img>`;
+    for (let i = 0; i < user.length; i++) {
+        let firstName = user[i]['first name'];
+        let lastName = user[i]['last name']
+        let userImg = user[i]['userImg'];
+        editProfil.innerHTML +=  editUser(firstName, lastName, userImg, i);
+    }
+}
+
+
+function deleteUser(i){
+    user.splice(i, 1);
+    safeLocalStorage();
+    openDialogEditUser();
+}
 
 // ---------------------------Backlog---------------------------------------------------------
 

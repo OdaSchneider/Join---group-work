@@ -1,21 +1,25 @@
 let user = [
     {
-        'name': 'Fabian Flegler',
+        'first name': 'Fabian',
+        'last name': 'Flegler',
         'userImg': "./img/profile1.png"
     },
     {
-        'name': 'Marcel Berlin',
+        'first name': 'Marcel',
+        'last name': 'Berlin',
         'userImg': "./img/profile2.png"
     },
     {
-        'name': 'Oda Schneider',
+        'first name': 'Oda',
+        'last name': 'Schneider',
         'userImg': "./img/profile3.jpg"
     }
 ]
 
 let guest = [
     {
-        'name': 'Guest',
+        'first name': 'guest',
+        'last name': 'guest',
         'userImg': "./img/user-guest.ico"
     }
 ]

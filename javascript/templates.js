@@ -63,7 +63,26 @@ function createNewUser(){
         </div>
         <div>
             <button onclick="addNewUser()">Add User</button>
-            <img onclick="closeDialog()" src="./img/x-mark.ico">
+            <img class="closeDialogImg" onclick="closeDialog()" src="./img/x-mark.ico">
         </div>
     `
+}
+
+
+function editUser(firstName, lastName, userImg, i){
+return `
+    <div class="editUsers">
+        <span onclick="deleteUser(${i})">X</span>
+        <img src=${userImg}>
+        <p>${firstName} ${lastName}</p>
+    <div>`
+}
+
+
+function templateShowUser(userImg, firstName, lastName ,i){
+    return`
+    <div class="showUser">
+    <img onclick="selectUser(${i})" src=${userImg}>
+    <p>${firstName} ${lastName}</p>
+    </div>`
 }
