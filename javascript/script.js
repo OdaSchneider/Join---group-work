@@ -1,17 +1,31 @@
 let allTasks = [];
 let allToDos = [{
-    "title": "Test",
+    "title": "TestTodo",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
     "id": "toDo"
 },
 {
-    "title": "Test",
+    "title": "TestInProgress",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
     "id": "inProgress"
+},
+{
+    "title": "TestTesting",
+    "description": "hallo ich versuche was",
+    "date": "12.12.2012",
+    "category": "Developer",
+    "id": "testing"
+},
+{
+    "title": "TestDone",
+    "description": "hallo ich versuche was",
+    "date": "12.12.2012",
+    "category": "Developer",
+    "id": "done"
 }];
 
 let assignedUser = [];
