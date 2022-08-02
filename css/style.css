@@ -147,6 +147,12 @@ input[type="date" i] {
     width: 80%;
 }
 
+.assigneToAccount div {
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+}
+
 .assigneToAccount img {
     cursor: pointer;
     width: 32px;
