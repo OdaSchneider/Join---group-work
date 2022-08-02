@@ -224,12 +224,14 @@ label{
     color: white;
     padding: 12px;
     border-radius: 12px;
-    transition: all 125ms ease-in-out;
+    transition: all 100ms ease-in-out;
 }
 
 .createTaskButton:hover {
     background-color: #2e46cf;
-    transition: all 125ms ease-in-out;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+    transition: all 100ms ease-in-out;
 }
 
 .dialog{
