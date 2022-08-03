@@ -8,7 +8,6 @@ let currenDraggedElement;
 
 /* - TODOS - 
 - loadBoard Fehler beheben.
-- renderBoard funktioniert noch garnicht.
 - Drag and Drop muss noch getestet werden.
 */
 
