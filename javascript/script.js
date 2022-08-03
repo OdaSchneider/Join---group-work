@@ -1,31 +1,36 @@
 let allTasks = [];
-let allToDos = [{
+let allToDos = [
+{
     "title": "TestTodo",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
-    "id": "toDo"
+    "status": "toDo",
+    "id": `1`
 },
 {
-    "title": "TestInProgress",
+    "title": "TestInprogress",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
-    "id": "inProgress"
+    "status": "inProgress",
+    "id": `2`
 },
 {
     "title": "TestTesting",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
-    "id": "testing"
+    "status": "testing",
+    "id": `3`
 },
 {
     "title": "TestDone",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
-    "id": "done"
+    "status": "done",
+    "id": `4`
 }];
 
 let assignedUser = [];
@@ -111,7 +116,8 @@ function taskArray(title, date, category, urgency, description) {
         'description': description,
         'createdAt': new Date().getTime(),
         'assignedUser': assignedUser,
-        'id': 'todo'
+        'id': `${i}`,
+        'status': 'todo'
     };
 
     assignTask(task);
@@ -233,12 +239,13 @@ function renderBacklog() {
     let history = document.getElementById('backlog-container');
 
     for (let i = 0; i < allTasks.length; i++) {
-        let username = allTasks[i]['assignedUser']['name'];
+        let userfirstname = user[i]['first name'];
+        let userlastname = user[i]['last name'];
         let userimage = allTasks[i]['assignedUser']['userImg'];
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
 
-        history.innerHTML += backlogContainer(i, userimage, username, category, description);
+        history.innerHTML += backlogContainer(i, userimage, userfirstname, userlastname, category, description);
     }
 }
 

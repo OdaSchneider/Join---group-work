@@ -8,7 +8,6 @@ let currentDraggedElement;
 
 /* - TODOS - 
 - loadBoard Fehler beheben.
-- renderBoard funktioniert noch garnicht.
 - Drag and Drop muss noch getestet werden.
 */
 
@@ -31,14 +30,10 @@ async function save() {
 
 
 function renderBoard() {
-    let currentToDo = allToDos.filter(t => t['id'] == 'toDo');
-    let currentInProgress = allToDos.filter(t => t['id'] == 'inProgress');
-    let currentTesting = allToDos.filter(t => t['id'] == 'testing');
-    let currentDone = allToDos.filter(t => t['id'] == 'done');
-    document.getElementById('toDo').innerHTML = '';
-    document.getElementById('inProgress').innerHTML = '';
-    document.getElementById('testing').innerHTML = '';
-    document.getElementById('done').innerHTML = '';
+    let currentToDo = allToDos.filter(t => t['status'] == 'toDo');
+    let currentInProgress = allToDos.filter(t => t['status'] == 'inProgress');
+    let currentTesting = allToDos.filter(t => t['status'] == 'testing');
+    let currentDone = allToDos.filter(t => t['status'] == 'done');
     renderToDo(currentToDo);
     renderInProgress(currentInProgress);
     renderTesting(currentTesting);
@@ -47,11 +42,11 @@ function renderBoard() {
 
 
 function renderToDo(currentToDo) {
+    document.getElementById('toDo').innerHTML = '';
     for (let i = 0; i < currentToDo.length; i++) {
         let element = currentToDo[i];
         type = 'toDo';
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, type);
-        let assignedUser = element['assignedUser'];
         for (let j = 0; j < assignedUser.length; j++) {
             let employee = assignedUser[j];
             document.getElementById(`currentemployee${i}${'toDo'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
@@ -60,11 +55,11 @@ function renderToDo(currentToDo) {
 }
 
 function renderInProgress(currentInProgress) {
+    document.getElementById('inProgress').innerHTML = '';
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
         type = 'inProgress';
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, type);
-        let assignedUser = element['assignedUser'];
         for (let j = 0; j < assignedUser.length; j++) {
             let employee = assignedUser[j];
             document.getElementById(`currentemployee${i}${'inProgress'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
@@ -73,11 +68,11 @@ function renderInProgress(currentInProgress) {
 }
 
 function renderTesting(currentTesting) {
+    document.getElementById('testing').innerHTML = '';
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
         type = 'testing';
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i, type);
-        let assignedUser = element['assignedUser'];
         for (let j = 0; j < assignedUser.length; j++) {
             let employee = assignedUser[j];
             document.getElementById(`currentemployee${i}${'testing'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
@@ -86,11 +81,11 @@ function renderTesting(currentTesting) {
 }
 
 function renderDone(currentDone) {
+    document.getElementById('done').innerHTML = '';
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
         type = 'done';
         document.getElementById('done').innerHTML += generateTasksHTML(element, i, type);
-        let assignedUser = element['assignedUser'];
         for (let j = 0; j < assignedUser.length; j++) {
             let employee = assignedUser[j];
             document.getElementById(`currentemployee${i}${'done'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
@@ -99,43 +94,25 @@ function renderDone(currentDone) {
 }
 
 
-function pushToOtherBoard(i) {
-    let tasks = allToDos.find(t => t['createdAt'] == i);
-    if (tasks['id'] == 'toDo') {
-        tasks['id'] = 'inProgress'
-    } else {
-        if (tasks['id'] == 'inProgress') {
-            tasks['id'] = 'testing'
-        } else {
-            if (tasks['id'] == 'testing') {
-                tasks['id'] = 'done'
-            }
-        }
-    }
-    save();
-}
-
-
 function openTask(i, type) {
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
-    let tasks = allToDos.filter(t => t['id'] == type);
-    if (tasks[i]['id'] == 'toDo') {
+    let tasks = allToDos.filter(t => t['status'] == type);
+
+    if (tasks[i]['status'] == 'toDo') {
         document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
-        document.getElementById('pushTo').innerHTML = 'Push to in Progress';
     }
-    if (tasks[i]['id'] == 'inProgress') {
+    if (tasks[i]['status'] == 'inProgress') {
         document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
-        document.getElementById('pushTo').innerHTML = 'Push to Testing';
     }
     if (tasks[i]['id'] == 'testing') {
         document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
-        document.getElementById('pushTo').innerHTML = 'Push to in Done';
     }
     if (tasks[i]['id'] == 'done') {
         document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
     }
 }
+
 
 
 function backToBoard() {
@@ -151,8 +128,9 @@ function backToBoard() {
         document.getElementById('openTask1').classList.remove('exit-openTask');
         document.getElementById('overlayBg').classList.remove('exit-ani-o-t');
     }, 300);
-
 }
+
+
 
 
 function highlight(id) {
@@ -160,7 +138,7 @@ function highlight(id) {
 }
 
 
-function removeHighlight() {
+function removeHighlight(id) {
     document.getElementById(id).classList.remove('dragAreaHighlight');
 }
 
@@ -176,7 +154,7 @@ function allowDrop(ev) {
 
 
 function moveTo(i) {
-    let task = allToDos.find(t => t.createdAt === currenDraggedElement);
+    let task = allToDos.find(t => t.createdAt === currentDraggedElement);
     task['id'] = i;
     save();
 }

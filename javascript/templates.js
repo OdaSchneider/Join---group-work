@@ -17,10 +17,6 @@ function generateOpenTaskHTML(task) {
                     Due Date: 
                     <span class="bold">${task['date']}</span>
                 </div>
-                <div class="column">
-                    Created On: 
-                    <span class="bold">${task['createdAt']}</span>
-                </div>
                 <div class="closeTask" onclick="backToBoard()"><img class="trash" src="img/close.png"></div>
             </div> 
             <div class="header2OpenTask">
@@ -55,7 +51,7 @@ function backlogContainer(i, userimage, username, category, description) {
         <div class="backlog-main">
             <div class="backlog-user">
                 <img src="${userimage}">
-                <div class="username"><span>${username}</span></div>
+                <div class="username"><span>${userfirstname} ${userlastname}</span></div>
             </div>
             <div class="backlog-cat">
                 <div>${category}</div>
