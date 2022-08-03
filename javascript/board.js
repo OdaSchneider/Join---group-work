@@ -1,7 +1,7 @@
 // ---------------------------Bord--------------------------------------------------------
 
 // setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
-let currenDraggedElement;
+let currentDraggedElement;
 
 
 
@@ -162,7 +162,6 @@ function highlight(id) {
 
 function removeHighlight() {
     document.getElementById(id).classList.remove('dragAreaHighlight');
-
 }
 
 

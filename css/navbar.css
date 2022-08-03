@@ -36,6 +36,10 @@
     border-left: 4px solid white;
 }
 
+.active{
+    border-left: 4px solid white;
+}
+
 .navbar a {
     color: #D8D8D8;
     text-align: left;
