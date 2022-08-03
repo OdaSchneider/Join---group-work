@@ -99,13 +99,20 @@ function openTask(i, type) {
     document.getElementById('openTask').classList.remove('d-none');
     let tasks = allToDos.filter(t => t['status'] == type);
 
-    if (tasks[i]['status'] == 'toDo' && 'inProgress') {
+    if (tasks[i]['status'] == 'toDo') {
         document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
     }
-    if (tasks[i]['status'] == 'testing' && 'done') {
+    if (tasks[i]['status'] == 'inProgress') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+    }
+    if (tasks[i]['id'] == 'testing') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+    }
+    if (tasks[i]['id'] == 'done') {
         document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
     }
 }
+
 
 
 function backToBoard() {
