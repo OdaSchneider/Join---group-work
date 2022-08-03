@@ -30,22 +30,20 @@ async function save() {
 
 
 function renderBoard() {
-    let currentToDo = allToDos.filter(t => t['status'] == 'toDo');
-    let currentInProgress = allToDos.filter(t => t['status'] == 'inProgress');
-    let currentTesting = allToDos.filter(t => t['status'] == 'testing');
-    let currentDone = allToDos.filter(t => t['status'] == 'done');
-    renderToDo(currentToDo);
-    renderInProgress(currentInProgress);
-    renderTesting(currentTesting);
-    renderDone(currentDone);
+    renderToDo();
+    renderInProgress();
+    renderTesting();
+    renderDone();
 }
 
 
-function renderToDo(currentToDo) {
+function renderToDo() {
+    let currentToDo = allToDos.filter(t => t['status'] == 'toDo');
     document.getElementById('toDo').innerHTML = '';
+
     for (let i = 0; i < currentToDo.length; i++) {
         let element = currentToDo[i];
-        type = 'toDo';
+        type = 'toDo';  //wozu brauchen wir das?? 
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, type);
         for (let j = 0; j < assignedUser.length; j++) {
             let employee = assignedUser[j];
@@ -54,8 +52,10 @@ function renderToDo(currentToDo) {
     }
 }
 
-function renderInProgress(currentInProgress) {
+function renderInProgress() {
+    let currentInProgress = allToDos.filter(t => t['status'] == 'inProgress');
     document.getElementById('inProgress').innerHTML = '';
+
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
         type = 'inProgress';
@@ -67,8 +67,10 @@ function renderInProgress(currentInProgress) {
     }
 }
 
-function renderTesting(currentTesting) {
+function renderTesting() {
+    let currentTesting = allToDos.filter(t => t['status'] == 'testing');
     document.getElementById('testing').innerHTML = '';
+
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
         type = 'testing';
@@ -80,8 +82,10 @@ function renderTesting(currentTesting) {
     }
 }
 
-function renderDone(currentDone) {
+function renderDone() {
+    let currentDone = allToDos.filter(t => t['status'] == 'done');
     document.getElementById('done').innerHTML = '';
+    
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
         type = 'done';
@@ -153,8 +157,7 @@ function allowDrop(ev) {
 }
 
 
-function moveTo(i) {
-    let task = allToDos.find(t => t.createdAt === currentDraggedElement);
-    task['id'] = i;
+function moveTo(status) {
+    allToDos[currentDraggedElement]['status'] = status;
     save();
 }
