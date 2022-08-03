@@ -239,12 +239,13 @@ function renderBacklog() {
     let history = document.getElementById('backlog-container');
 
     for (let i = 0; i < allTasks.length; i++) {
-        let username = allTasks[i]['assignedUser']['name'];
+        let userfirstname = user[i]['first name'];
+        let userlastname = user[i]['last name'];
         let userimage = allTasks[i]['assignedUser']['userImg'];
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
 
-        history.innerHTML += backlogContainer(i, userimage, username, category, description);
+        history.innerHTML += backlogContainer(i, userimage, userfirstname, userlastname, category, description);
     }
 }
 

@@ -51,7 +51,7 @@ function backlogContainer(i, userimage, username, category, description) {
         <div class="backlog-main">
             <div class="backlog-user">
                 <img src="${userimage}">
-                <div class="username"><span>${username}</span></div>
+                <div class="username"><span>${userfirstname} ${userlastname}</span></div>
             </div>
             <div class="backlog-cat">
                 <div>${category}</div>
