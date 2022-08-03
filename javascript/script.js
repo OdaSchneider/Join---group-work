@@ -5,28 +5,32 @@ let allToDos = [
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
-    "id": "toDo"
+    "status": "toDo",
+    "id": `1`
 },
 {
     "title": "TestInprogress",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
-    "id": "inProgress"
+    "status": "inProgress",
+    "id": `2`
 },
 {
     "title": "TestTesting",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
-    "id": "testing"
+    "status": "testing",
+    "id": `3`
 },
 {
     "title": "TestDone",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
-    "id": "done"
+    "status": "done",
+    "id": `4`
 }];
 
 let assignedUser = [];
@@ -112,7 +116,8 @@ function taskArray(title, date, category, urgency, description) {
         'description': description,
         'createdAt': new Date().getTime(),
         'assignedUser': assignedUser,
-        'id': 'todo'
+        'id': `${i}`,
+        'status': 'todo'
     };
 
     assignTask(task);
