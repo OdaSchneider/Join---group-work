@@ -1,5 +1,6 @@
 let allTasks = [];
-let allToDos = [{
+let allToDos = [
+{
     "title": "TestTodo",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
@@ -7,7 +8,7 @@ let allToDos = [{
     "id": "toDo"
 },
 {
-    "title": "TestInProgress",
+    "title": "TestInprogress",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",

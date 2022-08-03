@@ -51,7 +51,6 @@ function renderToDo(currentToDo) {
         let element = currentToDo[i];
         type = 'toDo';
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, type);
-        let assignedUser = element['assignedUser'];
         for (let j = 0; j < assignedUser.length; j++) {
             let employee = assignedUser[j];
             document.getElementById(`currentemployee${i}${'toDo'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
@@ -64,7 +63,6 @@ function renderInProgress(currentInProgress) {
         let element = currentInProgress[i];
         type = 'inProgress';
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, type);
-        let assignedUser = element['assignedUser'];
         for (let j = 0; j < assignedUser.length; j++) {
             let employee = assignedUser[j];
             document.getElementById(`currentemployee${i}${'inProgress'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
@@ -77,7 +75,6 @@ function renderTesting(currentTesting) {
         let element = currentTesting[i];
         type = 'testing';
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i, type);
-        let assignedUser = element['assignedUser'];
         for (let j = 0; j < assignedUser.length; j++) {
             let employee = assignedUser[j];
             document.getElementById(`currentemployee${i}${'testing'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
@@ -90,7 +87,6 @@ function renderDone(currentDone) {
         let element = currentDone[i];
         type = 'done';
         document.getElementById('done').innerHTML += generateTasksHTML(element, i, type);
-        let assignedUser = element['assignedUser'];
         for (let j = 0; j < assignedUser.length; j++) {
             let employee = assignedUser[j];
             document.getElementById(`currentemployee${i}${'done'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;

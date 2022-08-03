@@ -121,11 +121,6 @@
     margin-bottom: 16px;
 }
 
-.column {
-    display: flex;
-    flex-direction: column;
-}
-
 .bold {
     font-weight: bold;
 }
