@@ -45,7 +45,7 @@ function generateOpenTaskHTML(task) {
 // #####################################################################################################################################################################################
 
 
-function backlogContainer(i, userimage, username, category, description) {
+function backlogContainer(i, userimage, userfirstname, userlastname, category, description) {
     return /*html*/ `
     <div id="backlog-task${i}" class="backlog-container">
         <div class="backlog-main">

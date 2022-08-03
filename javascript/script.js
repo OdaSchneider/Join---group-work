@@ -116,7 +116,6 @@ function taskArray(title, date, category, urgency, description) {
         'description': description,
         'createdAt': new Date().getTime(),
         'assignedUser': assignedUser,
-        'id': `${i}`,
         'status': 'todo'
     };
 
@@ -239,8 +238,8 @@ function renderBacklog() {
     let history = document.getElementById('backlog-container');
 
     for (let i = 0; i < allTasks.length; i++) {
-        let userfirstname = user[i]['first name'];
-        let userlastname = user[i]['last name'];
+        let userfirstname = allTasks[i]['assignedUser']['first name'];
+        let userlastname = allTasks[i]['assignedUser']['last name'];
         let userimage = allTasks[i]['assignedUser']['userImg'];
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
