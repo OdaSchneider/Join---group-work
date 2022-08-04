@@ -201,7 +201,7 @@ function highlight(id) {
     document.getElementById(id).classList.add('dragAreaHighlight');
 }
 
-function removeHighlight() {
+function removeHighlight(id) {
     document.getElementById(id).classList.remove('dragAreaHighlight');
 
 }
@@ -215,8 +215,7 @@ function allowDrop(ev) {
 }
 
 function moveTo(status) {
-    let task = allToDos.find(t => t.id == currentDraggedElement);
-    task['place'] = status;
-    renderBoard();
-    // save();
+    let task = allToDos.find(t => t['id'] == currentDraggedElement);
+    task['status'] = status;
+    save();
 }
