@@ -6,6 +6,7 @@ let allToDos = [
     "date": "12.12.2012",
     "category": "Developer",
     "status": "toDo",
+    "urgency": "High",
     "id": `1`
 },
 {
@@ -14,6 +15,7 @@ let allToDos = [
     "date": "12.12.2012",
     "category": "Developer",
     "status": "inProgress",
+    "urgency": "Low",
     "id": `2`
 },
 {
@@ -22,6 +24,7 @@ let allToDos = [
     "date": "12.12.2012",
     "category": "Developer",
     "status": "testing",
+    "urgency": "Low",
     "id": `3`
 },
 {
@@ -30,6 +33,7 @@ let allToDos = [
     "date": "12.12.2012",
     "category": "Developer",
     "status": "done",
+    "urgency": "Medium",
     "id": `4`
 }];
 
@@ -262,7 +266,7 @@ function sendToBoard(i) {
     for (let j = 0; j < allTasks.length; j++) {
         allTasks.splice(i, 1);
         task.classList.add('d-none');
-        // allToDos.push(task);
+        allToDos.push(task[i]);
     } 
   
     safeLocalStorage();

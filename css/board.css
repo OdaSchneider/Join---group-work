@@ -140,6 +140,7 @@
 .trash {
     padding: 2px;
     width: 20px;
+    cursor: pointer;
 }
 
 .header2OpenTask {
@@ -173,9 +174,40 @@
 }
 
 .pushTo img {
-    margin-left: 8px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
 }
 
+.High {
+    background-color: rgb(200, 0, 0);
+    transition: all 225ms ease-in-out;
+}
+
+.Medium {
+    background-color: rgba(240, 210, 0);
+    transition: all 225ms ease-in-out;
+}
+
+.Low {
+    background-color: rgba(65, 170, 30);
+    transition: all 225ms ease-in-out;
+}
+
+.High:hover {
+    background-color: rgb(255, 0, 0);
+    transition: all 225ms ease-in-out;
+}
+
+.Medium:hover {
+    background-color: rgb(255, 200, 0);
+    transition: all 225ms ease-in-out;
+}
+
+.Low:hover {
+    background-color: rgba(70, 150, 0);
+    transition: all 225ms ease-in-out;
+}
 
 
 

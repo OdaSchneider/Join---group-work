@@ -33,7 +33,7 @@ function generateOpenTaskHTML(task) {
                 <div>Category: <span class="bold">${task['category']}</span></div>
                 <div id="currentemployee2"></div>
             </div>
-            <div class="pushTo d-none" onclick="pushToOtherBoard('${task['createdAt']}')" id="pushToOtherBoard">
+            <div class="pushTo" onclick="pushToOtherBoard('${task['createdAt']}')" id="pushToOtherBoard">
                 <span id="pushTo"></span>
                 <img src="img/arrow.png">
             </div>
