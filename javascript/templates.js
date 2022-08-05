@@ -3,7 +3,7 @@
 
 function generateTasksHTML(element) {
     return`
-        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}')" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
+        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
             <div class="dateAndTitle">
                 <span class="titleTask">${element['title']}</span>
                 <span class="dateOnTask">${element['date']}</span>
@@ -14,7 +14,7 @@ function generateTasksHTML(element) {
 
 
 function generateOpenTaskHTML(task) {
-    return`
+    return `
         <div class="openTask" id="openTask1">
             <div class="headerOpenTask">
                 <div class="column">
@@ -28,7 +28,7 @@ function generateOpenTaskHTML(task) {
                     Urgency: <span class="${task['urgency']} bold">${task['urgency']}</span>
                 </div>
                 <div onclick="deleteTask('${task['createdAt']}')">
-                <img class="trash" onclick="deletToDo()" src="img/müll.png">
+                <img class="trash" src="img/müll.png">
                 </div>
             </div>   
             <div class="title bold">${task['title']}</div>

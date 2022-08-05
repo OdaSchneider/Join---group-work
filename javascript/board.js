@@ -103,7 +103,7 @@ function renderTesting() {
 function renderDone() {
     let currentDone = allToDos.filter(t => t['status'] == 'done');
     document.getElementById('done').innerHTML = '';
-
+    
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
         document.getElementById('done').innerHTML += generateTasksHTML(element);
@@ -136,7 +136,7 @@ function pushToOtherBoard(id) {
     document.getElementById('openTask').classList.add('d-none');
     document.getElementById('openTask').classList.remove('exit-ani');
 
-    save();
+    save(); 
 }
 
 /**
@@ -151,7 +151,7 @@ function openTask(id) {
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
     let tasks = allToDos.find(t => t['id'] == id);
-    document.getElementById('openTask').innerHTML = generateTasksHTML(tasks);
+    document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks);
 }
 
 /**
@@ -175,11 +175,6 @@ function backToBoard() {
 }
 
 
-function deletToDo() {
-
-}
-
-
 /**
  * DE: Alle funktion ab hier, sind für die Drag and Drop funktion.
  * EN: All functions from here are for the drag and drop function.
@@ -192,6 +187,7 @@ function highlight(id) {
 
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('dragAreaHighlight');
+
 }
 
 function startDragging(id) {
