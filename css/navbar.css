@@ -72,6 +72,17 @@
     width: 100%;
     height: 15%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 5px;
+}
+
+.icons8{
+    color: #707070;
+    font-size: 11px;
+}
+
+.icons8 a{
+    color: #707070;
 }

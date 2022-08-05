@@ -84,7 +84,7 @@ function createNewUser() {
         </div>
         <div>
             <button onclick="addNewUser()">Add User</button>
-            <img class="closeDialogImg" onclick="closeDialog()" src="./img/x-mark.ico">
+            <img class="x-mark" onclick="closeDialog()" src="./img/x-mark.ico">
         </div>
     `
 }
