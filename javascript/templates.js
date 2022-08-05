@@ -1,29 +1,20 @@
-<<<<<<< HEAD
+
 // ###############- Board -####################################################################################
 
 function generateTasksHTML(element) {
-    return /*html*/`
+    return`
         <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}')" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
             <div class="dateAndTitle">
                 <span class="titleTask">${element['title']}</span>
                 <span class="dateOnTask">${element['date']}</span>
             </div>
             <span class="descriptionMini">${element['description']}</span>
-            <div id="currentemployee${assignedUser}"></div> 
-=======
-function generateTasksHTML(element) {
-    return `
-        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})">
-            <span class="dateOnTask">Due Date: ${element['date']}</span>
-            <span class="titleTask">${element['title']}</span>
->>>>>>> d77b80598992130886876b5785dc04b0b0dc263a
-        </div>    
-    `;
+            <div id="currentemployee${assignedUser}"></div>` 
 }
 
 
 function generateOpenTaskHTML(task) {
-    return /*html*/ `
+    return`
         <div class="openTask" id="openTask1">
             <div class="headerOpenTask">
                 <div class="column">
@@ -59,7 +50,7 @@ function generateOpenTaskHTML(task) {
 
 
 function backlogContainer(i, userimage, userfirstname, userlastname, category, description) {
-    return /*html*/ `
+    return`
     <div id="backlog-task${i}" class="backlog-container">
         <div class="backlog-main">
             <div class="backlog-user">
