@@ -1,16 +1,21 @@
-function generateTasksHTML(element, i, type) {
-    return `
-        <div class="tasks ${element['urgency']}" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${i}${type}">
-            <span class="dateOnTask">Due Date: ${element['date']}</span>
-            <span class="titleTask">${element['title']}</span>
-            <div id="currentemployee${i}${assignedUser}"></div> 
+// ###############- Board -####################################################################################
+
+function generateTasksHTML(element) {
+    return /*html*/`
+        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}')" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
+            <div class="dateAndTitle">
+                <span class="titleTask">${element['title']}</span>
+                <span class="dateOnTask">${element['date']}</span>
+            </div>
+            <span class="descriptionMini">${element['description']}</span>
+            <div id="currentemployee${assignedUser}"></div> 
         </div>    
     `;
 }
 
 
 function generateOpenTaskHTML(task) {
-    return `
+    return /*html*/ `
         <div class="openTask" id="openTask1">
             <div class="headerOpenTask">
                 <div class="column">
@@ -24,7 +29,7 @@ function generateOpenTaskHTML(task) {
                     Urgency: <span class="${task['urgency']} bold">${task['urgency']}</span>
                 </div>
                 <div onclick="deleteTask('${task['createdAt']}')">
-                <img class="trash" src="img/müll.png">
+                <img class="trash" onclick="deletToDo()" src="img/müll.png">
                 </div>
             </div>   
             <div class="title bold">${task['title']}</div>
@@ -33,7 +38,7 @@ function generateOpenTaskHTML(task) {
                 <div>Category: <span class="bold">${task['category']}</span></div>
                 <div id="currentemployee2"></div>
             </div>
-            <div class="pushTo" onclick="pushToOtherBoard('${task['createdAt']}')" id="pushToOtherBoard">
+            <div class="pushTo" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
                 <span id="pushTo"></span>
                 <img src="img/arrow.png">
             </div>
@@ -42,7 +47,7 @@ function generateOpenTaskHTML(task) {
 }
 
 
-// #####################################################################################################################################################################################
+// ###############- Backlog -####################################################################################
 
 
 function backlogContainer(i, userimage, userfirstname, userlastname, category, description) {
@@ -67,9 +72,9 @@ function backlogContainer(i, userimage, userfirstname, userlastname, category, d
     `;
 }
 
-// #############################################################################################
+// ###############- Add Taks -####################################################################################
 
-function createNewUser(){
+function createNewUser() {
     return `
         <h3>New User</h3>
         <div>
@@ -86,8 +91,8 @@ function createNewUser(){
 }
 
 
-function editUser(firstName, lastName, userImg, i){
-return `
+function editUser(firstName, lastName, userImg, i) {
+    return `
     <div class="editUsers">
         <span onclick="deleteUser(${i})"><b>X</b></span>
         <img src=${userImg}>
@@ -96,8 +101,8 @@ return `
 }
 
 
-function templateShowUser(userImg, firstName, lastName ,i){
-    return`
+function templateShowUser(userImg, firstName, lastName, i) {
+    return `
     <div class="showUser">
     <img onclick="selectUser(${i})" src=${userImg}>
     <p>${firstName} ${lastName}</p>

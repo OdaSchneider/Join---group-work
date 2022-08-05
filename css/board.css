@@ -1,7 +1,7 @@
 /* -----------------------------------Board---------------------------------------------------- */
 
 .tasks {
-    width: 92%;
+    width: 92.5%;
     border-radius: 5px;
     margin-top: 5px;
     margin-left: 5px;
@@ -51,6 +51,7 @@
 
 .dragAreaHighlight {
     background-color: rgb(200, 200, 200);
+    transition: all 225ms ease-in-out;
 }
 
 .profileImgTaks {
@@ -63,11 +64,25 @@
     font-size: 16px;
 }
 
+.dateAndTitle {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+}
+
 .titleTask {
     width: 100%;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 8px;
+    word-wrap: break-word;
+    max-width: 180px;
+}
+
+.descriptionMini {
+    word-wrap: break-word;
+    line-height: 1rem;
+    padding: 2px;
 }
 
 .profileImgTaks {
@@ -153,10 +168,12 @@
     font-size: larger;
     margin-top: 16px;
     margin-bottom: 4px;
+    word-wrap: break-word;
 }
 
 .textOpenTask {
     overflow-y: auto;
+    word-wrap: break-word;
 }
 
 .footerTask {
@@ -180,32 +197,32 @@
 }
 
 .High {
-    background-color: rgb(200, 0, 0);
+    background-color: rgba(200, 0, 0, 0.600);
     transition: all 225ms ease-in-out;
 }
 
 .Medium {
-    background-color: rgba(240, 210, 0);
+    background-color: rgba(240, 210, 0, 0.600);
     transition: all 225ms ease-in-out;
 }
 
 .Low {
-    background-color: rgba(65, 170, 30);
+    background-color: rgba(65, 170, 30, 0.600);
     transition: all 225ms ease-in-out;
 }
 
 .High:hover {
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(200, 0, 0);
     transition: all 225ms ease-in-out;
 }
 
 .Medium:hover {
-    background-color: rgb(255, 200, 0);
+    background-color: rgb(240, 210, 0);
     transition: all 225ms ease-in-out;
 }
 
 .Low:hover {
-    background-color: rgba(70, 150, 0);
+    background-color: rgba(65, 170, 30);
     transition: all 225ms ease-in-out;
 }
 
