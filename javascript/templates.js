@@ -98,7 +98,7 @@ return `
 function templateShowUser(userImg, firstName, lastName ,i){
     return`
     <div class="showUser">
-    <img onclick="selectUser(${i})" src=${userImg}>
+    <img id="selectUser${i}" onclick="selectUser(${i})" src=${userImg}>
     <p>${firstName} ${lastName}</p>
     </div>`
 }

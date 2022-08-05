@@ -156,15 +156,37 @@ function showUser() {
 
 
 function selectUser(i) {
-    assignedUser = user[i];
-
-    let assignedToCotainer = document.getElementById('assignedAccount');
-    assignedToCotainer.innerHTML = `<img onclick="removeUser()" src=${assignedUser['userImg']}>`;
+    let found = false;
+    for (let k = 0; k < assignedUser.length; k++) {
+        if(assignedUser[k]['first name']==user[i]['first name']&&assignedUser[k]['last name']==user[i]['last name']){
+            found = true;
+            break;
+        }
+    }
+    if(!found){
+        assignedUser.push(user[i]);
+    }else{
+        document.getElementById(`selectUser${i}`).style.border= "2px solid red";
+        setTimeout(() => {
+            document.getElementById(`selectUser${i}`).style.border= "none";
+        }, 500);
+    }
+    renderAssignedUser();    
 }
 
 
-function removeUser() {
-    document.getElementById('assignedAccount').innerHTML = '';
+function renderAssignedUser(){
+    let assignedToCotainer = document.getElementById('assignedAccount');
+    assignedToCotainer.innerHTML = '';
+    for (let j = 0; j < assignedUser.length; j++) {
+        assignedToCotainer.innerHTML += `<img onclick="removeUser(${j})" src=${assignedUser[j]['userImg']}>`;
+    }
+}
+
+
+function removeUser(j) {
+    assignedUser.splice(j, 1);
+    renderAssignedUser()
 }
 
 
@@ -264,9 +286,9 @@ function sendToBoard(i) {
     let task = document.getElementById(`backlog-task${i}`);
 
     for (let j = 0; j < allTasks.length; j++) {
+        allToDos.push(allTasks[i]);
         allTasks.splice(i, 1);
         task.classList.add('d-none');
-        allToDos.push(task[i]);
     } 
   
     safeLocalStorage();
