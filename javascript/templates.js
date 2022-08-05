@@ -1,9 +1,8 @@
-function generateTasksHTML(element, i, type) {
+function generateTasksHTML(element) {
     return `
-        <div class="tasks ${element['urgency']}" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${i}${type}">
+        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})">
             <span class="dateOnTask">Due Date: ${element['date']}</span>
             <span class="titleTask">${element['title']}</span>
-            <div id="currentemployee${i}${assignedUser}"></div> 
         </div>    
     `;
 }
@@ -33,7 +32,7 @@ function generateOpenTaskHTML(task) {
                 <div>Category: <span class="bold">${task['category']}</span></div>
                 <div id="currentemployee2"></div>
             </div>
-            <div class="pushTo" onclick="pushToOtherBoard('${task['createdAt']}')" id="pushToOtherBoard">
+            <div class="pushTo" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
                 <span id="pushTo"></span>
                 <img src="img/arrow.png">
             </div>
