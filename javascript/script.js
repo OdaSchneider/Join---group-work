@@ -18,7 +18,7 @@ let allToDos = [
     "status": "toDo",
     "urgency": "High",
     "assignedUser":"guest",
-    "id": `1`
+    "id": `5`
 },
 {
     "title": "TestInprogress",
@@ -115,6 +115,9 @@ function loadLocalStorage() {
 // ---------------------------Add Task---------------------------------------------------------
 
 function addTask() {
+    if(assignedUser.length == 0){
+        assignedUser.push(guest[0]);
+    }
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let category = document.getElementById('category').value;
@@ -135,7 +138,7 @@ function taskArray(title, date, category, urgency, description) {
         'createdAt': new Date().getTime(),
         'assignedUser': assignedUser,
         'id': '',
-        'status': 'todo'
+        'status': 'toDo'
     };
 
     assignTask(task);
@@ -303,13 +306,19 @@ function renderBacklog() {
     let history = document.getElementById('backlog-container');
 
     for (let i = 0; i < allTasks.length; i++) {
-        let userfirstname = allTasks[i]['assignedUser']['first name'];
-        let userlastname = allTasks[i]['assignedUser']['last name'];
-        let userimage = allTasks[i]['assignedUser']['userImg'];
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
+        history.innerHTML += backlogContainer(i, category, description);
 
-        history.innerHTML += backlogContainer(i, userimage, userfirstname, userlastname, category, description);
+        let userContainer = document.getElementById(`backlog-user${i}`);
+        userContainer.innerHTML = '';
+        let selectedUser = allTasks[i]['assignedUser'];
+        for (let j = 0; j < selectedUser.length; j++) {
+            let userfirstname = selectedUser[j]['first name'];
+            let userlastname = selectedUser[j]['last name'];
+            let userimage = selectedUser[j]['userImg'];
+            userContainer.innerHTML += backlogUserContainer(userfirstname, userlastname, userimage);
+        }
     }
 }
 
