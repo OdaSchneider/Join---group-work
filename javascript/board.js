@@ -136,7 +136,11 @@ function pushToOtherBoard(id) {
     document.getElementById('openTask').classList.add('d-none');
     document.getElementById('openTask').classList.remove('exit-ani');
 
+<<<<<<< HEAD
     save();
+=======
+    save(); 
+>>>>>>> d77b80598992130886876b5785dc04b0b0dc263a
 }
 
 /**
@@ -151,7 +155,11 @@ function openTask(id) {
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
     let tasks = allToDos.find(t => t['id'] == id);
+<<<<<<< HEAD
     document.getElementById('openTask').innerHTML = generateTasksHTML(tasks);
+=======
+    document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks);
+>>>>>>> d77b80598992130886876b5785dc04b0b0dc263a
 }
 
 /**

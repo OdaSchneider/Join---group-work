@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // ###############- Board -####################################################################################
 
 function generateTasksHTML(element) {
@@ -9,6 +10,13 @@ function generateTasksHTML(element) {
             </div>
             <span class="descriptionMini">${element['description']}</span>
             <div id="currentemployee${assignedUser}"></div> 
+=======
+function generateTasksHTML(element) {
+    return `
+        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})">
+            <span class="dateOnTask">Due Date: ${element['date']}</span>
+            <span class="titleTask">${element['title']}</span>
+>>>>>>> d77b80598992130886876b5785dc04b0b0dc263a
         </div>    
     `;
 }

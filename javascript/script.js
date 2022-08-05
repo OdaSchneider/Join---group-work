@@ -216,7 +216,7 @@ function checkForUser(firstName, lastName){
     if(!found){
         pushNewUser(firstName, lastName);
     }else{
-        alert('User already exsist')
+        alert('User already exsist');
     }
 }
 
