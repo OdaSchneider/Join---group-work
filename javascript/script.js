@@ -1,12 +1,23 @@
 let allTasks = [];
 let allToDos = [
 {
-    "title": "TestTodo",
+    "title": "TestTodowwwwwwwwwwww",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
     "status": "toDo",
     "urgency": "High",
+    "assignedUser":"guest",
+    "id": `1`
+},
+{
+    "title": "TestTodowwwwwwwwwwww",
+    "description": "hallo ich versuche was. bitte noch stehen lassen. Danke :)",
+    "date": "12.12.2012",
+    "category": "Developer",
+    "status": "toDo",
+    "urgency": "High",
+    "assignedUser":"guest",
     "id": `1`
 },
 {
@@ -16,6 +27,7 @@ let allToDos = [
     "category": "Developer",
     "status": "inProgress",
     "urgency": "Low",
+    "assignedUser":"Fabian Flegler",
     "id": `2`
 },
 {
@@ -25,6 +37,7 @@ let allToDos = [
     "category": "Developer",
     "status": "testing",
     "urgency": "Low",
+    "assignedUser":"guest",
     "id": `3`
 },
 {
@@ -34,6 +47,7 @@ let allToDos = [
     "category": "Developer",
     "status": "done",
     "urgency": "Medium",
+    "assignedUser":"Fabian Flegler",
     "id": `4`
 }];
 
