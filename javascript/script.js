@@ -1,59 +1,59 @@
 let allTasks = [];
 let assignedUser = [];
-let allToDos = [
-{
-    "title": "TestTodo",
-    "description": "hallo ich versuche was",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "status": "toDo",
-    "urgency": "High",
-    "assignedUser":"guest",
-    "id": `1`
-<<<<<<< HEAD
-=======
-},
-{
-    "title": "TestTodowwwwwwwwwwww",
-    "description": "hallo ich versuche was. bitte noch stehen lassen. Danke :)",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "status": "toDo",
-    "urgency": "High",
-    "assignedUser":"guest",
-    "id": `5`
-},
-{
-    "title": "TestInprogress",
-    "description": "hallo ich versuche was",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "status": "inProgress",
-    "urgency": "Low",
-    "assignedUser":"Fabian Flegler",
-    "id": `2`
-},
-{
-    "title": "TestTesting",
-    "description": "hallo ich versuche was",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "status": "testing",
-    "urgency": "Low",
-    "assignedUser":"guest",
-    "id": `3`
-},
-{
-    "title": "TestDone",
-    "description": "hallo ich versuche was",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "status": "done",
-    "urgency": "Medium",
-    "assignedUser":"Fabian Flegler",
-    "id": `4`
->>>>>>> 1616a53016784f521d53aa52782e42a61ac689dd
-}];
+let allToDos = [];
+// {
+//     "title": "TestTodo",
+//     "description": "hallo ich versuche was",
+//     "date": "12.12.2012",
+//     "category": "Developer",
+//     "status": "toDo",
+//     "urgency": "High",
+//     "assignedUser":"guest",
+//     "id": `1`
+// <<<<<<< HEAD
+// =======
+// },
+// {
+//     "title": "TestTodowwwwwwwwwwww",
+//     "description": "hallo ich versuche was. bitte noch stehen lassen. Danke :)",
+//     "date": "12.12.2012",
+//     "category": "Developer",
+//     "status": "toDo",
+//     "urgency": "High",
+//     "assignedUser":"guest",
+//     "id": `5`
+// },
+// {
+//     "title": "TestInprogress",
+//     "description": "hallo ich versuche was",
+//     "date": "12.12.2012",
+//     "category": "Developer",
+//     "status": "inProgress",
+//     "urgency": "Low",
+//     "assignedUser":"Fabian Flegler",
+//     "id": `2`
+// },
+// {
+//     "title": "TestTesting",
+//     "description": "hallo ich versuche was",
+//     "date": "12.12.2012",
+//     "category": "Developer",
+//     "status": "testing",
+//     "urgency": "Low",
+//     "assignedUser":"guest",
+//     "id": `3`
+// },
+// {
+//     "title": "TestDone",
+//     "description": "hallo ich versuche was",
+//     "date": "12.12.2012",
+//     "category": "Developer",
+//     "status": "done",
+//     "urgency": "Medium",
+//     "assignedUser":"Fabian Flegler",
+//     "id": `4`
+// >>>>>>> 1616a53016784f521d53aa52782e42a61ac689dd
+// }
 
 
 async function init() {
