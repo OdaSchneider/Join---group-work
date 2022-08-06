@@ -1,7 +1,8 @@
 let allTasks = [];
+let assignedUser = [];
 let allToDos = [
 {
-    "title": "TestTodowwwwwwwwwwww",
+    "title": "TestTodo",
     "description": "hallo ich versuche was",
     "date": "12.12.2012",
     "category": "Developer",
@@ -9,49 +10,7 @@ let allToDos = [
     "urgency": "High",
     "assignedUser":"guest",
     "id": `1`
-},
-{
-    "title": "TestTodowwwwwwwwwwww",
-    "description": "hallo ich versuche was. bitte noch stehen lassen. Danke :)",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "status": "toDo",
-    "urgency": "High",
-    "assignedUser":"guest",
-    "id": `1`
-},
-{
-    "title": "TestInprogress",
-    "description": "hallo ich versuche was",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "status": "inProgress",
-    "urgency": "Low",
-    "assignedUser":"Fabian Flegler",
-    "id": `2`
-},
-{
-    "title": "TestTesting",
-    "description": "hallo ich versuche was",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "status": "testing",
-    "urgency": "Low",
-    "assignedUser":"guest",
-    "id": `3`
-},
-{
-    "title": "TestDone",
-    "description": "hallo ich versuche was",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "status": "done",
-    "urgency": "Medium",
-    "assignedUser":"Fabian Flegler",
-    "id": `4`
 }];
-
-let assignedUser = [];
 
 
 async function init() {
@@ -115,6 +74,9 @@ function loadLocalStorage() {
 // ---------------------------Add Task---------------------------------------------------------
 
 function addTask() {
+    if(assignedUser.length == 0){
+        assignedUser.push(guest[0]);
+    }
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let category = document.getElementById('category').value;
@@ -135,7 +97,7 @@ function taskArray(title, date, category, urgency, description) {
         'createdAt': new Date().getTime(),
         'assignedUser': assignedUser,
         'id': '',
-        'status': 'todo'
+        'status': 'toDo'
     };
 
     assignTask(task);
@@ -170,21 +132,64 @@ function showUser() {
 
 
 function selectUser(i) {
-    assignedUser = user[i];
-
-    let assignedToCotainer = document.getElementById('assignedAccount');
-    assignedToCotainer.innerHTML = `<img onclick="removeUser()" src=${assignedUser['userImg']}>`;
+    let found = false;
+    for (let k = 0; k < assignedUser.length; k++) {
+        if(assignedUser[k]['first name']==user[i]['first name']&&assignedUser[k]['last name']==user[i]['last name']){
+            found = true;
+            break;
+        }
+    }
+    checkIfUserExist(found, i) 
 }
 
 
-function removeUser() {
-    document.getElementById('assignedAccount').innerHTML = '';
+function checkIfUserExist(found, i){
+    if(!found){
+        assignedUser.push(user[i]);
+    }else{
+        userExist(i);
+    }
+    renderAssignedUser();  
+}
+
+
+function userExist(i){
+    document.getElementById(`selectUser${i}`).style.border= "2px solid red";
+    setTimeout(() => {
+        document.getElementById(`selectUser${i}`).style.border= "none";
+    }, 500);
+}
+
+
+function renderAssignedUser(){
+    let assignedToCotainer = document.getElementById('assignedAccount');
+    assignedToCotainer.innerHTML = '';
+    for (let j = 0; j < assignedUser.length; j++) {
+        assignedToCotainer.innerHTML += `<img onclick="removeUser(${j})" src=${assignedUser[j]['userImg']}>`;
+    }
+}
+
+
+function removeUser(j) {
+    assignedUser.splice(j, 1);
+    renderAssignedUser()
 }
 
 
 function openDialogNewUser() {
     document.getElementById('dialog').classList.remove('d-none');
     document.getElementById('dialogContent').innerHTML = createNewUser();
+    selectImg();
+}
+
+
+function selectImg(){
+    let container = document.getElementById('chooseImg');
+    container.innerHTML = '';
+    for (let i = 0; i < userAvatar.length; i++) {
+        let avatar = userAvatar[i];
+        container.innerHTML += `<img onclick="setAsProfilPicture(${i})" src=${avatar}}>`
+    }
 }
 
 
@@ -260,13 +265,19 @@ function renderBacklog() {
     let history = document.getElementById('backlog-container');
 
     for (let i = 0; i < allTasks.length; i++) {
-        let userfirstname = allTasks[i]['assignedUser']['first name'];
-        let userlastname = allTasks[i]['assignedUser']['last name'];
-        let userimage = allTasks[i]['assignedUser']['userImg'];
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
+        history.innerHTML += backlogContainer(i, category, description);
 
-        history.innerHTML += backlogContainer(i, userimage, userfirstname, userlastname, category, description);
+        let userContainer = document.getElementById(`backlog-user${i}`);
+        userContainer.innerHTML = '';
+        let selectedUser = allTasks[i]['assignedUser'];
+        for (let j = 0; j < selectedUser.length; j++) {
+            let userfirstname = selectedUser[j]['first name'];
+            let userlastname = selectedUser[j]['last name'];
+            let userimage = selectedUser[j]['userImg'];
+            userContainer.innerHTML += backlogUserContainer(userfirstname, userlastname, userimage);
+        }
     }
 }
 
@@ -278,9 +289,9 @@ function sendToBoard(i) {
     let task = document.getElementById(`backlog-task${i}`);
 
     for (let j = 0; j < allTasks.length; j++) {
+        allToDos.push(allTasks[i]);
         allTasks.splice(i, 1);
         task.classList.add('d-none');
-        allToDos.push(task[i]);
     } 
   
     safeLocalStorage();

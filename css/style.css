@@ -141,7 +141,7 @@ input[type="date" i] {
 .assigneToAccount {
     display: flex;
     align-items: center;
-    margin: unset !important;
+    margin: 8px 0px !important;
     width: 80%;
 }
 
@@ -208,6 +208,8 @@ input[type="date" i] {
     width: 70px;
     margin-top: 12px;
     cursor: pointer;
+    padding: unset;
+    text-align: left;
 }
 
 .editUsers{
@@ -308,12 +310,6 @@ input[type="date" i] {
 .dialogContent h3{
     color:#203192;
     margin-bottom: 32px;
-}
-
-.closeDialogImg{
-    cursor: pointer;
-    margin-left: 16px;
-    margin-top: 32px;
 }
 
 .dialogContent input{

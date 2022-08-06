@@ -16,10 +16,11 @@ let user = [
     }
 ]
 
+
 let guest = [
     {
         'first name': 'guest',
-        'last name': 'guest',
+        'last name': '',
         'userImg': "./img/user-guest.ico"
     }
 ]

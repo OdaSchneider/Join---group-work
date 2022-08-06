@@ -1,43 +1,34 @@
-<<<<<<< HEAD
+
 // ###############- Board -####################################################################################
 
 function generateTasksHTML(element) {
-    return /*html*/`
-        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}')" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
+    return `
+        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
             <div class="dateAndTitle">
                 <span class="titleTask">${element['title']}</span>
                 <span class="dateOnTask">${element['date']}</span>
             </div>
             <span class="descriptionMini">${element['description']}</span>
-            <div id="currentemployee${assignedUser}"></div> 
-=======
-function generateTasksHTML(element) {
-    return `
-        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})">
-            <span class="dateOnTask">Due Date: ${element['date']}</span>
-            <span class="titleTask">${element['title']}</span>
->>>>>>> d77b80598992130886876b5785dc04b0b0dc263a
-        </div>    
-    `;
+            <div id="currentemployee${assignedUser}"></div>`
 }
 
 
 function generateOpenTaskHTML(task) {
-    return /*html*/ `
+    return `
         <div class="openTask" id="openTask1">
             <div class="headerOpenTask">
                 <div class="column">
-                    Due Date: 
+                    Created:
                     <span class="bold">${task['date']}</span>
                 </div>
-                <div class="closeTask" onclick="backToBoard()"><img class="trash" src="img/close.png"></div>
+                <div class="closeTask" onclick="backToBoard()"><img class="trash" src="/img/close.png"></div>
             </div> 
             <div class="header2OpenTask">
-                <div>
+                <div class="urgency">
                     Urgency: <span class="${task['urgency']} bold">${task['urgency']}</span>
                 </div>
-                <div onclick="deleteTask('${task['createdAt']}')">
-                <img class="trash" onclick="deletToDo()" src="img/müll.png">
+                <div onclick="deleteTask('${task['id']}')">
+                    <img class="trash" src="/img/müll.png">
                 </div>
             </div>   
             <div class="title bold">${task['title']}</div>
@@ -48,7 +39,7 @@ function generateOpenTaskHTML(task) {
             </div>
             <div class="pushTo" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
                 <span id="pushTo"></span>
-                <img src="img/arrow.png">
+                <img src="/img/arrow.png">
             </div>
         </div>
     `;
@@ -58,14 +49,11 @@ function generateOpenTaskHTML(task) {
 // ###############- Backlog -####################################################################################
 
 
-function backlogContainer(i, userimage, userfirstname, userlastname, category, description) {
-    return /*html*/ `
+function backlogContainer(i, category, description) {
+    return `
     <div id="backlog-task${i}" class="backlog-container">
         <div class="backlog-main">
-            <div class="backlog-user">
-                <img src="${userimage}">
-                <div class="username"><span>${userfirstname} ${userlastname}</span></div>
-            </div>
+            <div id="backlog-user${i}" class="backlog-user"></div>
             <div class="backlog-cat">
                 <div>${category}</div>
             </div>
@@ -80,6 +68,14 @@ function backlogContainer(i, userimage, userfirstname, userlastname, category, d
     `;
 }
 
+
+function backlogUserContainer(userfirstname, userlastname, userimage) {
+    return `
+    <img src="${userimage}">
+    <div class="username"><span>${userfirstname} ${userlastname}</span></div>`
+}
+
+
 // ###############- Add Taks -####################################################################################
 
 function createNewUser() {
@@ -93,7 +89,7 @@ function createNewUser() {
         </div>
         <div>
             <button onclick="addNewUser()">Add User</button>
-            <img class="closeDialogImg" onclick="closeDialog()" src="./img/x-mark.ico">
+            <img class="x-mark" onclick="closeDialog()" src="./img/x-mark.ico">
         </div>
     `
 }
@@ -112,7 +108,7 @@ function editUser(firstName, lastName, userImg, i) {
 function templateShowUser(userImg, firstName, lastName, i) {
     return `
     <div class="showUser">
-    <img onclick="selectUser(${i})" src=${userImg}>
+    <img id="selectUser${i}" onclick="selectUser(${i})" src=${userImg}>
     <p>${firstName} ${lastName}</p>
     </div>`
 }

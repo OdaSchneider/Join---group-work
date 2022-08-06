@@ -28,6 +28,7 @@
     height: 80vh;
     width: 300px;
     border-radius: 8px;
+    overflow: auto;
 }
 
 .boardArrangement {
@@ -35,6 +36,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 50px;
+    margin-left: 120px;
 }
 
 .barStyle {
@@ -43,10 +45,6 @@
     align-items: center;
     flex-direction: column;
     margin: 10px;
-}
-
-.marginLeftBar {
-    margin-left: 50px;
 }
 
 .dragAreaHighlight {
@@ -62,6 +60,7 @@
 
 .dateOnTask {
     font-size: 16px;
+    overflow: auto;
 }
 
 .dateAndTitle {
@@ -77,6 +76,7 @@
     margin-bottom: 8px;
     word-wrap: break-word;
     max-width: 180px;
+    overflow: auto;
 }
 
 .descriptionMini {
@@ -124,7 +124,7 @@
     background-color: rgb(189, 189, 189);
     height: fit-content;
     padding: 8px;
-    width: 400px;
+    width: 600px;
     border-radius: 6px;
     z-index: 999;
     animation: reveal2 225ms ease-in-out;
@@ -158,6 +158,11 @@
     cursor: pointer;
 }
 
+.trash:hover {
+    background-color: white;
+    border-radius: 100%;
+}
+
 .header2OpenTask {
     display: flex;
     justify-content: space-between;
@@ -169,11 +174,28 @@
     margin-top: 16px;
     margin-bottom: 4px;
     word-wrap: break-word;
+    overflow: auto;
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 5px;
+
+}
+
+.column {
+    text-decoration: underline;
+}
+
+.urgency span {
+    padding: 2px;
+    border-radius: 5px;
 }
 
 .textOpenTask {
-    overflow-y: auto;
+    overflow: auto;
     word-wrap: break-word;
+    background-color: rgb(236, 236, 236);
+    border-radius: 5px;
+    padding-left: 5px;
 }
 
 .footerTask {
@@ -194,6 +216,11 @@
     height: 40px;
     width: 40px;
     cursor: pointer;
+}
+
+.pushTo img:hover {
+    background-color: white;
+    border-radius: 100%;
 }
 
 .High {
@@ -277,4 +304,12 @@
         margin-top: -200px;
         opacity: 0;
     }
+}
+
+@media (max-width: 900px) {
+
+    .barStyle {
+        height: 300px;
+    }
+
 }

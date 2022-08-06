@@ -5,14 +5,6 @@ let currentDraggedElement;
 
 
 
-
-/* - TODOS - 
-- pushToOtherBoard() - fehler noch vorhanden.
-- Drag and Drop funktioniert noch nicht ganz.
-*/
-
-
-
 /**
  * DE: Läd alles aus dem Backend
  * EN: Load everything from the backend
@@ -24,6 +16,7 @@ async function loadBoard() {
     renderBoard();
 }
 
+
 /**
  * DE: Speichert alles im Backend
  * EN: Stores everything in the backend
@@ -33,6 +26,7 @@ async function save() {
     safeLocalStorage();
     loadBoard();
 }
+
 
 /**
  * DE: Alle Renderfunktion in einer um das Board anzuzeigen zu können.
@@ -44,6 +38,7 @@ function renderBoard() {
     renderTesting();
     renderDone();
 }
+
 
 /**
  * DE: Render die TODO Spalte
@@ -103,7 +98,7 @@ function renderTesting() {
 function renderDone() {
     let currentDone = allToDos.filter(t => t['status'] == 'done');
     document.getElementById('done').innerHTML = '';
-
+    
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
         document.getElementById('done').innerHTML += generateTasksHTML(element);
@@ -114,11 +109,11 @@ function renderDone() {
     }
 }
 
+
 /**
  * DE: Bei geöffneter task ist ein Bild von einem Pfeil. Drückt man diesen, sorgt die funktion dafür das dass, jeweilige Array den Status ändert.
  * EN: When the task is open there is an image of an arrow. If you press this, the function ensures that the respective array changes the status.
 */
-
 function pushToOtherBoard(id) {
     let tasks = allToDos.find(t => t['id'] == id);
     if (tasks['status'] == 'toDo') {
@@ -136,37 +131,26 @@ function pushToOtherBoard(id) {
     document.getElementById('openTask').classList.add('d-none');
     document.getElementById('openTask').classList.remove('exit-ani');
 
-<<<<<<< HEAD
-    save();
-=======
     save(); 
->>>>>>> d77b80598992130886876b5785dc04b0b0dc263a
 }
+
 
 /**
  * DE: Öffnet die Taskt die man haben möchte, mit allen Informationen die benötikt werden.
  * EN: Opens the task you want with all the information you need.
- * 
- * @param {allToDos} i // transmits the data we need.
- * @param {status} type // determines which type is opened.
  */
-
 function openTask(id) {
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
     let tasks = allToDos.find(t => t['id'] == id);
-<<<<<<< HEAD
-    document.getElementById('openTask').innerHTML = generateTasksHTML(tasks);
-=======
     document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks);
->>>>>>> d77b80598992130886876b5785dc04b0b0dc263a
 }
+
 
 /**
  * DE: Schließt das Task wieder und zeigt das board wieder an.
  * EN: Closes the task again and shows the board again.
  */
-
 function backToBoard() {
     document.getElementById('overlayBg').classList.add('exit-ani-o-t');
     document.getElementById('openTask1').classList.add('exit-openTask');
@@ -183,8 +167,14 @@ function backToBoard() {
 }
 
 
-function deletToDo() {
-
+/**
+ * DE: Löscht das ausgewählte Todo aus dem Array und vom HTML raus.
+ * EN: Deletes the selected todo from the array and from the HTML.
+ */
+function deleteTask(i) {
+    allToDos.splice(i, 1);
+    save();
+    backToBoard();
 }
 
 
@@ -192,14 +182,13 @@ function deletToDo() {
  * DE: Alle funktion ab hier, sind für die Drag and Drop funktion.
  * EN: All functions from here are for the drag and drop function.
  */
-
-
 function highlight(id) {
     document.getElementById(id).classList.add('dragAreaHighlight');
 }
 
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('dragAreaHighlight');
+
 }
 
 function startDragging(id) {
