@@ -306,7 +306,7 @@ function deleteUser(i){
 
 function renderBacklog() {
     let history = document.getElementById('backlog-container');
-
+    history.innerHTML = '';
     for (let i = 0; i < allTasks.length; i++) {
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
@@ -331,11 +331,9 @@ function renderBacklog() {
 function sendToBoard(i) {
     let task = document.getElementById(`backlog-task${i}`);
 
-    for (let j = 0; j < allTasks.length; j++) {
         allToDos.push(allTasks[i]);
         allTasks.splice(i, 1);
         task.classList.add('d-none');
-    } 
   
     safeLocalStorage();
     renderBacklog();

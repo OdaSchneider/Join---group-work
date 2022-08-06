@@ -167,7 +167,6 @@ function backToBoard() {
 }
 
 
-<<<<<<< HEAD
 /**
  * DE: Löscht das ausgewählte Todo aus dem Array und vom HTML raus.
  * EN: Deletes the selected todo from the array and from the HTML.
@@ -179,8 +178,6 @@ function deleteTask(i) {
 }
 
 
-=======
->>>>>>> 1616a53016784f521d53aa52782e42a61ac689dd
 /**
  * DE: Alle funktion ab hier, sind für die Drag and Drop funktion.
  * EN: All functions from here are for the drag and drop function.
