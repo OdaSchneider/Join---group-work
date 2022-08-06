@@ -86,3 +86,21 @@
 .icons8 a{
     color: #707070;
 }
+
+.headerResponsive{
+    display: none;
+}
+
+
+@media(max-width: 600px){
+    .header{
+        display: none;
+    }
+
+    .headerResponsive{
+        display: flex;
+        position: absolute;
+        top: 3%;
+        left: 5%;
+    }
+}

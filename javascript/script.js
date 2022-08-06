@@ -222,17 +222,6 @@ function removeUser(j) {
 function openDialogNewUser() {
     document.getElementById('dialog').classList.remove('d-none');
     document.getElementById('dialogContent').innerHTML = createNewUser();
-    selectImg();
-}
-
-
-function selectImg(){
-    let container = document.getElementById('chooseImg');
-    container.innerHTML = '';
-    for (let i = 0; i < userAvatar.length; i++) {
-        let avatar = userAvatar[i];
-        container.innerHTML += `<img onclick="setAsProfilPicture(${i})" src=${avatar}}>`
-    }
 }
 
 
