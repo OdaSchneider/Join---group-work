@@ -14,7 +14,7 @@ function generateTasksHTML(element) {
 
 
 function generateOpenTaskHTML(task) {
-    return /*html*/ `
+    return `
         <div class="openTask" id="openTask1">
 
             <div class="headerOpenTask">

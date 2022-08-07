@@ -92,8 +92,12 @@
     font-weight: bold;
     margin-bottom: 8px;
     word-wrap: break-word;
-    max-width: 180px;
+    max-width: 170px;
     overflow: auto;
+}
+
+.marginBotten {
+    margin-bottom: 20px;
 }
 
 .descriptionMini {
@@ -372,4 +376,29 @@
         width: auto;
     }
 
+}
+
+@media (max-width: 601px) {
+
+    .boardArrangement {
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 330px) {
+
+    .boardDiv {
+        width: 280px;
+    }
+}
+
+@media (max-width: 300px) {
+
+    .boardDiv {
+        width: 260px;
+    }
+
+    .titleTask {
+        max-width: 150px;
+    }
 }
