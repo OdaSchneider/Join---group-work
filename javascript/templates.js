@@ -14,32 +14,37 @@ function generateTasksHTML(element) {
 
 
 function generateOpenTaskHTML(task) {
-    return `
+    return /*html*/ `
         <div class="openTask" id="openTask1">
+
             <div class="headerOpenTask">
-                <div class="column">
+                <div class="column dateCreated">
                     Created:
                     <span class="bold">${task['date']}</span>
                 </div>
-                <div class="closeTask" onclick="backToBoard()"><img class="trash" src="/img/close.png"></div>
+                <div class="closeAndDeletTaskDiv">
+                    <div class="closeTask" onclick="backToBoard()"><img class="trash" src="/img/close.png"></div>
+                    <div onclick="deleteTask('${task['id']}')">
+                        <img class="trash" src="/img/müll.png">
+                    </div>
+                </div> 
             </div> 
-            <div class="header2OpenTask">
-                <div class="urgency">
-                    Urgency: <span class="${task['urgency']} bold">${task['urgency']}</span>
+
+            <div class="header2OpenTask"> 
+                <div class="urgency">Urgency: <span class="${task['urgency']} bold">${task['urgency']}</span></div>
+                <div class="footerTask">
+                    <div>Category: <span class="bold">${task['category']}</span></div>
+                    <div id="currentemployee2"></div>
                 </div>
-                <div onclick="deleteTask('${task['id']}')">
-                    <img class="trash" src="/img/müll.png">
-                </div>
-            </div>   
-            <div class="title bold">${task['title']}</div>
-            <div class="textOpenTask">${task['description']}</div>
-            <div class="footerTask">
-                <div>Category: <span class="bold">${task['category']}</span></div>
-                <div id="currentemployee2"></div>
             </div>
-            <div class="pushTo" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
-                <span id="pushTo"></span>
-                <img src="/img/arrow.png">
+
+            <div class=titelAndTaskAndPushToDiv>
+                <div class="title bold">${task['title']}</div>
+                <div class="textOpenTask">${task['description']}</div>
+                <div class="pushTo" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
+                    <span id="pushTo"></span>
+                    <img src="/img/arrow.png">
+                </div>
             </div>
         </div>
     `;

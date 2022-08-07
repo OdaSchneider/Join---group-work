@@ -1,59 +1,16 @@
 let allTasks = [];
 let assignedUser = [];
-let allToDos = [];
-// {
-//     "title": "TestTodo",
-//     "description": "hallo ich versuche was",
-//     "date": "12.12.2012",
-//     "category": "Developer",
-//     "status": "toDo",
-//     "urgency": "High",
-//     "assignedUser":"guest",
-//     "id": `1`
-// <<<<<<< HEAD
-// =======
-// },
-// {
-//     "title": "TestTodowwwwwwwwwwww",
-//     "description": "hallo ich versuche was. bitte noch stehen lassen. Danke :)",
-//     "date": "12.12.2012",
-//     "category": "Developer",
-//     "status": "toDo",
-//     "urgency": "High",
-//     "assignedUser":"guest",
-//     "id": `5`
-// },
-// {
-//     "title": "TestInprogress",
-//     "description": "hallo ich versuche was",
-//     "date": "12.12.2012",
-//     "category": "Developer",
-//     "status": "inProgress",
-//     "urgency": "Low",
-//     "assignedUser":"Fabian Flegler",
-//     "id": `2`
-// },
-// {
-//     "title": "TestTesting",
-//     "description": "hallo ich versuche was",
-//     "date": "12.12.2012",
-//     "category": "Developer",
-//     "status": "testing",
-//     "urgency": "Low",
-//     "assignedUser":"guest",
-//     "id": `3`
-// },
-// {
-//     "title": "TestDone",
-//     "description": "hallo ich versuche was",
-//     "date": "12.12.2012",
-//     "category": "Developer",
-//     "status": "done",
-//     "urgency": "Medium",
-//     "assignedUser":"Fabian Flegler",
-//     "id": `4`
-// >>>>>>> 1616a53016784f521d53aa52782e42a61ac689dd
-// }
+let allToDos = [
+{
+    "title": "TestTodo - Test sieht gut aus",
+    "description": "hallo ich versuche was. mwmwmwmmw mmwm m mwmwmw mwmwmwm mm wm wm  mw mwmwwm  m m mw mw mw m wm mwm wwmmwmw wmmwmwmwmmw mmwmwwmwmw mwmmwmwmwmwmwmwm mwwmmwmwwmw mmwmwmwmwmwm mwmwmw",
+    "date": "12.12.2012",
+    "category": "Developer",
+    "status": "toDo",
+    "urgency": "High",
+    "assignedUser":"guest",
+    "id": `1`
+}];
 
 
 async function init() {
@@ -222,6 +179,17 @@ function removeUser(j) {
 function openDialogNewUser() {
     document.getElementById('dialog').classList.remove('d-none');
     document.getElementById('dialogContent').innerHTML = createNewUser();
+    selectImg();
+}
+
+
+function selectImg(){
+    let container = document.getElementById('chooseImg');
+    container.innerHTML = '';
+    for (let i = 0; i < userAvatar.length; i++) {
+        let avatar = userAvatar[i];
+        container.innerHTML += `<img onclick="setAsProfilPicture(${i})" src=${avatar}}>`
+    }
 }
 
 
@@ -295,7 +263,7 @@ function deleteUser(i){
 
 function renderBacklog() {
     let history = document.getElementById('backlog-container');
-    history.innerHTML = '';
+
     for (let i = 0; i < allTasks.length; i++) {
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
@@ -320,9 +288,11 @@ function renderBacklog() {
 function sendToBoard(i) {
     let task = document.getElementById(`backlog-task${i}`);
 
+    for (let j = 0; j < allTasks.length; j++) {
         allToDos.push(allTasks[i]);
         allTasks.splice(i, 1);
         task.classList.add('d-none');
+    } 
   
     safeLocalStorage();
     renderBacklog();

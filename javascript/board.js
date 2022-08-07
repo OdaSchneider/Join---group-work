@@ -171,8 +171,8 @@ function backToBoard() {
  * DE: Löscht das ausgewählte Todo aus dem Array und vom HTML raus.
  * EN: Deletes the selected todo from the array and from the HTML.
  */
-function deleteTask(i) {
-    allToDos.splice(i, 1);
+function deleteTask(id) {
+    allToDos.splice(id, 1);
     save();
     backToBoard();
 }

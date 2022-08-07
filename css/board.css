@@ -1,5 +1,14 @@
 /* -----------------------------------Board---------------------------------------------------- */
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(32, 49, 146);
+    border-radius: 10px;
+}
+
 .tasks {
     width: 92.5%;
     border-radius: 5px;
@@ -45,6 +54,14 @@
     align-items: center;
     flex-direction: column;
     margin: 10px;
+}
+
+.dateCreated {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(250, 250, 250, 0.5);
 }
 
 .dragAreaHighlight {
@@ -121,7 +138,7 @@
     margin-top: 20vh;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(189, 189, 189);
+    background-color: rgba(32, 49, 146, 0.8);
     height: fit-content;
     padding: 8px;
     width: 600px;
@@ -144,8 +161,6 @@
     padding: 4px;
     font-size: 12px;
     text-align: center;
-    height: 20px;
-    width: 20px;
 }
 
 .closeTask:hover {
@@ -154,7 +169,8 @@
 
 .trash {
     padding: 2px;
-    width: 20px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
 }
 
@@ -165,8 +181,9 @@
 
 .header2OpenTask {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .title {
@@ -175,14 +192,28 @@
     margin-bottom: 4px;
     word-wrap: break-word;
     overflow: auto;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     padding-left: 5px;
+    padding-right: 5px;
+}
 
+.titelAndTaskAndPushToDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
 }
 
 .column {
     text-decoration: underline;
+}
+
+.urgency {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(250, 250, 250, 0.5);
 }
 
 .urgency span {
@@ -191,11 +222,14 @@
 }
 
 .textOpenTask {
+    text-align: center;
     overflow: auto;
     word-wrap: break-word;
-    background-color: rgb(236, 236, 236);
+    background-color: rgba(236, 236, 236, 0.5);
     border-radius: 5px;
     padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 10px;
 }
 
 .footerTask {
@@ -203,6 +237,22 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 24px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(250, 250, 250, 0.5);
+}
+
+.closeAndDeletTaskDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.closeAndDeletTaskDiv img {
+    object-fit: contain;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .pushTo {
@@ -310,6 +360,16 @@
 
     .barStyle {
         height: 300px;
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    .openTask {
+        display: flex;
+        flex-direction: column;
+        width: auto;
     }
 
 }
