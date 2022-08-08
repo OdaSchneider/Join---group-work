@@ -57,9 +57,9 @@ function renderUserOnTheBoard(userimageBoard) {
     `;
 }
 
-function renderUserOnTheBoard2(userimageBoard2) {
+function renderUserOpenTask(userimageBoard2) {
     return `
-    <img class="profileImgTaks" src="${userimageBoard2}">
+    <span class="descriptionMini"><img class="profileImgTaks" src="${userimageBoard2}"></span>
     `;
 }
 

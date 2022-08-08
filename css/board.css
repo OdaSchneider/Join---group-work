@@ -88,14 +88,13 @@
 
 .imgAndDescriptionDiv {
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
-.imgAndDescriptionDiv span{
+#loardImgUserOnBoard0 {
     display: flex;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+    justify-content: flex-end;
 }
 
 .task-user-img {
@@ -381,7 +380,7 @@
     }
 }
 
-@media(max-width: 1410px) {
+@media(max-width: 1399px) {
 
     .boardBarResponsiv {
         height: 400px;
@@ -405,6 +404,13 @@
 
     .barStyle {
         height: 300px;
+    }
+}
+
+@media (max-width: 720px) {
+
+    .boardArrangement {
+        margin-left: 0px;
     }
 }
 
@@ -439,5 +445,9 @@
 
     .titleTask {
         max-width: 150px;
+    }
+
+    .tasks {
+        width: 91.5%;
     }
 }

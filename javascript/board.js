@@ -47,7 +47,8 @@ function renderToDo() {
         let element = currentToDo[i];
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
         
-        renderUserForBoard(i)
+        renderUserForBoard(i);
+        renderUserForBoardOpenTask(i);
     }
 }
 /**
@@ -62,7 +63,8 @@ function renderInProgress() {
         let element = currentInProgress[i];
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i);
         
-        renderUserForBoard(i)
+        renderUserForBoard(i);
+        renderUserForBoardOpenTask(i);
     }
 }
 /**
@@ -77,7 +79,8 @@ function renderTesting() {
         let element = currentTesting[i];
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i);
         
-        renderUserForBoard(i)
+        renderUserForBoard(i);
+        renderUserForBoardOpenTask(i);
     }
 }
 /**
@@ -92,7 +95,8 @@ function renderDone() {
         let element = currentDone[i];
         document.getElementById('done').innerHTML += generateTasksHTML(element, i);
 
-        renderUserForBoard(i)
+        renderUserForBoard(i);
+        renderUserForBoardOpenTask(i);
     }
 }
 
@@ -108,14 +112,16 @@ function renderUserForBoard(i) {
     }
 }
 
+
+
 function renderUserForBoardOpenTask(i) {
-    let userBoardContainer2 = document.getElementById(`loardImgUserOnBoard2${i}`);
-    userBoardContainer2.innerHTML = '';
+    let userBoardOpenTaskContainer = document.getElementById(`loardImgUserOnBoard2${i}`);
+    userBoardOpenTaskContainer.innerHTML = '';
 
     let selectedUser = allToDos[i]['assignedUser'];
-    for (let j = 0; j < selectedUser.length; j++) {
-        let userimageBoard2 = selectedUser[j]['userImg'];
-        userBoardContainer2.innerHTML += renderUserOnTheBoard2(userimageBoard2);
+    for (let k = 0; k < selectedUser.length; k++) {
+        let userimageBoard2 = selectedUser[k]['userImg'];
+        userBoardOpenTaskContainer.innerHTML += renderUserOpenTask(userimageBoard2);
     }
 }
 
