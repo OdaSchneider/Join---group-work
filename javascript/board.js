@@ -1,8 +1,6 @@
 // ---------------------------Bord--------------------------------------------------------
 
 // setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
-let currentDraggedElement;
-
 
 
 /**
@@ -127,6 +125,11 @@ function pushToOtherBoard(id) {
             }
         }
     }
+    closeTask();
+}
+
+
+function closeTask(){
     document.getElementById('overlayBg').classList.add('d-none');
     document.getElementById('openTask').classList.add('d-none');
     document.getElementById('openTask').classList.remove('exit-ani');

@@ -1,0 +1,326 @@
+/* -----------------------------------Add Task---------------------------------------------------- */
+
+.addTaskBg {
+    background-color: #F4F2FB;
+    margin-left: 150px;
+    margin-top: 8%;
+    height: 65vh;
+    width: calc(100% - 170px);
+    border-radius: 15px;
+}
+
+.addTask {
+    display: flex;
+    height: 100%;
+}
+
+.addTask h3 {
+    text-transform: uppercase;
+    color: #203192;
+    font-size: 16px;
+}
+
+.addTask input {
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    height: 32px;
+    width: 90%;
+    padding: 5px;
+    color: #575757;
+}
+
+.columnLeft{
+    width: calc(50% - 64px);
+    margin: 4px 32px;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.columnRight{
+    width: calc(50% - 64px);
+    margin: 4px 32px;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container{
+    margin-bottom: 12px;
+}
+
+input[type="date" i] {
+    color: #575757;
+    cursor: pointer;
+}
+
+.addTask select {
+    outline: none;
+    border: 1px solid lightgray;
+    width: 93%;
+    height: 45px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #575757;
+    cursor: pointer;
+}
+
+.columnLeft textarea {
+    outline: none;
+    resize: none;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 90%;
+    height: 125px;
+    padding: 10px 5px;
+    color: #575757;
+}
+
+.assigneToAccount {
+    display: flex;
+    align-items: center;
+    margin: 8px 0px !important;
+    width: 80%;
+}
+
+.assigneToAccount div {
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.assigneToAccount img {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+}
+
+#assignedAccount{
+    display: flex;
+    align-items: center;
+}
+
+#assignedAccount img{
+    border-radius: 100%;
+    margin-left: 8px;
+    border: 2px solid #2e46cf;
+    background-color: #2e46cf;
+}
+
+.user{
+    display: flex;
+    width: 92%;
+    overflow: auto;
+    height: 90px;
+}
+
+.user img{
+    border: 1px solid white;
+    border-radius: 100%;
+    padding: 3px;
+    background-color: #2e46cf;
+    width: 55px !important;
+    height: 55px !important;
+    box-sizing: border-box;
+    cursor: pointer;
+    animation: scale-in 225ms ease-in-out;
+    transform-origin: 0% 
+}
+
+.showUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.showUser p{
+    margin: unset;
+    font-size: 12px;
+}
+
+.editUserButton{
+    color:#2e46cf;
+    font-size: 12px !important;
+    width: 70px;
+    margin-top: 12px;
+    cursor: pointer;
+    padding: unset;
+    text-align: left;
+}
+
+.editUsers{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.x-mark{
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.editUsers img{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    background-color: #203192;
+    margin-right: 16px;
+}
+
+.editUsers span{
+    cursor: pointer;
+    color: #203192;
+    margin-right: 16px;
+}
+
+.addTask button {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.addTaskButtonLine {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+.cancelTaskButton {
+    color: #203192;
+    margin-right: 16px;
+}
+
+.cancelTaskButton {
+    color: #203192;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.createTaskButton {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #203192;
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+    transition: all 100ms ease-in-out;
+}
+
+.createTaskButton:hover {
+    background-color: #2e46cf;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+    transition: all 100ms ease-in-out;
+}
+
+.dialog{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialogContent{
+    width: 30%;
+    height: 35%;
+    background-color: white;
+    border: 2px solid #203192;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 64px;
+    overflow: auto;
+    position: relative;
+}
+
+.dialogContent h3{
+    color:#203192;
+    margin-bottom: 32px;
+}
+
+.dialogContent input{
+    outline: none;
+    width: 225px;
+    padding: 8px;   
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    color: #575757; 
+    margin-bottom: 32px;
+}
+
+.dialogContent div{
+    display: flex;
+    align-items: center;
+}
+
+.dialogContent button{
+    background-color: #2e46cf;
+    color: white;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 32px;
+}
+
+/* ----------------animation------------------- */
+
+@keyframes scale-in{
+    0% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+    100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+
+/* ----------------- responsive --------------- */
+
+@media(max-width: 600px){
+
+    .addTaskBg{
+        margin: 5%;
+        width: 90%;
+    }
+}
+
+@media(max-width: 500px){
+    .addTask{
+        flex-direction: column;
+    }
+
+    .columnLeft {
+        width: calc(100% - 64px);
+    }
+
+    .columnRight {
+        width: calc(100% - 64px);
+    }
+
+    .addTaskBg{
+        height: auto;
+        margin-top: 45px;
+    }
+
+    .addTaskButtonLine{
+        width: 93%;
+        margin-bottom: 12px;
+    }
+}

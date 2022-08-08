@@ -1,14 +1,5 @@
 /* -----------------------------------Board---------------------------------------------------- */
 
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgb(32, 49, 146);
-    border-radius: 10px;
-}
-
 .tasks {
     width: 92.5%;
     border-radius: 5px;
