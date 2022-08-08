@@ -1,10 +1,8 @@
 /* -----------------------------------Board---------------------------------------------------- */
 
 .tasks {
-    width: 92.5%;
     border-radius: 5px;
-    margin-top: 5px;
-    margin-left: 5px;
+    margin: 5px;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -29,6 +27,9 @@
     width: 300px;
     border-radius: 8px;
     overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .boardArrangement {
@@ -351,12 +352,35 @@
     }
 }
 
-@media (max-width: 900px) {
+@media(max-width: 1410px) {
+
+    .boardBarResponsiv {
+        height: 400px;
+    }
+
+    .doneResponsiv {
+        height: 400px;
+        width: 90vh;
+    }
+}
+
+@media (max-width: 1080px) {
 
     .barStyle {
         height: 300px;
     }
 
+    .doneResponsiv {
+        width: 300px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .barStyle {
+        height: 300px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -366,7 +390,6 @@
         flex-direction: column;
         width: auto;
     }
-
 }
 
 @media (max-width: 601px) {
