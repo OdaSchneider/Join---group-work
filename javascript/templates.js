@@ -1,15 +1,17 @@
 
 // ###############- Board -####################################################################################
 
-function generateTasksHTML(element) {
+function generateTasksHTML(element, i) {
     return `
         <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
             <div class="dateAndTitle">
                 <span class="titleTask">${element['title']}</span>
-                <span class="dateOnTask">${element['date']}</span>
+                <span class="dateOnTask">${element['dueDate']}</span>
             </div>
-            <span class="descriptionMini">${element['description']}</span>
-            <div id="currentemployee${assignedUser}"></div>`
+            <div> 
+                <img class="task-user-img" id="currentemployee" src="${assignedUser}">
+                <span class="descriptionMini">${element['description']}</span>                
+            </div>`
 }
 
 
@@ -19,8 +21,7 @@ function generateOpenTaskHTML(task) {
 
             <div class="headerOpenTask">
                 <div class="column dateCreated">
-                    Created:
-                    <span class="bold">${task['date']}</span>
+                    Created:<span class="bold"> ${task['createdAt']}</span>
                 </div>
                 <div class="closeAndDeletTaskDiv">
                     <div class="closeTask" onclick="backToBoard()"><img class="trash" src="/img/close.png"></div>

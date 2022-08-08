@@ -86,6 +86,11 @@
     overflow: auto;
 }
 
+.task-user-img {
+    height: 30px;
+    width: auto;
+}
+
 .marginBotten {
     margin-bottom: 20px;
 }
@@ -156,6 +161,7 @@
     font-size: 12px;
     text-align: center;
 }
+
 
 .closeTask:hover {
     cursor: pointer;
@@ -267,32 +273,32 @@
     border-radius: 100%;
 }
 
-.High {
+.high {
     background-color: rgba(200, 0, 0, 0.600);
     transition: all 225ms ease-in-out;
 }
 
-.Medium {
+.medium {
     background-color: rgba(240, 210, 0, 0.600);
     transition: all 225ms ease-in-out;
 }
 
-.Low {
+.low {
     background-color: rgba(65, 170, 30, 0.600);
     transition: all 225ms ease-in-out;
 }
 
-.High:hover {
+.high:hover {
     background-color: rgb(200, 0, 0);
     transition: all 225ms ease-in-out;
 }
 
-.Medium:hover {
+.medium:hover {
     background-color: rgb(240, 210, 0);
     transition: all 225ms ease-in-out;
 }
 
-.Low:hover {
+.low:hover {
     background-color: rgba(65, 170, 30);
     transition: all 225ms ease-in-out;
 }

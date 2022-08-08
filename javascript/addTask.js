@@ -21,7 +21,7 @@ function taskArray(title, date, category, urgency, description) {
         'category': category,
         'urgency': urgency,
         'description': description,
-        'createdAt': new Date().getTime(),
+        'createdAt': new Date().toLocaleDateString(),
         'assignedUser': assignedUser,
         'id': '',
         'status': 'toDo'

@@ -47,11 +47,11 @@ function renderToDo() {
     document.getElementById('toDo').innerHTML = '';
 
     for (let i = 0; i < currentToDo.length; i++) {
-        let element = currentToDo[i];
-        document.getElementById('toDo').innerHTML += generateTasksHTML(element);
+            let element = currentToDo[i];       
+            document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
         for (let j = 0; j < assignedUser.length; j++) { //Rendert User
             let employee = assignedUser[j];
-            document.getElementById(`currentemployee${i}${'toDo'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
+            document.getElementById(`currentemployee${i}${'toDo'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;            
         }
     }
 }
