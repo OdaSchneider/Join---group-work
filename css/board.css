@@ -1,6 +1,7 @@
 /* -----------------------------------Board---------------------------------------------------- */
 
 .tasks {
+    width: 92%;
     border-radius: 5px;
     margin: 5px;
     display: flex;
@@ -27,9 +28,6 @@
     width: 300px;
     border-radius: 8px;
     overflow: auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
 }
 
 .boardArrangement {
@@ -357,12 +355,8 @@
     .boardBarResponsiv {
         height: 400px;
     }
-
-    .doneResponsiv {
-        height: 400px;
-        width: 90vh;
-    }
 }
+
 
 @media (max-width: 1080px) {
 

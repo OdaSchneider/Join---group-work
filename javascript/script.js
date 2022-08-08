@@ -1,17 +1,7 @@
 let currentDraggedElement;
 let allTasks = [];
 let assignedUser = [];
-let allToDos = [
-{
-    "title": "TestTodo - Test sieht gut aus",
-    "description": "hallo ich versuche was. mwmwmwmmw mmwm m mwmwmw mwmwmwm mm wm wm  mw mwmwwm  m m mw mw mw m wm mwm wwmmwmw wmmwmwmwmmw mmwmwwmwmw mwmmwmwmwmwmwmwm mwwmmwmwwmw mmwmwmwmwmwm mwmwmw",
-    "date": "12.12.2012",
-    "category": "Developer",
-    "status": "toDo",
-    "urgency": "High",
-    "assignedUser":"guest",
-    "id": `1`
-}];
+let allToDos = [];
 
 
 let user = [
