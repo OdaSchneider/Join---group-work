@@ -104,14 +104,19 @@ function removeUser(j) {
 
 
 function openDialogNewUser() {
-    document.getElementById('dialog').classList.remove('d-none');
-    document.getElementById('dialogContent').innerHTML = createNewUser();
+    document.body.style.overflow = 'hidden';
+    window.scrollTo(0, 0);
+    document.getElementById('dialogBg').classList.remove('d-none');
+    document.getElementById('editUserContent').classList.add('d-none');
+    document.getElementById('newUserContent').innerHTML = createNewUser();
 }
 
 
-function closeDialog() {
-    document.getElementById('dialog').classList.add('d-none');
-    document.getElementById('dialogContent').innerHTML = '';
+function closeDialogNewUser() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('dialogBg').classList.add('d-none');
+    document.getElementById('editUserContent').classList.remove('d-none');
+    document.getElementById('newUserContent').innerHTML = '';
     showUser();
 }
 
@@ -120,7 +125,8 @@ function addNewUser() {
     let firstName = document.getElementById('newUserFirstName').value;
     let lastName = document.getElementById('newUserLastName').value;
     checkForUser(firstName, lastName);
-    document.getElementById('dialog').classList.add('d-none');
+    document.getElementById('dialogBg').classList.add('d-none');
+    document.getElementById('editUserContent').classList.remove('d-none');
 }
 
 
@@ -161,9 +167,17 @@ function pushNewUser(firstName, lastName){
 
 
 function openDialogEditUser(){
-    document.getElementById('dialog').classList.remove('d-none');
-    let editProfil = document.getElementById('dialogContent');
-    editProfil.innerHTML = `<img class="x-mark" onclick="closeDialog()" src="./img/x-mark.ico"></img>`;
+    document.body.style.overflow = 'hidden';
+    window.scrollTo(0, 0);
+    document.getElementById('dialogBg').classList.remove('d-none');
+    document.getElementById('newUserContent').classList.add('d-none');
+    renderEditUser();
+}
+
+
+function renderEditUser(){
+    let editProfil = document.getElementById('editUserContent');
+    editProfil.innerHTML = `<img class="x-mark" onclick="closeDialogEditUser()" src="./img/x-mark.ico"></img>`;
     for (let i = 0; i < user.length; i++) {
         let firstName = user[i]['first name'];
         let lastName = user[i]['last name']
@@ -177,4 +191,13 @@ function deleteUser(i){
     user.splice(i, 1);
     safeLocalStorage();
     openDialogEditUser();
+}
+
+
+function closeDialogEditUser() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('dialogBg').classList.add('d-none');
+    document.getElementById('newUserContent').classList.remove('d-none');
+    document.getElementById('editUserContent').innerHTML = '';
+    showUser();
 }

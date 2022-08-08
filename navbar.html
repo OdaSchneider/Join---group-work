@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div class="header">
+    <div id="header" class="header">
 
         <div class="headerTop">
 
@@ -42,9 +42,16 @@
         </div>
     </div>
 
-    <div class="headerResponsive">
-        <button><img src="./img/menuResponsive.ico"></button>
-
+    <div id="headerResponsive" class="headerResponsive d-none">
+        <button id="responsiveNavButton" onclick="openResponsiveNav()">
+            <img src="./img/menuResponsive.ico">
+            <div class="responsiveIcon">
+                <img src="./img/menuResponsive.ico">
+                <img src="./img/menuResponsive.ico">
+                <img src="./img/menuResponsive.ico">
+                <img src="./img/menuResponsive.ico">
+            </div>
+        </button>
     </div>
 </body>
 

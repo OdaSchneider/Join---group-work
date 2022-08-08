@@ -101,3 +101,15 @@ function loadLocalStorage() {
         user = JSON.parse(userAsString);
     }
 }   
+
+
+function openResponsiveNav(){
+    document.getElementById('headerResponsive').style.height = "50%";
+    document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: closeResponsiveNav()`);
+}
+
+
+function closeResponsiveNav(){
+    document.getElementById('headerResponsive').style.height = "5%";
+    document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: openResponsiveNav()`);
+}

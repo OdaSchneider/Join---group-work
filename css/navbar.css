@@ -37,7 +37,7 @@
     border-left: 4px solid white;
 }
 
-.active{
+.active {
     border-left: 4px solid white;
 }
 
@@ -78,34 +78,91 @@
     padding: 5px;
 }
 
-.icons8{
+.icons8 {
     color: #707070;
     font-size: 11px;
 }
 
-.icons8 a{
+.icons8 a {
     color: #707070;
 }
 
-.headerResponsive{
+.headerResponsive {
     display: none;
 }
 
 
+@media(max-width: 720px) {
+    .header {
+        flex-direction: row;
+        width: 100%;
+        height: 50px;
+        top: 13%;
+        align-items: center;
+    }
+
+    .headerTop {
+        flex-direction: row;
+        width: 80%;
+    }
+
+    .headerTop img {
+        width: 32px;
+        height: 32px;
+        margin-left: 32px;
+    }
+
+    .headerBottom {
+        width: 20%;
+        align-items: end;
+    }
+
+    .headerBottom img {
+        width: 32px;
+        height: 32px;
+        margin: unset;
+        margin-right: 32px;
+    }
+
+    .headline {
+        margin-left: 5%;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navbar hr {
+        width: 0% !important;
+        height: 20px;
+        margin: 14px !important;
+    }
+}
+
 @media(max-width: 600px){
+    .headerResponsive{
+        display: flex !important;
+        position: absolute;
+        top: 4%;
+        right: 5%;
+        overflow: hidden;
+        height: 5%;
+        align-items: baseline;
+    }
+
     .header{
         display: none;
     }
 
-    .headerResponsive{
+    .responsiveIcon{
         display: flex;
-        position: absolute;
-        top: 3%;
-        right: 5%;
+        flex-direction: column;
+        margin-top: 32px;
     }
 
-    .headline{
-        margin-left: 5%;
+    .responsiveIcon img{
+        margin: 8px;
     }
+
 }
-

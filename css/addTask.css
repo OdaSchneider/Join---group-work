@@ -153,34 +153,6 @@ input[type="date" i] {
     text-align: left;
 }
 
-.editUsers{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.x-mark{
-    cursor: pointer;
-    position: absolute;
-    top: 8px;
-    left: 8px;
-}
-
-.editUsers img{
-    width: 45px;
-    height: 45px;
-    border-radius: 100%;
-    background-color: #203192;
-    margin-right: 16px;
-}
-
-.editUsers span{
-    cursor: pointer;
-    color: #203192;
-    margin-right: 16px;
-}
-
 .addTask button {
     text-transform: uppercase;
     font-weight: bold;
@@ -223,7 +195,7 @@ input[type="date" i] {
     transition: all 100ms ease-in-out;
 }
 
-.dialog{
+.dialogBg{
     position: absolute;
     top: 0;
     left: 0;
@@ -232,49 +204,95 @@ input[type="date" i] {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0,0,0,0.2);
 }
 
-.dialogContent{
-    width: 30%;
-    height: 35%;
+.newUserContent{
+    max-width: 30%;
     background-color: white;
     border: 2px solid #203192;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 32px 64px;
+    justify-content: center;
     overflow: auto;
     position: relative;
+    padding: 50px;
 }
 
-.dialogContent h3{
+.newUserContent h3{
     color:#203192;
-    margin-bottom: 32px;
+    margin-bottom: 32px 64px;
 }
 
-.dialogContent input{
+.newUserContent input{
     outline: none;
-    width: 225px;
+    width: 100%;
     padding: 8px;   
+    margin-bottom: 32px;
     border: 1px solid lightgray;
     border-radius: 5px;
     color: #575757; 
-    margin-bottom: 32px;
 }
 
-.dialogContent div{
+.newUserContent div{
     display: flex;
     align-items: center;
 }
 
-.dialogContent button{
+.newUserContent button{
     background-color: #2e46cf;
     color: white;
     padding: 6px;
     border-radius: 5px;
     font-size: 16px;
     margin-top: 32px;
+}
+
+.editUserContent{
+    width: 40%;
+    background-color: white;
+    border: 2px solid #203192;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: auto;
+    position: relative;
+}
+
+.editUsers{
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
+    top: 32px;
+    left: 64px;
+    right: 64px;
+    bottom: 32px;
+}
+
+.x-mark{
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.editUsers img{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    background-color: #203192;
+    margin-right: 16px;
+}
+
+.editUsers span{
+    cursor: pointer;
+    color: #203192;
+    margin-right: 16px;
 }
 
 /* ----------------animation------------------- */
@@ -293,15 +311,36 @@ input[type="date" i] {
 
 /* ----------------- responsive --------------- */
 
-@media(max-width: 600px){
+@media(max-width: 900px){
+    .editUserContent{
+        width: 50%;
+    }
+}
+
+@media(max-width: 720px){
 
     .addTaskBg{
         margin: 5%;
         width: 90%;
     }
+    
+    .editUsers{
+        left: 32px;
+    }
+
+    .editUserContent{
+        width: 60%;
+    }
+
+    .responsiveMainPage{
+        display: flex;
+        flex-direction: column;
+        height: 90vh;
+        justify-content: space-between;
+    }
 }
 
-@media(max-width: 500px){
+@media(max-width: 600px){
     .addTask{
         flex-direction: column;
     }
@@ -322,5 +361,33 @@ input[type="date" i] {
     .addTaskButtonLine{
         width: 93%;
         margin-bottom: 12px;
+    }
+
+    .editUserContent{
+        width: 70%;
+    }
+}
+
+@media(max-width: 450px){
+
+    .editUserContent{
+        width: 90%;
+    }
+}
+
+@media(max-width: 350px){
+
+    .editUsers img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .editUsers p{
+        font-size: 14px;
+    }
+
+    .user img{
+        width: 45px !important;
+        height: 45px !important;
     }
 }
