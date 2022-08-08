@@ -3,6 +3,7 @@
 
 function renderBacklog() {
     let history = document.getElementById('backlog-container');
+    history.innerHTML = '';
 
     for (let i = 0; i < allTasks.length; i++) {
         category = allTasks[i]['category'];
@@ -14,7 +15,7 @@ function renderBacklog() {
 }
 
 
-function renderUser(i){
+function renderUser(i) {
     let userContainer = document.getElementById(`backlog-user${i}`);
     userContainer.innerHTML = '';
 
@@ -31,12 +32,10 @@ function renderUser(i){
 function sendToBoard(i) {
     let task = document.getElementById(`backlog-task${i}`);
 
-    for (let j = 0; j < allTasks.length; j++) {
-        allToDos.push(allTasks[i]);
-        allTasks.splice(i, 1);
-        task.classList.add('d-none');
-    } 
-  
+    allToDos.push(allTasks[i]);
+    allTasks.splice(i, 1);
+    task.classList.add('d-none');
+
     safeLocalStorage();
     renderBacklog();
 } 

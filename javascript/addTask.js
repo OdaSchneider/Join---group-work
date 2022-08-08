@@ -33,9 +33,6 @@ function taskArray(title, date, category, urgency, description) {
 
 function assignTask(task) {
     allTasks.push(task);
-    for (let i = 0; i < allTasks.length; i++) {
-        allTasks[i]['id'] = i;
-    }
     safeLocalStorage();
 }
 

@@ -28,10 +28,18 @@ async function save() {
  * EN: All render function in one to display the board.
  */
 function renderBoard() {
+    setId();
     renderToDo();
     renderInProgress();
     renderTesting();
     renderDone();
+}
+
+
+function setId(){
+    for (let i = 0; i < allToDos.length; i++) {
+        allToDos[i]['id'] = i;
+    }
 }
 
 
