@@ -15,7 +15,7 @@ function generateTasksHTML(element, i) {
 }
 
 
-function generateOpenTaskHTML(task, i) {
+function generateOpenTaskHTML(task, id) {
     return `
         <div class="openTask" id="openTask1">
 
@@ -36,7 +36,7 @@ function generateOpenTaskHTML(task, i) {
                 <div class="footerTask">
                     <div>Category: <span class="bold">${task['category']}</span></div>
                 </div>
-                <div class="userImgInOpenTask" id="loardImgUserOnBoard2${i}"></div>
+                <div class="userImgInOpenTask" id="loardImgUserOnBoard2${id}"></div>
             </div>
 
             <div class=titelAndTaskAndPushToDiv>

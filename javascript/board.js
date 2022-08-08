@@ -48,7 +48,6 @@ function renderToDo() {
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
         
         renderUserForBoard(i);
-        renderUserForBoardOpenTask(i);
     }
 }
 /**
@@ -64,7 +63,6 @@ function renderInProgress() {
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i);
         
         renderUserForBoard(i);
-        renderUserForBoardOpenTask(i);
     }
 }
 /**
@@ -80,7 +78,6 @@ function renderTesting() {
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i);
         
         renderUserForBoard(i);
-        renderUserForBoardOpenTask(i);
     }
 }
 /**
@@ -96,11 +93,14 @@ function renderDone() {
         document.getElementById('done').innerHTML += generateTasksHTML(element, i);
 
         renderUserForBoard(i);
-        renderUserForBoardOpenTask(i);
     }
 }
 
 
+/**
+ * DE: Erstellt die User auf dem Board.
+ * EN: Rendert the User on the Board.
+ */
 function renderUserForBoard(i) {
     let userBoardContainer = document.getElementById(`loardImgUserOnBoard${i}`);
     userBoardContainer.innerHTML = '';
@@ -113,7 +113,10 @@ function renderUserForBoard(i) {
 }
 
 
-
+/**
+ * DE: Erstellt die User in einem offendem ToDo.
+ * EN: Rendert the User in an open Task.
+ */
 function renderUserForBoardOpenTask(i) {
     let userBoardOpenTaskContainer = document.getElementById(`loardImgUserOnBoard2${i}`);
     userBoardOpenTaskContainer.innerHTML = '';
@@ -124,6 +127,7 @@ function renderUserForBoardOpenTask(i) {
         userBoardOpenTaskContainer.innerHTML += renderUserOpenTask(userimageBoard2);
     }
 }
+
 
 /**
  * DE: Bei geöffneter task ist ein Bild von einem Pfeil. Drückt man diesen, sorgt die funktion dafür das dass, jeweilige Array den Status ändert.
@@ -159,11 +163,11 @@ function closeTask(){
  * DE: Öffnet die Taskt die man haben möchte, mit allen Informationen die benötikt werden.
  * EN: Opens the task you want with all the information you need.
  */
-function openTask(id) {
+function openTask(id, i) {
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
     let tasks = allToDos.find(t => t['id'] == id);
-    document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks);
+    document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks, i);
 }
 
 
@@ -193,6 +197,7 @@ function backToBoard() {
  */
 function deleteTask(id) {
     allToDos.splice(id, 1);
+    assignedUser.splice(id, 1);
     save();
     backToBoard();
 }
