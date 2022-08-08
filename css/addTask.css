@@ -3,8 +3,8 @@
 .addTaskBg {
     background-color: #F4F2FB;
     margin-left: 150px;
-    margin-top: 8%;
-    height: 65vh;
+    margin-top: 32px;
+    height: 76vh;
     width: calc(100% - 170px);
     border-radius: 15px;
 }
@@ -322,6 +322,10 @@ input[type="date" i] {
     .addTaskBg{
         margin: 5%;
         width: 90%;
+    }
+
+    .headline{
+        margin-left: 40px !important;
     }
     
     .editUsers{

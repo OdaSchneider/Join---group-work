@@ -104,7 +104,7 @@ function loadLocalStorage() {
 
 
 function openResponsiveNav(){
-    document.getElementById('headerResponsive').style.height = "50%";
+    document.getElementById('headerResponsive').style.height = "100%";
     document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: closeResponsiveNav()`);
 }
 
