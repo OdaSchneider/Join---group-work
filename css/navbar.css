@@ -37,7 +37,7 @@
     border-left: 4px solid white;
 }
 
-.active{
+.active {
     border-left: 4px solid white;
 }
 
@@ -78,34 +78,61 @@
     padding: 5px;
 }
 
-.icons8{
+.icons8 {
     color: #707070;
     font-size: 11px;
 }
 
-.icons8 a{
+.icons8 a {
     color: #707070;
 }
 
-.headerResponsive{
+.headerResponsive {
     display: none;
 }
 
+@media(max-width: 720px){
+    .headerResponsive{
+        display: flex !important;
+        position: absolute;
+        top: 24px;
+        right: 2%;
+        overflow: hidden;
+        height: 5%;
+        align-items: baseline;
+        z-index: 100;
+    }
 
-@media(max-width: 600px){
     .header{
         display: none;
     }
 
-    .headerResponsive{
+    .responsiveMenu{
         display: flex;
-        position: absolute;
-        top: 3%;
-        right: 5%;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 32px;
     }
 
-    .headline{
-        margin-left: 5%;
+    .responsiveMenu img{
+        width: 24px;
+        height: 24px;
+        background-color: #203192;
+        padding: 8px;
+        border-radius: 10px;
     }
+
+    .responsiveMenu div{
+        background-color: #203192;
+        margin: 8px;
+        padding: 8px;
+        border-radius: 15px;
+    }
+
 }
 
+@media(max-width: 380px){
+    .headline{
+        width: 60%;
+    }
+}

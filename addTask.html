@@ -22,75 +22,77 @@
 
 <body onload="initAddTask()">
     <div w3-include-html="navbar.html"></div>
+    <div class="responsiveMainPage">
+        <div class="headline">
+            <h1>Add Task</h1>
+            <span>Learning Management System Project</span>
+        </div>
 
-    <div class="headline">
-        <h1>Add Task</h1>
-        <span>Learning Management System Project</span>
-    </div>
+        <div class="addTaskBg">
+            <form onsubmit="addTask()" action="backlog.html" id="addNewTask" class="addTask">
 
-    <div class="addTaskBg">
-        <form onsubmit="addTask()" action="backlog.html" id="addNewTask" class="addTask">
-
-            <div class="columnLeft">
-                <div class="container">
-                    <h3>Title</h3>
-                    <input required placeholder="add Title" id="title">
-                </div>
-
-                <div class="container">
-                    <h3>Description</h3>
-                    <textarea required id="description"></textarea>
-                </div>
-
-                <div class="container">
-                    <h3>Assigned to</h3>
-                    <div class="user" id="user"></div>
-                    <div class="assigneToAccount">
-                        <img onclick="openDialogNewUser()" id="addUser" src="./img/icon plus.png">
-                        <div id="assignedAccount"></div>
+                <div class="columnLeft">
+                    <div class="container">
+                        <h3>Title</h3>
+                        <input required placeholder="add Title" id="title">
                     </div>
-                    <button type="button" onclick="openDialogEditUser()" class="editUserButton">Edit User</button>
-                </div>
-                
-            </div>
 
+                    <div class="container">
+                        <h3>Description</h3>
+                        <textarea required id="description"></textarea>
+                    </div>
 
-            <div class="columnRight">
-                <div class="container">
-                    <h3>Due Date</h3>
-                    <input type="date" required id="date">
-                </div>
+                    <div class="container">
+                        <h3>Assigned to</h3>
+                        <div class="user" id="user"></div>
+                        <div class="assigneToAccount">
+                            <img onclick="openDialogNewUser()" id="addUser" src="./img/icon plus.png">
+                            <div id="assignedAccount"></div>
+                        </div>
+                        <button type="button" onclick="openDialogEditUser()" class="editUserButton">Edit User</button>
+                    </div>
 
-                <div class="container">
-                    <h3>Category</h3>
-                    <select required id="category">
-                        <option value="Administration">Administration</option>
-                        <option value="Finances">Finances</option>
-                        <option value="Marketing">Marketing</option>
-                        <option value="Sale">Sale</option>
-                        <option value="It">IT</option>
-                    </select>
                 </div>
 
-                <div class="container">
-                    <h3>Urgency</h3>
-                    <select required id="urgency">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="heigh">High</option>
-                    </select>
-                </div>
 
-                <div class="addTaskButtonLine">
-                    <button type="reset" onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
-                    <button type="submit" value="submit" class="createTaskButton">create Task</button>
+                <div class="columnRight">
+                    <div class="container">
+                        <h3>Due Date</h3>
+                        <input type="date" required id="date">
+                    </div>
+
+                    <div class="container">
+                        <h3>Category</h3>
+                        <select required id="category">
+                            <option value="Administration">Administration</option>
+                            <option value="Finances">Finances</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Sale">Sale</option>
+                            <option value="It">IT</option>
+                        </select>
+                    </div>
+
+                    <div class="container">
+                        <h3>Urgency</h3>
+                        <select required id="urgency">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="heigh">High</option>
+                        </select>
+                    </div>
+
+                    <div class="addTaskButtonLine">
+                        <button type="reset" onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
+                        <button type="submit" value="submit" class="createTaskButton">create Task</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
-    <div id="dialog" class="dialog d-none">
-        <div id="dialogContent" class="dialogContent"></div>
+    <div id="dialogBg" class="dialogBg d-none">
+        <div id="newUserContent" class="newUserContent"></div>
+        <div id="editUserContent" class="editUserContent"></div>
     </div>
 
 </body>
