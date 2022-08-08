@@ -1,8 +1,5 @@
 // ---------------------------Bord--------------------------------------------------------
 
-// setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
-
-
 /**
  * DE: Läd alles aus dem Backend
  * EN: Load everything from the backend
@@ -47,12 +44,10 @@ function renderToDo() {
     document.getElementById('toDo').innerHTML = '';
 
     for (let i = 0; i < currentToDo.length; i++) {
-            let element = currentToDo[i];       
-            document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
-        for (let j = 0; j < assignedUser.length; j++) { //Rendert User
-            let employee = assignedUser[j];
-            document.getElementById(`currentemployee${i}${'toDo'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;            
-        }
+        let element = currentToDo[i];
+        document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
+        
+        renderUserForBoard(i)
     }
 }
 /**
@@ -65,11 +60,9 @@ function renderInProgress() {
 
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
-        document.getElementById('inProgress').innerHTML += generateTasksHTML(element);
-        for (let j = 0; j < assignedUser.length; j++) { //Rendert User
-            let employee = assignedUser[j];
-            document.getElementById(`currentemployee${i}${'inProgress'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
-        }
+        document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i);
+        
+        renderUserForBoard(i)
     }
 }
 /**
@@ -82,11 +75,9 @@ function renderTesting() {
 
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
-        document.getElementById('testing').innerHTML += generateTasksHTML(element);
-        for (let j = 0; j < assignedUser.length; j++) { //Rendert User
-            let employee = assignedUser[j];
-            document.getElementById(`currentemployee${i}${'testing'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
-        }
+        document.getElementById('testing').innerHTML += generateTasksHTML(element, i);
+        
+        renderUserForBoard(i)
     }
 }
 /**
@@ -99,14 +90,34 @@ function renderDone() {
     
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
-        document.getElementById('done').innerHTML += generateTasksHTML(element);
-        for (let j = 0; j < assignedUser.length; j++) { //Rendert User
-            let employee = assignedUser[j];
-            document.getElementById(`currentemployee${i}${'done'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
-        }
+        document.getElementById('done').innerHTML += generateTasksHTML(element, i);
+
+        renderUserForBoard(i)
     }
 }
 
+
+function renderUserForBoard(i) {
+    let userBoardContainer = document.getElementById(`loardImgUserOnBoard${i}`);
+    userBoardContainer.innerHTML = '';
+
+    let selectedUser = allToDos[i]['assignedUser'];
+    for (let j = 0; j < selectedUser.length; j++) {
+        let userimageBoard = selectedUser[j]['userImg'];
+        userBoardContainer.innerHTML += renderUserOnTheBoard(userimageBoard);
+    }
+}
+
+function renderUserForBoardOpenTask(i) {
+    let userBoardContainer2 = document.getElementById(`loardImgUserOnBoard2${i}`);
+    userBoardContainer2.innerHTML = '';
+
+    let selectedUser = allToDos[i]['assignedUser'];
+    for (let j = 0; j < selectedUser.length; j++) {
+        let userimageBoard2 = selectedUser[j]['userImg'];
+        userBoardContainer2.innerHTML += renderUserOnTheBoard2(userimageBoard2);
+    }
+}
 
 /**
  * DE: Bei geöffneter task ist ein Bild von einem Pfeil. Drückt man diesen, sorgt die funktion dafür das dass, jeweilige Array den Status ändert.

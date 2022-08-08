@@ -8,14 +8,14 @@ function generateTasksHTML(element, i) {
                 <span class="titleTask">${element['title']}</span>
                 <span class="dateOnTask">${element['dueDate']}</span>
             </div>
-            <div> 
-                <img class="task-user-img" id="currentemployee" src="${assignedUser}">
-                <span class="descriptionMini">${element['description']}</span>                
+            <div class="imgAndDescriptionDiv"> 
+                <span class="descriptionMini">${element['description']}</span>
+                <div id="loardImgUserOnBoard${i}"></div>              
             </div>`
 }
 
 
-function generateOpenTaskHTML(task) {
+function generateOpenTaskHTML(task, i) {
     return `
         <div class="openTask" id="openTask1">
 
@@ -35,8 +35,8 @@ function generateOpenTaskHTML(task) {
                 <div class="urgency">Urgency: <span class="${task['urgency']} bold">${task['urgency']}</span></div>
                 <div class="footerTask">
                     <div>Category: <span class="bold">${task['category']}</span></div>
-                    <div id="currentemployee2"></div>
                 </div>
+                <div class="userImgInOpenTask" id="loardImgUserOnBoard2${i}"></div>
             </div>
 
             <div class=titelAndTaskAndPushToDiv>
@@ -48,6 +48,18 @@ function generateOpenTaskHTML(task) {
                 </div>
             </div>
         </div>
+    `;
+}
+
+function renderUserOnTheBoard(userimageBoard) {
+    return `
+    <span class="descriptionMini"><img class="profileImgTaks" src="${userimageBoard}"></span>
+    `;
+}
+
+function renderUserOnTheBoard2(userimageBoard2) {
+    return `
+    <img class="profileImgTaks" src="${userimageBoard2}">
     `;
 }
 
