@@ -44,10 +44,9 @@
 
                     <div class="container">
                         <h3>Assigned to</h3>
-                        <div class="user" id="user"></div>
                         <div class="assigneToAccount">
                             <img onclick="openDialogNewUser()" id="addUser" src="./img/icon plus.png">
-                            <div id="assignedAccount"></div>
+                            <div class="user" id="user"></div>
                         </div>
                         <button type="button" onclick="openDialogEditUser()" class="editUserButton">Edit User</button>
                     </div>
@@ -79,6 +78,10 @@
                             <option value="medium">Medium</option>
                             <option value="high">High</option>
                         </select>
+                    </div>
+
+                    <div class="assigneToAccount">
+                        <div id="assignedAccount"></div>
                     </div>
 
                     <div class="addTaskButtonLine">

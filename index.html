@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -20,9 +21,20 @@
 
 <body onload="init()">
     <div w3-include-html="navbar.html"></div>
-        <div class="startpage">
-            <h3>Login/Startseite</h3>
-        </div>
-    <div w3-include-html="footer.html"></div>
+    <div class="startpage">
+        <form class="login">
+            <p>Please Login</p>
+            <div>
+                <input id="loginInputFirstName" placeholder="First Name">
+                <input id="loginInputLastName" placeholder="Last Name">
+                <input id="loginInputPassword" placeholder="Password">
+            </div>
+            <div>
+                <button type="button" id="loginButton">Login</button>
+                <button type="submit" id="loginAsGuestButton">Login as Guest</button>
+            </div>
+        </form>
+    </div>
 </body>
+
 </html>
