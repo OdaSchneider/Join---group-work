@@ -47,11 +47,16 @@
 }
 
 .dateCreated {
+    color: white;
     display: flex;
     align-items: center;
     padding: 5px;
     border-radius: 5px;
     background-color: rgb(250, 250, 250, 0.5);
+}
+
+.dateCreated span {
+    margin-left: 5px;
 }
 
 .dragAreaHighlight {
@@ -186,7 +191,7 @@
 }
 
 .trash:hover {
-    background-color: white;
+    background-color: rgb(130, 130, 130);
     border-radius: 100%;
 }
 
@@ -204,6 +209,7 @@
     word-wrap: break-word;
     overflow: auto;
     background-color: rgba(255, 255, 255, 0.5);
+    color: white;
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
@@ -220,19 +226,17 @@
     padding: 5px;
 }
 
-.column {
-    text-decoration: underline;
-}
-
 .urgency {
     padding: 5px;
     border-radius: 5px;
     background-color: rgb(250, 250, 250, 0.5);
+    color: white;
 }
 
 .urgency span {
     padding: 2px;
     border-radius: 5px;
+    color: white;
 }
 
 .textOpenTask {
@@ -240,6 +244,7 @@
     overflow: auto;
     word-wrap: break-word;
     background-color: rgba(236, 236, 236, 0.5);
+    color: white;
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
@@ -254,6 +259,7 @@
     padding: 5px;
     border-radius: 5px;
     background-color: rgb(250, 250, 250, 0.5);
+    color: white;
 }
 
 .userImgInOpenTask {
@@ -293,7 +299,7 @@
 }
 
 .pushTo img:hover {
-    background-color: white;
+    background-color: rgb(130, 130, 130);
     border-radius: 100%;
 }
 
