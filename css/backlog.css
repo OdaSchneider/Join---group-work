@@ -14,7 +14,6 @@
 .backlog-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .backlog-headlines {
@@ -24,12 +23,15 @@
 }
 
 .backlog-assign {
-    width: 350px
+    width: 350px;
+    display: flex;
+    align-items: center;
 }
 
 .backlog-category {
     width: 200px;
-
+    display: flex;
+    align-items: center;
 }
 
 .backlog-details {
@@ -39,16 +41,23 @@
 }
 
 .backlog-main {
-    width: 90%;
+    width: 95%;
     background-color: #F4F2FB;
-    height: 100px;
     border-radius: 10px;
     margin-top: 15px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding-left: 10px;
     padding-right: 10px;
+}
+
+.backlog-main-child{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .backlog-tasks {
@@ -64,30 +73,50 @@
     width: 340px;
 }
 
-.username {
-    padding-left: 3%;
+.backlog-user img {
+    width: 40px;
+    height: auto;
+    border-radius: 100px;
+    margin-left: 12px;
+    border: 2px solid #203192;
 }
 
-.backlog-user img {
-    width: 50px;
-    height: auto;
-    
+.backlog-user span{
+    color: #575757;
+    font-size: 12px;
+    font-weight: lighter;
+    padding-left: 8px;
 }
 
 .backlog-dueDate {
     width: 200px;
+    display: flex;
+    align-items: center;
 }
 
-.backlog-urgency {
-    width: 100px;
+.backlog-description-button{
+    display: flex;
+    align-items: center;
+    color: #575757;
+    transition: all 100ms ease-in-out;
+}
+
+.backlog-description-button:hover{
+    transform: scale(1.1);
+    transition: all 100ms ease-in-out;
 }
 
 .backlog-description {
     display: flex;
-    justify-content: end;
+    padding: 8px;
     width: 565px;
-    margin-left: 30px;
+    margin: 16px;
     padding-right: 1%;
+    color: #575757;
+    border: 1px solid rgba(32, 49, 146, 0.5);
+    border-radius: 5px;
+    background-color: #fbfaff;
+    font-weight: lighter;
 }
 
 .backlog-send-to {
@@ -98,13 +127,13 @@
 }
 
 .btn-send-to-board {
-    width: 110px;
-    margin-left: 5%;
+    width: fit-content;
+    margin-left: 8px;
     margin-right: 5%;
     color: white;
     background-color: #203192;
     font-size: 14px;
-    height: 50px;
+    padding: 4px;
     border-radius: 10px;
     transition: all 100ms ease-in-out;
 }
@@ -114,4 +143,25 @@
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
     transform: scale(1.1);
     transition: all 100ms ease-in-out;
+}
+
+.setUrgency{
+    width: 1px;
+    height: 100%;
+    padding-right: 5px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    z-index: 1;
+}
+
+.background_low{
+    background-color: green;
+}
+
+.background_medium{
+    background-color: yellow;
+}
+
+.background_high{
+    background-color: red;
 }

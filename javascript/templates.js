@@ -67,23 +67,27 @@ function renderUserOpenTask(userimageBoard2) {
 // ###############- Backlog -####################################################################################
 
 
-function backlogContainer(i, urgency, dueDate, category, description) {
+function backlogContainer(i, createdAt, category, title, description) {
     return /*html*/ `
     <div id="backlog-task${i}" class="backlog-container">
         <div class="backlog-main">
-           
-            <div class="backlog-user" id="backlog-user${i}"></div>
-            <div class="backlog-dueDate">${dueDate}</div>
-            <div class="backlog-category">
-                <div>${category}</div>
+            
+            <div class="backlog-main-child">
+                <div id="setUrgency${i}" class="setUrgency"></div>
+                <div class="backlog-user" id="backlog-user${i}"></div>
+                <div class="backlog-dueDate">${createdAt}</div>
+                <div class="backlog-category">${category}</div>
+                <div class="backlog-title">${title}</div>
+
+                <button id="descriptionButton${i}" onclick="backlogShowDetails(i)" class="backlog-description-button">
+                    Show Details
+                </button>
             </div>
-            <div class="backlog-urgency ${urgency}">${urgency}</div>
-            <div class="backlog-description">
-                <div>${description}</div> 
-            </div> 
+
+            <div id="backlog-description${i}" class="backlog-description d-none">${description}</div>
         </div>          
         <div class="backlog-send-to">
-            <button class="btn-send-to-board" onclick="sendToBoard(${i})">send to board</button>
+            <button class="btn-send-to-board" onclick="sendToBoard(${i})"><img src="../img/arrow-up.ico"></button>
         </div>  
     </div>
     `;
@@ -94,6 +98,11 @@ function backlogUserContainer(userfirstname, userlastname, userimage) {
     return `
     <img src="${userimage}">
     <div class="username"><span>${userfirstname} ${userlastname}</span></div>`
+}
+
+
+function backlogShowDetails(){
+
 }
 
 

@@ -123,6 +123,17 @@ function login() {
 }
 
 
+function loginAsGuest(){
+    loggedUser = guest[0];
+    safeLocalStorage();
+}
+
+
+function renderNavbar(){
+    document.getElementById('userImage').innerHTML = `<img src=${loggedUser['userImg']}>`;
+}
+
+
 function openResponsiveNav() {
     document.getElementById('headerResponsive').style.height = "100%";
     document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: closeResponsiveNav()`);

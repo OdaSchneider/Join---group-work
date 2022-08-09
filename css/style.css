@@ -125,7 +125,11 @@ input{
 }
 
 .login button:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
+}
+
+.login a:hover{
+    transform: scale(1.05);
 }
 
 #loginButton{
