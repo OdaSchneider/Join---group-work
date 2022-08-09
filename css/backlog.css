@@ -19,12 +19,12 @@
 
 .backlog-headlines {
     display: flex;
+    justify-content: space-between;
     width: 90%;
-
 }
 
 .backlog-assign {
-    width: 600px
+    width: 350px
 }
 
 .backlog-category {
@@ -51,11 +51,17 @@
     padding-right: 10px;
 }
 
+.backlog-tasks {
+    width: 10px;
+    height: 100px;
+}
+
+
 .backlog-user {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    width: 230px;
+    width: 340px;
 }
 
 .username {
@@ -65,21 +71,21 @@
 .backlog-user img {
     width: 50px;
     height: auto;
-    padding-left: 10px;
+    
 }
 
-.backlog-cat {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    margin-left: 300px;
+.backlog-dueDate {
+    width: 200px;
+}
+
+.backlog-urgency {
+    width: 100px;
 }
 
 .backlog-description {
     display: flex;
     justify-content: end;
-    width: 690px;
+    width: 565px;
     margin-left: 30px;
     padding-right: 1%;
 }
@@ -93,7 +99,8 @@
 
 .btn-send-to-board {
     width: 110px;
-    margin-left: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     color: white;
     background-color: #203192;
     font-size: 14px;

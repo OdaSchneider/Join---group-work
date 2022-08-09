@@ -16,7 +16,7 @@ function generateTasksHTML(element, i) {
 
 
 function generateOpenTaskHTML(task, id) {
-    return /*html*/ `
+    return `
         <div class="openTask" id="openTask1">
 
             <div class="headerOpenTask">
@@ -67,14 +67,17 @@ function renderUserOpenTask(userimageBoard2) {
 // ###############- Backlog -####################################################################################
 
 
-function backlogContainer(i, category, description) {
-    return `
+function backlogContainer(i, urgency, dueDate, category, description) {
+    return /*html*/ `
     <div id="backlog-task${i}" class="backlog-container">
         <div class="backlog-main">
-            <div id="backlog-user${i}" class="backlog-user"></div>
-            <div class="backlog-cat">
+           
+            <div class="backlog-user" id="backlog-user${i}"></div>
+            <div class="backlog-dueDate">${dueDate}</div>
+            <div class="backlog-category">
                 <div>${category}</div>
             </div>
+            <div class="backlog-urgency ${urgency}">${urgency}</div>
             <div class="backlog-description">
                 <div>${description}</div> 
             </div> 

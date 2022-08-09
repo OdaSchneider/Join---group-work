@@ -4,12 +4,12 @@
 function renderBacklog() {
     let history = document.getElementById('backlog-container');
     history.innerHTML = '';
-
     for (let i = 0; i < allTasks.length; i++) {
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
-        history.innerHTML += backlogContainer(i, category, description);
-
+        urgency = allTasks[i]['urgency'];
+        dueDate = allTasks[i]['dueDate'];
+        history.innerHTML += backlogContainer(i, urgency, dueDate, category, description);
         renderUser(i);
     }
 }
