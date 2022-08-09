@@ -20,20 +20,40 @@
 
 
 <body onload="init()">
-    <div w3-include-html="navbar.html"></div>
+
     <div class="startpage">
-        <form class="login">
+        <div class="startheadline">
+            <img src="./img/logoBg.png">
+            <h1>Join - simply organized</h1>
+        </div class="startheadline">
+
+        <form action="addTask.html" class="login">
             <p>Please Login</p>
             <div>
-                <input id="loginInputFirstName" placeholder="First Name">
-                <input id="loginInputLastName" placeholder="Last Name">
-                <input id="loginInputPassword" placeholder="Password">
+                <input type="text" id="loginInputFirstName" placeholder="First Name" required>
+                <input type="text" id="loginInputLastName" placeholder="Last Name" required>
+                <input type="password" id="loginInputPassword" placeholder="Password" required>
             </div>
             <div>
-                <button type="button" id="loginButton">Login</button>
-                <button type="submit" id="loginAsGuestButton">Login as Guest</button>
+                <button onclick="login()" id="loginButton">Login</button>
+                <button type="button" id="loginAsGuestButton">Login as Guest</button>
             </div>
         </form>
+        <div class="text">
+            <p>Start with Join to organize your Projects, collect your Ideas and to work on your goals with your Team!</p>
+            <br>
+            <br>
+            <span>This site is an educational project and has NO SECURITY. Do not enter any personal or confidential information!</span>
+        </div>
+        <div class="footer">
+            <div>
+                <img src="./img/logo.png">
+            </div>
+            <div>
+                <a href="./imprint.html">About</a>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
     </div>
 </body>
 

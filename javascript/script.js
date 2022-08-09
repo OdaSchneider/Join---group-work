@@ -1,23 +1,27 @@
 let currentDraggedElement;
 let allTasks = [];
-let assignedUser = [];
 let allToDos = [];
+let assignedUser = [];
+let loggedUser = [];
 
 
 let user = [
     {
         'first name': 'Fabian',
         'last name': 'Flegler',
+        'password': 'FF',
         'userImg': "./img/profile1.png"
     },
     {
         'first name': 'Marcel',
         'last name': 'Berlin',
+        'password': 'MB',
         'userImg': "./img/profile2.png"
     },
     {
         'first name': 'Oda',
         'last name': 'Schneider',
+        'password': 'OS',
         'userImg': "./img/profile3.jpg"
     }
 ]
@@ -76,6 +80,9 @@ function safeLocalStorage() {
     let userAsString = JSON.stringify(user);
     localStorage.setItem('user', userAsString);
 
+    let loggedUserAsString = JSON.stringify(loggedUser);
+    localStorage.setItem('loggedUser', loggedUserAsString);
+
     loadLocalStorage();
 }
 
@@ -84,22 +91,45 @@ function loadLocalStorage() {
     let allTasksAsString = localStorage.getItem('allTasks');
     let allToDosAsString = localStorage.getItem('allToDos');
     let userAsString = localStorage.getItem('user');
+    let loggedUserAsString = localStorage.getItem('loggedUser');
 
-    if (allTasksAsString && allToDosAsString && userAsString) {
+    if (allTasksAsString && allToDosAsString && userAsString && loggedUserAsString) {
         allTasks = JSON.parse(allTasksAsString);
         allToDos = JSON.parse(allToDosAsString);
         user = JSON.parse(userAsString);
+        loggedUser = JSON.parse(loggedUserAsString);
     }
-}   
+}
 
 
-function openResponsiveNav(){
+function login() {
+    loggedUser = [];
+    let firstname = document.getElementById('loginInputFirstName');
+    let lastname = document.getElementById('loginInputLastName');
+    let password = document.getElementById('loginInputPassword').value;
+
+    firstname = firstname.value.toLowerCase();
+    lastname = lastname.value.toLowerCase();
+
+    for (let i = 0; i < user.length; i++) {
+        userFirstname = user[i]['first name'].toLowerCase();
+        userLastname = user[i]['last name'].toLowerCase();
+
+        if (userFirstname == firstname && userLastname == lastname && user[i]['password'] == password) {
+            loggedUser.push(user[i]);
+        }
+    }
+    safeLocalStorage();
+}
+
+
+function openResponsiveNav() {
     document.getElementById('headerResponsive').style.height = "100%";
     document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: closeResponsiveNav()`);
 }
 
 
-function closeResponsiveNav(){
+function closeResponsiveNav() {
     document.getElementById('headerResponsive').style.height = "5%";
     document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: openResponsiveNav()`);
 }
