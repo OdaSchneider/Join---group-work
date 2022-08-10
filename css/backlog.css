@@ -63,13 +63,13 @@
     width: 100%;
     height: 70px;
     align-items: center;
+    padding: 8px;
 }
 
 .backlog-tasks {
     width: 10px;
     height: 100px;
 }
-
 
 .backlog-user {
     display: flex;
@@ -164,7 +164,7 @@
 
 .setUrgency{
     width: 1px;
-    height: 100%;
+    height: 86px;
     padding-right: 5px;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
