@@ -185,3 +185,40 @@ function templateShowUser(userImg, firstName, lastName, i) {
     <p>${firstName} ${lastName}</p>
     </div>`
 }
+
+// ###############- Add Taks -####################################################################################
+
+function createNewUser() {
+    return `
+        <h3>New User</h3>
+        <div>
+            <input id="newUserFirstName" placeholder="First Name">
+        </div>
+        <div>
+            <input id="newUserLastName"  placeholder="Last Name">
+        </div>
+        <div>
+            <button onclick="addNewUser()">Add User</button>
+            <img class="x-mark" onclick="closeDialogNewUser()" src="./img/x-mark.ico">
+        </div>
+    `
+}
+
+
+function editUser(firstName, lastName, userImg, i) {
+    return `
+    <div class="editUsers">
+        <span onclick="deleteUser(${i})"><b>X</b></span>
+        <img src=${userImg}>
+        <p>${firstName} ${lastName}</p>
+    <div>`
+}
+
+
+function templateShowUser(userImg, firstName, lastName, i) {
+    return `
+    <div class="showUser">
+    <img id="selectUser${i}" onclick="selectUser(${i})" src=${userImg}>
+    <p>${firstName} ${lastName}</p>
+    </div>`
+}
