@@ -181,6 +181,7 @@
 
 .closeTask:hover {
     cursor: pointer;
+    
 }
 
 .trash {
@@ -327,6 +328,10 @@
     padding: 10%;
     background-color: #203192;
     border-radius: 100%;
+}
+
+.closeAndDeletTaskDiv img:hover {
+    background-color: #2e46cf;
 }
 
 .pushTo {
