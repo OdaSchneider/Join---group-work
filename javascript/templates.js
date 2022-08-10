@@ -16,9 +16,8 @@ function generateTasksHTML(element, i) {
 
 
 function generateOpenTaskHTML(task, id) {
-    return `
+    return /*html*/ `
         <div class="openTask" id="openTask1">
-
             <div class="headerOpenTask">
                 <div class="dateCreated">
                     Created: <span class="bold"> ${task['createdAt']}</span>
@@ -45,6 +44,16 @@ function generateOpenTaskHTML(task, id) {
                 <div class="pushTo" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
                     <span id="pushTo"></span>
                     <img src="/img/arrow.png">
+                </div>
+            </div>
+
+            <div class="divForTheComments">
+                <div class="showComments" id="showUserForTheComment${id}"></div>
+                    <span>hallo wie gehts dir</span>
+                </div>
+                <div class="inputAndSendButton">
+                    <input id="commentsInput" placeholder="Kommentar..." class="inputStyleComments" type="text">
+                    <button class="sendButtonForTheComments" onclick="sendComment()">Senden</button>
                 </div>
             </div>
         </div>
