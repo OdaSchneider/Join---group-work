@@ -172,15 +172,15 @@
 }
 
 .background_low{
-    background-color: green;
+    background-color: rgba(65, 170, 30, 0.600);
 }
 
 .background_medium{
-    background-color: yellow;
+    background-color: rgba(240, 210, 0, 0.600);
 }
 
 .background_high{
-    background-color: red;
+    background-color: rgba(200, 0, 0, 0.600);
 }
 
 .detailsBg{
