@@ -100,6 +100,14 @@ function backlogUserContainer(userfirstname, userlastname, userimage) {
     <div class="username"><span>${userfirstname} ${userlastname}</span></div>`
 }
 
+function activeUserTemplate(){
+    return `
+        <img src=${loggedUser['userImg']}>
+        <p>
+            ${loggedUser['first name'].charAt(0).toLocaleUpperCase()} 
+            ${loggedUser['last name'].charAt(0).toLocaleUpperCase()}
+        </p>`;
+}
 
 function backlogShowDetails(){
 

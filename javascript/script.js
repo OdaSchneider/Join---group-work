@@ -30,7 +30,7 @@ let user = [
 let guest = [
     {
         'first name': 'guest',
-        'last name': '',
+        'last name': 'user',
         'userImg': "./img/user-guest.ico"
     }
 ]
@@ -63,6 +63,7 @@ async function includeHTML() {
         let resp = await fetch(file);
         if (resp.ok) {
             element.innerHTML = await resp.text();
+            renderNavbar();
         } else {
             element.innerHTML = 'Page not found';
         }
@@ -116,7 +117,7 @@ function login() {
         userLastname = user[i]['last name'].toLowerCase();
 
         if (userFirstname == firstname && userLastname == lastname && user[i]['password'] == password) {
-            loggedUser.push(user[i]);
+            loggedUser = user[i];
         }
     }
     safeLocalStorage();
@@ -130,7 +131,8 @@ function loginAsGuest(){
 
 
 function renderNavbar(){
-    document.getElementById('userImage').innerHTML = `<img src=${loggedUser['userImg']}>`;
+    loadLocalStorage();
+        document.getElementById('activeUser').innerHTML = activeUserTemplate();
 }
 
 

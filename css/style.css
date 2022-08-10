@@ -76,7 +76,7 @@ input{
 .startheadline{
     display: flex;
     position: fixed;
-    top: 150px;
+    top: 32px;
     left: 0;
     width: 100%;
     justify-content: center;
