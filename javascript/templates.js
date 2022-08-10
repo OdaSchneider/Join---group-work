@@ -67,10 +67,10 @@ function renderUserOpenTask(userimageBoard2) {
 // ###############- Backlog -####################################################################################
 
 
-function backlogContainer(i, createdAt, category, title, description) {
-    return /*html*/ `
+function backlogContainer(i, createdAt, category, title) {
+    return `
     <div id="backlog-task${i}" class="backlog-container">
-        <div class="backlog-main">
+        <div onclick="backlogShowDetails(${i})" class="backlog-main">
             
             <div class="backlog-main-child">
                 <div id="setUrgency${i}" class="setUrgency"></div>
@@ -78,13 +78,7 @@ function backlogContainer(i, createdAt, category, title, description) {
                 <div class="backlog-dueDate">${createdAt}</div>
                 <div class="backlog-category">${category}</div>
                 <div class="backlog-title">${title}</div>
-
-                <button id="descriptionButton${i}" onclick="backlogShowDetails(i)" class="backlog-description-button">
-                    Show Details
-                </button>
             </div>
-
-            <div id="backlog-description${i}" class="backlog-description d-none">${description}</div>
         </div>          
         <div class="backlog-send-to">
             <button class="btn-send-to-board" onclick="sendToBoard(${i})"><img src="../img/arrow-up.ico"></button>
@@ -96,9 +90,12 @@ function backlogContainer(i, createdAt, category, title, description) {
 
 function backlogUserContainer(userfirstname, userlastname, userimage) {
     return `
-    <img src="${userimage}">
-    <div class="username"><span>${userfirstname} ${userlastname}</span></div>`
+    <div class="backlog-user-child">
+        <img src="${userimage}">
+        <div class="username"><span>${userfirstname} ${userlastname}</span></div>
+    </div>`
 }
+
 
 function activeUserTemplate(){
     return `
@@ -109,37 +106,66 @@ function activeUserTemplate(){
         </p>`;
 }
 
-function backlogShowDetails(){
 
-}
-
-
-// ###############- Add Taks -####################################################################################
-
-function createNewUser() {
+function backlogDetailsTemplate(i){
     return `
-        <h3>New User</h3>
-        <div>
-            <input id="newUserFirstName" placeholder="First Name">
-        </div>
-        <div>
-            <input id="newUserLastName"  placeholder="Last Name">
-        </div>
-        <div>
-            <button onclick="addNewUser()">Add User</button>
-            <img class="x-mark" onclick="closeDialogNewUser()" src="./img/x-mark.ico">
-        </div>
-    `
-}
+    <div class="addTaskBg">
+            <form onsubmit="editTask(${i})" action="backlog.html" id="editTask${i}" class="addTask">
+
+                <div class="columnLeft">
+                    <div class="container">
+                        <h3>Title</h3>
+                        <input required placeholder="add Title" id="editTitle${i}">
+                    </div>
+
+                    <div class="container">
+                        <h3>Description</h3>
+                        <textarea required id="editDescription${i}"></textarea>
+                    </div>
+
+                    <div class="container">
+                        <h3>Assigned to</h3>
+                        <div class="assigneToAccount">
+                        <div id="editAssignedAccount${i}"></div>
+                        </div>
+                    </div>
+
+                </div>
 
 
-function editUser(firstName, lastName, userImg, i) {
-    return `
-    <div class="editUsers">
-        <span onclick="deleteUser(${i})"><b>X</b></span>
-        <img src=${userImg}>
-        <p>${firstName} ${lastName}</p>
-    <div>`
+                <div class="columnRight">
+                    <div class="container">
+                        <h3>Due Date</h3>
+                        <input type="date" required id="editDate${i}">
+                    </div>
+
+                    <div class="container">
+                        <h3>Category</h3>
+                        <select required id="editCategory${i}">
+                            <option value="Administration">Administration</option>
+                            <option value="Finances">Finances</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Sale">Sale</option>
+                            <option value="It">IT</option>
+                        </select>
+                    </div>
+
+                    <div class="container">
+                        <h3>Urgency</h3>
+                        <select required id="editUrgency${i}">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+
+                    <div class="addTaskButtonLine">
+                        <button type="button" onclick="closeEdit()" class="cancelTaskButton">Cancel</button>
+                        <button type="submit" value="submit" class="createTaskButton">create Task</button>
+                    </div>
+                </div>
+            </form>
+        </div>`
 }
 
 

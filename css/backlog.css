@@ -50,6 +50,12 @@
     align-items: center;
     justify-content: space-between;
     padding-right: 10px;
+    transition: all 100ms ease-in-out;
+    cursor: pointer;
+}
+
+.backlog-main:hover{
+    transform: scale(1.015);
 }
 
 .backlog-main-child{
@@ -73,6 +79,13 @@
     width: 340px;
 }
 
+.backlog-user-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .backlog-user img {
     width: 40px;
     height: auto;
@@ -94,16 +107,21 @@
     align-items: center;
 }
 
+.backlog-title{
+    word-wrap: break-word;
+}
+
 .backlog-description-button{
     display: flex;
     align-items: center;
     color: #575757;
-    transition: all 100ms ease-in-out;
+    transition: all 255ms ease-in-out;
 }
 
 .backlog-description-button:hover{
-    transform: scale(1.1);
-    transition: all 100ms ease-in-out;
+    color: #0e2ee0;
+    font-weight: bold;
+    transition: all 255ms ease-in-out;
 }
 
 .backlog-description {
@@ -128,7 +146,7 @@
 
 .btn-send-to-board {
     width: fit-content;
-    margin-left: 8px;
+    margin-left: 16px;
     margin-right: 5%;
     color: white;
     background-color: #203192;
@@ -164,4 +182,14 @@
 
 .background_high{
     background-color: red;
+}
+
+.detailsBg{
+    z-index: 10;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
 }

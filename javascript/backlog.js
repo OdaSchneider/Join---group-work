@@ -9,7 +9,7 @@ function renderBacklog() {
         description = allTasks[i]['description'];
         createdAt = allTasks[i]['createdAt'];
         title = allTasks[i]['title'];
-        history.innerHTML += backlogContainer(i, createdAt, category, title, description);
+        history.innerHTML += backlogContainer(i, createdAt, category, title);
         renderUser(i);
     }
 }
@@ -37,7 +37,44 @@ function setUrgency(i){
 
 
 function backlogShowDetails(i){
-    document.getElementById(`backlog-description${i}`).classList.remove('d-none');
+    document.getElementById(`backlogDetailsBg`).classList.remove('d-none');
+    let showDetails = document.getElementById('details');
+    showDetails.innerHTML = backlogDetailsTemplate(i);
+    fillDetails(i);
+}
+
+function closeEdit(){
+    document.getElementById(`backlogDetailsBg`).classList.add('d-none');
+}
+
+
+function fillDetails(i){
+    document.getElementById('editTitle'+i).value = allTasks[i]['title'];
+    document.getElementById('editDescription'+i).value = allTasks[i]['description'];
+    document.getElementById('editDate'+i).value = allTasks[i]['dueDate'];
+    document.getElementById('editCategory'+i).value = allTasks[i]['category'];
+    document.getElementById('editUrgency'+i).value = allTasks[i]['urgency'];
+    fillAssignedUser(i);
+}
+
+function fillAssignedUser(i){
+    let loadAssignedUser =  allTasks[i]['assignedUser']
+    let editAssignedUser = document.getElementById('editAssignedAccount'+i);
+    editAssignedUser.innerHTML = '';
+    for (let j = 0; j < loadAssignedUser.length; j++) {
+        editAssignedUser.innerHTML += `<img src=${loadAssignedUser[j]['userImg']}>`;
+    }
+}
+
+
+function editTask(i){
+    allTasks[i]['title'] = document.getElementById('editTitle'+i).value;
+    allTasks[i]['description'] = document.getElementById('editDescription'+i).value;
+    allTasks[i]['dueDate'] = document.getElementById('editDate'+i).value;
+    allTasks[i]['category'] = document.getElementById('editCategory'+i).value;
+    allTasks[i]['urgency'] = document.getElementById('editUrgency'+i).value;
+    allTasks[i]['createdAt'] = new Date().toLocaleDateString();
+    safeLocalStorage();
 }
 
 

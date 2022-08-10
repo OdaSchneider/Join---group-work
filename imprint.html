@@ -15,35 +15,53 @@
     <script src='javascript/backlog.js'></script>
     <script src='javascript/board.js'></script>
     <script src="javascript/templates.js"></script>
-    <script src='javascript/mini_backend.js'></script>
 
 
     <style>
         .imprintBg {
-            margin-left: 20%;
+            height: 90vh;
+            margin-left: 10%;
             word-wrap: break-word;
-        }
-
-        .imprintBg div{
             display: flex;
             flex-direction: column;
-            margin-bottom: 8px;
+            justify-content: center;
         }
 
-        .imprintBg p{
+        .imprintBg h1{
+            margin-top: 50px;
+        }
+
+        .imprintContent {
+            display: flex;
+            align-items: center;
+        }
+
+        .imprintContent-right {
+            margin-left: 15%;
+        }
+
+        .imprintContent-right div {
+            margin-bottom: 32px;
+        }
+
+        .imprintContent-left div {
+            margin-bottom: 32px;
+        }
+
+        .imprintBg p {
             margin-bottom: 8px;
             font-weight: bold;
         }
 
-        .imprintBg span{
+        .imprintBg span {
             display: flex;
         }
 
-        .imprintBg img{
+        .imprintBg img {
             margin-right: 12px;
         }
 
-        .imprintBg a{
+        .imprintBg a {
             display: flex;
             align-items: center;
             margin-bottom: 8px;
@@ -51,60 +69,75 @@
             margin-right: 5px;
             color: rgb(99, 99, 99);
         }
-        
-        .imprintBg a:hover{
+
+        .imprintBg a:hover {
             color: rgb(94, 0, 216);
             transition: all 225ms ease-in-out;
+        }
+
+        .reference {
+            margin-top: 64px;
         }
     </style>
 </head>
 
 
-<body onload="init()">
-    <div w3-include-html="navbar.html"></div>
+<body>
 
     <div class="imprintBg">
         <h1>About Join Ldt.</h1>
-        <div>
-            <p>Join Ldt.</p>
-            <span>Backplaumenallee 19</span>
-            <span>1234 Eckstein</span>
-            <span>Deutschland</span>
+        <div class="imprintContent">
+            <div class="imprintContent-left">
+                <div>
+                    <p>Join Ldt.</p>
+                    <span>Backplaumenallee 19</span>
+                    <span>1234 Eckstein</span>
+                    <span>Deutschland</span>
+                </div>
+
+                <div>
+                    <p>Contact</p>
+                    <a href="tel:+8002255883"><img src="./img/phone.ico">+8002255883</a>
+                    <a href="mailto:join@info.com"><img src="./img/mail.ico">join@info.com</a>
+                    <a href="index.html"><img src="./img/internet.ico">www.join.de</a>
+                </div>
+
+                <div>
+                    <p>Authorized Managing Directors</p>
+                    <span>Fabian Flegler</span>
+                    <span>Marcel Berlin</span>
+                    <span>Oda Schneider</span>
+                </div>
+            </div>
+            <div class="imprintContent-right">
+                <div>
+                    <p>Registration Number</p>
+                    <span>HRB 9999</span>
+                </div>
+
+                <div>
+                    <p>Registry Court</p>
+                    <span>Ag Eckstein</span>
+                </div>
+
+                <div>
+                    <p>Sales tax identification number according to §27a sales tax law</p>
+                    <span>DE 97795523148</span>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <p>Contact</p>
-            <a href="tel:+8002255883"><img src="./img/phone.ico">+8002255883</a>
-            <a href="mailto:join@info.com"><img src="./img/mail.ico">join@info.com</a>
-            <a href="index.html"><img src="./img/internet.ico">www.join.de</a>
-        </div>
-
-        <div>
-            <p>Authorized Managing Directors</p>
-            <span>Fabian Flegler</span>
-            <span>Marcel Berlin</span>
-            <span>Oda Schneider</span>
-        </div>
-
-        <div>
-            <p>Registration Number</p>
-            <span>HRB 9999</span>
-        </div>
-
-        <div>
-            <p>Registry Court</p>
-            <span>Ag Eckstein</span>
-        </div>
-
-        <div>
-            <p>Sales tax identification number according to §27a sales tax law</p>
-            <span>DE 97795523148</span>
-        </div>
-        <br>
-        <br>
-        <span>Logos come from <a href="https://icons8.com"> https://icons8.com </a>among others</span>
+        <span class="reference">Logos come from <a href="https://icons8.com"> https://icons8.com </a>among others</span>
     </div>
-
+    <div class="footer">
+        <div>
+            <a href="./index.html"><img src="./img/logo.png"></a>
+        </div>
+        <div>
+            <a href="./imprint.html">About</a>
+            <a href="#">Privacy</a>
+        </div>
+    </div>
 
 </body>
 
