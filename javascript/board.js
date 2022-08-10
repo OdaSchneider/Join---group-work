@@ -237,3 +237,8 @@ function moveTo(status) {
     task['status'] = status;
     save();
 }
+
+
+function sendComment() {
+    
+}
