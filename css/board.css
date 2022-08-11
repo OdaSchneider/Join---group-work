@@ -52,7 +52,7 @@
     align-items: center;
     padding: 5px;
     border-radius: 5px;
-    background-color: rgb(250, 250, 250, 0.5);
+    background-color: #203192;
 }
 
 .dateCreated span {
@@ -136,7 +136,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(225, 225, 225, 0.8);
+    background-color: rgba(88, 88, 88, 0.9);
     z-index: 998;
     filter: opacity(100%);
     height: 100%;
@@ -159,7 +159,7 @@
     margin-top: 20vh;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(32, 49, 146, 0.8);
+    background-color: lightgray;
     height: fit-content;
     padding: 8px;
     width: 600px;
@@ -227,22 +227,20 @@
     align-items: center;
     flex-direction: column;
     padding: 10px;
-    background-color: rgb(32, 49, 146, 0.5);
+    background-color: #203192;
     border-radius: 5px;
     padding: 5px;
 }
 
-.urgency {
+.urgencyDiv {
     padding: 5px;
     border-radius: 5px;
-    background-color: rgb(250, 250, 250, 0.5);
-    color: white;
+    color: rgb(32,49,146);
 }
 
-.urgency span {
+.urgencyDiv span {
     padding: 2px;
     border-radius: 5px;
-    color: white;
 }
 
 .textOpenTask {
@@ -264,7 +262,7 @@
     margin-top: 24px;
     padding: 5px;
     border-radius: 5px;
-    background-color: rgb(250, 250, 250, 0.5);
+    background-color: #203192;
     color: white;
 }
 
@@ -286,14 +284,45 @@
     justify-content: center;
     align-items: center;
     flex-direction: row-reverse;
+    background-color: #203192;
+    border-radius: 10px;
 }
 
 .showComments {
+    overflow: auto;
+    height: 100px;
+    width: 598px;
     margin: 5px;
 }
 
 .showComments span {
-    color: white;
+    color: darkslategray;
+}
+
+.deletCommentButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 800;
+    border-radius: 100%;
+    border: 1px solid black;
+}
+
+.commentsAndDeletComment {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.commentImg{
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+}
+
+.comments {
+    font-weight: 600;
+    font-size: 15px;
 }
 
 .divForTheComments {
@@ -307,15 +336,18 @@
 }
 
 .sendButtonForTheComments {
-    background-color: rgb(110, 187, 110);
+    background-color: #203192;
     border-radius: 5px;
     color: white;
     font-weight: 600;
     font-size: 16px;
+    height: 35px;
+    width: 75px;
+    padding: 4px;
 }
 
 .sendButtonForTheComments:hover {
-    background-color: green;
+    background-color: #0e2ee0;
 }
 
 .inputAndSendButton {
@@ -326,6 +358,9 @@
     outline: none;
     border: none;
     border-radius: 5px;
+    margin-right: 15px;
+    height: 25px;
+    width: 200px;
 }
 
 .closeAndDeletTaskDiv img {
@@ -353,36 +388,36 @@
 }
 
 .high {
-    background-color: rgba(200, 0, 0, 0.600);
+    background-color: rgba(200, 0, 0);
     transition: all 225ms ease-in-out;
 }
 
 .medium {
-    background-color: rgba(240, 210, 0, 0.600);
+    background-color: rgba(201 167 2);
     transition: all 225ms ease-in-out;
 }
 
 .low {
-    background-color: rgba(65, 170, 30, 0.600);
-    transition: all 225ms ease-in-out;
-}
-
-.high:hover {
-    background-color: rgb(200, 0, 0);
-    transition: all 225ms ease-in-out;
-}
-
-.medium:hover {
-    background-color: rgb(240, 210, 0);
-    transition: all 225ms ease-in-out;
-}
-
-.low:hover {
     background-color: rgba(65, 170, 30);
     transition: all 225ms ease-in-out;
 }
 
 
+
+.color_high {
+    color: rgba(200, 0, 0);
+    transition: all 225ms ease-in-out;
+}
+
+.color_medium {
+    color: rgba(201 167 2);
+    transition: all 225ms ease-in-out;
+}
+
+.color_low {
+    color: rgba(65, 170, 30);
+    transition: all 225ms ease-in-out;
+}
 
 @keyframes reveal2 {
     0% {
@@ -492,6 +527,17 @@
 
     .boardArrangement {
         margin-left: 0px;
+    }
+}
+
+@media (max-width: 335px) {
+    .inputAndSendButton {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sendButtonForTheComments {
+        margin-top: 10px;
     }
 }
 

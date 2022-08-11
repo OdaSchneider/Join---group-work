@@ -125,11 +125,11 @@ function renderUserForBoard(i) {
  * DE: Erstellt die User in einem offendem ToDo.
  * EN: Rendert the User in an open Task.
  */
-function renderUserForBoardOpenTask(i) {
-    let userBoardOpenTaskContainer = document.getElementById(`loardImgUserOnBoard2${i}`);
+function renderUserForBoardOpenTask(id) {
+    let userBoardOpenTaskContainer = document.getElementById(`loardImgUserOnBoard2${id}`);
     userBoardOpenTaskContainer.innerHTML = '';
-
-    let selectedUser2 = allToDos[i]['assignedUser'];
+    let tasks = allToDos.find(t => t['id'] == id);
+    let selectedUser2 = tasks['assignedUser'];
     for (let k = 0; k < selectedUser2.length; k++) {
         let userimageBoard2 = selectedUser2[k]['userImg'];
         userBoardOpenTaskContainer.innerHTML += renderUserOpenTask(userimageBoard2);
@@ -177,6 +177,7 @@ function openTask(id) {
     let tasks = allToDos.find(t => t['id'] == id);
     document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks, id);
     renderUserForBoardOpenTask(id);
+    renderComments(id, tasks);
 }
 
 
@@ -240,29 +241,33 @@ function moveTo(status) {
 }
 
 
-function sendComment(i) {
-    let commentsOnTheBoard = document.getElementById(`commentsInput${i}`);
+function sendComment(id) {
+    let commentsOnTheBoard = document.getElementById(`commentsInput${id}`);
 
     if(commentsOnTheBoard.value.length == 0) {
         alert("Bitte etwas eingeben!");
     } else {
-        allToDos[i]['comments'].push(commentsOnTheBoard.value);
+        let tasks = allToDos.find(t => t['id'] == id);
+        tasks['comments'].push(commentsOnTheBoard.value);
+        commentsOnTheBoard.value = '';
+        safeLocalStorage();
+        renderComments(id, tasks);
     }
-    commentsOnTheBoard.value = '';
-    renderComments(i);
 }
 
 
-function renderComments(i) {
-    document.getElementById(`showUserForTheComment${i}`).innerHTML = '';
-    for (let j = 0; j < allToDos[i]['comments'].length; j++) {
-        const comments = allToDos[i]['comments'][j];
-        document.getElementById(`showUserForTheComment${i}`).innerHTML += renderCommentsOnTheTask(i); 
+function renderComments(id, tasks) {
+    document.getElementById(`showComment${id}`).innerHTML = '';
+    for (let j = 0; j < tasks['comments'].length; j++) {
+        let comment = tasks['comments'][j];
+        document.getElementById(`showComment${id}`).innerHTML += renderCommentsOnTheTask(id, j, comment); 
     }
 }
  
 
-function deletComment(i) {
-    allToDos[i]['comments'].splice(i, 1);
-    renderComments(i);
+function deletComment(j, id) {
+    let tasks = allToDos.find(t => t['id'] == id);
+    tasks['comments'].splice(j, 1);
+    safeLocalStorage();
+    renderComments(id, tasks);
 }

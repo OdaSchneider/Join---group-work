@@ -2,8 +2,8 @@
 // ###############- Board -####################################################################################
 
 function generateTasksHTML(element, i) {
-    return /*html*/ `
-        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id'], i})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
+    return `
+        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}, ${i})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
             <div class="dateAndTitle">
                 <span class="titleTask">${element['title']}</span>
                 <span class="dateOnTask">${element['dueDate']}</span>
@@ -18,7 +18,7 @@ function generateTasksHTML(element, i) {
 
 
 function generateOpenTaskHTML(task, id) {
-    return /*html*/ `
+    return`
         <div class="openTask" id="openTask1">
             <div class="headerOpenTask">
                 <div class="dateCreated">
@@ -33,7 +33,7 @@ function generateOpenTaskHTML(task, id) {
             </div> 
 
             <div class="header2OpenTask"> 
-                <div class="urgency">Urgency: <span class="${task['urgency']} bold">${task['urgency']}</span></div>
+                <div class="urgencyDiv">Urgency: <span class="color_${task['urgency']} bold">${task['urgency']}</span></div>
                 <div class="footerTask">
                     <div>Category: <span class="bold">${task['category']}</span></div>
                 </div>
@@ -50,9 +50,9 @@ function generateOpenTaskHTML(task, id) {
             </div>
 
             <div class="divForTheComments">
-                <div class="showComments" id="showUserForTheComment${id}"></div>
+                <div class="showComments" id="showComment${id}"></div>
                 <div class="inputAndSendButton">
-                    <input id="commentsInput${id}" placeholder="Kommentar..." class="inputStyleComments" type="text">
+                    <input id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
                     <button class="sendButtonForTheComments" onclick="sendComment(${id})">Senden</button>
                 </div>
             </div>
@@ -73,12 +73,13 @@ function renderUserOpenTask(userimageBoard2) {
 }
 
 
-function renderCommentsOnTheTask(i)  {
-    return  /*html */ `
-        <div>
-            <span>${comments[i]}</span>
-            <button onclick="deletComment(i)">X</button>
-        </div>
+function renderCommentsOnTheTask(id, j, comment, tasks)  {
+    return`
+        <div class="commentsAndDeletComment">
+            <img class="commentImg" src="${loggedUser['userImg']}">
+            <button class="deletCommentButton" onclick="deletComment(${j}, ${id})">X</button>
+            <span class="comments">${comment}</span>
+         </div>
     `;
 }
 
@@ -218,8 +219,8 @@ function createNewUser() {
 function editUser(firstName, lastName, userImg, i) {
     return `
     <div class="editUsers">
-        <span onclick="deleteUser(${i})"><b>X</b></span>
-        <img src=${userImg}>
+        <span onclick="deleteUser(${i})"><img class="editUsersIcon" src="./img/delete.ico"></span>
+        <img class="editUsersImg" src=${userImg}>
         <p>${firstName} ${lastName}</p>
     <div>`
 }

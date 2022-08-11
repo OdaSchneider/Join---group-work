@@ -283,6 +283,10 @@ input[type="date" i] {
     bottom: 32px;
 }
 
+.editUsersIcon{
+    margin-right: 16px;
+}
+
 .x-mark{
     cursor: pointer;
     position: absolute;
@@ -290,7 +294,7 @@ input[type="date" i] {
     left: 8px;
 }
 
-.editUsers img{
+.editUsersImg{
     width: 45px;
     height: 45px;
     border-radius: 100%;
