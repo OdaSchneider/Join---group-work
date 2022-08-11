@@ -11,6 +11,12 @@
 
 }
 
+.emptybacklog {
+    width: 80vw;
+    text-align: center;
+    margin-top: 150px;
+}
+
 .backlog-container {
     display: flex;
     align-items: center;
