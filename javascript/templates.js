@@ -15,7 +15,7 @@ function generateTasksHTML(element, i) {
 }
 
 
-function generateOpenTaskHTML(task, id) {
+function generateOpenTaskHTML(task, id, i) {
     return /*html*/ `
         <div class="openTask" id="openTask1">
             <div class="headerOpenTask">
@@ -49,11 +49,9 @@ function generateOpenTaskHTML(task, id) {
 
             <div class="divForTheComments">
                 <div class="showComments" id="showUserForTheComment${id}"></div>
-                    <span>hallo wie gehts dir</span>
-                </div>
                 <div class="inputAndSendButton">
-                    <input id="commentsInput" placeholder="Kommentar..." class="inputStyleComments" type="text">
-                    <button class="sendButtonForTheComments" onclick="sendComment()">Senden</button>
+                    <input id="commentsInput${i}" placeholder="Kommentar..." class="inputStyleComments" type="text">
+                    <button class="sendButtonForTheComments" onclick="sendComment(${i})">Senden</button>
                 </div>
             </div>
         </div>
@@ -69,6 +67,16 @@ function renderUserOnTheBoard(userimageBoard) {
 function renderUserOpenTask(userimageBoard2) {
     return `
     <span class="descriptionMini"><img class="profileImgTaks" src="${userimageBoard2}"></span>
+    `;
+}
+
+
+function renderCommentsOnTheTask(i)  {
+    return  /*html */ `
+        <div>
+            <span>${comments}</span>
+            <button onclick="deletComment(i)">X</button>
+        </div>
     `;
 }
 

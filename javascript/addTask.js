@@ -24,7 +24,8 @@ function taskArray(title, date, category, urgency, description) {
         'createdAt': new Date().toLocaleDateString(),
         'assignedUser': assignedUser,
         'id': '',
-        'status': 'toDo'
+        'status': 'toDo',
+        'comments': []
     };
 
     assignTask(task);

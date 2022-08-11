@@ -129,9 +129,9 @@ function renderUserForBoardOpenTask(i) {
     let userBoardOpenTaskContainer = document.getElementById(`loardImgUserOnBoard2${i}`);
     userBoardOpenTaskContainer.innerHTML = '';
 
-    let selectedUser = allToDos[i]['assignedUser'];
-    for (let k = 0; k < selectedUser.length; k++) {
-        let userimageBoard2 = selectedUser[k]['userImg'];
+    let selectedUser2 = allToDos[i]['assignedUser'];
+    for (let k = 0; k < selectedUser2.length; k++) {
+        let userimageBoard2 = selectedUser2[k]['userImg'];
         userBoardOpenTaskContainer.innerHTML += renderUserOpenTask(userimageBoard2);
     }
 }
@@ -239,6 +239,29 @@ function moveTo(status) {
 }
 
 
-function sendComment() {
-    
+function sendComment(i) {
+    let commentsOnTheBoard = document.getElementById(`commentsInput${i}`);
+
+    if(commentsOnTheBoard.value.length == 0) {
+        alert("Bitte etwas eingeben!");
+    } else {
+        allToDos[i]['comments'].push(commentsOnTheBoard.value);
+    }
+    commentsOnTheBoard.value = '';
+    renderComments(i);
+}
+
+
+function renderComments(i) {
+    document.getElementById(`showUserForTheComment${i}`).innerHTML = '';
+    for (let j = 0; j < allToDos[i]['comments'].length; j++) {
+        const comments = allToDos[i]['comments'][j];
+        document.getElementById(`showUserForTheComment${i}`).innerHTML += renderCommentsOnTheTask(i); 
+    }
+}
+ 
+
+function deletComment(i) {
+    allToDos[i]['comments'].splice(i, 1);
+    renderComments(i);
 }
