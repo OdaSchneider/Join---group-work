@@ -125,8 +125,8 @@ function renderUserForBoard(i) {
  * DE: Erstellt die User in einem offendem ToDo.
  * EN: Rendert the User in an open Task.
  */
-function renderUserForBoardOpenTask(i) {
-    let userBoardOpenTaskContainer = document.getElementById(`loardImgUserOnBoard2${i}`);
+function renderUserForBoardOpenTask(id) {
+    let userBoardOpenTaskContainer = document.getElementById(`loardImgUserOnBoard2${id}`);
     userBoardOpenTaskContainer.innerHTML = '';
 
     let selectedUser2 = allToDos[i]['assignedUser'];
@@ -171,11 +171,12 @@ function closeTask(){
  * DE: Öffnet die Taskt die man haben möchte, mit allen Informationen die benötikt werden.
  * EN: Opens the task you want with all the information you need.
  */
-function openTask(id, i) {
+function openTask(id) {
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
     let tasks = allToDos.find(t => t['id'] == id);
-    document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks, i);
+    document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks, id);
+    renderUserForBoardOpenTask(id);
 }
 
 

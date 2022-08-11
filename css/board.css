@@ -97,7 +97,7 @@
     flex-direction: column;
 }
 
-#loardImgUserOnBoard0 {
+.loardImgUserOnBoard {
     display: flex;
     justify-content: flex-end;
 }
