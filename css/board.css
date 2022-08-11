@@ -52,7 +52,7 @@
     align-items: center;
     padding: 5px;
     border-radius: 5px;
-    background-color: rgb(250, 250, 250, 0.5);
+    background-color: #203192;
 }
 
 .dateCreated span {
@@ -136,7 +136,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(225, 225, 225, 0.8);
+    background-color: rgba(88, 88, 88, 0.9);
     z-index: 998;
     filter: opacity(100%);
     height: 100%;
@@ -159,7 +159,7 @@
     margin-top: 20vh;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(32, 49, 146, 0.8);
+    background-color: lightgray;
     height: fit-content;
     padding: 8px;
     width: 600px;
@@ -227,7 +227,7 @@
     align-items: center;
     flex-direction: column;
     padding: 10px;
-    background-color: rgb(32, 49, 146, 0.5);
+    background-color: #203192;
     border-radius: 5px;
     padding: 5px;
 }
@@ -235,7 +235,7 @@
 .urgency {
     padding: 5px;
     border-radius: 5px;
-    background-color: rgb(250, 250, 250, 0.5);
+    background-color: #203192;
     color: white;
 }
 
@@ -264,7 +264,7 @@
     margin-top: 24px;
     padding: 5px;
     border-radius: 5px;
-    background-color: rgb(250, 250, 250, 0.5);
+    background-color: #203192;
     color: white;
 }
 
@@ -286,6 +286,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: row-reverse;
+    background-color: #203192;
+    border-radius: 10px;
 }
 
 .showComments {
@@ -313,15 +315,18 @@
 }
 
 .sendButtonForTheComments {
-    background-color: rgb(110, 187, 110);
+    background-color: #203192;
     border-radius: 5px;
     color: white;
     font-weight: 600;
     font-size: 16px;
+    height: 35px;
+    width: 75px;
+    padding: 4px;
 }
 
 .sendButtonForTheComments:hover {
-    background-color: green;
+    background-color: #0e2ee0;
 }
 
 .inputAndSendButton {
@@ -332,6 +337,7 @@
     outline: none;
     border: none;
     border-radius: 5px;
+    margin-right: 15px;
 }
 
 .closeAndDeletTaskDiv img {
