@@ -296,6 +296,12 @@
     color: white;
 }
 
+.commentImg{
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+}
+
 .divForTheComments {
     z-index: 999;
     display: flex;

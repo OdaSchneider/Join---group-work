@@ -76,7 +76,7 @@ function renderUserOpenTask(userimageBoard2) {
 function renderCommentsOnTheTask(id, j, comment, tasks)  {
     return`
         <div>
-            <span>${comment}</span>
+            <img class="commentImg" src="${loggedUser['userImg']}"><span>${comment}</span>
             <button onclick="deletComment(${j}, ${id})">X</button>
         </div>
     `;
@@ -218,8 +218,8 @@ function createNewUser() {
 function editUser(firstName, lastName, userImg, i) {
     return `
     <div class="editUsers">
-        <span onclick="deleteUser(${i})"><b>X</b></span>
-        <img src=${userImg}>
+        <span onclick="deleteUser(${i})"><img class="editUsersIcon" src="./img/delete.ico"></span>
+        <img class="editUsersImg" src=${userImg}>
         <p>${firstName} ${lastName}</p>
     <div>`
 }
