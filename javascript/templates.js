@@ -3,7 +3,7 @@
 
 function generateTasksHTML(element, i) {
     return /*html*/ `
-        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
+        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id'], i})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
             <div class="dateAndTitle">
                 <span class="titleTask">${element['title']}</span>
                 <span class="dateOnTask">${element['dueDate']}</span>
@@ -68,7 +68,7 @@ function renderUserOnTheBoard(userimageBoard) {
 
 function renderUserOpenTask(userimageBoard2) {
     return `
-    <span class="descriptionMini"><img class="profileImgTaks" src="${userimageBoard2}"></span>
+    <img class="profileImgTaksOpenTask" src="${userimageBoard2}">
     `;
 }
 

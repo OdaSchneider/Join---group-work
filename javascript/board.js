@@ -125,8 +125,8 @@ function renderUserForBoard(i) {
  * DE: Erstellt die User in einem offendem ToDo.
  * EN: Rendert the User in an open Task.
  */
-function renderUserForBoardOpenTask(id) {
-    let userBoardOpenTaskContainer = document.getElementById(`loardImgUserOnBoard2${id}`);
+function renderUserForBoardOpenTask(i) {
+    let userBoardOpenTaskContainer = document.getElementById(`loardImgUserOnBoard2${i}`);
     userBoardOpenTaskContainer.innerHTML = '';
 
     let selectedUser2 = allToDos[i]['assignedUser'];
