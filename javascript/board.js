@@ -162,7 +162,6 @@ function closeTask(){
     document.getElementById('overlayBg').classList.add('d-none');
     document.getElementById('openTask').classList.add('d-none');
     document.getElementById('openTask').classList.remove('exit-ani');
-
     save(); 
 }
 
@@ -241,6 +240,10 @@ function moveTo(status) {
 }
 
 
+/**
+ * DE: Läd den commentar aus dem Input fehld und fügt den in das Arry ein unter Comments
+ * EN: Loads the comment from the input field and inserts it into the array under Comments
+ */
 function sendComment(id) {
     let commentsOnTheBoard = document.getElementById(`commentsInput${id}`);
 
@@ -256,6 +259,10 @@ function sendComment(id) {
 }
 
 
+/**
+ * DE: Läd alle Kommentare
+ * EN: Load all Comments
+ */
 function renderComments(id, tasks) {
     document.getElementById(`showComment${id}`).innerHTML = '';
     for (let j = 0; j < tasks['comments'].length; j++) {
@@ -265,6 +272,10 @@ function renderComments(id, tasks) {
 }
  
 
+/**
+ * DE: Löscht den Kommentar
+ * EN: Delet the Comment
+ */
 function deletComment(j, id) {
     let tasks = allToDos.find(t => t['id'] == id);
     tasks['comments'].splice(j, 1);

@@ -232,17 +232,16 @@
     padding: 5px;
 }
 
-.urgency {
+.urgencyDiv {
     padding: 5px;
     border-radius: 5px;
+    color: rgb(32,49,146);
     background-color: #203192;
-    color: white;
 }
 
-.urgency span {
+.urgencyDiv span {
     padding: 2px;
     border-radius: 5px;
-    color: white;
 }
 
 .textOpenTask {
@@ -291,11 +290,40 @@
 }
 
 .showComments {
+    overflow: auto;
+    height: 100px;
+    width: 598px;
     margin: 5px;
 }
 
 .showComments span {
-    color: white;
+    color: darkslategray;
+}
+
+.deletCommentButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 800;
+    border-radius: 100%;
+    border: 1px solid black;
+}
+
+.commentsAndDeletComment {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.commentImg{
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+}
+
+.comments {
+    font-weight: 600;
+    font-size: 15px;
 }
 
 .commentImg{
@@ -338,7 +366,9 @@
     border: none;
     border-radius: 5px;
     margin-right: 15px;
-}
+    height: 25px;
+    width: 200px;
+  }
 
 .closeAndDeletTaskDiv img {
     object-fit: contain;
@@ -365,36 +395,36 @@
 }
 
 .high {
-    background-color: rgba(200, 0, 0, 0.600);
+    background-color: rgba(200, 0, 0);
     transition: all 225ms ease-in-out;
 }
 
 .medium {
-    background-color: rgba(240, 210, 0, 0.600);
+    background-color: rgba(201 167 2);
     transition: all 225ms ease-in-out;
 }
 
 .low {
-    background-color: rgba(65, 170, 30, 0.600);
-    transition: all 225ms ease-in-out;
-}
-
-.high:hover {
-    background-color: rgb(200, 0, 0);
-    transition: all 225ms ease-in-out;
-}
-
-.medium:hover {
-    background-color: rgb(240, 210, 0);
-    transition: all 225ms ease-in-out;
-}
-
-.low:hover {
     background-color: rgba(65, 170, 30);
     transition: all 225ms ease-in-out;
 }
 
 
+
+.color_high {
+    color: rgba(200, 0, 0);
+    transition: all 225ms ease-in-out;
+}
+
+.color_medium {
+    color: rgba(201 167 2);
+    transition: all 225ms ease-in-out;
+}
+
+.color_low {
+    color: rgba(65, 170, 30);
+    transition: all 225ms ease-in-out;
+}
 
 @keyframes reveal2 {
     0% {
@@ -504,6 +534,17 @@
 
     .boardArrangement {
         margin-left: 0px;
+    }
+}
+
+@media (max-width: 335px) {
+    .inputAndSendButton {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sendButtonForTheComments {
+        margin-top: 10px;
     }
 }
 

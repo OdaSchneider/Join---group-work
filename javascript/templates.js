@@ -2,8 +2,8 @@
 // ###############- Board -####################################################################################
 
 function generateTasksHTML(element, i) {
-    return /*html*/ `
-        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}, ${i})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
+    return `
+         <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}, ${i})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
             <div class="dateAndTitle">
                 <span class="titleTask">${element['title']}</span>
                 <span class="dateOnTask">${element['dueDate']}</span>
@@ -33,7 +33,7 @@ function generateOpenTaskHTML(task, id) {
             </div> 
 
             <div class="header2OpenTask"> 
-                <div class="urgency">Urgency: <span class="${task['urgency']} bold">${task['urgency']}</span></div>
+                <div class="urgencyDiv">Urgency: <span class="color_${task['urgency']} bold">${task['urgency']}</span></div>
                 <div class="footerTask">
                     <div>Category: <span class="bold">${task['category']}</span></div>
                 </div>
@@ -75,10 +75,18 @@ function renderUserOpenTask(userimageBoard2) {
 
 function renderCommentsOnTheTask(id, j, comment, tasks)  {
     return`
+<<<<<<< HEAD
+        <div class="commentsAndDeletComment">
+            <img class="commentImg" src="${loggedUser['userImg']}">
+            <button class="deletCommentButton" onclick="deletComment(${j}, ${id})">X</button>
+            <span class="comments">${comment}</span>
+         </div>
+=======
         <div>
             <img class="commentImg" src="${loggedUser['userImg']}"><span>${comment}</span>
             <button onclick="deletComment(${j}, ${id})">X</button>
         </div>
+>>>>>>> 2570efee079f6c5d24d80b65c6ea46ed2eae579e
     `;
 }
 
