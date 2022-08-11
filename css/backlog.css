@@ -198,3 +198,10 @@
     bottom: 0;
     background-color: rgba(0,0,0,0.3);
 }
+
+.editAssignedAccount img{
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    border: 2px solid #203192;
+}

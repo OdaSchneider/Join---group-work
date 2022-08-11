@@ -47,41 +47,41 @@ function showUser() {
     let profil = document.getElementById('user');
     profil.innerHTML = '';
 
-    for (let i = 0; i < user.length; i++) {
-        let userImg = user[i]['userImg'];
-        let firstName = user[i]['first name'].charAt(0).toLocaleUpperCase();
-        let lastName = user[i]['last name'].charAt(0).toLocaleUpperCase();
-        profil.innerHTML += templateShowUser(userImg, firstName, lastName ,i);
+    for (let j = 0; j < user.length; j++) {
+        let userImg = user[j]['userImg'];
+        let firstName = user[j]['first name'].charAt(0).toLocaleUpperCase();
+        let lastName = user[j]['last name'].charAt(0).toLocaleUpperCase();
+        profil.innerHTML += templateShowUser(userImg, firstName, lastName ,j);
     }
 }
 
 
-function selectUser(i) {
+function selectUser(j) {
     let found = false;
     for (let k = 0; k < assignedUser.length; k++) {
-        if(assignedUser[k]['first name']==user[i]['first name']&&assignedUser[k]['last name']==user[i]['last name']){
+        if(assignedUser[k]['first name']==user[j]['first name']&&assignedUser[k]['last name']==user[j]['last name']){
             found = true;
             break;
         }
     }
-    checkIfUserExist(found, i) 
+    checkIfUserExist(found, j) 
 }
 
 
-function checkIfUserExist(found, i){
+function checkIfUserExist(found, j){
     if(!found){
-        assignedUser.push(user[i]);
+        assignedUser.push(user[j]);
     }else{
-        userExist(i);
+        userExist(j);
     }
     renderAssignedUser();  
 }
 
 
-function userExist(i){
-    document.getElementById(`selectUser${i}`).style.border= "2px solid red";
+function userExist(j){
+    document.getElementById(`selectUser${j}`).style.border= "2px solid red";
     setTimeout(() => {
-        document.getElementById(`selectUser${i}`).style.border= "none";
+        document.getElementById(`selectUser${j}`).style.border= "none";
     }, 500);
 }
 
