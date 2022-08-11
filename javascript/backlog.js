@@ -4,14 +4,22 @@
 function renderBacklog() {
     let history = document.getElementById('backlog-container');
     history.innerHTML = '';
+    emptyBacklog();
     for (let i = 0; i < allTasks.length; i++) {
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
         createdAt = allTasks[i]['createdAt'];
         title = allTasks[i]['title'];
         history.innerHTML += backlogContainer(i, createdAt, category, title);
-        renderUser(i);
+        renderUser(i);                
     }
+}
+
+function emptyBacklog() {
+    let empty = document.getElementById('emptybacklog');
+    if(allTasks.length == 0) {
+        empty.classList.remove('d-none');
+    } 
 }
 
 

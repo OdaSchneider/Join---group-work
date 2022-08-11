@@ -45,7 +45,7 @@ async function init() {
 
 async function initBacklog() {
     await init();
-    renderBacklog();
+    renderBacklog();   
 }
 
 
