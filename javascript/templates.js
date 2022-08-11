@@ -3,7 +3,7 @@
 
 function generateTasksHTML(element, i) {
     return /*html*/ `
-        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
+        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}, ${i})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
             <div class="dateAndTitle">
                 <span class="titleTask">${element['title']}</span>
                 <span class="dateOnTask">${element['dueDate']}</span>
@@ -15,8 +15,8 @@ function generateTasksHTML(element, i) {
 }
 
 
-function generateOpenTaskHTML(task, id, i) {
-    return /*html*/ `
+function generateOpenTaskHTML(task, id) {
+    return`
         <div class="openTask" id="openTask1">
             <div class="headerOpenTask">
                 <div class="dateCreated">
@@ -48,10 +48,10 @@ function generateOpenTaskHTML(task, id, i) {
             </div>
 
             <div class="divForTheComments">
-                <div class="showComments" id="showUserForTheComment${id}"></div>
+                <div class="showComments" id="showComment${id}"></div>
                 <div class="inputAndSendButton">
-                    <input id="commentsInput${i}" placeholder="Kommentar..." class="inputStyleComments" type="text">
-                    <button class="sendButtonForTheComments" onclick="sendComment(${i})">Senden</button>
+                    <input id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
+                    <button class="sendButtonForTheComments" onclick="sendComment(${id})">Senden</button>
                 </div>
             </div>
         </div>
@@ -71,11 +71,11 @@ function renderUserOpenTask(userimageBoard2) {
 }
 
 
-function renderCommentsOnTheTask(i)  {
-    return  /*html */ `
+function renderCommentsOnTheTask(id, j, comment, tasks)  {
+    return`
         <div>
-            <span>${comments}</span>
-            <button onclick="deletComment(i)">X</button>
+            <span>${comment}</span>
+            <button onclick="deletComment(${j}, ${id})">X</button>
         </div>
     `;
 }
