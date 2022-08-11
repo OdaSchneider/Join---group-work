@@ -235,12 +235,9 @@
 .urgencyDiv {
     padding: 5px;
     border-radius: 5px;
-<<<<<<< HEAD
     color: rgb(32,49,146);
-=======
     background-color: #203192;
     color: white;
->>>>>>> 2570efee079f6c5d24d80b65c6ea46ed2eae579e
 }
 
 .urgencyDiv span {
@@ -370,11 +367,8 @@
     border: none;
     border-radius: 5px;
     margin-right: 15px;
-<<<<<<< HEAD
     height: 25px;
     width: 200px;
-=======
->>>>>>> 2570efee079f6c5d24d80b65c6ea46ed2eae579e
 }
 
 .closeAndDeletTaskDiv img {
