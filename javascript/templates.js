@@ -10,8 +10,10 @@ function generateTasksHTML(element, i) {
             </div>
             <div class="imgAndDescriptionDiv"> 
                 <span class="descriptionMini">${element['description']}</span>
-                <div id="loardImgUserOnBoard${i}"></div>              
-            </div>`
+                <div class="loardImgUserOnBoard" id="loardImgUserOnBoard${i}"></div>              
+            </div>
+        </div>
+    `;
 }
 
 
@@ -60,13 +62,13 @@ function generateOpenTaskHTML(task, id) {
 
 function renderUserOnTheBoard(userimageBoard) {
     return `
-    <span class="descriptionMini"><img class="profileImgTaks" src="${userimageBoard}"></span>
+    <img class="profileImgTaks" src="${userimageBoard}">
     `;
 }
 
 function renderUserOpenTask(userimageBoard2) {
     return `
-    <span class="descriptionMini"><img class="profileImgTaks" src="${userimageBoard2}"></span>
+    <img class="profileImgTaksOpenTask" src="${userimageBoard2}">
     `;
 }
 
