@@ -237,7 +237,6 @@
     border-radius: 5px;
     color: rgb(32,49,146);
     background-color: #203192;
-    color: white;
 }
 
 .urgencyDiv span {
@@ -369,7 +368,7 @@
     margin-right: 15px;
     height: 25px;
     width: 200px;
-}
+  }
 
 .closeAndDeletTaskDiv img {
     object-fit: contain;

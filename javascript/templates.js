@@ -1,9 +1,9 @@
 
 // ###############- Board -####################################################################################
 
-function generateTasksHTML(element, i) { 
+function generateTasksHTML(element, i) {
     return `
-        <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}, ${i})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
+         <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}, ${i})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
             <div class="dateAndTitle">
                 <span class="titleTask">${element['title']}</span>
                 <span class="dateOnTask">${element['dueDate']}</span>
@@ -74,17 +74,19 @@ function renderUserOpenTask(userimageBoard2) {
 
 
 function renderCommentsOnTheTask(id, j, comment, tasks)  {
-    return `
+    return`
+<<<<<<< HEAD
         <div class="commentsAndDeletComment">
             <img class="commentImg" src="${loggedUser['userImg']}">
             <button class="deletCommentButton" onclick="deletComment(${j}, ${id})">X</button>
             <span class="comments">${comment}</span>
          </div>
-
+=======
         <div>
             <img class="commentImg" src="${loggedUser['userImg']}"><span>${comment}</span>
             <button onclick="deletComment(${j}, ${id})">X</button>
         </div>
+>>>>>>> 2570efee079f6c5d24d80b65c6ea46ed2eae579e
     `;
 }
 
