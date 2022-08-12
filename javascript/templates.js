@@ -143,9 +143,9 @@ function backlogDetailsTemplate(i){
                     </div>
 
                     <div class="container">
-                        <h3>Assigned to</h3>
+                        <h3>Assigne User</h3>
                         <div class="assigneToAccount">
-                        <div id="editAssignedAccount${i}"></div>
+                            <div class="user" id="edituser${i}"></div>
                         </div>
                     </div>
 
@@ -178,6 +178,11 @@ function backlogDetailsTemplate(i){
                         </select>
                     </div>
 
+                    <div class="container">
+                        <h3>Assigned To</h3>
+                        <div class="editAssignedAccount" id="editAssignedAccount${i}"></div>
+                    </div>
+
                     <div class="addTaskButtonLine">
                         <button type="button" onclick="closeEdit()" class="cancelTaskButton">Cancel</button>
                         <button type="submit" value="submit" class="createTaskButton">create Task</button>
@@ -188,10 +193,10 @@ function backlogDetailsTemplate(i){
 }
 
 
-function templateShowUser(userImg, firstName, lastName, i) {
+function templateShowUserBacklog(userImg, firstName, lastName ,j,i){
     return `
     <div class="showUser">
-    <img id="selectUser${i}" onclick="selectUser(${i})" src=${userImg}>
+    <img id="selectUser${j}" onclick="assigneUserBacklog(${j},${i})" src=${userImg}>
     <p>${firstName} ${lastName}</p>
     </div>`
 }
@@ -225,10 +230,10 @@ function editUser(firstName, lastName, userImg, i) {
 }
 
 
-function templateShowUser(userImg, firstName, lastName, i) {
+function templateShowUser(userImg, firstName, lastName, j) {
     return `
     <div class="showUser">
-    <img id="selectUser${i}" onclick="selectUser(${i})" src=${userImg}>
+    <img id="selectUser${j}" onclick="selectUser(${j})" src=${userImg}>
     <p>${firstName} ${lastName}</p>
     </div>`
 }
