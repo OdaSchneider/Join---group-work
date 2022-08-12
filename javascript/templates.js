@@ -94,11 +94,12 @@ function backlogContainer(i, createdAt, category, title) {
                 <div class="backlog-user" id="backlog-user${i}"></div>
                 <div class="backlog-dueDate">${createdAt}</div>
                 <div class="backlog-category">${category}</div>
-                <div class="backlog-title">${title}</div>
+                <div class="backlog-details">${title}</div>
             </div>
         </div>          
         <div class="backlog-send-to">
-            <button class="btn-send-to-board" onclick="sendToBoard(${i})"><img src="../img/arrow-up.ico"></button>
+            <button class="btn-delete" onclick="deleteBacklogTask(${i})" title="delete Backlog"><img src="../img/müll.png"></button>
+            <button class="btn-send-to-board" onclick="sendToBoard(${i})" title="send to Board"><img src="../img/arrow-up.ico"></button>
         </div>  
     </div>
     `;

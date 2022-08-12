@@ -25,7 +25,7 @@
 .backlog-headlines {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 76.5%;
 }
 
 .backlog-assign {
@@ -41,13 +41,15 @@
 }
 
 .backlog-details {
+    word-break: break-word;
     width: 600px;
-    text-align: right;
-
+    display: flex;
+    justify-content: flex-start;
 }
 
+
 .backlog-main {
-    width: 95%;
+    width: 90%;
     background-color: #F4F2FB;
     border-radius: 10px;
     margin-top: 15px;
@@ -112,10 +114,6 @@
     align-items: center;
 }
 
-.backlog-title{
-    word-break: break-word;
-}
-
 .backlog-description-button{
     display: flex;
     align-items: center;
@@ -168,6 +166,31 @@
     transition: all 100ms ease-in-out;
 }
 
+.btn-delete {
+    width: fit-content;
+    margin-left: 16px;
+    margin-right: 5%;
+    color: white;
+    background-color: #203192;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 10px;
+    transition: all 100ms ease-in-out;
+}
+
+.btn-delete:hover {
+    background-color: #2e46cf;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+    transition: all 100ms ease-in-out;
+}
+
+.btn-delete img {
+    height: 24px;
+    width: auto;
+}
+
+
 .setUrgency{
     width: 1px;
     height: 86px;
@@ -177,15 +200,15 @@
     z-index: 1;
 }
 
-.background_low{
+.background_Low{
     background-color: rgba(65, 170, 30, 0.600);
 }
 
-.background_medium{
+.background_Medium{
     background-color: rgba(240, 210, 0, 0.600);
 }
 
-.background_high{
+.background_High{
     background-color: rgba(200, 0, 0, 0.600);
 }
 
@@ -200,10 +223,12 @@
 }
 
 .editAssignedAccount img{
+    cursor: pointer;
     width: 40px;
     height: 40px;
     border-radius: 100px;
     border: 2px solid #203192;
+    margin-right: 10px;
 }
 
 #alert{

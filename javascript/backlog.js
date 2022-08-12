@@ -184,3 +184,11 @@ function sendToBoard(i) {
     safeLocalStorage();
     renderBacklog();
 } 
+
+
+function deleteBacklogTask(i) {
+    allTasks.splice(i, 1);
+    assignedUser.splice(i, 1);
+    safeLocalStorage();
+    renderBacklog();
+}
