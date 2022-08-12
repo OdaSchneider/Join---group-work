@@ -44,6 +44,7 @@ function generateOpenTaskHTML(task, id) {
                     <img src="/img/arrow.png">
                 </div>
             </div>
+            
             <div class="divForTheComments"> 
                     <div class="showComments" id="showComment${id}"></div>
                 <div class="inputAndSendButton">
