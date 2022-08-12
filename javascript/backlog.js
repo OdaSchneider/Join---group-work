@@ -5,7 +5,8 @@ function renderBacklog() {
     let history = document.getElementById('backlog-container');
     history.innerHTML = '';
     emptyBacklog();
-    for (let i = 0; i < allTasks.length; i++) {
+    let start = allTasks.length -1;
+    for (let i = start; i > -1 ; i--) {
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
         createdAt = allTasks[i]['createdAt'];
