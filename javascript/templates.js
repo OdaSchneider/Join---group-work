@@ -19,38 +19,44 @@ function generateTasksHTML(element, i) {
 function generateOpenTaskHTML(task, id) {
     return`
         <div class="openTask" id="openTask1">
-            <div class="headerOpenTask">
-                <div class="dateCreated">
-                    Created: <span class="bold"> ${task['createdAt']}</span>
+            <div class="createdAndOptionButton">
+                <div class="headerOpenTask">
+                    <div class="dateCreated">
+                        Created: <span class="bold"> ${task['createdAt']}</span>
+                    </div>
                 </div>
+                    
                 <div class="closeAndDeletTaskDiv">
                     <div class="closeTask" onclick="backToBoard()"><img class="trash" src="/img/close.png"></div>
                     <div onclick="deleteTask('${task['id']}')">
                         <img class="trash" src="/img/müll.png">
                     </div>
+                        <div onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
+                            <img class="pushTo" src="/img/arrow.png">
+                        </div> 
                 </div> 
-            </div> 
+            </div>  
+
             <div class="header2OpenTask"> 
                 <div class="urgencyDiv">Urgency: <span class="color_${task['urgency']} bold">${task['urgency']}</span></div>
                 <div class="footerTask">
                     <div>Category: <span class="bold">${task['category']}</span></div>
                 </div>
+
                 <div class="userImgInOpenTask" id="loardImgUserOnBoard2${id}"></div>
             </div>
+
             <div class=titelAndTaskAndPushToDiv>
                 <div class="title bold">${task['title']}</div>
                 <div class="textOpenTask">${task['description']}</div>
-                <div class="pushTo" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
-                    <img src="/img/arrow.png">
-                </div>
             </div>
             
-            <div class="divForTheComments"> 
-                    <div class="showComments" id="showComment${id}"></div>
+            <div class="divForTheComments">
                 <div class="inputAndSendButton">
-                    <input onclick="checkInputComments(${id})" id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
+                    <input id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
                     <button class="sendButtonForTheComments" onclick="sendComment(${id})">Senden</button>
                 </div>
+                <div class="showComments" id="showComment${id}"></div>
             </div>
         </div>
     `;

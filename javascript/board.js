@@ -256,18 +256,6 @@ function moveTo(status) {
 // }
 
 
-/**
- * DE: Es wird überprüft ob sich kommentare in der Kommentaren Div befinden... wen ja dann wird eine höhe von 100px generiert.
- * EN: It is checked whether there are comments in the comments div... if so, a height of 100px is generated.
- */
-// function checkInputComments(id) {
-//     if (document.getElementById(`showComment${id}`) == 0) {
-//         document.getElementById(`showComment${id}`).classList.add('height100');
-//     }  else {
-//         document.getElementById(`showComment${id}`).classList.remove('height100'); 
-//     }
-// }
-
 
 /**
  * DE: Läd den commentar aus dem Input fehld und fügt den in das Arry ein unter Comments
