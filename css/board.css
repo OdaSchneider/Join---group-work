@@ -17,6 +17,20 @@
     cursor: pointer;
 }
 
+.headerAndStatusDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statusText {
+    border-radius: 5px;
+    background-color: #203192;
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
+    padding: 2px;
+}
+
 .boardHeadline {
     font-size: 20px;
     font-weight: 600;
@@ -207,7 +221,7 @@
 }
 
 .title {
-    font-size: larger;
+    font-size: 25px;
     margin-top: 16px;
     margin-bottom: 4px;
     word-wrap: break-word;
@@ -288,7 +302,9 @@
 .createdAndOptionButton {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
+
 
 .closeAndDeletTaskDiv {
     display: flex;
@@ -359,7 +375,7 @@
 }
 
 .divForTheComments {
-    z-index: 999;
+    z-index: 998;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -552,7 +568,26 @@
     }
 }
 
+@media (max-width: 450px) {
+
+    .statusResponsiv {
+        height: 34px;
+        position: absolute;
+        top: -34px;
+        left: 11px;
+        bottom: 0;
+        right: 0;
+        z-index: 900;
+    }
+
+    .closeAndDeletTaskDiv img  {
+        width: 20px;
+        height: 20px;
+    }
+}
+
 @media (max-width: 335px) {
+
     .inputAndSendButton {
         display: flex;
         flex-direction: column;
@@ -560,6 +595,7 @@
 
     .sendButtonForTheComments {
         margin-top: 10px;
+        margin-bottom: 10px;
     }
 }
 
@@ -582,5 +618,25 @@
 
     .tasks {
         width: 91.5%;
+    }
+
+    .dateCreated {
+        font-size: 15px;
+    }
+
+    .urgencyDiv {
+        font-size: 15px;
+    }
+
+    .footerTask {
+        font-size: 15px;
+    }
+
+    .statusText {
+        font-size: 20px;
+    }
+
+    .statusResponsiv {
+        top: -28px;
     }
 }

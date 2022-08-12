@@ -101,7 +101,6 @@ function renderDone() {
         document.getElementById('done').innerHTML += generateTasksHTML(element, i);
 
         renderUserForBoard(element, i);
-        // checkArrowFunction();
     }
 }
 
@@ -155,6 +154,7 @@ function pushToOtherBoard(id) {
             }
         }
     }
+    checkArrowFunction(allToDos);
     closeTask();
 }
 
@@ -247,13 +247,13 @@ function moveTo(status) {
  * DE: Es wird überprüft ob der status des obejeckt "done" ist, wenn ja dann verschwindet das Bild mit dem pfeil.
  * EN: It is checked whether the status of the object is "done", if so then the image with the arrow disappears.
  */
-// function checkArrowFunction() {
-//     if (allToDos['status'] == 'done') {
-//         document.getElementById('pushToOtherBoard').classList.remove('d-none');
-//     }  else {
-//         document.getElementById('pushToOtherBoard').classList.add('d-none'); 
-//     }
-// }
+function checkArrowFunction(allToDos) {
+    if (allToDos['status'] == 'done') {
+        document.getElementById('pushToOtherBoard').classList.add('d-none');
+    }  else {
+        document.getElementById('pushToOtherBoard').classList.remove('d-none'); 
+    }
+}
 
 
 
@@ -282,7 +282,8 @@ function sendComment(id) {
  */
 function renderComments(id, tasks) {
     document.getElementById(`showComment${id}`).innerHTML = '';
-    for (let j = 0; j < tasks['comments'].length; j++) {
+    let startComments = tasks['comments'].length -1;
+    for (let j = startComments; j > -1 ; j--) {
         let comment = tasks['comments'][j];
         document.getElementById(`showComment${id}`).innerHTML += renderCommentsOnTheTask(id, j, comment); 
     }

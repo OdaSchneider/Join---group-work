@@ -25,7 +25,11 @@ function generateOpenTaskHTML(task, id) {
                         Created: <span class="bold"> ${task['createdAt']}</span>
                     </div>
                 </div>
-                    
+
+                <div class="statusResponsiv">
+                    <span class="statusText">${task['status']}</span>
+                </div>
+                
                 <div class="closeAndDeletTaskDiv">
                     <div class="closeTask" onclick="backToBoard()"><img class="trash" src="/img/close.png"></div>
                     <div onclick="deleteTask('${task['id']}')">
@@ -34,17 +38,17 @@ function generateOpenTaskHTML(task, id) {
                         <div onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
                             <img class="pushTo" src="/img/arrow.png">
                         </div> 
-                </div> 
+                </div>
             </div>
 
             <div class="header2OpenTask"> 
                 <div class="urgencyDiv">Urgency: <span class="color_${task['urgency']} bold">${task['urgency']}</span></div>
                 <div class="footerTask">
-                        <div>Category: <span class="bold">${task['category']}</span></div>
+                    <div>Category: <span class="bold">${task['category']}</span></div>
                 </div>
 
                 <div class="userImgInOpenTask" id="loardImgUserOnBoard2${id}"></div>
-            </div>
+            </div>           
 
             <div class=titelAndTaskAndPushToDiv>
                 <div class="title bold">${task['title']}</div>
@@ -58,7 +62,7 @@ function generateOpenTaskHTML(task, id) {
                 </div>
                 <div class="showComments" id="showComment${id}"></div>
             </div>
-        </div>
+        </div>    
     `;
 }
 
