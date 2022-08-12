@@ -28,7 +28,6 @@ async function save() {
  * EN: All render function in one to display the board.
  */
 function renderBoard() {
-    setId();
     renderToDo();
     renderInProgress();
     renderTesting();

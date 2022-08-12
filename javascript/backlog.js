@@ -180,7 +180,7 @@ function sendToBoard(i) {
     allToDos.push(allTasks[i]);
     allTasks.splice(i, 1);
     task.classList.add('d-none');
-
+    setId();
     safeLocalStorage();
     renderBacklog();
 } 
