@@ -158,11 +158,11 @@
     animation: reveal1 225ms ease-in-out;
 }
 
-.exit-openTask {
+.exitOpenTask {
     animation: exitUp 500ms ease-in-out;
 }
 
-.exit-ani-o-t {
+.exitBackground {
     animation: exit 400ms ease-in-out;
 }
 
@@ -186,6 +186,7 @@
 .headerOpenTask {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .bold {
@@ -513,7 +514,7 @@
     }
 
     100% {
-        margin-top: -200px;
+        margin-bottom: -200px;
         opacity: 0;
     }
 }

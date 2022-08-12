@@ -22,8 +22,8 @@ function generateOpenTaskHTML(task, id) {
             <div class="createdAndOptionButton">
                 <div class="headerOpenTask">
                     <div class="dateCreated">
-                        Created: <span class="bold"> ${task['createdAt']}</span>
-                    </div>
+                        Created: <span class="bold">${task['createdAt']}</span>
+                    </div> 
                 </div>
 
                 <div class="statusResponsiv">
@@ -39,6 +39,10 @@ function generateOpenTaskHTML(task, id) {
                             <img class="pushTo" src="/img/arrow.png">
                         </div> 
                 </div>
+            </div>
+
+            <div class="dateCreated">
+                Finish: <span class="bold">${task['dueDate']}</span>
             </div>
 
             <div class="header2OpenTask"> 

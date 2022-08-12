@@ -109,7 +109,7 @@ function renderDone() {
  * DE: Erstellt die User auf dem Board.
  * EN: Rendert the User on the Board.
  */
-function renderUserForBoard(element, i) {
+function renderUserForBoard(element) {
     let userBoardContainer = document.getElementById(`loardImgUserOnBoard${element['id']}`);
     userBoardContainer.innerHTML = '';
 
@@ -188,8 +188,8 @@ function openTask(id) {
  * EN: Closes the task again and shows the board again.
  */
 function backToBoard() {
-    document.getElementById('overlayBg').classList.add('exit-ani-o-t');
-    document.getElementById('openTask1').classList.add('exit-openTask');
+    document.getElementById('overlayBg').classList.add('exitBackground');
+    document.getElementById('openTask1').classList.add('exitOpenTask');
     setTimeout(() => {
         document.getElementById('overlayBg').classList.add('d-none');
         document.getElementById('openTask1').classList.add('d-none');
@@ -197,8 +197,8 @@ function backToBoard() {
 
     }, 300);
     setTimeout(() => {
-        document.getElementById('openTask1').classList.remove('exit-openTask');
-        document.getElementById('overlayBg').classList.remove('exit-ani-o-t');
+        document.getElementById('openTask1').classList.remove('exitOpenTask');
+        document.getElementById('overlayBg').classList.remove('exitBackground');
     }, 300);
 }
 
