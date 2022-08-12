@@ -43,16 +43,15 @@ function generateOpenTaskHTML(task, id) {
             <div class=titelAndTaskAndPushToDiv>
                 <div class="title bold">${task['title']}</div>
                 <div class="textOpenTask">${task['description']}</div>
-                <div class="pushTo" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
-                    <span id="pushTo"></span>
+                <div class="pushTo d-none" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
                     <img src="/img/arrow.png">
                 </div>
             </div>
 
             <div class="divForTheComments">
-                <div class="showComments" id="showComment${id}"></div>
+                <div class="showComments d-none" id="showComment${id}"></div>
                 <div class="inputAndSendButton">
-                    <input id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
+                    <input onclick="checkInputComments(${id})" id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
                     <button class="sendButtonForTheComments" onclick="sendComment(${id})">Senden</button>
                 </div>
             </div>
@@ -73,20 +72,13 @@ function renderUserOpenTask(userimageBoard2) {
 }
 
 
-function renderCommentsOnTheTask(id, j, comment, tasks)  {
+function renderCommentsOnTheTask(id, j, comment)  {
     return`
-<<<<<<< HEAD
         <div class="commentsAndDeletComment">
             <img class="commentImg" src="${loggedUser['userImg']}">
             <button class="deletCommentButton" onclick="deletComment(${j}, ${id})">X</button>
             <span class="comments">${comment}</span>
          </div>
-=======
-        <div>
-            <img class="commentImg" src="${loggedUser['userImg']}"><span>${comment}</span>
-            <button onclick="deletComment(${j}, ${id})">X</button>
-        </div>
->>>>>>> 2570efee079f6c5d24d80b65c6ea46ed2eae579e
     `;
 }
 

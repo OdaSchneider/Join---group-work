@@ -171,7 +171,6 @@
 .headerOpenTask {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 16px;
 }
 
 .bold {
@@ -197,7 +196,7 @@
 }
 
 .trash:hover {
-    background-color: rgb(130, 130, 130);
+    background-color: rgb(190, 190, 190);
     border-radius: 100%;
 }
 
@@ -233,10 +232,11 @@
 }
 
 .urgencyDiv {
+    margin-top: 5px;
+    margin-bottom: 5px;
     padding: 5px;
     border-radius: 5px;
     color: rgb(32,49,146);
-    background-color: #203192;
 }
 
 .urgencyDiv span {
@@ -260,7 +260,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 24px;
     padding: 5px;
     border-radius: 5px;
     background-color: #203192;
@@ -272,12 +271,16 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 20px;
     border-radius: 100%;
     height: 40px;
     width: 40px;
     padding: 5px;
+}
+
+.userImgInOpenTask img {
+    border: 2px solid #203192;
 }
 
 .closeAndDeletTaskDiv {
@@ -289,11 +292,18 @@
     border-radius: 10px;
 }
 
+.d-none {
+    display: none !important;
+}
+
 .showComments {
     overflow: auto;
-    height: 100px;
     width: 598px;
     margin: 5px;
+}
+
+.height100 {
+    height: 100px !important;
 }
 
 .showComments span {
@@ -390,7 +400,7 @@
 }
 
 .pushTo img:hover {
-    background-color: rgb(130, 130, 130);
+    background-color: rgb(190, 190, 190);
     border-radius: 100%;
 }
 

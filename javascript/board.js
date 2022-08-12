@@ -56,6 +56,7 @@ function renderToDo() {
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
         
         renderUserForBoard(i);
+        checkArrowFunction();
     }
 }
 /**
@@ -71,6 +72,7 @@ function renderInProgress() {
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i);
         
         renderUserForBoard(i);
+        checkArrowFunction();
     }
 }
 /**
@@ -86,6 +88,7 @@ function renderTesting() {
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i);
         
         renderUserForBoard(i);
+        checkArrowFunction();
     }
 }
 /**
@@ -101,6 +104,7 @@ function renderDone() {
         document.getElementById('done').innerHTML += generateTasksHTML(element, i);
 
         renderUserForBoard(i);
+        checkArrowFunction();
     }
 }
 
@@ -237,6 +241,32 @@ function moveTo(status) {
     let task = allToDos.find(t => t['id'] == currentDraggedElement);
     task['status'] = status;
     save();
+}
+
+
+/**
+ * DE:
+ * EN:
+ */
+ function checkArrowFunction() {
+    if (allToDos['status'] == 'done') {
+        document.getElementById('pushToOtherBoard').classList.add('d-none');
+    }  else {
+        document.getElementById('pushToOtherBoard').classList.remove('d-none'); 
+    }
+}
+
+
+/**
+ * DE:
+ * EN:
+ */
+function checkInputComments() {
+    if (document.getElementById('showComment') == length, 0) {
+        document.getElementById('showComment').classList.remove('height100');
+    }  else {
+        document.getElementById('showComment').classList.add('height100'); 
+    }
 }
 
 
