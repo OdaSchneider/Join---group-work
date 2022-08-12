@@ -17,7 +17,7 @@ function generateTasksHTML(element, i) {
 
 
 function generateOpenTaskHTML(task, id) {
-    return`
+    return `
         <div class="openTask" id="openTask1">
             <div class="createdAndOptionButton">
                 <div class="headerOpenTask">
@@ -35,12 +35,12 @@ function generateOpenTaskHTML(task, id) {
                             <img class="pushTo" src="/img/arrow.png">
                         </div> 
                 </div> 
-            </div>  
+            </div>
 
             <div class="header2OpenTask"> 
                 <div class="urgencyDiv">Urgency: <span class="color_${task['urgency']} bold">${task['urgency']}</span></div>
                 <div class="footerTask">
-                    <div>Category: <span class="bold">${task['category']}</span></div>
+                        <div>Category: <span class="bold">${task['category']}</span></div>
                 </div>
 
                 <div class="userImgInOpenTask" id="loardImgUserOnBoard2${id}"></div>
@@ -50,7 +50,7 @@ function generateOpenTaskHTML(task, id) {
                 <div class="title bold">${task['title']}</div>
                 <div class="textOpenTask">${task['description']}</div>
             </div>
-            
+
             <div class="divForTheComments">
                 <div class="inputAndSendButton">
                     <input id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
@@ -75,8 +75,8 @@ function renderUserOpenTask(userimageBoard2) {
 }
 
 
-function renderCommentsOnTheTask(id, j, comment)  {
-    return`
+function renderCommentsOnTheTask(id, j, comment) {
+    return `
         <div class="commentsAndDeletComment">
             <img class="commentImg" src="${loggedUser['userImg']}">
             <button class="deletCommentButton" onclick="deletComment(${j}, ${id})">X</button>
@@ -121,7 +121,7 @@ function backlogUserContainer(userfirstname, userlastname, userimage) {
 }
 
 
-function activeUserTemplate(){
+function activeUserTemplate() {
     return `
         <img src=${loggedUser['userImg']}>
         <p>
@@ -131,7 +131,7 @@ function activeUserTemplate(){
 }
 
 
-function backlogDetailsTemplate(i){
+function backlogDetailsTemplate(i) {
     return `
     <div class="addTaskBg">
             <form onsubmit="editTask(${i})" action="backlog.html" id="editTask${i}" class="addTask">
@@ -199,7 +199,7 @@ function backlogDetailsTemplate(i){
 }
 
 
-function templateShowUserBacklog(userImg, firstName, lastName ,j,i){
+function templateShowUserBacklog(userImg, firstName, lastName, j, i) {
     return `
     <div class="showUser">
     <img id="selectUser${j}" onclick="assigneUserBacklog(${j},${i})" src=${userImg}>

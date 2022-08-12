@@ -47,7 +47,7 @@
 }
 
 .dateCreated {
-    color: rgb(32,49,146);
+    color: rgb(32, 49, 146);
     display: flex;
     align-items: center;
     padding: 5px;
@@ -226,7 +226,7 @@
     flex-direction: column;
     background-color: #203192;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .urgencyDiv {
@@ -234,7 +234,7 @@
     margin-bottom: 5px;
     padding: 5px;
     border-radius: 5px;
-    color: rgb(32,49,146);
+    color: rgb(32, 49, 146);
     font-weight: 600;
     font-size: 20px;
 }
@@ -263,12 +263,12 @@
     align-items: center;
     padding: 5px;
     border-radius: 5px;
-    color: rgb(32,49,146);
-    font-weight:  600;
+    color: rgb(32, 49, 146);
+    font-weight: 600;
     font-size: 20px;
 }
 
-.userImgInOpenTask { 
+.userImgInOpenTask {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -313,9 +313,7 @@
 
 .showComments {
     overflow: auto;
-    width: -webkit-fill-available;
-    margin: 5px;
-    margin-top: 10px;
+    width: -webkit-fill-available; 
     max-height: 130px;
 }
 
@@ -342,11 +340,11 @@
     margin-bottom: 10px;
 }
 
-.commentImg{
+.commentImg {
     width: 32px;
     height: 32px;
     border-radius: 100px;
-    border: 2px solid rgb(32,49,146);
+    border: 2px solid rgb(32, 49, 146);
 }
 
 .comments {
@@ -354,7 +352,7 @@
     font-size: 15px;
 }
 
-.commentImg{
+.commentImg {
     width: 32px;
     height: 32px;
     border-radius: 100px;
@@ -366,7 +364,7 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    margin: 5px;
+    margin-top: 10px;
 }
 
 .sendButtonForTheComments {
@@ -396,7 +394,7 @@
     margin-bottom: 10px;
     height: 25px;
     width: 200px;
-  }
+}
 
 .closeAndDeletTaskDiv img {
     object-fit: contain;
@@ -427,8 +425,6 @@
     background-color: rgba(65, 170, 30);
     transition: all 225ms ease-in-out;
 }
-
-
 
 .color_high {
     color: rgba(200, 0, 0);
