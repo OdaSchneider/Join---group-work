@@ -43,13 +43,13 @@ function generateOpenTaskHTML(task, id) {
             <div class=titelAndTaskAndPushToDiv>
                 <div class="title bold">${task['title']}</div>
                 <div class="textOpenTask">${task['description']}</div>
-                <div class="pushTo d-none" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
+                <div class="pushTo" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
                     <img src="/img/arrow.png">
                 </div>
             </div>
 
             <div class="divForTheComments"> 
-                    <div class="showComments d-none" id="showComment${id}"></div>
+                    <div class="showComments" id="showComment${id}"></div>
                 <div class="inputAndSendButton">
                     <input onclick="checkInputComments(${id})" id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
                     <button class="sendButtonForTheComments" onclick="sendComment(${id})">Senden</button>

@@ -56,7 +56,6 @@ function renderToDo() {
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
         
         renderUserForBoard(i);
-        checkArrowFunction();
     }
 }
 /**
@@ -72,7 +71,6 @@ function renderInProgress() {
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i);
         
         renderUserForBoard(i);
-        checkArrowFunction();
     }
 }
 /**
@@ -88,7 +86,6 @@ function renderTesting() {
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i);
         
         renderUserForBoard(i);
-        checkArrowFunction();
     }
 }
 /**
@@ -104,7 +101,7 @@ function renderDone() {
         document.getElementById('done').innerHTML += generateTasksHTML(element, i);
 
         renderUserForBoard(i);
-        checkArrowFunction();
+        // checkArrowFunction();
     }
 }
 
@@ -248,26 +245,26 @@ function moveTo(status) {
  * DE: Es wird überprüft ob der status des obejeckt "done" ist, wenn ja dann verschwindet das Bild mit dem pfeil.
  * EN: It is checked whether the status of the object is "done", if so then the image with the arrow disappears.
  */
-function checkArrowFunction() {
-    if (allToDos['status'] == 'done') {
-        document.getElementById('pushToOtherBoard').classList.remove('d-none');
-    }  else {
-        document.getElementById('pushToOtherBoard').classList.add('d-none'); 
-    }
-}
+// function checkArrowFunction() {
+//     if (allToDos['status'] == 'done') {
+//         document.getElementById('pushToOtherBoard').classList.remove('d-none');
+//     }  else {
+//         document.getElementById('pushToOtherBoard').classList.add('d-none'); 
+//     }
+// }
 
 
 /**
  * DE: Es wird überprüft ob sich kommentare in der Kommentaren Div befinden... wen ja dann wird eine höhe von 100px generiert.
  * EN: It is checked whether there are comments in the comments div... if so, a height of 100px is generated.
  */
-function checkInputComments(id) {
-    if (document.getElementById(`showComment${id}`) == 0) {
-        document.getElementById(`showComment${id}`).classList.add('height100');
-    }  else {
-        document.getElementById(`showComment${id}`).classList.remove('height100'); 
-    }
-}
+// function checkInputComments(id) {
+//     if (document.getElementById(`showComment${id}`) == 0) {
+//         document.getElementById(`showComment${id}`).classList.add('height100');
+//     }  else {
+//         document.getElementById(`showComment${id}`).classList.remove('height100'); 
+//     }
+// }
 
 
 /**
