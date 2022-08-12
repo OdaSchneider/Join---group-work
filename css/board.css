@@ -428,32 +428,32 @@
     border-radius: 100%;
 }
 
-.high {
+.High {
     background-color: rgba(200, 0, 0);
     transition: all 225ms ease-in-out;
 }
 
-.medium {
+.Medium {
     background-color: rgba(201 167 2);
     transition: all 225ms ease-in-out;
 }
 
-.low {
+.Low {
     background-color: rgba(65, 170, 30);
     transition: all 225ms ease-in-out;
 }
 
-.color_high {
+.color_High {
     color: rgba(200, 0, 0);
     transition: all 225ms ease-in-out;
 }
 
-.color_medium {
+.color_Medium {
     color: rgba(201 167 2);
     transition: all 225ms ease-in-out;
 }
 
-.color_low {
+.color_Low {
     color: rgba(65, 170, 30);
     transition: all 225ms ease-in-out;
 }
