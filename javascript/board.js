@@ -160,6 +160,7 @@ function pushToOtherBoard(id) {
 
 
 function closeTask(){
+    document.body.style.overflow = 'auto';
     document.getElementById('overlayBg').classList.add('d-none');
     document.getElementById('openTask').classList.add('d-none');
     document.getElementById('openTask').classList.remove('exit-ani');
@@ -172,6 +173,7 @@ function closeTask(){
  * EN: Opens the task you want with all the information you need.
  */
 function openTask(id) {
+    document.body.style.overflow = 'hidden';
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
     let tasks = allToDos.find(t => t['id'] == id);
