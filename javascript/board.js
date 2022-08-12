@@ -245,27 +245,27 @@ function moveTo(status) {
 
 
 /**
- * DE:
- * EN:
+ * DE: Es wird überprüft ob der status des obejeckt "done" ist, wenn ja dann verschwindet das Bild mit dem pfeil.
+ * EN: It is checked whether the status of the object is "done", if so then the image with the arrow disappears.
  */
- function checkArrowFunction() {
+function checkArrowFunction() {
     if (allToDos['status'] == 'done') {
-        document.getElementById('pushToOtherBoard').classList.add('d-none');
+        document.getElementById('pushToOtherBoard').classList.remove('d-none');
     }  else {
-        document.getElementById('pushToOtherBoard').classList.remove('d-none'); 
+        document.getElementById('pushToOtherBoard').classList.add('d-none'); 
     }
 }
 
 
 /**
- * DE:
- * EN:
+ * DE: Es wird überprüft ob sich kommentare in der Kommentaren Div befinden... wen ja dann wird eine höhe von 100px generiert.
+ * EN: It is checked whether there are comments in the comments div... if so, a height of 100px is generated.
  */
-function checkInputComments() {
-    if (document.getElementById('showComment') == length, 0) {
-        document.getElementById('showComment').classList.remove('height100');
+function checkInputComments(id) {
+    if (document.getElementById(`showComment${id}`) == 0) {
+        document.getElementById(`showComment${id}`).classList.add('height100');
     }  else {
-        document.getElementById('showComment').classList.add('height100'); 
+        document.getElementById(`showComment${id}`).classList.remove('height100'); 
     }
 }
 
