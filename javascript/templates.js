@@ -1,4 +1,3 @@
-
 // ###############- Board -####################################################################################
 
 function generateTasksHTML(element, i) {
@@ -10,7 +9,7 @@ function generateTasksHTML(element, i) {
             </div>
             <div class="imgAndDescriptionDiv"> 
                 <span class="descriptionMini">${element['description']}</span>
-                <div class="loardImgUserOnBoard" id="loardImgUserOnBoard${i}"></div>              
+                <div class="loardImgUserOnBoard" id="loardImgUserOnBoard${element['id']}"></div>              
             </div>
         </div>
     `;
@@ -31,7 +30,6 @@ function generateOpenTaskHTML(task, id) {
                     </div>
                 </div> 
             </div> 
-
             <div class="header2OpenTask"> 
                 <div class="urgencyDiv">Urgency: <span class="color_${task['urgency']} bold">${task['urgency']}</span></div>
                 <div class="footerTask">
@@ -39,20 +37,17 @@ function generateOpenTaskHTML(task, id) {
                 </div>
                 <div class="userImgInOpenTask" id="loardImgUserOnBoard2${id}"></div>
             </div>
-
             <div class=titelAndTaskAndPushToDiv>
                 <div class="title bold">${task['title']}</div>
                 <div class="textOpenTask">${task['description']}</div>
                 <div class="pushTo" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
-                    <span id="pushTo"></span>
                     <img src="/img/arrow.png">
                 </div>
             </div>
-
-            <div class="divForTheComments">
-                <div class="showComments" id="showComment${id}"></div>
+            <div class="divForTheComments"> 
+                    <div class="showComments" id="showComment${id}"></div>
                 <div class="inputAndSendButton">
-                    <input id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
+                    <input onclick="checkInputComments(${id})" id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
                     <button class="sendButtonForTheComments" onclick="sendComment(${id})">Senden</button>
                 </div>
             </div>
@@ -73,22 +68,16 @@ function renderUserOpenTask(userimageBoard2) {
 }
 
 
-function renderCommentsOnTheTask(id, j, comment, tasks)  {
+function renderCommentsOnTheTask(id, j, comment)  {
     return`
-<<<<<<< HEAD
         <div class="commentsAndDeletComment">
             <img class="commentImg" src="${loggedUser['userImg']}">
             <button class="deletCommentButton" onclick="deletComment(${j}, ${id})">X</button>
             <span class="comments">${comment}</span>
          </div>
-=======
-        <div>
-            <img class="commentImg" src="${loggedUser['userImg']}"><span>${comment}</span>
-            <button onclick="deletComment(${j}, ${id})">X</button>
-        </div>
->>>>>>> 2570efee079f6c5d24d80b65c6ea46ed2eae579e
     `;
 }
+
 
 
 // ###############- Backlog -####################################################################################
@@ -188,6 +177,7 @@ function backlogDetailsTemplate(i){
 
                     <div class="container">
                         <h3>Assigned To</h3>
+                        <p id="alert"></p>
                         <div class="editAssignedAccount" id="editAssignedAccount${i}"></div>
                     </div>
 

@@ -148,7 +148,9 @@ function disableEdit(i){
     document.getElementById('editDate'+i).disabled = true;
     document.getElementById('editCategory'+i).disabled = true;
     document.getElementById('editUrgency'+i).disabled = true;
+    document.getElementById('alert').innerHTML = 'Note: Only assigned User can edit Tasks';
 }
+
 
 
 function enableEdit(i){

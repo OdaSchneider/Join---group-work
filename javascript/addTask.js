@@ -1,7 +1,7 @@
 // ---------------------------Add Task---------------------------------------------------------
 
 function addTask() {
-    if(assignedUser.length == 0){
+    if (assignedUser.length == 0) {
         assignedUser.push(guest[0]);
     }
     let title = document.getElementById('title').value;
@@ -34,6 +34,7 @@ function taskArray(title, date, category, urgency, description) {
 
 function assignTask(task) {
     allTasks.push(task);
+    assignedUser = [];
     safeLocalStorage();
 }
 
@@ -51,42 +52,30 @@ function showUser() {
         let userImg = user[j]['userImg'];
         let firstName = user[j]['first name'].charAt(0).toLocaleUpperCase();
         let lastName = user[j]['last name'].charAt(0).toLocaleUpperCase();
-        profil.innerHTML += templateShowUser(userImg, firstName, lastName ,j);
+        profil.innerHTML += templateShowUser(userImg, firstName, lastName, j);
     }
 }
 
 
 function selectUser(j) {
-    let found = false;
+    document.getElementById(`selectUser${j}`).style.backgroundColor = ('#203192');
+    document.getElementById(`selectUser${j}`).setAttribute('onclick', `javascript: unselectUser(${j})`);
+    assignedUser.push(user[j]);
+}
+
+
+function unselectUser(j) {
+    document.getElementById(`selectUser${j}`).style.backgroundColor = ('rgb(160, 160, 255)');
+    document.getElementById(`selectUser${j}`).setAttribute('onclick', `javascript: selectUser(${j})`);
     for (let k = 0; k < assignedUser.length; k++) {
-        if(assignedUser[k]['first name']==user[j]['first name']&&assignedUser[k]['last name']==user[j]['last name']){
-            found = true;
-            break;
+        if (user[j] == assignedUser[k]) {
+            assignedUser.splice(k, 1);
         }
     }
-    checkIfUserExist(found, j) 
 }
 
 
-function checkIfUserExist(found, j){
-    if(!found){
-        assignedUser.push(user[j]);
-    }else{
-        userExist(j);
-    }
-    renderAssignedUser();  
-}
-
-
-function userExist(j){
-    document.getElementById(`selectUser${j}`).style.border= "2px solid red";
-    setTimeout(() => {
-        document.getElementById(`selectUser${j}`).style.border= "none";
-    }, 500);
-}
-
-
-function renderAssignedUser(){
+function renderAssignedUser() {
     let assignedToCotainer = document.getElementById('assignedAccount');
     assignedToCotainer.innerHTML = '';
     for (let j = 0; j < assignedUser.length; j++) {
@@ -128,12 +117,12 @@ function addNewUser() {
 }
 
 
-function checkForUser(firstName, lastName){
+function checkForUser(firstName, lastName) {
     let found = false;
     for (let i = 0; i < user.length; i++) {
         let checkFirstName = user[i]['first name'];
         let checkLastName = user[i]['last name'];
-        if(checkFirstName==firstName&&checkLastName==lastName){
+        if (checkFirstName == firstName && checkLastName == lastName) {
             found = true;
             break;
         }
@@ -142,19 +131,19 @@ function checkForUser(firstName, lastName){
 }
 
 
-function reactIfUserFound(found, firstName, lastName){
-    if(!found){
+function reactIfUserFound(found, firstName, lastName) {
+    if (!found) {
         pushNewUser(firstName, lastName);
-    }else{
+    } else {
         alert('User already exsist');
     }
 }
 
 
-function pushNewUser(firstName, lastName){
+function pushNewUser(firstName, lastName) {
     let newUser = {
-        'first name' : `${firstName}`,
-        'last name' : `${lastName}`,
+        'first name': `${firstName}`,
+        'last name': `${lastName}`,
         'userImg': "./img/user-guest.ico"
     }
 
@@ -164,7 +153,7 @@ function pushNewUser(firstName, lastName){
 }
 
 
-function openDialogEditUser(){
+function openDialogEditUser() {
     document.body.style.overflow = 'hidden';
     window.scrollTo(0, 0);
     document.getElementById('dialogBg').classList.remove('d-none');
@@ -173,19 +162,19 @@ function openDialogEditUser(){
 }
 
 
-function renderEditUser(){
+function renderEditUser() {
     let editProfil = document.getElementById('editUserContent');
     editProfil.innerHTML = `<img class="x-mark" onclick="closeDialogEditUser()" src="./img/x-mark.ico"></img>`;
     for (let i = 0; i < user.length; i++) {
         let firstName = user[i]['first name'];
         let lastName = user[i]['last name']
         let userImg = user[i]['userImg'];
-        editProfil.innerHTML +=  editUser(firstName, lastName, userImg, i);
+        editProfil.innerHTML += editUser(firstName, lastName, userImg, i);
     }
 }
 
 
-function deleteUser(i){
+function deleteUser(i) {
     user.splice(i, 1);
     safeLocalStorage();
     openDialogEditUser();

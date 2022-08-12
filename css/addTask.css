@@ -118,7 +118,7 @@ input[type="date" i] {
     display: flex;
     width: 92%;
     overflow: auto;
-    height: 90px;
+    height: 75px;
 }
 
 .user img{
@@ -338,7 +338,8 @@ input[type="date" i] {
     }
 
     .headline{
-        margin-left: 40px !important;
+        margin-left: 5% !important;
+        margin-bottom: 12px !important;
     }
     
     .editUsers{
@@ -352,12 +353,39 @@ input[type="date" i] {
     .responsiveMainPage{
         display: flex;
         flex-direction: column;
-        height: 90vh;
         justify-content: space-between;
     }
 }
 
 @media(max-width: 600px){
+    .headline h1{
+        font-size: 22px !important;
+    }
+
+    .headline span{
+        font-size: 14px;
+    }
+
+    .container{
+        margin: unset;
+    }
+
+    .addTask h3{
+        font-size: 14px;
+    }
+
+    .addTask input{
+        height: 24px;
+    }
+
+    .columnLeft textarea{
+        height: 64px;
+    }
+
+    .addTask select{
+        height: 32px;
+    }
+
     .addTask{
         flex-direction: column;
     }
@@ -372,16 +400,21 @@ input[type="date" i] {
 
     .addTaskBg{
         height: auto;
-        margin-top: 45px;
+        margin-top: 12px;
     }
 
     .addTaskButtonLine{
         width: 93%;
         margin-bottom: 12px;
+        margin-top: 8px;
     }
 
     .editUserContent{
         width: 70%;
+    }
+
+    .createTaskButton{
+        padding: 4px;
     }
 }
 
@@ -389,6 +422,10 @@ input[type="date" i] {
 
     .editUserContent{
         width: 90%;
+    }
+
+    .addTaskBg{
+        margin-top: 8px;
     }
 }
 

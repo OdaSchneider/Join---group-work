@@ -4,7 +4,7 @@
  * DE: Läd alles aus dem Backend
  * EN: Load everything from the backend
  */
-async function loadBoard() {
+ async function loadBoard() {
     // await downloadFromServer();
     // allToDos = JSON.parse(backend.getItem('allToDos')) || [];
     loadLocalStorage();
@@ -55,7 +55,7 @@ function renderToDo() {
         let element = currentToDo[i];
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
         
-        renderUserForBoard(i);
+        renderUserForBoard(element, i);
     }
 }
 /**
@@ -70,7 +70,7 @@ function renderInProgress() {
         let element = currentInProgress[i];
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i);
         
-        renderUserForBoard(i);
+        renderUserForBoard(element, i);
     }
 }
 /**
@@ -85,7 +85,7 @@ function renderTesting() {
         let element = currentTesting[i];
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i);
         
-        renderUserForBoard(i);
+        renderUserForBoard(element, i);
     }
 }
 /**
@@ -100,7 +100,8 @@ function renderDone() {
         let element = currentDone[i];
         document.getElementById('done').innerHTML += generateTasksHTML(element, i);
 
-        renderUserForBoard(i);
+        renderUserForBoard(element, i);
+        // checkArrowFunction();
     }
 }
 
@@ -109,11 +110,11 @@ function renderDone() {
  * DE: Erstellt die User auf dem Board.
  * EN: Rendert the User on the Board.
  */
-function renderUserForBoard(i) {
-    let userBoardContainer = document.getElementById(`loardImgUserOnBoard${i}`);
+function renderUserForBoard(element, i) {
+    let userBoardContainer = document.getElementById(`loardImgUserOnBoard${element['id']}`);
     userBoardContainer.innerHTML = '';
 
-    let selectedUser = allToDos[i]['assignedUser'];
+    let selectedUser = element['assignedUser'];
     for (let j = 0; j < selectedUser.length; j++) {
         let userimageBoard = selectedUser[j]['userImg'];
         userBoardContainer.innerHTML += renderUserOnTheBoard(userimageBoard);
@@ -238,6 +239,32 @@ function moveTo(status) {
     task['status'] = status;
     save();
 }
+
+
+/**
+ * DE: Es wird überprüft ob der status des obejeckt "done" ist, wenn ja dann verschwindet das Bild mit dem pfeil.
+ * EN: It is checked whether the status of the object is "done", if so then the image with the arrow disappears.
+ */
+// function checkArrowFunction() {
+//     if (allToDos['status'] == 'done') {
+//         document.getElementById('pushToOtherBoard').classList.remove('d-none');
+//     }  else {
+//         document.getElementById('pushToOtherBoard').classList.add('d-none'); 
+//     }
+// }
+
+
+/**
+ * DE: Es wird überprüft ob sich kommentare in der Kommentaren Div befinden... wen ja dann wird eine höhe von 100px generiert.
+ * EN: It is checked whether there are comments in the comments div... if so, a height of 100px is generated.
+ */
+// function checkInputComments(id) {
+//     if (document.getElementById(`showComment${id}`) == 0) {
+//         document.getElementById(`showComment${id}`).classList.add('height100');
+//     }  else {
+//         document.getElementById(`showComment${id}`).classList.remove('height100'); 
+//     }
+// }
 
 
 /**
