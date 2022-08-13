@@ -20,6 +20,7 @@ async function save() {
     // await backend.setItem('allToDos', JSON.stringify(allToDos));
     safeLocalStorage();
     loadBoard();
+    checkArrowFunction();
 }
 
 
@@ -105,6 +106,20 @@ function renderDone() {
 
 
 /**
+ * DE: Es wird überprüft ob der status des obejeckt "done" ist, wenn ja dann verschwindet das Bild mit dem pfeil.
+ * EN: It is checked whether the status of the object is "done", if so then the image with the arrow disappears.
+ */
+ function checkArrowFunction() {
+    let findDone = allToDos.find(t => t['status'] === 'done');
+    if (findDone === 'done') {
+        document.getElementById('pushToOtherBoardID').classList.add('d-none');
+    }  else {
+        document.getElementById('pushToOtherBoardID').classList.remove('d-none'); 
+    }
+}
+
+
+/**
  * DE: Erstellt die User auf dem Board.
  * EN: Rendert the User on the Board.
  */
@@ -153,7 +168,6 @@ function pushToOtherBoard(id) {
             }
         }
     }
-    checkArrowFunction(allToDos);
     closeTask();
 }
 
@@ -239,21 +253,7 @@ function moveTo(status) {
     let task = allToDos.find(t => t['id'] == currentDraggedElement);
     task['status'] = status;
     save();
-}
-
-
-/**
- * DE: Es wird überprüft ob der status des obejeckt "done" ist, wenn ja dann verschwindet das Bild mit dem pfeil.
- * EN: It is checked whether the status of the object is "done", if so then the image with the arrow disappears.
- */
-function checkArrowFunction(allToDos) {
-    if (allToDos['status'] == 'done') {
-        document.getElementById('pushToOtherBoard').classList.add('d-none');
-    }  else {
-        document.getElementById('pushToOtherBoard').classList.remove('d-none'); 
-    }
-}
-
+} 
 
 
 /**

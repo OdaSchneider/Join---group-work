@@ -35,7 +35,7 @@ function generateOpenTaskHTML(task, id) {
                     <div onclick="deleteTask('${task['id']}')">
                         <img class="trash" src="/img/müll.png">
                     </div>
-                        <div onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoard">
+                        <div class="pushToDiv" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoardID">
                             <img class="pushTo" src="/img/arrow.png">
                         </div> 
                 </div>

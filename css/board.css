@@ -28,7 +28,8 @@
     font-size: 25px;
     color: white;
     font-weight: 600;
-    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .boardHeadline {
@@ -242,6 +243,10 @@
     background-color: #203192;
     border-radius: 5px;
     padding: 10px;
+}
+
+.pushToDiv {
+    display: flex;
 }
 
 .urgencyDiv {
