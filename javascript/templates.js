@@ -104,11 +104,15 @@ function backlogContainer(i, createdAt, category, title) {
         <div onclick="backlogShowDetails(${i})" class="backlog-main">
             
             <div class="backlog-main-child">
-                <div id="setUrgency${i}" class="setUrgency"></div>
-                <div class="backlog-user" id="backlog-user${i}"></div>
-                <div class="backlog-dueDate">${createdAt}</div>
-                <div class="backlog-category">${category}</div>
-                <div class="backlog-details">${title}</div>
+               <div class="user-div">
+                    <div id="setUrgency${i}" class="setUrgency"></div>
+                    <div class="backlog-user" id="backlog-user${i}"></div>
+                </div>
+                <div class="details-div">
+                    <div class="backlog-dueDate">${createdAt}</div>
+                    <div class="backlog-category">${category}</div>
+                    <div class="backlog-details">${title}</div>
+                </div>
             </div>
         </div>          
         <div class="backlog-send-to">
