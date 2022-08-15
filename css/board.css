@@ -48,7 +48,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 50px;
     margin-left: 120px;
 }
 
@@ -348,6 +347,19 @@
     border-top-right-radius: 10px;
     background-color: #f3f3f3;
     padding: 4px;
+}
+
+.showComments::-webkit-scrollbar {
+    width: 5px;
+}
+  
+.showComments::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+  
+.showComments::-webkit-scrollbar-thumb {
+    background: #797979;
+    border-radius: 10px;
 }
 
 .height100 {
