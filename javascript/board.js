@@ -143,13 +143,13 @@ function renderUserForBoardOpenTask(id) {
 function pushToOtherBoard(id) {
     let tasks = allToDos.find(t => t['id'] == id);
     if (tasks['status'] == 'toDo') {
-        tasks['status'] = 'inProgress'
+        tasks['status'] = 'inProgress';
     } else {
         if (tasks['status'] == 'inProgress') {
-            tasks['status'] = 'testing'
+            tasks['status'] = 'testing';
         } else {
             if (tasks['status'] == 'testing') {
-                tasks['status'] = 'done'
+                tasks['status'] = 'done';
             }
         }
     }
@@ -172,12 +172,23 @@ function closeTask(){
  */
 function openTask(id) {
     document.body.style.overflow = 'hidden';
+    window.scrollTo(0,0);
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
+
     let tasks = allToDos.find(t => t['id'] == id);
     document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks, id);
+
     renderUserForBoardOpenTask(id);
     renderComments(id, tasks);
+    checkPushFunction(tasks, id);
+}
+
+
+function checkPushFunction(tasks, id){
+    if (tasks['status'] == 'done') {
+        document.getElementById(`pushToOtherBoard${id}`).classList.add('d-none');
+    }
 }
 
 
