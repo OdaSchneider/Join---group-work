@@ -101,11 +101,10 @@ function renderCommentsOnTheTask(id, j, comment) {
 function backlogContainer(i, createdAt, category, title) {
     return `
     <div id="backlog-task${i}" class="backlog-container">
-        <div onclick="backlogShowDetails(${i})" class="backlog-main">
+        <div onclick="backlogShowDetails(${i})" id="setUrgency${i}" class="backlog-main">
             
             <div class="backlog-main-child">
                <div class="user-div">
-                    <div id="setUrgency${i}" class="setUrgency"></div>
                     <div class="backlog-user" id="backlog-user${i}"></div>
                 </div>
                 <div class="details-div">
