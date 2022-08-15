@@ -112,15 +112,29 @@ function login() {
     firstname = firstname.value.toLowerCase();
     lastname = lastname.value.toLowerCase();
 
+    checkSuccessLogin(firstname, lastname, password);
+}
+
+
+function checkSuccessLogin(firstname, lastname, password){
     for (let i = 0; i < user.length; i++) {
         userFirstname = user[i]['first name'].toLowerCase();
         userLastname = user[i]['last name'].toLowerCase();
 
         if (userFirstname == firstname && userLastname == lastname && user[i]['password'] == password) {
             loggedUser = user[i];
+            window.location = "./addTask.html";
         }
     }
+    failLoggin();
     safeLocalStorage();
+}
+
+
+function failLoggin(){
+    if (loggedUser.length == 0) {
+        document.getElementById('loginFailed').classList.remove('d-none');
+    }
 }
 
 

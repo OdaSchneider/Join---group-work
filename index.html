@@ -27,15 +27,18 @@
             <h1>Join - simply organized</h1>
         </div class="startheadline">
 
-        <form action="addTask.html" class="login">
+        <form method="post" class="login">
             <p>Please Login</p>
             <div>
                 <input type="text" id="loginInputFirstName" placeholder="First Name" required>
                 <input type="text" id="loginInputLastName" placeholder="Last Name" required>
                 <input type="password" id="loginInputPassword" placeholder="Password" required>
             </div>
+            <div id="loginFailed" class="text d-none">
+                <span>Login failed! Please try again</span>
+            </div>
             <div>
-                <button type="submit" onclick="login()" id="loginButton">Login</button>
+                <button type="button" onclick="login()" id="loginButton">Login</button>
                 <a href="addTask.html" onclick="loginAsGuest()" id="loginAsGuestButton">Login as Guest</a>
             </div>
         </form>
