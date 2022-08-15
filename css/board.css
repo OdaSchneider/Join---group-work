@@ -590,10 +590,11 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 720px) {
 
     .boardArrangement {
         margin-left: 0px;
+        margin-top: 16px;
     }
 }
 
