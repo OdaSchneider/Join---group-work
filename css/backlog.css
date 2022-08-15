@@ -210,16 +210,6 @@
     width: auto;
 }
 
-
-.setUrgency {
-    width: 1px;
-    height: 86px;
-    padding-right: 5px;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-    z-index: 1;
-}
-
 .border_Low {
     border-left: 5px solid rgba(65, 170, 30, 0.600);
 }
@@ -234,7 +224,7 @@
 
 .detailsBg {
     z-index: 10;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -257,8 +247,9 @@
 }
 
 .addTaskBgBacklog{   
-    margin-top: 62px !important;
-    height: 83vh !important;
+    margin-top: 90px !important;
+    height: 80vh !important;
+    overflow: auto;
 }
 
 .userBacklog{

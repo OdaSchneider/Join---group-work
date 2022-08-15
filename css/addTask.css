@@ -3,15 +3,15 @@
 .addTaskBg {
     background-color: #F4F2FB;
     margin-left: 150px;
-    margin-top: 12px;
-    height: 80vh;
+    margin-top: 50px;
+    height: auto;
     width: calc(100% - 170px);
     border-radius: 15px;
 }
 
 .addTask {
     display: flex;
-    height: 100%;
+    height: auto;
 }
 
 .addTask h3 {
@@ -33,7 +33,7 @@
 .columnLeft{
     width: calc(50% - 64px);
     margin: 4px 32px;
-    height: 95%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -42,7 +42,7 @@
 .columnRight{
     width: calc(50% - 64px);
     margin: 4px 32px;
-    height: 95%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -170,6 +170,8 @@ input[type="date" i] {
     display: flex;
     justify-content: end;
     width: 100%;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
 
 .cancelTaskButton {
@@ -400,7 +402,7 @@ input[type="date" i] {
     }
 
     .addTaskBg{
-        height: 87vh !important;
+        height: auto;
         margin-top: 12px;
     }
 

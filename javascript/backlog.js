@@ -46,6 +46,7 @@ function setUrgency(i){
 
 
 function backlogShowDetails(i){
+    document.body.style.overflow = 'hidden';
     document.getElementById(`backlogDetailsBg`).classList.remove('d-none');
     let showDetails = document.getElementById('details');
     showDetails.innerHTML = backlogDetailsTemplate(i);
@@ -53,6 +54,7 @@ function backlogShowDetails(i){
 }
 
 function closeEdit(){
+    document.body.style.overflow = 'auto';
     document.getElementById(`backlogDetailsBg`).classList.add('d-none');
 }
 
