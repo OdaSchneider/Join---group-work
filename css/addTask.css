@@ -68,6 +68,14 @@ input[type="date" i] {
     cursor: pointer;
 }
 
+.wrapper{
+    border: 1px dashed red;
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 150px;
+ }
+
 .columnLeft textarea {
     outline: none;
     resize: none;

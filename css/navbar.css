@@ -111,7 +111,7 @@
     .headerResponsive{
         display: flex !important;
         position: absolute;
-        top: 24px;
+        top: 12px;
         right: 2%;
         overflow: hidden;
         height: 6%;

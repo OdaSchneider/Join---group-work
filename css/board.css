@@ -24,7 +24,6 @@
 
 .statusText {
     border-radius: 5px;
-    background-color: #203192;
     font-size: 25px;
     color: white;
     font-weight: 600;
@@ -68,7 +67,7 @@
     padding: 5px;
     border-radius: 5px;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .dateCreated span {
@@ -131,6 +130,8 @@
     word-wrap: break-word;
     line-height: 1rem;
     padding: 2px;
+    height: 100px;
+    overflow: auto;
 }
 
 .profileImgTaks {
@@ -140,7 +141,7 @@
 }
 
 .profileImgTaksOpenTask {
-    height: 50px;
+    height: 40px;
     border-radius: 100%;
     margin-right: 10px;
 }
@@ -167,14 +168,14 @@
     animation: exit 400ms ease-in-out;
 }
 
+#openTask{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 .openTask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin-top: 20vh;
-    margin-left: auto;
-    margin-right: auto;
     background-color: lightgray;
     height: fit-content;
     padding: 8px;
@@ -186,8 +187,12 @@
 
 .headerOpenTask {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    flex-direction: column;
+}
+
+.headerOpenTask span{
+    font-weight: normal;
 }
 
 .bold {
@@ -197,7 +202,6 @@
 .closeTask {
     font-size: 12px;
     border-radius: 5px;
-    background-color: #203192;
 }
 
 
@@ -217,9 +221,12 @@
 
 .header2OpenTask {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header2OpenTask span{
+    font-weight: normal;
 }
 
 .title {
@@ -228,7 +235,6 @@
     margin-bottom: 4px;
     word-wrap: break-word;
     overflow: auto;
-    background-color: rgba(255, 255, 255, 0.5);
     color: white;
     border-radius: 5px;
     padding-left: 5px;
@@ -240,7 +246,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #203192;
+    background-color: rgba(32, 49, 146, 0.7);
     border-radius: 5px;
     padding: 10px;
 }
@@ -256,7 +262,7 @@
     border-radius: 5px;
     color: rgb(32, 49, 146);
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .urgencyDiv span {
@@ -268,13 +274,14 @@
     text-align: center;
     overflow: auto;
     word-wrap: break-word;
-    background-color: rgba(236, 236, 236, 0.5);
     color: white;
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
     margin-bottom: 10px;
     margin-top: 10px;
+    max-height: 100px;
+    overflow: auto;
 }
 
 .footerTask {
@@ -285,7 +292,7 @@
     border-radius: 5px;
     color: rgb(32, 49, 146);
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .userImgInOpenTask {
@@ -293,11 +300,10 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin-top: 8px;
+    margin-bottom: 16px;
     border-radius: 100%;
     height: 40px;
-    width: 40px;
     padding: 5px;
 }
 
@@ -309,6 +315,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(32, 49, 146, 0.7);
+    border-radius: 5px;
 }
 
 
@@ -317,14 +325,13 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: row-reverse;
-    background-color: #203192;
     border-radius: 5px;
     padding: 3px;
 }
 
 .closeAndDeletTaskDiv img {
-    height: 30px;
-    width: 30px;
+    height: 24px;
+    width: 24px;
     margin-left: 5px;
     margin-right: 5px;
 }
@@ -335,8 +342,12 @@
 
 .showComments {
     overflow: auto;
-    width: -webkit-fill-available; 
-    max-height: 130px;
+    width: -webkit-fill-available;
+    max-height: 120px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #f3f3f3;
+    padding: 4px;
 }
 
 .height100 {
@@ -384,9 +395,13 @@
     z-index: 998;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     margin-top: 10px;
+}
+
+.inputAndSendButton {
+    border-radius: 5px;
 }
 
 .sendButtonForTheComments {
@@ -396,7 +411,6 @@
     font-weight: 600;
     font-size: 16px;
     height: 28px;
-    width: 75px;
     padding: 4px;
 }
 
@@ -579,7 +593,7 @@
     .statusResponsiv {
         height: 34px;
         position: absolute;
-        top: -34px;
+        top: 6px;
         left: 11px;
         bottom: 0;
         right: 0;
@@ -596,11 +610,10 @@
 
     .inputAndSendButton {
         display: flex;
-        flex-direction: column;
+        align-items: center;
     }
 
     .sendButtonForTheComments {
-        margin-top: 10px;
         margin-bottom: 10px;
     }
 }
@@ -643,6 +656,6 @@
     }
 
     .statusResponsiv {
-        top: -28px;
+        top: 16px;
     }
 }

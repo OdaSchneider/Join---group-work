@@ -20,12 +20,6 @@ function generateOpenTaskHTML(task, id) {
     return `
         <div class="openTask" id="openTask1">
             <div class="createdAndOptionButton">
-                <div class="headerOpenTask">
-                    <div class="dateCreated">
-                        Created: <span class="bold">${task['createdAt']}</span>
-                    </div> 
-                </div>
-
                 <div class="statusResponsiv">
                     <span class="statusText">${task['status']}</span>
                 </div>
@@ -35,20 +29,28 @@ function generateOpenTaskHTML(task, id) {
                     <div onclick="deleteTask('${task['id']}')">
                         <img class="trash" src="/img/müll.png">
                     </div>
-                        <div class="pushToDiv" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoardID">
-                            <img class="pushTo" src="/img/arrow.png">
-                        </div> 
+                    <div class="pushToDiv" onclick="pushToOtherBoard('${task['id']}')" id="pushToOtherBoardID">
+                        <img class="pushTo" src="/img/arrow.png">
+                    </div> 
                 </div>
             </div>
 
-            <div class="dateCreated">
-                Finish: <span class="bold">${task['dueDate']}</span>
+            <div class="headerOpenTask">
+                <div class="dateCreated">
+                    Created: <span>${task['createdAt']}</span>
+                </div> 
+                <div class="dateCreated">
+                    Finish: <span>${task['dueDate']}</span>
+                </div>
+                <div class="urgencyDiv">Urgency: 
+                    <span class="color_${task['urgency']}">${task['urgency']}</span>
+                </div>
             </div>
+           
 
             <div class="header2OpenTask"> 
-                <div class="urgencyDiv">Urgency: <span class="color_${task['urgency']} bold">${task['urgency']}</span></div>
                 <div class="footerTask">
-                    <div>Category: <span class="bold">${task['category']}</span></div>
+                    <div>Category: <span>${task['category']}</span></div>
                 </div>
 
                 <div class="userImgInOpenTask" id="loardImgUserOnBoard2${id}"></div>
@@ -62,7 +64,7 @@ function generateOpenTaskHTML(task, id) {
             <div class="divForTheComments">
                 <div class="inputAndSendButton">
                     <input id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
-                    <button class="sendButtonForTheComments" onclick="sendComment(${id})">Senden</button>
+                    <button class="sendButtonForTheComments" onclick="sendComment(${id})">send</button>
                 </div>
                 <div class="showComments" id="showComment${id}"></div>
             </div>
