@@ -105,19 +105,6 @@ function renderDone() {
 
 
 /**
- * DE: Es wird überprüft ob der status des obejeckt "done" ist, wenn ja dann verschwindet das Bild mit dem pfeil.
- * EN: It is checked whether the status of the object is "done", if so then the image with the arrow disappears.
- */
- function checkArrowFunction(findDone, id) {
-    if (findDone == 'done' && findDone == id) {
-        document.getElementById('pushToOtherBoardID').classList.remove('d-none');
-    }  else {
-        document.getElementById('pushToOtherBoardID').classList.add('d-none'); 
-    }
-}
-
-
-/**
  * DE: Erstellt die User auf dem Board.
  * EN: Rendert the User on the Board.
  */
@@ -188,11 +175,9 @@ function openTask(id) {
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
     let tasks = allToDos.find(t => t['id'] == id);
-    let findDone = allToDos.find(t => t['status'] == 'done');
     document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks, id);
     renderUserForBoardOpenTask(id);
     renderComments(id, tasks);
-    checkArrowFunction(findDone, id);
 }
 
 
