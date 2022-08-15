@@ -61,6 +61,7 @@ input{
 .text{
     width: 100%;
     text-align: center;
+    margin-top: 150px;
 }
 
 .text p{
@@ -93,6 +94,8 @@ input{
 .login{
     background-color: #203192;
     border: 2px solid #203192;
+    position: absolute;
+    top: 160px;
     border-radius: 5px;
     padding: 16px;
     width: 40%;
@@ -175,6 +178,77 @@ input{
 }
 .footer a:hover{
     border-bottom: 1px solid white;
+}
+
+@media(max-height: 820px) {
+    
+    .login {
+        height: 220px;
+    }
+}
+
+@media(max-height: 790px) {
+    
+    .login {
+        height: 200px;
+    }
+
+    .login input {
+        margin: 4px;
+    } 
+
+    .text {
+        margin-top: 310px;
+    }
+
+    .text p {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .text span {
+        font-size: 12px;
+        margin: 0px;
+    }
+}
+
+@media(max-width: 700px) {
+
+    .text span {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .text p {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media(max-width: 450px) {
+
+    .login {
+        width: 60%;
+    }
+}
+
+@media(max-width: 400px) {
+
+    h1 {
+        text-align: center;
+    }
+
+    .startheadline img {
+        margin-left: 20px;
+    }
+}
+
+@media(max-width: 310px) {
+    
+    .footer div {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
 
 /* -----------------------------------Page Headline---------------------------------------------------- */

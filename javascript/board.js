@@ -20,7 +20,6 @@ async function save() {
     // await backend.setItem('allToDos', JSON.stringify(allToDos));
     safeLocalStorage();
     loadBoard();
-    checkArrowFunction();
 }
 
 
@@ -110,8 +109,8 @@ function renderDone() {
  * EN: It is checked whether the status of the object is "done", if so then the image with the arrow disappears.
  */
  function checkArrowFunction() {
-    let findDone = allToDos.find(t => t['status'] === 'done');
-    if (findDone === 'done') {
+    let findDone = allToDos.find(t => t['status'] == 'done');
+    if (findDone == 'done') {
         document.getElementById('pushToOtherBoardID').classList.add('d-none');
     }  else {
         document.getElementById('pushToOtherBoardID').classList.remove('d-none'); 
@@ -193,6 +192,7 @@ function openTask(id) {
     document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks, id);
     renderUserForBoardOpenTask(id);
     renderComments(id, tasks);
+    checkArrowFunction();
 }
 
 
