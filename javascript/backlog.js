@@ -41,7 +41,7 @@ function renderUser(i) {
 
 function setUrgency(i){
     urgencyColor = allTasks[i]['urgency']; 
-    document.getElementById(`setUrgency${i}`).classList.add(`background_${urgencyColor}`);
+    document.getElementById(`setUrgency${i}`).classList.add(`border_${urgencyColor}`);
 }
 
 

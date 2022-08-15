@@ -220,16 +220,16 @@
     z-index: 1;
 }
 
-.background_Low {
-    background-color: rgba(65, 170, 30, 0.600);
+.border_Low {
+    border-left: 5px solid rgba(65, 170, 30, 0.600);
 }
 
-.background_Medium {
-    background-color: rgba(240, 210, 0, 0.600);
+.border_Medium {
+    border-left: 5px solid rgba(240, 210, 0, 0.600);
 }
 
-.background_High {
-    background-color: rgba(200, 0, 0, 0.600);
+.border_High {
+    border-left: 5px solid rgba(200, 0, 0, 0.600);
 }
 
 .detailsBg {
