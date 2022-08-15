@@ -3,8 +3,8 @@
 .addTaskBg {
     background-color: #F4F2FB;
     margin-left: 150px;
-    margin-top: 32px;
-    height: 76vh;
+    margin-top: 12px;
+    height: 80vh;
     width: calc(100% - 170px);
     border-radius: 15px;
 }
@@ -17,14 +17,14 @@
 .addTask h3 {
     text-transform: uppercase;
     color: #203192;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .addTask input {
     outline: none;
     border: 1px solid lightgray;
     border-radius: 5px;
-    height: 32px;
+    height: 24px;
     width: 90%;
     padding: 5px;
     color: #575757;
@@ -61,7 +61,7 @@ input[type="date" i] {
     outline: none;
     border: 1px solid lightgray;
     width: 93%;
-    height: 45px;
+    height: 36px;
     padding: 5px;
     border-radius: 5px;
     color: #575757;
@@ -74,7 +74,7 @@ input[type="date" i] {
     border: 1px solid lightgray;
     border-radius: 5px;
     width: 90%;
-    height: 125px;
+    height: 100px;
     padding: 10px 5px;
     color: #575757;
 }
@@ -122,11 +122,11 @@ input[type="date" i] {
 }
 
 .user img{
-    background-color: rgb(160, 160, 255);
+    background-color: #203192;
     border-radius: 100%;
     padding: 3px;
-    width: 45px !important;
-    height: 45px !important;
+    width: 40px !important;
+    height: 40px !important;
     box-sizing: border-box;
     cursor: pointer;
     animation: scale-in 225ms ease-in-out;
@@ -155,7 +155,6 @@ input[type="date" i] {
     color:#2e46cf;
     font-size: 12px !important;
     width: 70px;
-    margin-top: 12px;
     cursor: pointer;
     padding: unset;
     text-align: left;
@@ -191,7 +190,7 @@ input[type="date" i] {
     font-size: 18px;
     background-color: #203192;
     color: white;
-    padding: 12px;
+    padding: 8px;
     border-radius: 12px;
     transition: all 100ms ease-in-out;
 }
@@ -238,7 +237,7 @@ input[type="date" i] {
     outline: none;
     width: 100%;
     padding: 8px;   
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     border: 1px solid lightgray;
     border-radius: 5px;
     color: #575757; 
@@ -334,6 +333,7 @@ input[type="date" i] {
 
     .addTaskBg{
         margin: 5%;
+        margin-top: 12px;
         width: 90%;
     }
 
@@ -351,7 +351,7 @@ input[type="date" i] {
     }
 
     .responsiveMainPage{
-        height: 95vh;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

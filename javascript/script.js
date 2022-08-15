@@ -157,6 +157,6 @@ function openResponsiveNav() {
 
 
 function closeResponsiveNav() {
-    document.getElementById('headerResponsive').style.height = "5%";
+    document.getElementById('headerResponsive').style.height = "6%";
     document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: openResponsiveNav()`);
 }

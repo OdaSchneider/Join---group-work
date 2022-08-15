@@ -58,14 +58,14 @@ function showUser() {
 
 
 function selectUser(j) {
-    document.getElementById(`selectUser${j}`).style.backgroundColor = ('#203192');
+    document.getElementById(`selectUser${j}`).style.backgroundColor = ('rgb(34, 98, 215)');
     document.getElementById(`selectUser${j}`).setAttribute('onclick', `javascript: unselectUser(${j})`);
     assignedUser.push(user[j]);
 }
 
 
 function unselectUser(j) {
-    document.getElementById(`selectUser${j}`).style.backgroundColor = ('rgb(160, 160, 255)');
+    document.getElementById(`selectUser${j}`).style.backgroundColor = ('#203192');
     document.getElementById(`selectUser${j}`).setAttribute('onclick', `javascript: selectUser(${j})`);
     for (let k = 0; k < assignedUser.length; k++) {
         if (user[j] == assignedUser[k]) {

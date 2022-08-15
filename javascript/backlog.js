@@ -122,6 +122,14 @@ function checkIfUserExistBacklog(found, assigneUser, j, i){
 }
 
 
+function userExist(j){
+    document.getElementById(`selectUser${j}`).style.border = '2px solid red';
+    setTimeout(() => {
+        document.getElementById(`selectUser${j}`).style.border = '2px solid lightgray';
+    }, 300);
+}
+
+
 function checkForRightToEdit(i){
     let contributers = allTasks[i]['assignedUser']
 
@@ -171,6 +179,7 @@ function editTask(i){
     allTasks[i]['urgency'] = document.getElementById('editUrgency'+i).value;
     allTasks[i]['createdAt'] = new Date().toLocaleDateString();
     safeLocalStorage();
+    renderBacklog();
 }
 
 

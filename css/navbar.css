@@ -72,12 +72,14 @@
     border: 1px solid white;
     border-radius: 100px;
     padding: 3px;
-    width: 50px;
+    width: 45px;
 }
 
 #activeUser p{
     margin: 8px;
     color: white;
+    font-size: 14px;
+    margin-bottom: 16px;
 }
 
 .headerBottom {
@@ -90,7 +92,7 @@
 }
 
 .headerBottom a{
-    margin-top: 16px;
+    margin-bottom: 16px;
     color: #c2c2c2;
     transition: all 25ms ease-in-out;
 }
@@ -112,7 +114,7 @@
         top: 24px;
         right: 2%;
         overflow: hidden;
-        height: 5%;
+        height: 6%;
         align-items: baseline;
         z-index: 100;
     }

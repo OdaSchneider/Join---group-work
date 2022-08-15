@@ -145,36 +145,34 @@ function activeUserTemplate() {
 
 function backlogDetailsTemplate(i) {
     return `
-    <div class="addTaskBg">
+        <div class="addTaskBg addTaskBgBacklog">
             <form onsubmit="editTask(${i})" action="backlog.html" id="editTask${i}" class="addTask">
-
                 <div class="columnLeft">
                     <div class="container">
                         <h3>Title</h3>
                         <input required placeholder="add Title" id="editTitle${i}">
                     </div>
-
                     <div class="container">
                         <h3>Description</h3>
                         <textarea required id="editDescription${i}"></textarea>
                     </div>
-
                     <div class="container">
-                        <h3>Assigne User</h3>
+                        <h3>Assigned To</h3>
+                        <p id="alert"></p>
+                        <div class="editAssignedAccount" id="editAssignedAccount${i}"></div>
+
                         <div class="assigneToAccount">
-                            <div class="user" id="edituser${i}"></div>
+                            <span>Add</span>
+                            <div class="userBacklog" id="edituser${i}"></div>
                         </div>
                     </div>
-
                 </div>
-
-
+                
                 <div class="columnRight">
                     <div class="container">
                         <h3>Due Date</h3>
                         <input type="date" required id="editDate${i}">
                     </div>
-
                     <div class="container">
                         <h3>Category</h3>
                         <select required id="editCategory${i}">
@@ -182,25 +180,17 @@ function backlogDetailsTemplate(i) {
                             <option value="Finances">Finances</option>
                             <option value="Marketing">Marketing</option>
                             <option value="Sale">Sale</option>
-                            <option value="It">IT</option>
+                            <option value="IT">IT</option>
                         </select>
                     </div>
-
                     <div class="container">
                         <h3>Urgency</h3>
                         <select required id="editUrgency${i}">
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
                         </select>
                     </div>
-
-                    <div class="container">
-                        <h3>Assigned To</h3>
-                        <p id="alert"></p>
-                        <div class="editAssignedAccount" id="editAssignedAccount${i}"></div>
-                    </div>
-
                     <div class="addTaskButtonLine">
                         <button type="button" onclick="closeEdit()" class="cancelTaskButton">Cancel</button>
                         <button type="submit" value="submit" class="createTaskButton">create Task</button>
@@ -215,7 +205,6 @@ function templateShowUserBacklog(userImg, firstName, lastName, j, i) {
     return `
     <div class="showUser">
     <img id="selectUser${j}" onclick="assigneUserBacklog(${j},${i})" src=${userImg}>
-    <p>${firstName} ${lastName}</p>
     </div>`
 }
 

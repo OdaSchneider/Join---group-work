@@ -247,13 +247,41 @@
     width: 40px;
     height: 40px;
     border-radius: 100px;
-    border: 2px solid #203192;
+    border: 3px solid rgb(34, 98, 215);
     margin-right: 10px;
 }
 
 #alert {
     color: rgb(136, 1, 1);
+    font-size: 12px;
 }
+
+.addTaskBgBacklog{   
+    margin-top: 62px !important;
+    height: 83vh !important;
+}
+
+.userBacklog{
+    margin-left: unset !important;
+}
+
+.userBacklog img{
+    cursor: pointer;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 100px;
+    border: 2px solid lightgray;
+    margin-right: 10px;
+}
+
+.assigneToAccount{
+    margin-top: 16px;
+}
+
+.assigneToAccount span{
+    font-size: 14px;
+}
+
 
 @media(max-width: 1200px) {
 
