@@ -10,7 +10,7 @@ function addTask() {
     let urgency = document.getElementById('urgency').value;
     let description = document.getElementById('description').value;
     taskArray(title, date, category, urgency, description);
-    safeLocalStorage();
+    safeData();
 }
 
 
@@ -35,7 +35,7 @@ function taskArray(title, date, category, urgency, description) {
 function assignTask(task) {
     allTasks.push(task);
     assignedUser = [];
-    safeLocalStorage();
+    safeData();
 }
 
 
@@ -148,7 +148,7 @@ function pushNewUser(firstName, lastName) {
     }
 
     user.push(newUser);
-    safeLocalStorage();
+    safeData();
     showUser();
 }
 
@@ -176,7 +176,7 @@ function renderEditUser() {
 
 function deleteUser(i) {
     user.splice(i, 1);
-    safeLocalStorage();
+    safeData();
     openDialogEditUser();
 }
 

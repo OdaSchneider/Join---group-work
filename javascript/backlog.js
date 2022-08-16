@@ -96,7 +96,7 @@ function fillAssignedUser(i){
 
 function removeUserBacklog(j, i){
     allTasks[i]['assignedUser'].splice(j, 1);
-    safeLocalStorage();
+    safeData();
     fillAssignedUser(i);
 }
 
@@ -180,7 +180,7 @@ function editTask(i){
     allTasks[i]['category'] = document.getElementById('editCategory'+i).value;
     allTasks[i]['urgency'] = document.getElementById('editUrgency'+i).value;
     allTasks[i]['createdAt'] = new Date().toLocaleDateString();
-    safeLocalStorage();
+    safeData();
     renderBacklog();
 }
 
@@ -192,7 +192,7 @@ function sendToBoard(i) {
     allTasks.splice(i, 1);
     task.classList.add('d-none');
     setId();
-    safeLocalStorage();
+    safeData();
     renderBacklog();
 } 
 
@@ -200,6 +200,6 @@ function sendToBoard(i) {
 function deleteBacklogTask(i) {
     allTasks.splice(i, 1);
     assignedUser.splice(i, 1);
-    safeLocalStorage();
+    safeData();
     renderBacklog();
 }

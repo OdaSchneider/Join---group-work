@@ -36,22 +36,19 @@ let guest = [
 ]
 
 
-async function init() {
-    await includeHTML();
+async function initStart() {
     setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
-    loadLocalStorage();
+    await downloadFromServer();
+    await backend.setItem('user', JSON.stringify(user));
+    await backend.setItem('guest', JSON.stringify(guest));
+    loadData();
 }
 
 
-async function initBacklog() {
-    await init();
-    renderBacklog();   
-}
-
-
-async function initAddTask() {
-    await init();
-    showUser();
+async function init() {
+    setURL('http://gruppe-287.developerakademie.net/smallest_backend_ever');
+    await downloadFromServer();
+    loadData();
 }
 
 
@@ -71,35 +68,37 @@ async function includeHTML() {
 }
 
 
-function safeLocalStorage() {
-    let allTasksAsString = JSON.stringify(allTasks);
-    localStorage.setItem('allTasks', allTasksAsString);
+async function safeData() {
+    await backend.setItem('user', JSON.stringify(user));
+    await backend.setItem('guest', JSON.stringify(guest));
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    await backend.setItem('allToDos', JSON.stringify(allToDos));
+    await backend.setItem('loggedUser', JSON.stringify(loggedUser));
 
-    let allToDosAsString = JSON.stringify(allToDos);
-    localStorage.setItem('allToDos', allToDosAsString);
-
-    let userAsString = JSON.stringify(user);
-    localStorage.setItem('user', userAsString);
-
-    let loggedUserAsString = JSON.stringify(loggedUser);
-    localStorage.setItem('loggedUser', loggedUserAsString);
-
-    loadLocalStorage();
+    loadData();
 }
 
 
-function loadLocalStorage() {
-    let allTasksAsString = localStorage.getItem('allTasks');
-    let allToDosAsString = localStorage.getItem('allToDos');
-    let userAsString = localStorage.getItem('user');
-    let loggedUserAsString = localStorage.getItem('loggedUser');
+function loadData() {
+    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    allToDos = JSON.parse(backend.getItem('allToDos')) || [];
+    user = JSON.parse(backend.getItem('user')) || [];
+    guest = JSON.parse(backend.getItem('guest')) || [];
+    loggedUser = JSON.parse(backend.getItem('loggedUser')) || [];
+}
 
-    if (allTasksAsString && allToDosAsString && userAsString && loggedUserAsString) {
-        allTasks = JSON.parse(allTasksAsString);
-        allToDos = JSON.parse(allToDosAsString);
-        user = JSON.parse(userAsString);
-        loggedUser = JSON.parse(loggedUserAsString);
-    }
+
+async function initBacklog() {
+    await init();
+    await includeHTML();
+    renderBacklog();
+}
+
+
+async function initAddTask() {
+    await init();
+    await includeHTML();
+    showUser();
 }
 
 
@@ -116,37 +115,37 @@ function login() {
 }
 
 
-function checkSuccessLogin(firstname, lastname, password){
+function checkSuccessLogin(firstname, lastname, password) {
     for (let i = 0; i < user.length; i++) {
         userFirstname = user[i]['first name'].toLowerCase();
         userLastname = user[i]['last name'].toLowerCase();
 
         if (userFirstname == firstname && userLastname == lastname && user[i]['password'] == password) {
             loggedUser = user[i];
+            safeData();
             window.location = "./addTask.html";
         }
     }
     failLoggin();
-    safeLocalStorage();
 }
 
 
-function failLoggin(){
+function failLoggin() {
     if (loggedUser.length == 0) {
         document.getElementById('loginFailed').classList.remove('d-none');
     }
 }
 
 
-function loginAsGuest(){
+function loginAsGuest() {
     loggedUser = guest[0];
-    safeLocalStorage();
+    safeData();
 }
 
 
-function renderNavbar(){
-    loadLocalStorage();
-        document.getElementById('activeUser').innerHTML = activeUserTemplate();
+function renderNavbar() {
+    loadData();
+    document.getElementById('activeUser').innerHTML = activeUserTemplate();
 }
 
 

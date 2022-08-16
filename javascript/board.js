@@ -7,7 +7,7 @@
  async function loadBoard() {
     // await downloadFromServer();
     // allToDos = JSON.parse(backend.getItem('allToDos')) || [];
-    loadLocalStorage();
+    loadData();
     renderBoard();
 }
 
@@ -18,7 +18,7 @@
  */
 async function save() {
     // await backend.setItem('allToDos', JSON.stringify(allToDos));
-    safeLocalStorage();
+    safeData();
     loadBoard();
 }
 
@@ -265,7 +265,7 @@ function sendComment(id) {
         let tasks = allToDos.find(t => t['id'] == id);
         tasks['comments'].push(commentsOnTheBoard.value);
         commentsOnTheBoard.value = '';
-        safeLocalStorage();
+        safeData();
         renderComments(id, tasks);
     }
 }
@@ -292,6 +292,6 @@ function renderComments(id, tasks) {
 function deletComment(j, id) {
     let tasks = allToDos.find(t => t['id'] == id);
     tasks['comments'].splice(j, 1);
-    safeLocalStorage();
+    safeData();
     renderComments(id, tasks);
 }
