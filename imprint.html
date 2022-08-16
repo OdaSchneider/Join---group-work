@@ -27,7 +27,7 @@
             justify-content: center;
         }
 
-        .imprintBg h1{
+        .imprintBg h1 {
             margin-top: 50px;
         }
 
@@ -77,6 +77,91 @@
 
         .reference {
             margin-top: 64px;
+        }
+
+        @media (max-width: 860px) {
+
+            body {
+                overflow: auto;
+            }
+
+            .imprintContent {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .imprintContent-right {
+                margin: 0;
+            }
+
+            .reference {
+                margin-bottom: 60px;
+                margin-top: 10px;
+            }
+
+            .imprintBg {
+                height: 100vh;
+            }
+
+            .imprintContent-left div {
+                margin-bottom: 5px;
+            }
+
+            .imprintContent-right div {
+                margin-bottom: 5px;
+            }
+
+            .footer div {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-height: 820px) {
+
+            .imprintBg h1 {
+                margin: 0;
+            }
+        }
+
+        @media (max-height: 750px) {
+
+            body {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-height: 650px) {
+
+            body {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 490px) {
+
+            .reference {
+                margin-bottom: 80px;
+            }
+
+            .imprintBg {
+                display: flex;
+            }
+
+            .reference {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .imprintBg a {
+                margin: 2px;
+            }
+
+            .imprintBg p {
+                margin-right: 10px;
+            }
         }
     </style>
 </head>
