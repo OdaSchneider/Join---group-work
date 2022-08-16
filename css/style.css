@@ -25,15 +25,15 @@ button {
     font-family: 'PT Sans', sans-serif;
 }
 
-input{
+input {
     font-family: 'PT Sans', sans-serif;
 }
 
-.disable{
+.disable {
     pointer-events: none;
 }
 
-.d-none{
+.d-none {
     display: none !important;
 }
 
@@ -62,23 +62,23 @@ input{
     justify-content: center;
 }
 
-.text{
-    width: 100%;
+.text {
+    width: 95%;
     text-align: center;
-    margin-top: 150px;
 }
 
-.text p{
+.text p {
     color: #575757;
-    margin-top: 100px;
+    margin-top: 48px;
+    margin-bottom: 32px;
     font-weight: bold;
 }
 
-.text span{
-    color: red;
+.text span {
+    color: rgb(219, 0, 0);
 }
 
-.startheadline{
+.startheadline {
     display: flex;
     position: fixed;
     top: 32px;
@@ -86,23 +86,31 @@ input{
     width: 100%;
     justify-content: center;
     align-items: center;
-    color:rgb(32, 49, 146);
+    color: rgb(32, 49, 146);
 }
 
-.startheadline img{
+.startheadline img {
     width: 50px;
     height: 50px;
     margin-right: 32px;
 }
 
-.login{
+.startMainpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 50vh;
+    margin-bottom: 64px;
+}
+
+.login {
     background-color: #203192;
     border: 2px solid #203192;
-    position: absolute;
-    top: 160px;
     border-radius: 5px;
     padding: 16px;
     width: 40%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -110,18 +118,20 @@ input{
     background-color: white;
 }
 
-.login div{
+.login div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 95%;
 }
 
-.login p{
-    color:#203192;
+.login p {
+    color: #203192;
     font-weight: bold;
+    margin-top: unset;
 }
 
-.login input{
+.login input {
     outline: none;
     margin: 8px;
     border: 1px solid lightgray;
@@ -131,15 +141,15 @@ input{
     transition: transform .5s ease-in-out;
 }
 
-.login button:hover{
+.login button:hover {
     transform: scale(1.05);
 }
 
-.login a:hover{
+.login a:hover {
     transform: scale(1.05);
 }
 
-#loginButton{
+#loginButton {
     background-color: #203192;
     color: white;
     text-transform: uppercase;
@@ -150,12 +160,17 @@ input{
     margin: 8px;
 }
 
-#loginAsGuestButton{
-    color:#203192;
+#loginAsGuestButton {
+    color: #203192;
     cursor: pointer;
 }
 
-.footer{
+#loginFailed {
+    font-size: 14px;
+    color: rgb(219, 0, 0);
+}
+
+.footer {
     background-color: #575757;
     position: fixed;
     bottom: 0;
@@ -167,89 +182,85 @@ input{
     align-items: center;
 }
 
-.footer div{
+.footer div {
     margin-left: 32px;
     margin-right: 32px;
 }
 
-.footer img{
+.footer img {
     width: 45px;
     height: 45px;
 }
 
-.footer a{
+.footer a {
     margin-left: 32px;
 }
-.footer a:hover{
+
+.footer a:hover {
     border-bottom: 1px solid white;
 }
 
-@media(max-height: 820px) {
-    
-    .login {
-        height: 220px;
-    }
-}
-
-@media(max-height: 790px) {
-    
-    .login {
-        height: 200px;
-    }
-
-    .login input {
-        margin: 4px;
-    } 
-
-    .text {
-        margin-top: 310px;
-    }
-
+@media(max-width: 680px) {
     .text p {
-        font-size: 12px;
-        margin: 0;
+        margin-top: 32px;
+        margin-bottom: 24px;
+        margin-left: 16px;
+        margin-right: 16px;
     }
 
     .text span {
-        font-size: 12px;
-        margin: 0px;
+        margin-left: 16px;
+        margin-right: 16px;
     }
 }
 
-@media(max-width: 700px) {
+@media(max-width: 480px){
+    .login{
+        width: 50%;
+    }
+}
 
-    .text span {
-        margin-left: 10px;
-        margin-right: 10px;
+@media(max-width: 430px) {
+    .startheadline img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .startheadline h1{
+        font-size: 26px;
     }
 
     .text p {
-        margin-left: 10px;
-        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    .text span {
+        font-size: 14px;
     }
 }
 
-@media(max-width: 450px) {
+@media(max-width: 370px) {
+    .startheadline{
+        top: 16px;
+    }
 
-    .login {
+    .startheadline img{
+        display: none;
+    }
+
+    .startheadline h1{
+        text-align: center;
+    }
+
+    .startMainpage{
+        height: 63vh;
+    }
+
+    .login{
         width: 60%;
     }
 }
 
-@media(max-width: 400px) {
-
-    .startheadline img {
-        margin-left: 20px;
-    }
-}
-
-@media(max-width: 310px) {
-    
-    .footer div {
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-}
 
 /* -----------------------------------Page Headline---------------------------------------------------- */
 

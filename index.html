@@ -27,27 +27,31 @@
             <h1>Join - simply organized</h1>
         </div class="startheadline">
 
-        <form method="post" class="login">
-            <p>Please Login</p>
-            <div>
-                <input type="text" id="loginInputFirstName" placeholder="First Name" required>
-                <input type="text" id="loginInputLastName" placeholder="Last Name" required>
-                <input type="password" id="loginInputPassword" placeholder="Password" required>
+        <div class="startMainpage">
+            <form method="post" class="login">
+                <p>Please Login</p>
+                <div>
+                    <input type="text" id="loginInputFirstName" placeholder="First Name" required>
+                    <input type="text" id="loginInputLastName" placeholder="Last Name" required>
+                    <input type="password" id="loginInputPassword" placeholder="Password" required>
+                </div>
+                <div id="loginFailed" class="d-none">
+                    <span>Login failed! Please try again</span>
+                </div>
+                <div>
+                    <button type="button" onclick="login()" id="loginButton">Login</button>
+                    <a href="addTask.html" onclick="loginAsGuest()" id="loginAsGuestButton">Login as Guest</a>
+                </div>
+            </form>
+
+            <div class="text">
+                <p>Start with Join to organize your Projects, collect your Ideas and to work on your goals with your
+                    Team!</p>
+                <span>This site is an educational project and has NO SECURITY. Do not enter any personal or confidential
+                    information!</span>
             </div>
-            <div id="loginFailed" class="text d-none">
-                <span>Login failed! Please try again</span>
-            </div>
-            <div>
-                <button type="button" onclick="login()" id="loginButton">Login</button>
-                <a href="addTask.html" onclick="loginAsGuest()" id="loginAsGuestButton">Login as Guest</a>
-            </div>
-        </form>
-        <div class="text">
-            <p>Start with Join to organize your Projects, collect your Ideas and to work on your goals with your Team!</p>
-            <br>
-            <br>
-            <span>This site is an educational project and has NO SECURITY. Do not enter any personal or confidential information!</span>
         </div>
+
         <div class="footer">
             <div>
                 <a href="./index.html"><img src="./img/logo.png"></a>
