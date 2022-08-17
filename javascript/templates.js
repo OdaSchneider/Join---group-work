@@ -147,7 +147,7 @@ function activeUserTemplate() {
 function backlogDetailsTemplate(i) {
     return `
         <div class="addTaskBg addTaskBgBacklog">
-            <form onsubmit="editTask(${i})" action="backlog.html" id="editTask${i}" class="addTask">
+            <form method="post" id="editTask${i}" class="addTask">
                 <div class="columnLeft">
                     <div class="container">
                         <h3>Title</h3>
@@ -194,7 +194,7 @@ function backlogDetailsTemplate(i) {
                     </div>
                     <div class="addTaskButtonLine">
                         <button type="button" onclick="closeEdit()" class="cancelTaskButton">Cancel</button>
-                        <button type="submit" value="submit" class="createTaskButton">create Task</button>
+                        <button type="button" onclick="checkValidationBacklog(${i})" class="createTaskButton">create Task</button>
                     </div>
                 </div>
             </form>

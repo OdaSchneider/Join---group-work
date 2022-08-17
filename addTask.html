@@ -29,7 +29,7 @@
         </div>
 
         <div class="addTaskBg">
-            <form onsubmit="addTask()" action="backlog.html" id="addNewTask" class="addTask">
+            <form method="post" id="addNewTask" class="addTask">
 
                 <div class="columnLeft">
                     <div class="container">
@@ -44,6 +44,7 @@
 
                     <div class="container">
                         <h3>Assigned User</h3>
+                        <p id="alertNoUser"></p>
                         <div class="assigneToAccount">
                             <img onclick="openDialogNewUser()" id="addUser" src="./img/icon plus.png">
                             <div class="user" id="user"></div>
@@ -82,7 +83,7 @@
 
                     <div class="addTaskButtonLine">
                         <button type="reset" onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
-                        <button type="submit" value="submit" class="createTaskButton">create Task</button>
+                        <button type="button" onclick="checkValidation()" class="createTaskButton">create Task</button>
                     </div>
                 </div>
             </form>

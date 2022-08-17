@@ -1,9 +1,15 @@
 // ---------------------------Add Task---------------------------------------------------------
+function checkValidation(){
+    if (assignedUser.length == 0) {
+        document.getElementById('alertNoUser').innerHTML = 'Please assigne at least one user';
+    }else{
+        addTask();
+        window.location = "./backlog.html";
+    }
+}
+
 
 async function addTask() {
-    if (assignedUser.length == 0) {
-        assignedUser.push(guest[0]);
-    }
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let category = document.getElementById('category').value;

@@ -173,6 +173,16 @@ function enableEdit(i){
 }
 
 
+async function checkValidationBacklog(i){
+    if(allTasks[i]['assignedUser'].length == 0){
+        document.getElementById('alert').innerHTML = 'Please assigne at least one user';
+    }else{
+        await editTask(i);
+        window.location = "./backlog.html";
+    }
+}
+
+
 async function editTask(i){
     allTasks[i]['title'] = document.getElementById('editTitle'+i).value;
     allTasks[i]['description'] = document.getElementById('editDescription'+i).value;

@@ -68,14 +68,6 @@ input[type="date" i] {
     cursor: pointer;
 }
 
-.wrapper{
-    border: 1px dashed red;
-    height: 150px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    width: 150px;
- }
-
 .columnLeft textarea {
     outline: none;
     resize: none;
@@ -115,6 +107,11 @@ input[type="date" i] {
     margin-left: 8px;
     border: 3px solid #2e46cf;
     background-color: #2e46cf;
+}
+
+#alertNoUser{
+    color: rgb(204, 0, 0);
+    font-size: 14px;
 }
 
 #addUser{
