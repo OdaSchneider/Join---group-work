@@ -165,6 +165,7 @@ function disableEdit(i){
 
 
 function enableEdit(i){
+    document.getElementById('alert').innerHTML = '';
     document.getElementById('editTitle'+i).disabled = false;
     document.getElementById('editDescription'+i).disabled = false;
     document.getElementById('editDate'+i).disabled = false;
