@@ -1,6 +1,6 @@
 // ---------------------------Add Task---------------------------------------------------------
 
-function addTask() {
+async function addTask() {
     if (assignedUser.length == 0) {
         assignedUser.push(guest[0]);
     }
@@ -10,7 +10,7 @@ function addTask() {
     let urgency = document.getElementById('urgency').value;
     let description = document.getElementById('description').value;
     taskArray(title, date, category, urgency, description);
-    safeData();
+    await safeData();
 }
 
 
@@ -32,10 +32,10 @@ function taskArray(title, date, category, urgency, description) {
 }
 
 
-function assignTask(task) {
+async function assignTask(task) {
     allTasks.push(task);
     assignedUser = [];
-    safeData();
+    await safeData();
 }
 
 
@@ -112,6 +112,7 @@ function addNewUser() {
     let firstName = document.getElementById('newUserFirstName').value;
     let lastName = document.getElementById('newUserLastName').value;
     checkForUser(firstName, lastName);
+
     document.getElementById('dialogBg').classList.add('d-none');
     document.getElementById('editUserContent').classList.remove('d-none');
 }
@@ -140,7 +141,7 @@ function reactIfUserFound(found, firstName, lastName) {
 }
 
 
-function pushNewUser(firstName, lastName) {
+async function pushNewUser(firstName, lastName) {
     let newUser = {
         'first name': `${firstName}`,
         'last name': `${lastName}`,
@@ -148,7 +149,7 @@ function pushNewUser(firstName, lastName) {
     }
 
     user.push(newUser);
-    safeData();
+    await safeUser();
     showUser();
 }
 
@@ -174,9 +175,9 @@ function renderEditUser() {
 }
 
 
-function deleteUser(i) {
+async function deleteUser(i) {
     user.splice(i, 1);
-    safeData();
+    await safeUser();
     openDialogEditUser();
 }
 

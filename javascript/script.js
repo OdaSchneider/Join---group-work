@@ -39,16 +39,14 @@ let guest = [
 async function initStart() {
     setURL('https://gruppe-287.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
-    await backend.setItem('user', JSON.stringify(user));
-    await backend.setItem('guest', JSON.stringify(guest));
-    loadData();
+    await safeUser();
 }
 
 
 async function init() {
     setURL('https://gruppe-287.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
-    loadData();
+    await loadData();
 }
 
 
@@ -69,19 +67,27 @@ async function includeHTML() {
 
 
 async function safeData() {
-    await backend.setItem('user', JSON.stringify(user));
-    await backend.setItem('guest', JSON.stringify(guest));
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     await backend.setItem('allToDos', JSON.stringify(allToDos));
-    await backend.setItem('loggedUser', JSON.stringify(loggedUser));
-
     await loadData();
 }
 
 
- async function loadData() {
+async function loadData() {
     allTasks = await JSON.parse(backend.getItem('allTasks')) || [];
     allToDos = await JSON.parse(backend.getItem('allToDos')) || [];
+}
+
+
+async function safeUser(){
+    await backend.setItem('user', JSON.stringify(user));
+    await backend.setItem('guest', JSON.stringify(guest));
+    await backend.setItem('loggedUser', JSON.stringify(loggedUser));
+    await loadUser();
+}
+
+
+async function loadUser(){
     user = await JSON.parse(backend.getItem('user')) || [];
     guest = await JSON.parse(backend.getItem('guest')) || [];
     loggedUser = await JSON.parse(backend.getItem('loggedUser')) || [];
@@ -99,6 +105,13 @@ async function initAddTask() {
     await init();
     await includeHTML();
     showUser();
+}
+
+
+async function initBoard(){
+    await init();
+    await includeHTML();
+    renderBoard();
 }
 
 
@@ -122,12 +135,12 @@ async function checkSuccessLogin(firstname, lastname, password) {
 
         if (userFirstname == firstname && userLastname == lastname && user[i]['password'] == password) {
             loggedUser = user[i];
-            await safeData();
+            await safeUser();
             window.location = "./addTask.html";
-        }else{
-            failLoggin();
+            break;
         }
     }
+    failLoggin();
 }
 
 
@@ -140,12 +153,13 @@ function failLoggin() {
 
 async function loginAsGuest() {
     loggedUser = guest[0];
-    await safeData();
+    await safeUser();
+    window.location = "./addTask.html";
 }
 
 
-function renderNavbar() {
-    loadData();
+async function renderNavbar() {
+    await loadUser();
     document.getElementById('activeUser').innerHTML = activeUserTemplate();
 }
 

@@ -173,33 +173,33 @@ function enableEdit(i){
 }
 
 
-function editTask(i){
+async function editTask(i){
     allTasks[i]['title'] = document.getElementById('editTitle'+i).value;
     allTasks[i]['description'] = document.getElementById('editDescription'+i).value;
     allTasks[i]['dueDate'] = document.getElementById('editDate'+i).value;
     allTasks[i]['category'] = document.getElementById('editCategory'+i).value;
     allTasks[i]['urgency'] = document.getElementById('editUrgency'+i).value;
     allTasks[i]['createdAt'] = new Date().toLocaleDateString();
-    safeData();
+    await safeData();
     renderBacklog();
 }
 
 
-function sendToBoard(i) {
+async function sendToBoard(i) {
     let task = document.getElementById(`backlog-task${i}`);
 
     allToDos.push(allTasks[i]);
     allTasks.splice(i, 1);
     task.classList.add('d-none');
     setId();
-    safeData();
+    await safeData();
     renderBacklog();
 } 
 
 
-function deleteBacklogTask(i) {
+async function deleteBacklogTask(i) {
     allTasks.splice(i, 1);
     assignedUser.splice(i, 1);
-    safeData();
+    await safeData();
     renderBacklog();
 }

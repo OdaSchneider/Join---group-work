@@ -1,29 +1,6 @@
 // ---------------------------Bord--------------------------------------------------------
 
 /**
- * DE: Läd alles aus dem Backend
- * EN: Load everything from the backend
- */
- async function loadBoard() {
-    // await downloadFromServer();
-    // allToDos = JSON.parse(backend.getItem('allToDos')) || [];
-    loadData();
-    renderBoard();
-}
-
-
-/**
- * DE: Speichert alles im Backend
- * EN: Stores everything in the backend
- */
-async function save() {
-    // await backend.setItem('allToDos', JSON.stringify(allToDos));
-    safeData();
-    loadBoard();
-}
-
-
-/**
  * DE: Alle Renderfunktion in einer um das Board anzuzeigen zu können.
  * EN: All render function in one to display the board.
  */
@@ -157,12 +134,13 @@ function pushToOtherBoard(id) {
 }
 
 
-function closeTask(){
+async function closeTask(){
     document.body.style.overflow = 'auto';
     document.getElementById('overlayBg').classList.add('d-none');
     document.getElementById('openTask').classList.add('d-none');
     document.getElementById('openTask').classList.remove('exit-ani');
-    save(); 
+    await safeData(); 
+    renderBoard();
 }
 
 
@@ -216,11 +194,12 @@ function backToBoard() {
  * DE: Löscht das ausgewählte Todo aus dem Array und vom HTML raus.
  * EN: Deletes the selected todo from the array and from the HTML.
  */
-function deleteTask(id) {
+async function deleteTask(id) {
     allToDos.splice(id, 1);
     assignedUser.splice(id, 1);
-    save();
+    await safeData();
     backToBoard();
+    renderBoard();
 }
 
 
@@ -245,10 +224,11 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(status) {
+async function moveTo(status) {
     let task = allToDos.find(t => t['id'] == currentDraggedElement);
     task['status'] = status;
-    save();
+    await safeData();
+    renderBoard();
 } 
 
 
@@ -256,7 +236,7 @@ function moveTo(status) {
  * DE: Läd den commentar aus dem Input fehld und fügt den in das Arry ein unter Comments
  * EN: Loads the comment from the input field and inserts it into the array under Comments
  */
-function sendComment(id) {
+async function sendComment(id) {
     let commentsOnTheBoard = document.getElementById(`commentsInput${id}`);
 
     if(commentsOnTheBoard.value.length == 0) {
@@ -265,7 +245,7 @@ function sendComment(id) {
         let tasks = allToDos.find(t => t['id'] == id);
         tasks['comments'].push(commentsOnTheBoard.value);
         commentsOnTheBoard.value = '';
-        safeData();
+        await safeData();
         renderComments(id, tasks);
     }
 }
@@ -289,9 +269,9 @@ function renderComments(id, tasks) {
  * DE: Löscht den Kommentar
  * EN: Delet the Comment
  */
-function deletComment(j, id) {
+async function deletComment(j, id) {
     let tasks = allToDos.find(t => t['id'] == id);
     tasks['comments'].splice(j, 1);
-    safeData();
+    await safeData();
     renderComments(id, tasks);
 }
