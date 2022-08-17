@@ -71,7 +71,7 @@ function selectUser(j) {
 
 
 function unselectUser(j) {
-    document.getElementById(`selectUser${j}`).style.backgroundColor = ('#203192');
+    document.getElementById(`selectUser${j}`).style.backgroundColor = ('transparent');
     document.getElementById(`selectUser${j}`).setAttribute('onclick', `javascript: selectUser(${j})`);
     for (let k = 0; k < assignedUser.length; k++) {
         if (user[j] == assignedUser[k]) {
