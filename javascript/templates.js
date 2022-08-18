@@ -129,7 +129,6 @@ function backlogUserContainer(userfirstname, userlastname, userimage) {
     return `
     <div class="backlog-user-child">
         <img src="${userimage}">
-        <div class="username"><span>${userfirstname} ${userlastname}</span></div>
     </div>`
 }
 

@@ -132,6 +132,7 @@
     line-height: 1rem;
     padding: 2px;
     max-height: 100px;
+    min-height: 30px;
     overflow: auto;
 }
 
@@ -139,6 +140,7 @@
     height: 35px;
     border-radius: 100%;
     padding: 2px;
+    margin: 2px;
 }
 
 .profileImgTaksOpenTask {
