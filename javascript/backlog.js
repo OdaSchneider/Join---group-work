@@ -134,7 +134,6 @@ function userExist(j){
 
 function checkForRightToEdit(i){
     let contributers = allTasks[i]['assignedUser']
-
     for (let j = 0; j < contributers.length; j++) {
         let firstname = contributers[j]['first name'];
         let lastname = contributers[j]['last name'];

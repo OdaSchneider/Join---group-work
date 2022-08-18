@@ -1,46 +1,8 @@
 // ---------------------------Add Task---------------------------------------------------------
-function checkTitle(){
-    let title = document.getElementById('title').value;
-
-    if (title.length == 0) {
-        document.getElementById('alertNoTitle').innerHTML = 'Please add Title';
-    }else{
-        checkDescription();
-    }
-}
-
-
-function checkDescription(){
-    document.getElementById('alertNoTitle').innerHTML = '';
-    let description = document.getElementById('description').value;
-
-    if (description.length == 0) {
-        document.getElementById('alertNoDescription').innerHTML = 'Please add Description';
-    }else{
-        checkDate();
-    }
-}
-
-
-function checkDate(){
-    document.getElementById('alertNoDescription').innerHTML = '';
-    let date = document.getElementById('date').value;
-
-    if (date.length == 0) {
-        document.getElementById('alertNoDate').innerHTML = 'Please add Date';
-    }else{
-        checkUser();
-    }
-}
-
-
-function checkUser(){
-    document.getElementById('alertNoDate').innerHTML = '';
-
+function checkValidation(){
     if (assignedUser.length == 0) {
         document.getElementById('alertNoUser').innerHTML = 'Please assigne User';
-        return false;
-    } else{
+    }else{
         validInput();
     }
 }
@@ -90,6 +52,7 @@ async function assignTask(task) {
 
 function cancelTask() {
     document.getElementById('addNewTask').reset();
+    document.getElementById('alertNoUser').innerHTML = '';
 }
 
 
