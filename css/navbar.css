@@ -3,8 +3,8 @@
 .header {
     z-index: 10;
     position: fixed;
-    top: 20px;
-    bottom: 20px;
+    top: 0px;
+    bottom: 0px;
     left: 0;
     width: 125px;
     display: flex;
@@ -95,14 +95,13 @@
     width: 100%;
     text-align: center;
     margin-bottom: 16px;
-    color: #c2c2c2;
-    transition: all 25ms ease-in-out;
+    color: #D8D8D8;
+    transition: all 75ms ease-in-out;
 }
 
 .headerBottom a:hover{    
     transition: all 100ms ease-in-out;
     border-left: 8px solid white;
-       
 }
 
 .headerResponsive {

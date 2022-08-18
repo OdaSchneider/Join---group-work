@@ -3,8 +3,8 @@
 .addTaskBg {
     background-color: #F4F2FB;
     margin-left: 150px;
-    margin-top: 32px;
-    height: 80vh;
+    margin-top: 16px;
+    height: 85vh;
     width: calc(100% - 170px);
     border-radius: 15px;
 }
@@ -163,7 +163,7 @@ input[type="date" i] {
 
 .editUserButton{
     color:#2e46cf;
-    font-size: 12px !important;
+    font-size: 13px !important;
     width: 70px;
     cursor: pointer;
     padding: unset;
