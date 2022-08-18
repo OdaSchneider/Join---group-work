@@ -1,9 +1,6 @@
 // ---------------------------Bord--------------------------------------------------------
 
-/**
- * DE: Alle Renderfunktion in einer um das Board anzuzeigen zu können.
- * EN: All render function in one to display the board.
- */
+
 function renderBoard() {
     renderToDo();
     renderInProgress();
@@ -19,10 +16,6 @@ function setId(){
 }
 
 
-/**
- * DE: Render die TODO Spalte
- * EN: Render the TODO column
- */
 function renderToDo() {
     let currentToDo = allToDos.filter(t => t['status'] == 'toDo');
     document.getElementById('toDo').innerHTML = '';
@@ -34,10 +27,8 @@ function renderToDo() {
         renderUserForBoard(element, i);
     }
 }
-/**
- * DE: Render die InProgress Spalte
- * EN: Render the InProgress column
- */
+
+
 function renderInProgress() {
     let currentInProgress = allToDos.filter(t => t['status'] == 'inProgress');
     document.getElementById('inProgress').innerHTML = '';
@@ -49,10 +40,8 @@ function renderInProgress() {
         renderUserForBoard(element, i);
     }
 }
-/**
- * DE: Render die Testing Spalte
- * EN: Render the Testing column
- */
+
+
 function renderTesting() {
     let currentTesting = allToDos.filter(t => t['status'] == 'testing');
     document.getElementById('testing').innerHTML = '';
@@ -64,10 +53,8 @@ function renderTesting() {
         renderUserForBoard(element, i);
     }
 }
-/**
- * DE: Render die Done Spalte
- * EN: Render the Done column
- */
+
+
 function renderDone() {
     let currentDone = allToDos.filter(t => t['status'] == 'done');
     document.getElementById('done').innerHTML = '';
@@ -98,7 +85,7 @@ function renderUserForBoard(element) {
 
 
 /**
- * DE: Erstellt die User in einem offendem ToDo.
+ * DE: Erstellt die User in einem offendem task.
  * EN: Rendert the User in an open Task.
  */
 function renderUserForBoardOpenTask(id) {
@@ -144,10 +131,6 @@ async function closeTask(){
 }
 
 
-/**
- * DE: Öffnet die Taskt die man haben möchte, mit allen Informationen die benötikt werden.
- * EN: Opens the task you want with all the information you need.
- */
 function openTask(id) {
     document.body.style.overflow = 'hidden';
     window.scrollTo(0,0);
@@ -171,7 +154,7 @@ function checkPushFunction(tasks, id){
 
 
 /**
- * DE: Schließt das Task wieder und zeigt das board wieder an.
+ * DE: Schließt die Task wieder und zeigt das board wieder an.
  * EN: Closes the task again and shows the board again.
  */
 function backToBoard() {
@@ -190,10 +173,6 @@ function backToBoard() {
 }
 
 
-/**
- * DE: Löscht das ausgewählte Todo aus dem Array und vom HTML raus.
- * EN: Deletes the selected todo from the array and from the HTML.
- */
 async function deleteTask(id) {
     allToDos.splice(id, 1);
     assignedUser.splice(id, 1);
@@ -203,11 +182,44 @@ async function deleteTask(id) {
 }
 
 
-/**
+async function sendComment(id) {
+    let commentsOnTheBoard = document.getElementById(`commentsInput${id}`);
+
+    if(commentsOnTheBoard.value.length == 0) {
+        alert("Bitte etwas eingeben!");
+    } else {
+        let tasks = allToDos.find(t => t['id'] == id);
+        tasks['comments'].push(commentsOnTheBoard.value);
+        commentsOnTheBoard.value = '';
+        await safeData();
+        renderComments(id, tasks);
+    }
+}
+
+
+function renderComments(id, tasks) {
+    document.getElementById(`showComment${id}`).innerHTML = '';
+    let startComments = tasks['comments'].length -1;
+    for (let j = startComments; j > -1 ; j--) {
+        let comment = tasks['comments'][j];
+        document.getElementById(`showComment${id}`).innerHTML += renderCommentsOnTheTask(id, j, comment); 
+    }
+}
+ 
+
+async function deletComment(j, id) {
+    let tasks = allToDos.find(t => t['id'] == id);
+    tasks['comments'].splice(j, 1);
+    await safeData();
+    renderComments(id, tasks);
+}
+
+
+/**  
  * DE: Alle funktion ab hier, sind für die Drag and Drop funktion.
  * EN: All functions from here are for the drag and drop function.
  */
-function highlight(id) {
+ function highlight(id) {
     document.getElementById(id).classList.add('dragAreaHighlight');
 }
 
@@ -230,48 +242,3 @@ async function moveTo(status) {
     await safeData();
     renderBoard();
 } 
-
-
-/**
- * DE: Läd den commentar aus dem Input fehld und fügt den in das Arry ein unter Comments
- * EN: Loads the comment from the input field and inserts it into the array under Comments
- */
-async function sendComment(id) {
-    let commentsOnTheBoard = document.getElementById(`commentsInput${id}`);
-
-    if(commentsOnTheBoard.value.length == 0) {
-        alert("Bitte etwas eingeben!");
-    } else {
-        let tasks = allToDos.find(t => t['id'] == id);
-        tasks['comments'].push(commentsOnTheBoard.value);
-        commentsOnTheBoard.value = '';
-        await safeData();
-        renderComments(id, tasks);
-    }
-}
-
-
-/**
- * DE: Läd alle Kommentare
- * EN: Load all Comments
- */
-function renderComments(id, tasks) {
-    document.getElementById(`showComment${id}`).innerHTML = '';
-    let startComments = tasks['comments'].length -1;
-    for (let j = startComments; j > -1 ; j--) {
-        let comment = tasks['comments'][j];
-        document.getElementById(`showComment${id}`).innerHTML += renderCommentsOnTheTask(id, j, comment); 
-    }
-}
- 
-
-/**
- * DE: Löscht den Kommentar
- * EN: Delet the Comment
- */
-async function deletComment(j, id) {
-    let tasks = allToDos.find(t => t['id'] == id);
-    tasks['comments'].splice(j, 1);
-    await safeData();
-    renderComments(id, tasks);
-}
