@@ -147,7 +147,7 @@ function activeUserTemplate() {
 function backlogDetailsTemplate(i) {
     return /*html*/`
         <div class="addTaskBg addTaskBgBacklog">            
-            <form method="post" id="editTask${i}" class="addTask" onclick="doNotClose(event)">
+            <form method="dialog" id="editTask${i}" class="addTask" onclick="doNotClose(event)">
                 <div class="columnLeft">
                     <div class="container">
                         <h3>Title</h3>
