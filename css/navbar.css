@@ -111,7 +111,7 @@
     .headerResponsive{
         display: flex !important;
         position: absolute;
-        top: 12px;
+        top: 20px;
         right: 2%;
         overflow: hidden;
         height: 6%;
@@ -127,7 +127,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        margin-top: 8px;
+        margin-top: 32px;
         transition: all 225ms ease-in-out;
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 10px;
@@ -164,5 +164,9 @@
 @media(max-width: 380px){
     .headline{
         width: 60%;
+    }
+
+    .headerResponsive{
+        top: 14px;
     }
 }

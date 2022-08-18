@@ -3,15 +3,15 @@
 .addTaskBg {
     background-color: #F4F2FB;
     margin-left: 150px;
-    margin-top: 50px;
-    height: auto;
+    margin-top: 32px;
+    height: 80vh;
     width: calc(100% - 170px);
     border-radius: 15px;
 }
 
 .addTask {
     display: flex;
-    height: auto;
+    height: 100%;
 }
 
 .addTask h3 {
@@ -33,7 +33,7 @@
 .columnLeft{
     width: calc(50% - 64px);
     margin: 4px 32px;
-    height: auto;
+    height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -42,7 +42,7 @@
 .columnRight{
     width: calc(50% - 64px);
     margin: 4px 32px;
-    height: auto;
+    height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -109,7 +109,7 @@ input[type="date" i] {
     background-color: #2e46cf;
 }
 
-#alertNoUser{
+.container p{
     color: rgb(204, 0, 0);
     font-size: 14px;
 }
@@ -127,7 +127,7 @@ input[type="date" i] {
 }
 
 .user img{
-    background-color: #203192;
+    background-color: lightgray;
     border-radius: 100%;
     padding: 3px;
     width: 40px !important;
@@ -152,6 +152,7 @@ input[type="date" i] {
 }
 
 .showUser p{
+    color: #575757;
     margin: unset;
     font-size: 12px;
 }
@@ -451,5 +452,17 @@ input[type="date" i] {
     .user img{
         width: 45px !important;
         height: 45px !important;
+    }
+}
+
+@media(max-height: 670px){
+    .addTaskBg{
+        height: auto;
+    }
+}
+
+@media(min-height: 740px){
+    .columnLeft textarea{
+        height: 200px;
     }
 }

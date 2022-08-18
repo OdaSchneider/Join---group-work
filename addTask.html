@@ -34,11 +34,13 @@
                 <div class="columnLeft">
                     <div class="container">
                         <h3>Title</h3>
+                        <p id="alertNoTitle"></p>
                         <input required placeholder="add Title" id="title">
                     </div>
 
                     <div class="container">
                         <h3>Description</h3>
+                        <p id="alertNoDescription"></p>
                         <textarea required id="description"></textarea>
                     </div>
 
@@ -58,6 +60,7 @@
                 <div class="columnRight">
                     <div class="container">
                         <h3>Due Date</h3>
+                        <p id="alertNoDate"></p>
                         <input type="date" required id="date">
                     </div>
 
@@ -83,7 +86,7 @@
 
                     <div class="addTaskButtonLine">
                         <button type="reset" onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
-                        <button type="button" onclick="checkValidation()" class="createTaskButton">create Task</button>
+                        <button type="button" onclick="checkTitle()"  class="createTaskButton">create Task</button>
                     </div>
                 </div>
             </form>

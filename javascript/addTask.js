@@ -1,11 +1,54 @@
 // ---------------------------Add Task---------------------------------------------------------
-function checkValidation(){
-    if (assignedUser.length == 0) {
-        document.getElementById('alertNoUser').innerHTML = 'Please assigne at least one user';
+function checkTitle(){
+    let title = document.getElementById('title').value;
+
+    if (title.length == 0) {
+        document.getElementById('alertNoTitle').innerHTML = 'Please add Title';
     }else{
-        addTask();
-        window.location = "./backlog.html";
+        checkDescription();
     }
+}
+
+
+function checkDescription(){
+    document.getElementById('alertNoTitle').innerHTML = '';
+    let description = document.getElementById('description').value;
+
+    if (description.length == 0) {
+        document.getElementById('alertNoDescription').innerHTML = 'Please add Description';
+    }else{
+        checkDate();
+    }
+}
+
+
+function checkDate(){
+    document.getElementById('alertNoDescription').innerHTML = '';
+    let date = document.getElementById('date').value;
+
+    if (date.length == 0) {
+        document.getElementById('alertNoDate').innerHTML = 'Please add Date';
+    }else{
+        checkUser();
+    }
+}
+
+
+function checkUser(){
+    document.getElementById('alertNoDate').innerHTML = '';
+
+    if (assignedUser.length == 0) {
+        document.getElementById('alertNoUser').innerHTML = 'Please assigne User';
+        return false;
+    } else{
+        validInput();
+    }
+}
+
+
+function validInput(){
+    addTask();
+    window.location = "./backlog.html";
 }
 
 
@@ -50,7 +93,7 @@ function cancelTask() {
 }
 
 
-function showUser() {
+async function showUser() {
     let profil = document.getElementById('user');
     profil.innerHTML = '';
 
@@ -71,7 +114,7 @@ function selectUser(j) {
 
 
 function unselectUser(j) {
-    document.getElementById(`selectUser${j}`).style.backgroundColor = ('#203192');
+    document.getElementById(`selectUser${j}`).style.backgroundColor = ('lightgray');
     document.getElementById(`selectUser${j}`).setAttribute('onclick', `javascript: selectUser(${j})`);
     for (let k = 0; k < assignedUser.length; k++) {
         if (user[j] == assignedUser[k]) {
