@@ -149,6 +149,11 @@ function checkForRightToEdit(i){
 }
 
 
+function doNotClose(event) {
+    event.stopPropagation();
+}
+
+
 function disableEdit(i){
     document.getElementById('editTitle'+i).disabled = true;
     document.getElementById('editDescription'+i).disabled = true;

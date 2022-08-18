@@ -185,3 +185,5 @@ function closeResponsiveNav() {
     document.getElementById('headerResponsive').style.height = "6%";
     document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: openResponsiveNav()`);
 }
+
+

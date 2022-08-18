@@ -143,6 +143,7 @@ input {
 
 .login button:hover {
     transform: scale(1.05);
+    background-color: #2e46cf;
 }
 
 .login a:hover {
@@ -150,10 +151,10 @@ input {
 }
 
 #loginButton {
+    width: 100%;
     background-color: #203192;
     color: white;
     text-transform: uppercase;
-    width: fit-content;
     padding: 4px;
     border-radius: 3px;
     cursor: pointer;
