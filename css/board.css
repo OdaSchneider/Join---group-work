@@ -79,6 +79,16 @@
     transition: all 225ms ease-in-out;
 }
 
+<<<<<<< HEAD
+=======
+.profileImgTaks {
+    height: 20px;
+    border-radius: 100%;
+    padding: 2px;
+    background-color: #203192;
+}
+
+>>>>>>> 319e9933784245ef47a6e27d957283f03c27dca9
 .dateOnTask {
     font-size: 16px;
     overflow: auto;
@@ -608,6 +618,7 @@
     .boardArrangement {
         margin-left: 0px;
         margin-top: 80px;
+<<<<<<< HEAD
     }
 }
 
@@ -619,6 +630,8 @@
 
     .tasks {
         width: 93%;
+=======
+>>>>>>> 319e9933784245ef47a6e27d957283f03c27dca9
     }
 }
 
@@ -651,6 +664,7 @@
     .textOpenTask{
         max-height: 60%;
     }
+<<<<<<< HEAD
 }
 
 @media (max-width: 410px) {
@@ -662,6 +676,8 @@
     .tasks {
         width: 90.5%;
     }
+=======
+>>>>>>> 319e9933784245ef47a6e27d957283f03c27dca9
 }
 
 @media (max-width: 335px) {
