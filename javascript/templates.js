@@ -64,7 +64,7 @@ function generateOpenTaskHTML(task, id) {
             <div class="divForTheComments">
                 <div class="inputAndSendButton">
                     <input id="commentsInput${id}" placeholder="comment..." class="inputStyleComments" type="text">
-                    <button class="sendButtonForTheComments" onclick="sendComment(${id})">send</button>
+                    <img src="./img/send.png" class="sendButtonForTheComments" onclick="sendComment(${id})">
                 </div>
                 <div class="showComments" id="showComment${id}"></div>
             </div>

@@ -382,6 +382,10 @@
     margin-left: 10px;
     margin-right: 10px;
     font-weight: 800;
+    border: 1px solid transparent;
+}
+
+.deletCommentButton:hover {
     border-radius: 100%;
     border: 1px solid black;
 }
@@ -422,21 +426,21 @@
 }
 
 .inputAndSendButton {
+    display: flex;
     border-radius: 5px;
 }
 
 .sendButtonForTheComments {
-    background-color: #203192;
+    object-fit: contain;
+    background-color: #5561A5;
     border-radius: 5px;
-    color: white;
-    font-weight: 600;
-    font-size: 16px;
-    height: 28px;
+    height: 20px;
     padding: 4px;
 }
 
 .sendButtonForTheComments:hover {
-    background-color: #0e2ee0;
+    cursor: pointer;
+    background-color: rgb(190, 190, 190);
 }
 
 .inputAndSendButton {
