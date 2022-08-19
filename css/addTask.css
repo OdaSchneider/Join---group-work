@@ -3,15 +3,15 @@
 .addTaskBg {
     background-color: #F4F2FB;
     margin-left: 150px;
-    margin-top: 50px;
-    height: auto;
+    margin-top: 16px;
+    height: 85vh;
     width: calc(100% - 170px);
     border-radius: 15px;
 }
 
 .addTask {
     display: flex;
-    height: auto;
+    height: 100%;
 }
 
 .addTask h3 {
@@ -33,7 +33,7 @@
 .columnLeft{
     width: calc(50% - 64px);
     margin: 4px 32px;
-    height: auto;
+    height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -42,7 +42,7 @@
 .columnRight{
     width: calc(50% - 64px);
     margin: 4px 32px;
-    height: auto;
+    height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -109,7 +109,7 @@ input[type="date" i] {
     background-color: #2e46cf;
 }
 
-#alertNoUser{
+.container p{
     color: rgb(204, 0, 0);
     font-size: 14px;
 }
@@ -127,7 +127,7 @@ input[type="date" i] {
 }
 
 .user img{
-    background-color: transparent;
+    background-color: lightgray;
     border-radius: 100%;
     padding: 3px;
     width: 40px !important;
@@ -156,17 +156,24 @@ input[type="date" i] {
 }
 
 .showUser p{
+    color: #575757;
     margin: unset;
     font-size: 12px;
 }
 
 .editUserButton{
     color:#2e46cf;
-    font-size: 12px !important;
+    font-size: 13px !important;
     width: 70px;
     cursor: pointer;
     padding: unset;
     text-align: left;
+}
+
+.editUserButton:hover {
+    color: #2e46cf;
+    transform: scale(1.1);
+    transition: all 75ms ease-in-out;
 }
 
 .addTask button {
@@ -190,27 +197,31 @@ input[type="date" i] {
 
 .cancelTaskButton {
     color: #203192;
-    font-family: 'PT Sans', sans-serif;
     font-weight: bold;
     font-size: 18px;
 }
 
+.cancelTaskButton:hover {
+    color: #2e46cf;
+    transform: scale(1.1);
+    transition: all 75ms ease-in-out;
+}
+
 .createTaskButton {
-    font-family: 'PT Sans', sans-serif;
     font-weight: bold;
     font-size: 18px;
     background-color: #203192;
     color: white;
     padding: 8px;
-    border-radius: 12px;
-    transition: all 100ms ease-in-out;
+    border-radius: 8px;
+    transition: all 75ms ease-in-out;
 }
 
 .createTaskButton:hover {
     background-color: #2e46cf;
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
     transform: scale(1.1);
-    transition: all 100ms ease-in-out;
+    transition: all 75ms ease-in-out;
 }
 
 .dialogBg{
@@ -455,5 +466,17 @@ input[type="date" i] {
     .user img{
         width: 45px !important;
         height: 45px !important;
+    }
+}
+
+@media(max-height: 670px){
+    .addTaskBg{
+        height: auto;
+    }
+}
+
+@media(min-height: 740px){
+    .columnLeft textarea{
+        height: 200px;
     }
 }

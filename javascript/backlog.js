@@ -134,22 +134,22 @@ function userExist(j){
 
 function checkForRightToEdit(i){
     let contributers = allTasks[i]['assignedUser']
-
     for (let j = 0; j < contributers.length; j++) {
-
         let firstname = contributers[j]['first name'];
         let lastname = contributers[j]['last name'];
 
-        let loggedUserFirstname = loggedUser['first name'];
-        let loggedUserLastname = loggedUser['last name'];
-
-        if(loggedUserFirstname != firstname || loggedUserLastname != lastname ){
+        if(loggedUser['first name'] != firstname || loggedUser['last name'] != lastname ){
             disableEdit(i);
         }else{
             enableEdit(i);
             break;
         }
     }
+}
+
+
+function doNotClose(event) {
+    event.stopPropagation();
 }
 
 

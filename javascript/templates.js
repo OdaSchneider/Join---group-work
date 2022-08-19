@@ -129,7 +129,6 @@ function backlogUserContainer(userfirstname, userlastname, userimage) {
     return `
     <div class="backlog-user-child">
         <img src="${userimage}">
-        <div class="username"><span>${userfirstname} ${userlastname}</span></div>
     </div>`
 }
 
@@ -145,9 +144,9 @@ function activeUserTemplate() {
 
 
 function backlogDetailsTemplate(i) {
-    return `
-        <div class="addTaskBg addTaskBgBacklog">
-            <form method="post" id="editTask${i}" class="addTask">
+    return /*html*/`
+        <div class="addTaskBg addTaskBgBacklog">            
+            <form method="dialog" id="editTask${i}" class="addTask" onclick="doNotClose(event)">
                 <div class="columnLeft">
                     <div class="container">
                         <h3>Title</h3>
@@ -196,8 +195,8 @@ function backlogDetailsTemplate(i) {
                         <button type="button" onclick="closeEdit()" class="cancelTaskButton">Cancel</button>
                         <button type="button" onclick="checkValidationBacklog(${i})" class="createTaskButton">create Task</button>
                     </div>
-                </div>
-            </form>
+                </div>                
+            </form>            
         </div>`
 }
 

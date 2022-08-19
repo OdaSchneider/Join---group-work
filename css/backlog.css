@@ -11,6 +11,10 @@
 
 }
 
+.margin{
+    margin-top: 6% !important;
+}
+
 .emptybacklog {
     width: 80vw;
     text-align: center;
@@ -26,7 +30,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 83%;
 }
 
 .backlog-headline-details {
@@ -36,7 +40,7 @@
 }
 
 .backlog-assigned-user {
-    width: 28%;
+    width: 31%;
 }
 
 .backlog-assign {    
@@ -77,7 +81,6 @@
 .backlog-main-child {
     display: flex;
     width: 100%;
-    height: 70px;
     align-items: center;
     padding: 8px;
 }
@@ -90,7 +93,7 @@
 .user-div {
     display: flex;
     align-items: center;
-    width: 22%;
+    width: 23%;
 }
 
 .details-div {
@@ -104,6 +107,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
 
 }
 
@@ -118,6 +122,7 @@
     width: 40px;
     height: auto;
     border-radius: 100px;
+    margin: 4px;
     margin-left: 12px;
     border: 2px solid #203192;
 }
@@ -176,14 +181,14 @@
     font-size: 14px;
     padding: 4px;
     border-radius: 10px;
-    transition: all 100ms ease-in-out;
+    transition: all 75ms ease-in-out;
 }
 
 .btn-send-to-board:hover {
     background-color: #2e46cf;
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
     transform: scale(1.1);
-    transition: all 100ms ease-in-out;
+    transition: all 75ms ease-in-out;
 }
 
 .btn-delete {
@@ -195,14 +200,14 @@
     font-size: 14px;
     padding: 4px;
     border-radius: 10px;
-    transition: all 100ms ease-in-out;
+    transition: all 75ms ease-in-out;
 }
 
 .btn-delete:hover {
     background-color: #2e46cf;
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
     transform: scale(1.1);
-    transition: all 100ms ease-in-out;
+    transition: all 75ms ease-in-out;
 }
 
 .btn-delete img {
@@ -289,12 +294,6 @@
 
 @media(max-width: 900px) {
 
-    .backlog-container {
-        display: flex;
-        flex-direction: column;
-        height: 250px;
-    }
-
     /* .backlog-headlines {
         display: flex;
         justify-content: center;
@@ -319,11 +318,22 @@
         justify-content: space-evenly;
     }
 
-   
+    .backlog-headlines {
+        display: none;
+    }
+
+    .user-div{
+        width: 60%;
+    }
 }
 
 
 @media(max-width: 720px) {
+    .backlog-container {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+    }
 
     .emptybacklog {
         width: 100vw;
@@ -341,21 +351,17 @@
         width: 95vw;
         margin-left: 10px;
     }
-
-    .backlog-headlines {
-        display: none;
-    }
 }
 
 @media(max-width: 420px) {
-    .backlog-user {
-        display: flex;
-        flex-direction: column;
-    }
 
     .backlog-user-child img {
         height: 30px;
         width: auto;
+    }
+
+    .user-div{
+        width: 80%
     }
 }
 

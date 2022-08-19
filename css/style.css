@@ -8,13 +8,13 @@ body {
     margin: 0;
     width: 100%;
     height: fit-content;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
 }
 
 a {
     text-decoration: none;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: rgb(240, 240, 240);
 }
 
@@ -22,11 +22,11 @@ button {
     background-color: unset;
     border: unset;
     cursor: pointer;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 input {
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .disable {
@@ -137,12 +137,14 @@ input {
     border: 1px solid lightgray;
     padding: 4px;
     border-radius: 3px;
-    width: 100%;
+    width: 97%;
     transition: transform .5s ease-in-out;
 }
 
 .login button:hover {
     transform: scale(1.05);
+    background-color: #2e46cf;
+    transition: all 75ms ease-in-out;
 }
 
 .login a:hover {
@@ -150,14 +152,15 @@ input {
 }
 
 #loginButton {
+    width: 100%;
     background-color: #203192;
     color: white;
     text-transform: uppercase;
-    width: fit-content;
     padding: 4px;
     border-radius: 3px;
     cursor: pointer;
     margin: 8px;
+    transition: all 75ms ease-in-out;
 }
 
 #loginAsGuestButton {

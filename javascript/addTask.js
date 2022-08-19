@@ -1,11 +1,16 @@
 // ---------------------------Add Task---------------------------------------------------------
 function checkValidation(){
     if (assignedUser.length == 0) {
-        document.getElementById('alertNoUser').innerHTML = 'Please assigne at least one user';
+        document.getElementById('alertNoUser').innerHTML = 'Please assigne User';
     }else{
-        addTask();
-        window.location = "./backlog.html";
+        validInput();
     }
+}
+
+
+function validInput(){
+    addTask();
+    window.location = "./backlog.html";
 }
 
 
@@ -47,10 +52,11 @@ async function assignTask(task) {
 
 function cancelTask() {
     document.getElementById('addNewTask').reset();
+    document.getElementById('alertNoUser').innerHTML = '';
 }
 
 
-function showUser() {
+async function showUser() {
     let profil = document.getElementById('user');
     profil.innerHTML = '';
 
@@ -71,7 +77,7 @@ function selectUser(j) {
 
 
 function unselectUser(j) {
-    document.getElementById(`selectUser${j}`).style.backgroundColor = ('transparent');
+    document.getElementById(`selectUser${j}`).style.backgroundColor = ('lightgray');
     document.getElementById(`selectUser${j}`).setAttribute('onclick', `javascript: selectUser(${j})`);
     for (let k = 0; k < assignedUser.length; k++) {
         if (user[j] == assignedUser[k]) {

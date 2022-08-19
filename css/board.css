@@ -1,7 +1,7 @@
 /* -----------------------------------Board---------------------------------------------------- */
 
 .tasks {
-    width: 92%;
+    width: 90%;
     border-radius: 5px;
     margin: 5px;
     display: flex;
@@ -49,6 +49,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-left: 120px;
+    margin-top: 32px;
 }
 
 .barStyle {
@@ -76,12 +77,6 @@
 .dragAreaHighlight {
     background-color: rgb(200, 200, 200);
     transition: all 225ms ease-in-out;
-}
-
-.profileImgTaks {
-    height: 20px;
-    border-radius: 100%;
-    padding: 2px;
 }
 
 .dateOnTask {
@@ -121,15 +116,12 @@
     width: auto;
 }
 
-.marginBotten {
-    margin-bottom: 20px;
-}
-
 .descriptionMini {
     word-wrap: break-word;
     line-height: 1rem;
     padding: 2px;
     max-height: 100px;
+    min-height: 30px;
     overflow: auto;
 }
 
@@ -137,6 +129,7 @@
     height: 35px;
     border-radius: 100%;
     padding: 2px;
+    margin: 2px;
 }
 
 .profileImgTaksOpenTask {
@@ -340,8 +333,7 @@
     overflow: auto;
     width: -webkit-fill-available;
     max-height: 120px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
     background-color: #f3f3f3;
 }
 
@@ -354,6 +346,19 @@
 }
   
 .showComments::-webkit-scrollbar-thumb {
+    background: #797979;
+    border-radius: 10px;
+}
+
+.descriptionMini::-webkit-scrollbar {
+    width: 5px;
+}
+  
+.descriptionMini::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+  
+.descriptionMini::-webkit-scrollbar-thumb {
     background: #797979;
     border-radius: 10px;
 }
@@ -457,17 +462,17 @@
 }
 
 .High {
-    background-color: rgba(200, 0, 0);
+    border-left: 5px solid rgba(200, 0, 0);
     transition: all 225ms ease-in-out;
 }
 
 .Medium {
-    background-color: rgba(201 167 2);
+    border-left: 5px solid rgba(201 167 2);
     transition: all 225ms ease-in-out;
 }
 
 .Low {
-    background-color: rgba(65, 170, 30);
+    border-left: 5px solid rgba(65, 170, 30);
     transition: all 225ms ease-in-out;
 }
 
@@ -552,6 +557,14 @@
     .boardBarResponsiv {
         height: 400px;
     }
+
+    .boardDiv {
+        width: 500px;
+    }
+
+    .tasks {
+        width: 94.5%;
+    }
 }
 
 
@@ -594,7 +607,18 @@
 
     .boardArrangement {
         margin-left: 0px;
-        margin-top: 16px;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 510px) {
+
+    .boardDiv {
+        width: 400px;
+    }
+
+    .tasks {
+        width: 93%;
     }
 }
 
@@ -613,6 +637,30 @@
     .closeAndDeletTaskDiv img  {
         width: 20px;
         height: 20px;
+    }
+
+    .openTask{
+        height: 80vh;
+    }
+
+    .titelAndTaskAndPushToDiv{
+        height: 30%;
+        justify-content: start;
+    }
+
+    .textOpenTask{
+        max-height: 60%;
+    }
+}
+
+@media (max-width: 410px) {
+
+    .boardDiv {
+        width: 300px;
+    }
+
+    .tasks {
+        width: 90.5%;
     }
 }
 
@@ -633,6 +681,10 @@
     .boardDiv {
         width: 280px;
     }
+
+    .dateOnTask {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 300px) {
@@ -642,11 +694,11 @@
     }
 
     .titleTask {
-        max-width: 150px;
+        max-width: 140px;
     }
 
     .tasks {
-        width: 91.5%;
+        width: 89.5%;
     }
 
     .dateCreated {

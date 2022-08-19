@@ -29,12 +29,12 @@
         </div>
 
         <div class="addTaskBg">
-            <form method="post" id="addNewTask" class="addTask">
+            <form onsubmit="checkValidation()" method="dialog" id="addNewTask" class="addTask">
 
                 <div class="columnLeft">
                     <div class="container">
                         <h3>Title</h3>
-                        <input required placeholder="add Title" id="title">
+                        <input required placeholder="Add Title" id="title">
                     </div>
 
                     <div class="container">
@@ -83,7 +83,7 @@
 
                     <div class="addTaskButtonLine">
                         <button type="reset" onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
-                        <button type="button" onclick="checkValidation()" class="createTaskButton">create Task</button>
+                        <button type="submit" class="createTaskButton">create Task</button>
                     </div>
                 </div>
             </form>

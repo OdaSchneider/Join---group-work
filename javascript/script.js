@@ -47,6 +47,8 @@ async function init() {
     setURL('https://gruppe-287.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     await loadData();
+    await loadUser();
+    await loadLoggedUser();
 }
 
 
@@ -82,7 +84,6 @@ async function loadData() {
 async function safeUser(){
     await backend.setItem('user', JSON.stringify(user));
     await backend.setItem('guest', JSON.stringify(guest));
-    await backend.setItem('loggedUser', JSON.stringify(loggedUser));
     await loadUser();
 }
 
@@ -90,6 +91,16 @@ async function safeUser(){
 async function loadUser(){
     user = await JSON.parse(backend.getItem('user')) || [];
     guest = await JSON.parse(backend.getItem('guest')) || [];
+}
+
+
+async function safeLoggedUser(){
+    await backend.setItem('loggedUser', JSON.stringify(loggedUser));
+    await loadLoggedUser();
+}
+
+
+async function loadLoggedUser(){
     loggedUser = await JSON.parse(backend.getItem('loggedUser')) || [];
 }
 
@@ -135,7 +146,7 @@ async function checkSuccessLogin(firstname, lastname, password) {
 
         if (userFirstname == firstname && userLastname == lastname && user[i]['password'] == password) {
             loggedUser = user[i];
-            await safeUser();
+            await safeLoggedUser();
             window.location = "./addTask.html";
             break;
         }
@@ -153,13 +164,13 @@ function failLoggin() {
 
 async function loginAsGuest() {
     loggedUser = guest[0];
-    await safeUser();
+    await safeLoggedUser();
     window.location = "./addTask.html";
 }
 
 
 async function renderNavbar() {
-    await loadUser();
+    await loadLoggedUser();
     document.getElementById('activeUser').innerHTML = activeUserTemplate();
 }
 
@@ -174,3 +185,5 @@ function closeResponsiveNav() {
     document.getElementById('headerResponsive').style.height = "6%";
     document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: openResponsiveNav()`);
 }
+
+

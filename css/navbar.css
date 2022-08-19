@@ -3,8 +3,8 @@
 .header {
     z-index: 10;
     position: fixed;
-    top: 20px;
-    bottom: 20px;
+    top: 0px;
+    bottom: 0px;
     left: 0;
     width: 125px;
     display: flex;
@@ -92,15 +92,16 @@
 }
 
 .headerBottom a{
+    width: 100%;
+    text-align: center;
     margin-bottom: 16px;
-    color: #c2c2c2;
-    transition: all 25ms ease-in-out;
+    color: #D8D8D8;
+    transition: all 75ms ease-in-out;
 }
 
-.headerBottom a:hover{
-    transform: scale(1.05);
-    color: rgb(165, 16, 16);
-    font-weight: 525;
+.headerBottom a:hover{    
+    transition: all 100ms ease-in-out;
+    border-left: 8px solid white;
 }
 
 .headerResponsive {
@@ -111,7 +112,7 @@
     .headerResponsive{
         display: flex !important;
         position: absolute;
-        top: 12px;
+        top: 20px;
         right: 2%;
         overflow: hidden;
         height: 6%;
@@ -127,7 +128,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        margin-top: 8px;
+        margin-top: 32px;
         transition: all 225ms ease-in-out;
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 10px;
@@ -164,5 +165,9 @@
 @media(max-width: 380px){
     .headline{
         width: 60%;
+    }
+
+    .headerResponsive{
+        top: 14px;
     }
 }
