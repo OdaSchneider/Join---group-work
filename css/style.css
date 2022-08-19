@@ -63,7 +63,7 @@ input {
 }
 
 .text {
-    width: 95%;
+    width: 40%;
     text-align: center;
 }
 
@@ -90,9 +90,8 @@ input {
 }
 
 .startheadline img {
-    width: 50px;
-    height: 50px;
-    margin-right: 32px;
+    object-fit: contain;
+    width: 65px;
 }
 
 .startMainpage {
@@ -105,17 +104,20 @@ input {
 }
 
 .login {
-    background-color: #203192;
-    border: 2px solid #203192;
+    box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 16px;
-    width: 40%;
+    width: 60%;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
+}
+
+.loginBody {
+    background-color: rgb(224, 224, 224);
 }
 
 .login div {
@@ -129,16 +131,21 @@ input {
     color: #203192;
     font-weight: bold;
     margin-top: unset;
+    font-size: 25px;
 }
 
 .login input {
+    border: none;
     outline: none;
     margin: 8px;
-    border: 1px solid lightgray;
     padding: 4px;
-    border-radius: 3px;
     width: 97%;
     transition: transform .5s ease-in-out;
+}
+
+.borderOutline  {
+    border-bottom: 1px solid black !important;
+
 }
 
 .login button:hover {
@@ -174,34 +181,25 @@ input {
 }
 
 .footer {
-    background-color: #575757;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.footer div {
-    margin-left: 32px;
-    margin-right: 32px;
+.colorSpan {
+    color: black !important;
+    font-size: 18px;
 }
 
-.footer img {
-    width: 45px;
-    height: 45px;
+.colorSpan:hover {
+    text-decoration: underline;
 }
 
-.footer a {
-    margin-left: 32px;
-}
-
-.footer a:hover {
-    border-bottom: 1px solid white;
-}
 
 @media(max-width: 680px) {
     .text p {
@@ -211,23 +209,32 @@ input {
         margin-right: 16px;
     }
 
-    .text span {
-        margin-left: 16px;
-        margin-right: 16px;
+    .login {
+        width: 70%;
     }
 }
 
 @media(max-width: 480px){
     .login{
-        width: 50%;
+        width: 60%;
+    }
+
+    .text {
+        font-size: 13px;
+        width: 60%;
+        margin-top: 30px;
+    }
+    
+    .startMainpage {
+        justify-content: center;
+    }
+
+    .colorSpan {
+        font-size: 14px;
     }
 }
 
 @media(max-width: 430px) {
-    .startheadline img{
-        width: 40px;
-        height: 40px;
-    }
 
     .startheadline h1{
         font-size: 26px;
