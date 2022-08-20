@@ -602,6 +602,19 @@
 
     .boardArrangement {
         margin-left: 0px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    .boardDiv {
+        width: 650px;
+    }
+} 
+
+@media (max-width: 670px) {
+    
+    .boardDiv {
+        width: 600px;
     }
 }
 
@@ -614,11 +627,17 @@
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 620px) {
+    
+    .boardDiv {
+        width: 550px;
+    }
+}
 
-    .boardArrangement {
-        margin-left: 0px;
-        margin-top: 80px;
+@media (max-width: 570px) {
+    
+    .boardDiv {
+        width: 480px;
     }
 }
 
@@ -671,7 +690,7 @@
     }
 
     .tasks {
-        width: 90.5%;
+        width: 90%;
     }
 }
 
@@ -709,7 +728,7 @@
     }
 
     .tasks {
-        width: 89.5%;
+        width: 89%;
     }
 
     .dateCreated {

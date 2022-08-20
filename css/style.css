@@ -214,10 +214,13 @@ input {
     }
 }
 
-@media(max-width: 480px){
+@media(max-width: 500px){
     .login{
-        width: 60%;
+        width: 90%;
     }
+}
+
+@media(max-width: 480px){
 
     .text {
         font-size: 13px;
@@ -265,9 +268,11 @@ input {
     .startMainpage{
         height: 63vh;
     }
+}
 
-    .login{
-        width: 60%;
+@media(max-width: 315px) {
+    .login {
+        width: 85%;
     }
 }
 
