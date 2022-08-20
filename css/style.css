@@ -63,7 +63,8 @@ input {
 }
 
 .text {
-    width: 40%;
+    margin-top: 10px;
+    width: 60%;
     text-align: center;
 }
 
@@ -214,6 +215,12 @@ input {
     }
 }
 
+@media (max-height: 610px) {
+    .startheadline {
+        display: none;
+    }
+}
+
 @media(max-width: 500px){
     .login{
         width: 90%;
@@ -224,8 +231,8 @@ input {
 
     .text {
         font-size: 13px;
-        width: 60%;
-        margin-top: 30px;
+        width: 90%;
+        margin-top: 10px;
     }
     
     .startMainpage {
