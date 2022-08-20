@@ -278,18 +278,6 @@
     font-size: 14px;
 }
 
-.marginTopBacklog1 {
-    margin-top: 64px;
-}
-
-.marginTopBacklog2 {
-    margin-top: 252px;
-}
-
-.marginTopBacklog3 {
-    margin-top: 70px !important;
-}
-
 @media(max-width: 1200px) {
 
     .backlog-main {

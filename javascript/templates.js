@@ -173,7 +173,7 @@ function backlogDetailsTemplate(i) {
                         <h3>Due Date</h3>
                         <input type="date" required id="editDate${i}">
                     </div>
-                    <div class="container marginTopBacklog1">
+                    <div class="container">
                         <h3>Category</h3>
                         <select required id="editCategory${i}">
                             <option value="Administration">Administration</option>
@@ -183,7 +183,7 @@ function backlogDetailsTemplate(i) {
                             <option value="IT">IT</option>
                         </select>
                     </div>
-                    <div class="container marginTopBacklog2">
+                    <div class="container">
                         <h3>Urgency</h3>
                         <select required id="editUrgency${i}">
                             <option value="Low">Low</option>
@@ -191,7 +191,7 @@ function backlogDetailsTemplate(i) {
                             <option value="High">High</option>
                         </select>
                     </div>
-                    <div class="addTaskButtonLine marginTopBacklog3">
+                    <div class="addTaskButtonLine">
                         <button type="button" onclick="closeEdit()" class="cancelTaskButton">Cancel</button>
                         <button type="button" onclick="checkValidationBacklog(${i})" class="createTaskButton">create Task</button>
                     </div>
