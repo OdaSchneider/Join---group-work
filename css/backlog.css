@@ -294,18 +294,13 @@
 
 @media(max-width: 900px) {
 
-    /* .backlog-headlines {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-    } */
-
     .backlog-main {
         width: 99%;        
     }
 
     .backlog-main-child {
         height: 20vh;
+        padding: 0;
     }
 
    
@@ -344,7 +339,7 @@
     }
 
     .backlog-main {
-        width: 90%;
+        width: 98%;
     }
 
     .backlog-bg {
