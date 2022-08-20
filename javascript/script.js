@@ -23,6 +23,12 @@ let user = [
         'last name': 'Schneider',
         'password': 'OS',
         'userImg': "./img/profile3.jpg"
+    },
+    {
+        'first name': 'admin',
+        'last name': 'admin',
+        'password': 'admin',
+        'userImg': "./img/user-guest.ico"
     }
 ]
 
