@@ -29,7 +29,7 @@ input {
     font-family: 'Open Sans', sans-serif;
 }
 
-.disable {
+.disable{
     pointer-events: none;
 }
 

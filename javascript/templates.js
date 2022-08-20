@@ -161,7 +161,7 @@ function backlogDetailsTemplate(i) {
                         <p id="alert"></p>
                         <div class="editAssignedAccount" id="editAssignedAccount${i}"></div>
 
-                        <div class="assigneToAccount">
+                        <div id="addUserInEdit" class="assigneToAccount">
                             <span>Add</span>
                             <div class="userBacklog" id="edituser${i}"></div>
                         </div>
@@ -193,7 +193,7 @@ function backlogDetailsTemplate(i) {
                     </div>
                     <div class="addTaskButtonLine">
                         <button type="button" onclick="closeEdit()" class="cancelTaskButton">Cancel</button>
-                        <button type="button" onclick="checkValidationBacklog(${i})" class="createTaskButton">create Task</button>
+                        <button id="editTaskButton${i}" type="button" onclick="checkValidationBacklog(${i})" class="createTaskButton">edit Task</button>
                     </div>
                 </div>                
             </form>            
@@ -201,7 +201,7 @@ function backlogDetailsTemplate(i) {
 }
 
 
-function templateShowUserBacklog(userImg, firstName, lastName, j, i) {
+function templateShowUserBacklog(userImg, j, i) {
     return `
     <div class="showUser">
     <img id="selectUser${j}" onclick="assigneUserBacklog(${j},${i})" src=${userImg}>

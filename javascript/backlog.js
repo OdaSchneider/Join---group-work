@@ -5,22 +5,22 @@ function renderBacklog() {
     let history = document.getElementById('backlog-container');
     history.innerHTML = '';
     emptyBacklog();
-    let start = allTasks.length -1;
-    for (let i = start; i > -1 ; i--) {
+    let start = allTasks.length - 1;
+    for (let i = start; i > -1; i--) {
         category = allTasks[i]['category'];
         description = allTasks[i]['description'];
         createdAt = allTasks[i]['createdAt'];
         title = allTasks[i]['title'];
         history.innerHTML += backlogContainer(i, createdAt, category, title);
-        renderUser(i);                
+        renderUser(i);
     }
 }
 
 function emptyBacklog() {
     let empty = document.getElementById('emptybacklog');
-    if(allTasks.length == 0) {
+    if (allTasks.length == 0) {
         empty.classList.remove('d-none');
-    } 
+    }
 }
 
 
@@ -39,13 +39,13 @@ function renderUser(i) {
 }
 
 
-function setUrgency(i){
-    urgencyColor = allTasks[i]['urgency']; 
+function setUrgency(i) {
+    urgencyColor = allTasks[i]['urgency'];
     document.getElementById(`setUrgency${i}`).classList.add(`border_${urgencyColor}`);
 }
 
 
-function backlogShowDetails(i){
+function backlogShowDetails(i) {
     document.body.style.overflow = 'hidden';
     document.getElementById(`backlogDetailsBg`).classList.remove('d-none');
     let showDetails = document.getElementById('details');
@@ -53,18 +53,18 @@ function backlogShowDetails(i){
     fillDetails(i);
 }
 
-function closeEdit(){
+function closeEdit() {
     document.body.style.overflow = 'auto';
     document.getElementById(`backlogDetailsBg`).classList.add('d-none');
 }
 
 
-function fillDetails(i){
-    document.getElementById('editTitle'+i).value = allTasks[i]['title'];
-    document.getElementById('editDescription'+i).value = allTasks[i]['description'];
-    document.getElementById('editDate'+i).value = allTasks[i]['dueDate'];
-    document.getElementById('editCategory'+i).value = allTasks[i]['category'];
-    document.getElementById('editUrgency'+i).value = allTasks[i]['urgency'];
+function fillDetails(i) {
+    document.getElementById('editTitle' + i).value = allTasks[i]['title'];
+    document.getElementById('editDescription' + i).value = allTasks[i]['description'];
+    document.getElementById('editDate' + i).value = allTasks[i]['dueDate'];
+    document.getElementById('editCategory' + i).value = allTasks[i]['category'];
+    document.getElementById('editUrgency' + i).value = allTasks[i]['urgency'];
     fillAssignedUser(i);
     fillAllUser(i);
     checkForRightToEdit(i);
@@ -72,40 +72,38 @@ function fillDetails(i){
 
 
 function fillAllUser(i) {
-    let profil = document.getElementById('edituser'+i);
+    let profil = document.getElementById('edituser' + i);
     profil.innerHTML = '';
 
     for (let j = 0; j < user.length; j++) {
         let userImg = user[j]['userImg'];
-        let firstName = user[j]['first name'].charAt(0).toLocaleUpperCase();
-        let lastName = user[j]['last name'].charAt(0).toLocaleUpperCase();
-        profil.innerHTML += templateShowUserBacklog(userImg, firstName, lastName ,j, i);
+        profil.innerHTML += templateShowUserBacklog(userImg, j, i);
     }
 }
 
 
-function fillAssignedUser(i){
-    let loadAssignedUser =  allTasks[i]['assignedUser'];
-    let editAssignedUser = document.getElementById('editAssignedAccount'+i);
+function fillAssignedUser(i) {
+    let loadAssignedUser = allTasks[i]['assignedUser'];
+    let editAssignedUser = document.getElementById('editAssignedAccount' + i);
     editAssignedUser.innerHTML = '';
     for (let j = 0; j < loadAssignedUser.length; j++) {
-        editAssignedUser.innerHTML += `<img onclick="removeUserBacklog(${j},${i})" src=${loadAssignedUser[j]['userImg']}>`;
+        editAssignedUser.innerHTML += `<img id="assignedUser${i}${j}" onclick="removeUserBacklog(${j},${i})" src=${loadAssignedUser[j]['userImg']}>`;
     }
 }
 
 
-function removeUserBacklog(j, i){
+async function removeUserBacklog(j, i) {
     allTasks[i]['assignedUser'].splice(j, 1);
-    safeData();
+    await safeData();
     fillAssignedUser(i);
 }
 
 
-function assigneUserBacklog(j, i){
+function assigneUserBacklog(j, i) {
     let found = false;
     let assigneUser = allTasks[i]['assignedUser'];
     for (let k = 0; k < assigneUser.length; k++) {
-        if(assigneUser[k]['first name']==user[j]['first name']&&assigneUser[k]['last name']==user[j]['last name']){
+        if (assigneUser[k]['first name'] == user[j]['first name'] && assigneUser[k]['last name'] == user[j]['last name']) {
             found = true;
             break;
         }
@@ -114,17 +112,17 @@ function assigneUserBacklog(j, i){
 }
 
 
-function checkIfUserExistBacklog(found, assigneUser, j, i){
-    if(!found){
+function checkIfUserExistBacklog(found, assigneUser, j, i) {
+    if (!found) {
         assigneUser.push(user[j]);
-    }else{
+    } else {
         userExist(j);
     }
     fillAssignedUser(i);
 }
 
 
-function userExist(j){
+function userExist(j) {
     document.getElementById(`selectUser${j}`).style.border = '2px solid red';
     setTimeout(() => {
         document.getElementById(`selectUser${j}`).style.border = '2px solid lightgray';
@@ -132,16 +130,15 @@ function userExist(j){
 }
 
 
-function checkForRightToEdit(i){
+function checkForRightToEdit(i) {
     let contributers = allTasks[i]['assignedUser']
     for (let j = 0; j < contributers.length; j++) {
         let firstname = contributers[j]['first name'];
         let lastname = contributers[j]['last name'];
 
-        if(loggedUser['first name'] != firstname || loggedUser['last name'] != lastname ){
+        if (loggedUser['first name'] != firstname || loggedUser['last name'] != lastname) {
             disableEdit(i);
-        }else{
-            enableEdit(i);
+        } else {
             break;
         }
     }
@@ -153,43 +150,55 @@ function doNotClose(event) {
 }
 
 
-function disableEdit(i){
-    document.getElementById('editTitle'+i).disabled = true;
-    document.getElementById('editDescription'+i).disabled = true;
-    document.getElementById('editDate'+i).disabled = true;
-    document.getElementById('editCategory'+i).disabled = true;
-    document.getElementById('editUrgency'+i).disabled = true;
+function disableEdit(i) {
+    disableInputfield(i);
+    disableEditButton(i);
+    disableAssignedUser(i);
+    document.getElementById('addUserInEdit').classList.add('d-none');
     document.getElementById('alert').innerHTML = 'Note: Only assigned User can edit Tasks';
 }
 
 
-
-function enableEdit(i){
-    document.getElementById('alert').innerHTML = '';
-    document.getElementById('editTitle'+i).disabled = false;
-    document.getElementById('editDescription'+i).disabled = false;
-    document.getElementById('editDate'+i).disabled = false;
-    document.getElementById('editCategory'+i).disabled = false;
-    document.getElementById('editUrgency'+i).disabled = false;
+function disableInputfield(i) {
+    document.getElementById('editTitle' + i).disabled = true;
+    document.getElementById('editDescription' + i).disabled = true;
+    document.getElementById('editDate' + i).disabled = true;
+    document.getElementById('editCategory' + i).disabled = true;
+    document.getElementById('editUrgency' + i).disabled = true;
 }
 
 
-async function checkValidationBacklog(i){
-    if(allTasks[i]['assignedUser'].length == 0){
+function disableEditButton(i) {
+    document.getElementById('editTaskButton' + i).disabled = true;
+    document.getElementById('editTaskButton' + i).classList.add('disable');
+    document.getElementById('editTaskButton' + i).style.opacity = '0.4';
+}
+
+
+function disableAssignedUser(i) {
+    let loadAssignedUser = allTasks[i]['assignedUser'];
+    for (let j = 0; j < loadAssignedUser.length; j++) {
+        document.getElementById(`assignedUser${i}${j}`).onclick = null;
+    }
+}
+
+
+async function checkValidationBacklog(i) {
+    if (allTasks[i]['assignedUser'].length == 0) {
         document.getElementById('alert').innerHTML = 'Please assigne at least one user';
-    }else{
+    } else {
         await editTask(i);
         window.location = "./backlog.html";
     }
 }
 
 
-async function editTask(i){
-    allTasks[i]['title'] = document.getElementById('editTitle'+i).value;
-    allTasks[i]['description'] = document.getElementById('editDescription'+i).value;
-    allTasks[i]['dueDate'] = document.getElementById('editDate'+i).value;
-    allTasks[i]['category'] = document.getElementById('editCategory'+i).value;
-    allTasks[i]['urgency'] = document.getElementById('editUrgency'+i).value;
+async function editTask(i) {
+    allTasks[i]['title'] = document.getElementById('editTitle' + i).value;
+    allTasks[i]['description'] = document.getElementById('editDescription' + i).value;
+    allTasks[i]['dueDate'] = document.getElementById('editDate' + i).value;
+    allTasks[i]['category'] = document.getElementById('editCategory' + i).value;
+    allTasks[i]['urgency'] = document.getElementById('editUrgency' + i).value;
     allTasks[i]['createdAt'] = new Date().toLocaleDateString();
     await safeData();
     renderBacklog();
@@ -205,7 +214,7 @@ async function sendToBoard(i) {
     setId();
     await safeData();
     renderBacklog();
-} 
+}
 
 
 async function deleteBacklogTask(i) {

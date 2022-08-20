@@ -113,7 +113,7 @@
         display: flex !important;
         position: absolute;
         top: 20px;
-        right: 2%;
+        right: -1%;
         overflow: hidden;
         height: 6%;
         align-items: baseline;
@@ -160,6 +160,18 @@
         box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 50%);;
     }
 
+}
+
+@media(max-width: 650px){
+    .headerResponsive{
+        right: -2%;
+    }
+}
+
+@media(max-width: 520px){
+    .headerResponsive{
+        right: -24;
+    }
 }
 
 @media(max-width: 380px){
