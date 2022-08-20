@@ -354,9 +354,8 @@ input[type="date" i] {
 @media(max-width: 720px){
 
     .addTaskBg{
-        margin: 5%;
-        margin-top: 12px;
-        width: 90%;
+        margin-left: 0;
+        width: 100%;
     }
 
     .headline{
