@@ -109,16 +109,16 @@
 }
 
 .growIn{
-    animation: scale-in 225ms ease-in-out;
+    animation: grow-in 225ms ease-in-out;
     transform-origin: 100% 0%
 }
 
 .growOut{
-    animation: scale-out 225ms ease-in-out;
+    animation: grow-out 225ms ease-in-out;
     transform-origin: 100% 0%
 }
 
-@keyframes scale-in{
+@keyframes grow-in{
     0% {
         transform: scale(0);
         -webkit-transform: scale(0);
@@ -129,7 +129,7 @@
     }
 }
 
-@keyframes scale-out{
+@keyframes grow-out{
     0% {
         transform: scale(1.0);
         -webkit-transform: scale(1.0);

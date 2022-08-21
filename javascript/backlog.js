@@ -48,6 +48,11 @@ function setUrgency(i) {
 function backlogShowDetails(i) {
     document.body.style.overflow = 'hidden';
     document.getElementById(`backlogDetailsBg`).classList.remove('d-none');
+    document.getElementById('backlogDetailsBg').classList.add('scaleIn');
+    setTimeout(() => {
+        document.getElementById('backlogDetailsBg').classList.remove('scaleIn');
+    }, 300);
+
     let showDetails = document.getElementById('details');
     showDetails.innerHTML = backlogDetailsTemplate(i);
     fillDetails(i);
@@ -55,7 +60,11 @@ function backlogShowDetails(i) {
 
 function closeEdit() {
     document.body.style.overflow = 'auto';
-    document.getElementById(`backlogDetailsBg`).classList.add('d-none');
+    document.getElementById('backlogDetailsBg').classList.add('scaleOut');
+    setTimeout(() => {
+        document.getElementById('backlogDetailsBg').classList.add('d-none');
+        document.getElementById('backlogDetailsBg').classList.remove('scaleOut');
+    }, 200);
 }
 
 
