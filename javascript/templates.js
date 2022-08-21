@@ -163,7 +163,7 @@ function backlogDetailsTemplate(i) {
 
                         <div id="addUserInEdit" class="assigneToAccount">
                             <span>Add</span>
-                            <div class="userBacklog" id="edituser${i}"></div>
+                            <div class="editUserBacklog" id="edituser${i}"></div>
                         </div>
                     </div>
                 </div>

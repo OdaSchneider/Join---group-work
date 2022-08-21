@@ -85,12 +85,17 @@ input[type="date" i] {
     width: 100%;
 }
 
-.assigneToAccount div {
-    margin-left: 5%;
+.editUserBacklog {
     display: flex;
-    flex-wrap: wrap;
     margin-bottom: 5px;
     align-items: center;
+    overflow-x: auto;
+    height: 60px;
+}
+
+.editUserBacklog img{
+    border-radius: 100px;
+    border: 2px solid lightgray;
 }
 
 .assigneToAccount img {
@@ -149,7 +154,7 @@ input[type="date" i] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 8px;
+    margin: 8px;
     transition: all 100ms ease-in-out;
 }
 
