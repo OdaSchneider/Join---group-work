@@ -93,7 +93,7 @@
 .user-div {
     display: flex;
     align-items: center;
-    width: 23%;
+    width: 27%;
 }
 
 .details-div {
@@ -335,6 +335,7 @@
 
     .details-div {
         align-items: flex-end;
+        text-align: right;
     }
 
     .backlog-main {
@@ -348,6 +349,12 @@
 }
 
 @media(max-width: 420px) {
+
+    .backlog-user {
+        display: flex;
+        flex-direction: column;
+    }
+
 
     .backlog-user-child img {
         height: 30px;
