@@ -50,6 +50,7 @@
     justify-content: center;
     margin-left: 120px;
     margin-top: 32px;
+    margin-bottom: 18px;
 }
 
 .barStyle {
@@ -603,7 +604,7 @@
     .boardArrangement {
         margin-left: 0px;
         margin-top: 80px;
-        margin-bottom: 80px;
+        margin-bottom: 30px;
     }
 
     .boardDiv {

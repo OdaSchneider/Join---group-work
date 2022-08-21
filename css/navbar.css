@@ -164,15 +164,10 @@
 
 @media(max-width: 650px){
     .headerResponsive{
-        right: -2%;
+        right: 0%;
     }
 }
 
-@media(max-width: 520px){
-    .headerResponsive{
-        right: -24;
-    }
-}
 
 @media(max-width: 380px){
     .headline{
