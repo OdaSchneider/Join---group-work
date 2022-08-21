@@ -170,6 +170,7 @@ function backToBoard() {
         document.getElementById('openTask1').classList.remove('exitOpenTask');
         document.getElementById('overlayBg').classList.remove('exitBackground');
     }, 300);
+    closeTask();
 }
 
 
