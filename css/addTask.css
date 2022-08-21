@@ -4,7 +4,7 @@
     background-color: #F4F2FB;
     margin-left: 150px;
     margin-top: 16px;
-    height: 85vh;
+    height: 82.5vh;
     width: calc(100% - 170px);
     border-radius: 15px;
 }
@@ -351,6 +351,15 @@ input[type="date" i] {
     .editUserContent{
         width: 50%;
     }
+
+    .assigneToAccount div {
+        margin-left: 1%;
+    }
+
+    .user img {
+        width: 34px !important;
+        height: 34px !important;
+    }
 }
 
 @media(max-width: 720px){
@@ -425,12 +434,13 @@ input[type="date" i] {
     .addTaskBg{
         height: auto;
         margin-top: 12px;
+        margin-bottom: 26px;
     }
 
     .addTaskButtonLine{
         width: 93%;
-        margin-bottom: 12px;
-        margin-top: 8px;
+        margin-bottom: 20px;
+        margin-top: 20px;
     }
 
     .editUserContent{
@@ -438,7 +448,7 @@ input[type="date" i] {
     }
 
     .createTaskButton{
-        padding: 4px;
+        padding: 8px;
     }
 }
 
@@ -464,10 +474,11 @@ input[type="date" i] {
         font-size: 14px;
     }
 
-    .user img{
-        width: 45px !important;
-        height: 45px !important;
+    .user img {
+        width: 33px !important;
+        height: 33px !important;
     }
+
 }
 
 @media(max-height: 670px){
