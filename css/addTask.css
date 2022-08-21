@@ -42,7 +42,7 @@
 .columnRight{
     width: calc(50% - 64px);
     margin: 4px 32px;
-    height: 96%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -137,8 +137,8 @@ input[type="date" i] {
     background-color: lightgray;
     border-radius: 100%;
     padding: 3px;
-    width: 40px !important;
-    height: 40px !important;
+    width: 45px !important;
+    height: 45px !important;
     box-sizing: border-box;
     cursor: pointer;
     animation: scale-in 225ms ease-in-out;
@@ -186,6 +186,7 @@ input[type="date" i] {
 .addTask button {
     text-transform: uppercase;
     font-weight: bold;
+    margin-top: 8px;
     font-size: 14px;
 }
 
@@ -194,7 +195,7 @@ input[type="date" i] {
     justify-content: end;
     width: 93%;
     margin-bottom: 18px;
-    margin-top: 40px;
+    margin-top: 92px;
 }
 
 .cancelTaskButton {
@@ -357,26 +358,27 @@ input[type="date" i] {
         width: 50%;
     }
 
-    .assigneToAccount div {
-        margin-left: 1%;
+    .user img {
+        width: 40px !important;
+        height: 40px !important;
     }
 
-    .user img {
-        width: 34px !important;
-        height: 34px !important;
+    .showUser p{
+        font-size: 11px;
     }
 }
 
 @media(max-width: 720px){
 
     .addTaskBg{
-        margin-left: 0;
-        width: 100%;
+        margin-left: 14px;
+        margin-right: 14px;
+        margin-top: 14px;
+        width: auto;
     }
 
     .headline{
         margin-left: 5% !important;
-        margin-bottom: 12px !important;
     }
     
     .editUsers{
@@ -437,7 +439,7 @@ input[type="date" i] {
     }
 
     .addTaskBg{
-        height: auto;
+        height: auto !important;
         margin-top: 12px;
         margin-bottom: 26px;
     }
@@ -484,11 +486,15 @@ input[type="date" i] {
         height: 33px !important;
     }
 
+    .addTaskBg{
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
-@media(max-height: 670px){
+@media(max-height: 630px){
     .addTaskBg{
-        height: auto;
+        height: 80.5vh;
     }
 }
 
