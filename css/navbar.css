@@ -60,7 +60,7 @@
     cursor: pointer;
 }
 
-#activeUser{
+#activeUser {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -68,14 +68,14 @@
     justify-content: center;
 }
 
-#activeUser img{
+#activeUser img {
     border: 1px solid white;
     border-radius: 100px;
     padding: 3px;
     width: 45px;
 }
 
-#activeUser p{
+#activeUser p {
     margin: 8px;
     color: white;
     font-size: 14px;
@@ -91,7 +91,7 @@
     justify-content: center;
 }
 
-.headerBottom a{
+.headerBottom a {
     width: 100%;
     text-align: center;
     margin-bottom: 16px;
@@ -99,7 +99,7 @@
     transition: all 75ms ease-in-out;
 }
 
-.headerBottom a:hover{    
+.headerBottom a:hover {
     transition: all 100ms ease-in-out;
     border-left: 8px solid white;
 }
@@ -108,73 +108,114 @@
     display: none;
 }
 
-@media(max-width: 720px){
-    .headerResponsive{
+.growIn{
+    animation: scale-in 225ms ease-in-out;
+    transform-origin: 100% 0%
+}
+
+.growOut{
+    animation: scale-out 225ms ease-in-out;
+    transform-origin: 100% 0%
+}
+
+@keyframes scale-in{
+    0% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+    100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+@keyframes scale-out{
+    0% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+    100% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+}
+
+@media(max-width: 720px) {
+    .headerResponsive {
         display: flex !important;
+        flex-direction: column;
         position: absolute;
         top: 20px;
-        right: -1%;
+        right: 1.5%;
         overflow: hidden;
-        height: 6%;
+        height: 80%;
         align-items: baseline;
         z-index: 100;
     }
 
-    .header{
+    .header {
         display: none;
     }
 
-    .responsiveMenu{
+    #responsiveNavButton {
+        width: 100%;
         display: flex;
-        align-items: center;
+        justify-content: flex-end;
+        padding: unset
+    }
+
+    #responsiveNavButton img{
+        margin: 8px;
+    }
+
+    .responsiveMenu {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
         flex-direction: column;
-        margin-top: 32px;
+        margin-top: 29px;
         transition: all 225ms ease-in-out;
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 10px;
-        padding: 4px;
     }
 
-    .responsiveMenu div:hover{
+    .responsiveMenu div:hover {
         transform: scale(1.1);
     }
 
-    .responsiveMenu a:hover{
+    .responsiveMenu a:hover {
         transform: scale(1.1);
     }
 
-    .responsiveMenu img{
+    .responsiveMenu img {
         width: 24px;
         height: 24px;
         background-color: #203192;
         padding: 8px;
+        margin: 8px;
         border-radius: 10px;
-        box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 50%);;
+        box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 50%);
+        ;
     }
 
-    .responsiveMenu div{
+    .responsiveMenu div {
         background-color: #203192;
         margin: 8px;
         padding: 8px;
         border-radius: 15px;
-        box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 50%);;
+        box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 50%);
+        font-size: 14px;
     }
 
 }
 
-@media(max-width: 650px){
-    .headerResponsive{
-        right: 0%;
-    }
-}
 
-
-@media(max-width: 380px){
-    .headline{
+@media(max-width: 380px) {
+    .headline {
         width: 60%;
     }
 
-    .headerResponsive{
+    .headerResponsive {
         top: 14px;
     }
 }

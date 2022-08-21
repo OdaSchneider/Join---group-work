@@ -28,7 +28,7 @@ let user = [
         'first name': 'admin',
         'last name': 'admin',
         'password': 'admin',
-        'userImg': "./img/user-guest.ico"
+        'userImg': "./img/profile4.png"
     }
 ]
 
@@ -182,13 +182,23 @@ async function renderNavbar() {
 
 
 function openResponsiveNav() {
-    document.getElementById('headerResponsive').style.height = "100%";
+    document.getElementById('responsiveMenu').classList.remove('d-none');
+    document.getElementById('responsiveMenu').classList.add('growIn');
+
+    setTimeout(() => {
+        document.getElementById('responsiveMenu').classList.remove('growIn');
+    }, 300);
+
     document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: closeResponsiveNav()`);
 }
 
 
 function closeResponsiveNav() {
-    document.getElementById('headerResponsive').style.height = "6%";
+    document.getElementById('responsiveMenu').classList.add('growOut');
+    setTimeout(() => {
+        document.getElementById('responsiveMenu').classList.add('d-none');
+        document.getElementById('responsiveMenu').classList.remove('growOut');
+    }, 200);
     document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: openResponsiveNav()`);
 }
 
