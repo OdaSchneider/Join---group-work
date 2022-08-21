@@ -139,6 +139,7 @@ function checkForRightToEdit(i) {
         if (loggedUser['first name'] != firstname || loggedUser['last name'] != lastname) {
             disableEdit(i);
         } else {
+            enableEdit(i);
             break;
         }
     }
@@ -179,6 +180,39 @@ function disableAssignedUser(i) {
     let loadAssignedUser = allTasks[i]['assignedUser'];
     for (let j = 0; j < loadAssignedUser.length; j++) {
         document.getElementById(`assignedUser${i}${j}`).onclick = null;
+    }
+}
+
+
+function enableEdit(i) {
+    enableInputfield(i);
+    enableEditButton(i);
+    enableAssignedUser(i);
+    document.getElementById('addUserInEdit').classList.remove('d-none');
+    document.getElementById('alert').innerHTML = '';
+}
+
+
+function enableInputfield(i) {
+    document.getElementById('editTitle' + i).disabled = false;
+    document.getElementById('editDescription' + i).disabled = false;
+    document.getElementById('editDate' + i).disabled = false;
+    document.getElementById('editCategory' + i).disabled = false;
+    document.getElementById('editUrgency' + i).disabled = false;
+}
+
+
+function enableEditButton(i) {
+    document.getElementById('editTaskButton' + i).disabled = false;
+    document.getElementById('editTaskButton' + i).classList.remove('disable');
+    document.getElementById('editTaskButton' + i).style.opacity = '1';
+}
+
+
+function enableAssignedUser(i) {
+    let loadAssignedUser = allTasks[i]['assignedUser'];
+    for (let j = 0; j < loadAssignedUser.length; j++) {
+        document.getElementById(`assignedUser${i}${j}`).setAttribute('onclick', `javascript: removeUserBacklog(${j}, ${i})`);
     }
 }
 
