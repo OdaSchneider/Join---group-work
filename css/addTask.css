@@ -88,6 +88,8 @@ input[type="date" i] {
 .assigneToAccount div {
     margin-left: 5%;
     display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
     align-items: center;
 }
 

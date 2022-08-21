@@ -164,7 +164,7 @@
 
 @media(max-width: 650px){
     .headerResponsive{
-        right: -2%;
+        right: 0%;
     }
 }
 
