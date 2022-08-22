@@ -1,4 +1,4 @@
-/* -----------------------------------Board---------------------------------------------------- */
+/* -----------------------------------Board-----------------------------ks----------------------- */
 
 .tasks {
     width: 90%;
@@ -11,6 +11,9 @@
     background-color: beige;
     padding: 6px;
     position: relative;
+    height: 170px;
+    justify-content: space-between;
+    overflow: auto;
 }
 
 .tasks:hover {
@@ -39,18 +42,19 @@
 .boardDiv {
     background-color: rgb(230, 230, 230);
     height: 80vh;
-    width: 300px;
+    width: 275px;
     border-radius: 8px;
     overflow: auto;
 }
 
 .boardArrangement {
+    align-content: center;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 120px;
+    justify-content: space-between;
+    margin-left: 150px;
     margin-top: 32px;
     margin-bottom: 18px;
+    width: 85vw;
 }
 
 .barStyle {
@@ -58,7 +62,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    margin: 10px;
+    margin: 4px;
 }
 
 .dateCreated {
@@ -89,7 +93,6 @@
 
 .dateOnTask {
     font-size: 16px;
-    overflow: auto;
 }
 
 .dateAndTitle {
@@ -100,7 +103,7 @@
 
 .titleTask {
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 8px;
     word-wrap: break-word;
@@ -127,10 +130,11 @@
 .descriptionMini {
     word-wrap: break-word;
     line-height: 1rem;
+    font-size: 15px;
     padding: 2px;
     max-height: 100px;
-    min-height: 30px;
-    overflow: auto;
+    min-height: 40px;
+    overflow: hidden;
 }
 
 .profileImgTaks {
@@ -564,7 +568,7 @@
     }
 }
 
-@media(max-width: 1400px) {
+@media(max-width: 1440px) {
 
     .boardBarResponsiv {
         height: auto;
@@ -575,7 +579,7 @@
     }
 
     .boardDiv {
-        width: 240px;
+        width: 250px;
     }
 
     .tasks {
@@ -593,57 +597,83 @@
     .dateOnTask {
         font-size: 12px;
         font-weight: bold;
+        margin-top: 8px;
+    }
+}
+
+@media(max-width: 1325px){
+    .boardDiv {
+        width: 230px;
+    }
+}
+
+@media(max-width: 1190px){
+    .boardDiv {
+        width: 220px;
     }
 }
 
 @media(max-width: 1160px) {
-
-    .boardArrangement {
-        flex-wrap: wrap;
+    .tasks {
+        width: 87%;
     }
+}
 
+@media(max-width: 1146px){
     .boardDiv {
-        width: 350px;
+        width: 200px;
     }
 
     .tasks {
-        width: 92%;
-    }
-
-    .boardBarResponsiv {
-        height: 300px;
+        width: 86%;
     }
 }
 
 
-@media (max-width: 1080px) {
-
-    .barStyle {
-        height: 300px;
+@media (max-width: 1060px) {
+    .boardDiv {
+        width: 180px;
     }
+
+    .tasks {
+        width: 85%;
+    }
+
+    .boardArrangement{
+        width: 82vw;
+    }
+
 }
 
+@media (max-width: 930px){
+    .boardDiv {
+        width: 170px;
+    }
 
-@media (max-width: 900px) {
-
-    .barStyle {
-        height: 300px;
+    .tasks {
+        width: 84%;
     }
 }
 
 @media (max-width: 860px) {
+    .boardArrangement{
+        flex-direction: column;
+        margin-left: 140px;
+    }
     .boardDiv {
-        width: 270px;
+        width: 75vw;
+        height: 300px;
     }
 
     .tasks {
-        width: 90%;
+        width: 95%;
     }
 }
 
 @media (max-width: 720px) {
 
     .boardArrangement {
+        width: 100vw;
         margin-left: 0px;
         margin-top: 80px;
         margin-bottom: 30px;

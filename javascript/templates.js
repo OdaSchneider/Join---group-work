@@ -5,12 +5,12 @@ function generateTasksHTML(element, i) {
          <div class="tasks ${element['urgency']}" onclick="openTask(${element['id']}, ${i})" draggable="true" ondragstart="startDragging(${element['id']})" id="taskOnBoard${element['id']}">
             <div class="dateAndTitle">
                 <span class="titleTask">${element['title']}</span>
-                <span class="dateOnTask">${element['dueDate']}</span>
             </div>
             <div class="imgAndDescriptionDiv"> 
                 <span class="descriptionMini">${element['description']}</span>
                 <div class="loardImgUserOnBoard" id="loardImgUserOnBoard${element['id']}"></div>              
             </div>
+            <span class="dateOnTask">${element['dueDate']}</span>
         </div>
     `;
 }
