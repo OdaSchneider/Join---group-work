@@ -92,7 +92,7 @@ input {
 
 .startheadline img {
     object-fit: contain;
-    width: 65px;
+    width: 50px;
 }
 
 .startMainpage {
@@ -118,7 +118,7 @@ input {
 }
 
 .loginBody {
-    background-color: rgb(224, 224, 224);
+    background-color: rgb(237 237 237);
 }
 
 .login div {
@@ -145,7 +145,7 @@ input {
 }
 
 .borderOutline  {
-    border-bottom: 1px solid black !important;
+    border-bottom: 1px solid #929292 !important;
 
 }
 
@@ -227,12 +227,17 @@ input {
 }
 
 .colorSpan {
-    color: black !important;
-    font-size: 18px;
+    color: #575757 !important;
+    font-size: 16px;
 }
 
 .colorSpan:hover {
     text-decoration: underline;
+}
+
+.footer{
+    position: absolute;
+    bottom: 24px;
 }
 
 
