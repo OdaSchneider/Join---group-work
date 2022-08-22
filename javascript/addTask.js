@@ -8,8 +8,8 @@ function checkValidation(){
 }
 
 
-function validInput(){
-    addTask();
+async function validInput(){
+    await addTask();
     window.location = "./backlog.html";
 }
 
