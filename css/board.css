@@ -564,18 +564,54 @@
     }
 }
 
-@media(max-width: 1399px) {
+@media(max-width: 1400px) {
 
     .boardBarResponsiv {
-        height: 400px;
+        height: auto;
+    }
+
+    .boardArrangement {
+        flex-wrap: nowrap;
     }
 
     .boardDiv {
-        width: 500px;
+        width: 240px;
     }
 
     .tasks {
-        width: 94.5%;
+        width: 87.5%;
+    }
+
+    .titleTask {
+        max-width: 140px;
+    }
+
+    .profileImgTaks {
+        height: 30px;
+    }
+    
+    .dateOnTask {
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+
+@media(max-width: 1160px) {
+
+    .boardArrangement {
+        flex-wrap: wrap;
+    }
+
+    .boardDiv {
+        width: 350px;
+    }
+
+    .tasks {
+        width: 92%;
+    }
+
+    .boardBarResponsiv {
+        height: 300px;
     }
 }
 
@@ -585,10 +621,6 @@
     .barStyle {
         height: 300px;
     }
-
-    .doneResponsiv {
-        width: 300px;
-    }
 }
 
 
@@ -596,6 +628,16 @@
 
     .barStyle {
         height: 300px;
+    }
+}
+
+@media (max-width: 860px) {
+    .boardDiv {
+        width: 270px;
+    }
+
+    .tasks {
+        width: 90%;
     }
 }
 
@@ -609,6 +651,10 @@
 
     .boardDiv {
         width: 650px;
+    }
+
+    .tasks  {
+        width: 95.5%;
     }
 } 
 
@@ -633,12 +679,20 @@
     .boardDiv {
         width: 550px;
     }
+
+    .tasks  {
+        width: 94.5%;
+    }
 }
 
 @media (max-width: 570px) {
     
     .boardDiv {
         width: 480px;
+    }
+
+    .tasks  {
+        width: 94%;
     }
 }
 
