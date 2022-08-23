@@ -3,9 +3,10 @@ let allTasks = [];
 let allToDos = [];
 let assignedUser = [];
 let loggedUser = [];
+let user = [];
+let guest = [];
 
-
-let user = [
+let userAccount = [
     {
         'first name': 'Fabian',
         'last name': 'Flegler',
@@ -33,7 +34,7 @@ let user = [
 ]
 
 
-let guest = [
+let guestAccount = [
     {
         'first name': 'guest',
         'last name': 'user',
@@ -43,12 +44,14 @@ let guest = [
 
 
 async function initStart() {
+    setURL('https://gruppe-287.developerakademie.net/smallest_backend_ever');
+    await downloadFromServer();
+    await loadUser();
+
     if(user.length == 0){
         setURL('https://gruppe-287.developerakademie.net/smallest_backend_ever');
         await downloadFromServer();
-        await safeUser();
-    }else{
-        init();
+        await safeUserAccounts();
     }
 }
 
@@ -98,6 +101,13 @@ async function safeUser(){
 }
 
 
+async function safeUserAccounts(){
+    await backend.setItem('user', JSON.stringify(userAccount));
+    await backend.setItem('guest', JSON.stringify(guestAccount));
+    await loadUser();
+}
+
+
 async function loadUser(){
     user = await JSON.parse(backend.getItem('user')) || [];
     guest = await JSON.parse(backend.getItem('guest')) || [];
@@ -136,7 +146,8 @@ async function initBoard(){
 }
 
 
-function login() {
+async function login() {
+
     loggedUser = [];
     let firstname = document.getElementById('loginInputFirstName');
     let lastname = document.getElementById('loginInputLastName');
