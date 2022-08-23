@@ -43,9 +43,13 @@ let guest = [
 
 
 async function initStart() {
-    setURL('https://gruppe-287.developerakademie.net/smallest_backend_ever');
-    await downloadFromServer();
-    await safeUser();
+    if(user.length == 0){
+        setURL('https://gruppe-287.developerakademie.net/smallest_backend_ever');
+        await downloadFromServer();
+        await safeUser();
+    }else{
+        init();
+    }
 }
 
 
