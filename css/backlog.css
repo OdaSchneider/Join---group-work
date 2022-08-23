@@ -74,10 +74,6 @@
     cursor: pointer;
 }
 
-.backlog-main:hover {
-    transform: scale(1.015);
-}
-
 .backlog-main-child {
     display: flex;
     width: 100%;
