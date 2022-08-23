@@ -630,7 +630,7 @@
 }
 
 
-@media (max-width: 1060px) {
+@media (max-width: 1065px) {
     .boardDiv {
         width: 180px;
     }
@@ -653,10 +653,19 @@
     .tasks {
         width: 84%;
     }
+
+    .titleTask{
+        font-size: 14px;
+    }
+
+    .descriptionMini{
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 860px) {
     .boardArrangement{
+        width: 80vw;
         flex-direction: column;
         margin-left: 140px;
     }
@@ -673,14 +682,14 @@
 @media (max-width: 720px) {
 
     .boardArrangement {
-        width: 100vw;
+        width: 98vw;
         margin-left: 0px;
         margin-top: 80px;
         margin-bottom: 30px;
     }
 
     .boardDiv {
-        width: 650px;
+        width: 600px;
     }
 
     .tasks  {
