@@ -168,7 +168,7 @@ async function checkSuccessLogin(firstname, lastname, password) {
         if (userFirstname == firstname && userLastname == lastname && user[i]['password'] == password) {
             loggedUser = user[i];
             await safeLoggedUser();
-            window.location = "./addTask.html";
+            window.location = "./board.html";
             break;
         }
     }

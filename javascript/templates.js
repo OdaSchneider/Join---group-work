@@ -7,10 +7,10 @@ function generateTasksHTML(element, i) {
                 <span class="titleTask">${element['title']}</span>
             </div>
             <div class="imgAndDescriptionDiv"> 
-                <span class="descriptionMini">${element['description']}</span>
-                <div class="loardImgUserOnBoard" id="loardImgUserOnBoard${element['id']}"></div>              
+                <span class="descriptionMini">${element['description']}</span>          
             </div>
             <span class="dateOnTask">${element['dueDate']}</span>
+            <div class="loardImgUserOnBoard" id="loardImgUserOnBoard${element['id']}"></div>   
         </div>
     `;
 }

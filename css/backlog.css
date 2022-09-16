@@ -354,7 +354,8 @@
     .backlog-container {
         display: flex;
         flex-direction: column;
-        height: 250px;
+        height: 200px;
+        margin-bottom: 16px;
     }
 
     .emptybacklog {
