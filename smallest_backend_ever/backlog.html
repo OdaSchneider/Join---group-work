@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Join</title>
+    <link rel="icon" type="image/x-icon" href="./img/logoBg.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/style.css'>
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/backlog.css">
+    <link rel="stylesheet" href="./css/addTask.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <script src='./javascript/script.js'></script>
+    <script src='./javascript/addTask.js'></script>
+    <script src='./javascript/backlog.js'></script>
+    <script src='./javascript/board.js'></script>
+    <script src="./javascript/templates.js"></script>
+    <script src='./javascript/mini_backend.js'></script>
+</head>
+
+<body onload="initBacklog()">
+
+    <div w3-include-html="navbar.html"></div>
+
+    <div class="headline margin">
+        <h1>Backlog</h1>
+        <span>Keep your Tasks up to date, add new Ideas and Knowledgement</span>
+    </div>
+
+    <div class="backlog-bg">
+        <div class="backlog-headlines">
+            <div class="backlog-assigned-user">
+                <div class="backlog-assign">ASSIGNED TO</div>
+            </div>
+            <div class="backlog-headline-details">
+                <div class="backlog-dueDate">CREATED AT</div>
+                <div class="backlog-category">CATEGORY</div>
+                <div class="backlog-details">TITLE</div>
+            </div>
+
+        </div>
+
+        <div id="emptybacklog" class="emptybacklog d-none">
+            <h2>Backlog is empty!</h2>
+            <span>Create Task to generate Ideas and knowledgement</span>
+        </div>
+        <div id="backlog-container"></div>
+    </div>
+
+    <div id="backlogDetailsBg" class="detailsBg d-none" onclick="closeEdit()">
+        <div id="details" class="details"></div>
+    </div>
+
+</body>
+
+</html>

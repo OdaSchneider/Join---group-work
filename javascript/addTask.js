@@ -159,7 +159,6 @@ async function pushNewUser(firstName, lastName) {
         'last name': `${lastName}`,
         'userImg': "./img/user-guest.ico"
     }
-
     user.push(newUser);
     await safeUser();
     showUser();

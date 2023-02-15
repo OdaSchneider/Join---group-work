@@ -121,6 +121,23 @@ function pushToOtherBoard(id) {
 }
 
 
+function pushToOtherBoardBack(id) {
+    let tasks = allToDos.find(t => t['id'] == id);
+    if (tasks['status'] == 'done') {
+        tasks['status'] = 'testing';
+    } else {
+        if (tasks['status'] == 'testing') {
+            tasks['status'] = 'inProgress';
+        } else {
+            if (tasks['status'] == 'inProgress') {
+                tasks['status'] = 'toDo';
+            }
+        }
+    }
+    closeTask();
+}
+
+
 async function closeTask(){
     document.body.style.overflow = 'auto';
     document.getElementById('overlayBg').classList.add('d-none');
@@ -143,12 +160,20 @@ function openTask(id) {
     renderUserForBoardOpenTask(id);
     renderComments(id, tasks);
     checkPushFunction(tasks, id);
+    checkPushFunctionBack(tasks, id);
 }
 
 
 function checkPushFunction(tasks, id){
     if (tasks['status'] == 'done') {
         document.getElementById(`pushToOtherBoard${id}`).classList.add('d-none');
+    }
+}
+
+
+function checkPushFunctionBack(tasks, id){
+    if (tasks['status'] == 'toDo') {
+        document.getElementById(`pushToOtherBoardBack${id}`).classList.add('d-none');
     }
 }
 

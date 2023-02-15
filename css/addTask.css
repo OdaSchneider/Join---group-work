@@ -128,9 +128,10 @@ input[type="date" i] {
 
 .user{
     display: flex;
-    width: 92%;
+    width: 78%;
     overflow: auto;
     height: 75px;
+    margin-left: 10px;
 }
 
 .user img{
