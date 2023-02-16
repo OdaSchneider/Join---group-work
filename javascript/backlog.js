@@ -76,7 +76,7 @@ function fillDetails(i) {
     document.getElementById('editUrgency' + i).value = allTasks[i]['urgency'];
     fillAssignedUser(i);
     fillAllUser(i);
-    checkForRightToEdit(i);
+    enableEdit(i);
 }
 
 
